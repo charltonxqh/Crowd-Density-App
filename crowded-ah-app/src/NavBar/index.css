@@ -1,9 +1,15 @@
 .NavBar {
-    display: flex;             /* Use flexbox for side-by-side layout */
-    justify-content: space-around; /* Evenly space buttons */
-    align-items: center;      /* Center align items vertically */
-    width: 640px;             /* Set width of NavBar */
-    height: 80px;             /* Set height of NavBar */
-    background-color: #f0f0f0; /* Optional: Background color for visibility */
-    margin: 0 auto;           /* Center the NavBar horizontally */
+    display: flex;                  /* Align buttons horizontally */
+    justify-content: space-between; /* Distribute buttons evenly */
+    width: 100%;                    /* Full width of the screen */
+    max-width: 640px;               /* Set a maximum width to keep it consistent */
+    height: 80px;                   /* Set height of the nav bar */
+    position: fixed;                /* Fix the nav bar at the bottom */
+    bottom: 0;                      /* Position at the bottom */
+    left: 0;
+    right: 0;
+    margin: 0 auto;                 /* Center the nav bar horizontally */
+    background-color: #f1f1f1;      /* Set background color */
+    padding: 0 10px;                /* Add some padding for small screens */
 }
+
