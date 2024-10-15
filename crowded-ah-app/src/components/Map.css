@@ -1,0 +1,11 @@
+html, body, #root, gmp-map {
+    height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .place-picker-container {
+    padding: 20px;
+  }
+  

@@ -2,7 +2,7 @@
     display: flex;                  /* Align buttons horizontally */
     justify-content: space-between; /* Distribute buttons evenly */
     width: 100%;                    /* Full width of the screen */
-    max-width: 640px;               /* Set a maximum width to keep it consistent */
+    max-width: 600px;               /* Set a maximum width to keep it consistent */
     height: 80px;                   /* Set height of the nav bar */
     position: fixed;                /* Fix the nav bar at the bottom */
     bottom: 0;                      /* Position at the bottom */

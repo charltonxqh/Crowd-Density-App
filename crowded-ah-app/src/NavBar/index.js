@@ -1,5 +1,5 @@
 import './index.css'
-import NavButton from './button/NavButton';
+import NavButton from '../components/NavButton';
 import {React, memo} from "react"
 
 

@@ -2,7 +2,7 @@ import './App.css';
 import NavBar from './NavBar';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
-import HomeUI from './HomeUI'
+import HomeUI from './HomeUI/home'
 import MrtLrtUI from './MrtLrtUI'
 import StatisticsUI from './StatisticsUI'
 import NotificationsUI from './NotificationsUI'
