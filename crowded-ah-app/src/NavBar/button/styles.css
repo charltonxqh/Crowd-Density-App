@@ -1,0 +1,28 @@
+.navButton {
+    width: 80px;              /* Set button width */
+    height: 80px;             /* Set button height */
+    background-color: transparent; /* Button background, change if needed */
+    border: none;             /* Remove border */
+    cursor: pointer;          /* Change cursor to pointer on hover */
+    display: flex;            /* Use flexbox for centering content */
+    flex-direction: column;   /* Stack icon and label vertically */
+    align-items: center;      /* Center align items */
+    justify-content: center;   /* Center align items vertically */ 
+}
+
+.navButton img {
+    width: 40px;              /* Set image size, adjust as needed */
+    height: 40px;             /* Set image size, adjust as needed */
+    margin-bottom: 5px;       /* Space between image and label */
+}
+
+.navButton span {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;          /* Set font size for labels */
+    text-align: center;       /* Center text */
+}
+
+a {
+    text-decoration: none;   /* No underline for the link */
+}

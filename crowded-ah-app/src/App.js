@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './NavBar';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
+import HomeUI from './HomeUI'
+import MrtLrtUI from './MrtLrtUI'
+import StatisticsUI from './StatisticsUI'
+import NotificationsUI from './NotificationsUI'
+import HelpUI from './HelpUI'
+import AboutUsUI from './AboutUsUI'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <NavBar/>
+        <div className = "content">
+        <Routes>
+          <Route exact path="/" element={<HomeUI />} />
+          <Route exact path="/mrt-lrt" element={<MrtLrtUI />} />
+          <Route exact path="/statistics" element={<StatisticsUI />} />
+          <Route exact path="/notifications" element={<NotificationsUI />} />
+          <Route exact path="/help" element={<HelpUI />} />
+          <Route exact path="/about-us" element={<AboutUsUI />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
