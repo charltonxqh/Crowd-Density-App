@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EFF5FF;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 88vh;
+}
+
+/* Header Styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3F72AF;
+    color: rgb(255, 252, 252);
+    padding: 12px;
+    font-size: 20px;
+}
+
+.number h1{
+    font-size: 150px;
+    color: #3F72AF;
+    text-align: right;
+    opacity: 0.7;
+    position: absolute;
+    top: 120px; /* Move it downwards */
+    right: 20px; /* Adjust position */
+    z-index: 1; 
+}
+
+.content-box {
+    background-color: #FAFCFF;
+    border-radius: 10px;
+    padding: 40px;
+    position: absolute;
+    top: 300px;
+    width: 100%; 
+}
+
+.content-box h3 {
+    font-size: 45px;
+    color: #0066cc;
+    margin-bottom: 10px;
+    text-align: left;
+    position: relative;
+    top: 0px;
+}
+
+.content-box p {
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #979595;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.dot.active {
+    background-color: #0066cc;
+}
+
+/* Background Image */
+.image-section {
+    height: 300px;
+    margin-bottom: -100px;
+    z-index: -1; 
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0; /* Ensure no extra space below the image */
+    padding-bottom: -10px;
+    bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.nav-item {
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+}
+
+.nav-item:hover {
+    color: #0066cc;
+}
