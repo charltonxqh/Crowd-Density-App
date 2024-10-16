@@ -1,0 +1,49 @@
+/* General FAQ container styling */
+.faq-container {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f4ff; /* Light blue background similar to image */
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Search bar styling */
+.faq-search {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* FAQ item styling */
+.faq-item {
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #4A90E2; /* Blue accent border */
+}
+
+.faq-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* FAQ container width on smaller screens */
+@media (max-width: 768px) {
+    .faq-container {
+        width: 90%;
+    }
+}

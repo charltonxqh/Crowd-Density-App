@@ -1,10 +1,11 @@
+import React from 'react';
 import TopBar from "../components/TopBar"
 import Map from "../components/Map"
 
 const HomeUI = () => {
     return (
         <div>
-            <TopBar/ >
+            <TopBar />
             <Map />
         </div>
     )
