@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './NavBar';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import HomeUI from './HomeUI/home'
@@ -8,6 +9,7 @@ import StatisticsUI from './StatisticsUI'
 import NotificationsUI from './NotificationsUI'
 import HelpUI from './HelpUI'
 import AboutUsUI from './AboutUsUI'
+// import AuthForm from './components/AuthForm';
 
 function App() {
   return (
