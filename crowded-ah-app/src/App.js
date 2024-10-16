@@ -8,8 +8,7 @@ import MrtLrtUI from './StationsUI'
 import StatisticsUI from './StatisticsUI'
 import NotificationsUI from './NotificationsUI'
 import HelpUI from './HelpUI'
-import AboutUsUI from './AboutUsUI'
-// import AuthForm from './components/AuthForm';
+import AboutUsUI from './AboutUsUI/About_us_index'
 
 function App() {
   return (
