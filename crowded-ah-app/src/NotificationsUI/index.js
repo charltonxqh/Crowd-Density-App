@@ -24,9 +24,9 @@ function NotificationsPage() {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const response = await fetch('https://datamall2.mytransport.sg/ltaodataservice/TrainServiceAlerts', { //API link pasted here
+                const response = await fetch('<API_LINK_HERE>', {
                     headers: {
-                        'AccountKey': 'fI9eYMuuS8ufXqQOI7wdFA==',
+                        'AccountKey': '<ACCOUNT_KEY_HERE>',
                         'Content-Type': 'application/json',
                     }
                 });
