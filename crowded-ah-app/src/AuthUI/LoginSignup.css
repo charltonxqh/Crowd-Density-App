@@ -1,0 +1,32 @@
+body {
+    background-color: #c0cbfb;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center the items vertically */
+    justify-content: center; /* Center the items horizontally */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+.logo-image {
+    width: 100px; /* Set desired width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between logo and text */
+}
+
+.signup-prompt {
+    margin-top: 5px;
+    font-size: 14px;
+    color: blue;
+    text-align: center;
+    padding: 10px;
+}
+
+.signup-link {
+    text-decoration: underline;
+    cursor: pointer;
+}

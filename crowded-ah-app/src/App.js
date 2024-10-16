@@ -1,13 +1,14 @@
 import './App.css';
 import NavBar from './NavBar';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import HomeUI from './HomeUI/home'
-import MrtLrtUI from './MrtLrtUI'
+import MrtLrtUI from './StationsUI'
 import StatisticsUI from './StatisticsUI'
 import NotificationsUI from './NotificationsUI'
 import HelpUI from './HelpUI'
-import AboutUsUI from './AboutUsUI'
+import AboutUsUI from './AboutUsUI/About_us_index'
 
 function App() {
   return (
@@ -33,13 +34,14 @@ export default App;
 
 
 //code to test Login + Signup
+
 // import React from 'react';
-// import AuthForm from './components/AuthForm';
+// import LoginSignup from './LoginSignupUI/LoginSignup';
 
 // function App() {
 //     return (
 //         <div className="App">
-//             <AuthForm />
+//             <LoginSignup />
 //         </div>
 //     );
 // }

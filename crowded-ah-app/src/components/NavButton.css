@@ -53,7 +53,7 @@ a {
 }
 
 /* Media queries for smaller screens */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .NavBar {
         height: 60px;         /* Reduce height for smaller screens */
     }
