@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import HomeUI from './HomeUI/home'
-import MrtLrtUI from './MrtLrtUI'
+import MrtLrtUI from './StationsUI'
 import StatisticsUI from './StatisticsUI'
 import NotificationsUI from './NotificationsUI'
 import HelpUI from './HelpUI'
