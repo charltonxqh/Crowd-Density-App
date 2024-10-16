@@ -33,13 +33,14 @@ export default App;
 
 
 //code to test Login + Signup
+
 // import React from 'react';
-// import AuthForm from './components/AuthForm';
+// import LoginSignup from './LoginSignupUI/LoginSignup';
 
 // function App() {
 //     return (
 //         <div className="App">
-//             <AuthForm />
+//             <LoginSignup />
 //         </div>
 //     );
 // }
