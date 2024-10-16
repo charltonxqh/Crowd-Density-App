@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AuthForm.css';
 
 const AuthForm = ({ mode, onSubmit }) => {
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ const AuthForm = ({ mode, onSubmit }) => {
 
     return (
         <div className="auth-form">
-            <h2>{isSignup ? 'Sign Up' : 'Login'}</h2>
+            <h1>{isSignup ? 'Sign Up' : 'Login'}</h1>
             <form onSubmit={handleSubmit}>
                 {isSignup && (
                     <input
@@ -51,6 +52,10 @@ const AuthForm = ({ mode, onSubmit }) => {
                 )}
                 <button type="submit">{isSignup ? 'Sign Up' : 'Login'}</button>
             </form>
+
+            <p className="signup-prompt">
+                not yet registered? <span className="signup-link">Sign Up now</span>
+            </p>
         </div>
     );
 };

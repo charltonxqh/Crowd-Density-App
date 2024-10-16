@@ -12,12 +12,12 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     max-width: 400px; /* Max width for form */
     margin: auto; /* Center the form */
-    padding: 20px; /* Padding inside the form */
+    padding: 30px; /* Padding inside the form */
     text-align: center; /* Centered text */
 }
 
-h2 {
-    font-size: 24px; /* Heading size */
+h1 {
+    font-size: 50px; /* Heading size */
     color: #333; /* Dark text color */
     margin-bottom: 20px; /* Space below heading */
 }
@@ -42,7 +42,7 @@ button {
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners for button */
     padding: 10px; /* Padding inside button */
-    font-size: 16px; /* Button text size */
+    font-size: 30px; /* Button text size */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Transition for hover effect */
 }
@@ -62,10 +62,24 @@ p {
 }
 
 p a {
-    color: #007bff; /* Link color */
-    text-decoration: none; /* No underline */
+    color: #007bff;
+    text-decoration: none;
 }
 
 p a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
+}
+
+.signup-prompt {
+    margin-top: 20px;
+    font-size: 14px;
+    color: blue;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.signup-link {
+    text-decoration: underline;
+    cursor: pointer;
 }
