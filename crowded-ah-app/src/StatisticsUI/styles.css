@@ -1,0 +1,88 @@
+/* General page styling */
+.statistics-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+}
+
+.title {
+    font-size: 2rem;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.graph-section {
+    background-color: #e0f0ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.graph-container {
+    background-color: #fff;
+    border: 2px solid #b0c4de;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Scrollable list styling */
+.crowded-stations-section {
+    background-color: #e0f0ff;
+    padding: 20px;
+    border-radius: 10px;
+    /* Ensure this section has its own layout */
+    margin-bottom: 30px;
+}
+
+.station-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1rem;
+    /* Set a max height for scrollable content */
+    max-height: 200px; /* Adjust this to suit your design */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.station-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.station-code {
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.green {
+    background-color: #00b300;
+}
+
+.red {
+    background-color: #ff3333;
+}
+
+.purple {
+    background-color: #9933ff;
+}
