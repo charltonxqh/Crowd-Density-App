@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
+// Import the image from your assets folder
+import smoothCommuteImage from './trainsmile.png'; // Adjust the path accordingly
 
 function Notification({ message, id, onPin, onDelete, isPinned }) {
     return (
@@ -16,85 +18,75 @@ function Notification({ message, id, onPin, onDelete, isPinned }) {
 }
 
 function NotificationsPage() {
-    // State for notifications and deleted message
     const [notifications, setNotifications] = useState([]);
-    const [deletedMessage, setDeletedMessage] = useState(''); // To show the deleted notification message
+    const [deletedMessage, setDeletedMessage] = useState('');
 
-    // Fetching notifications from API
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const response = await fetch('<API_LINK_HERE>', {
+                const response = await fetch('/ltaodataservice/TrainServiceAlerts', {
                     headers: {
-                        'AccountKey': '<ACCOUNT_KEY_HERE>',
-                        'Content-Type': 'application/json',
-                    }
+                        'AccountKey': 'fI9eYMuuS8ufXqQOI7wdFA==',
+                        'accept': 'application/json',
+                    },
                 });
 
-                // Check if the response is ok
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
 
-                // Parse the JSON data
                 const data = await response.json();
+                console.log(data);
 
-                // Check the "Status" field in the API response
                 if (data.value.Status === 1) {
-                    // If Status is 1, add a special notification message
                     const smoothCommuteNotification = {
-                        id: 'smooth-commute', // Unique id for this notification
+                        id: 'smooth-commute',
                         message: 'All train services are running smoothly. Have a safe commute.',
                         pinned: false,
-                        originalIndex: 0 // Setting to 0 since this is a single message
+                        originalIndex: 0
                     };
                     setNotifications([smoothCommuteNotification]);
-                } else {
-                    // Handle other statuses and add notifications accordingly
+                } else if (data.value.AffectedSegments && data.value.AffectedSegments.length > 0) {
                     const fetchedNotifications = data.value.AffectedSegments.map((segment, index) => ({
-                        id: segment.id || index, // Assuming segments have IDs
+                        id: segment.id || index,
                         message: segment.Message || 'Train service alert',
                         pinned: false,
                         originalIndex: index,
                     }));
                     setNotifications(fetchedNotifications);
+                } else {
+                    setNotifications([]);
                 }
             } catch (error) {
                 console.error('Error fetching notifications:', error);
             }
         };
 
-        // Call the fetch function
         fetchNotifications();
-    }, []); // Empty dependency array to call it once on mount
+    }, []);
 
-    // Handle Pin/Unpin logic: Move notification to the top when pinned, or restore when unpinned
     const handlePin = (id) => {
         const updatedNotifications = notifications.map((notif) =>
             notif.id === id ? { ...notif, pinned: !notif.pinned } : notif
         );
 
-        // Sort: pinned notifications to the top, then unpinned in original order
         updatedNotifications.sort((a, b) => {
             if (a.pinned === b.pinned) {
-                return a.originalIndex - b.originalIndex; // Maintain original order for unpinned notifications
+                return a.originalIndex - b.originalIndex;
             }
-            return a.pinned ? -1 : 1; // Pinned notifications come first
+            return a.pinned ? -1 : 1;
         });
 
         setNotifications(updatedNotifications);
     };
 
-    // Handle Delete logic: Remove the notification and display a message
     const handleDelete = (id) => {
         const deletedNotif = notifications.find((notif) => notif.id === id);
-        setDeletedMessage(deletedNotif.message); // Show deleted message
+        setDeletedMessage(deletedNotif.message);
 
-        // Remove the notification from the list
         const updatedNotifications = notifications.filter((notif) => notif.id !== id);
         setNotifications(updatedNotifications);
 
-        // Clear deleted message after 3 seconds
         setTimeout(() => {
             setDeletedMessage('');
         }, 3000);
@@ -107,6 +99,11 @@ function NotificationsPage() {
             {/* Deleted message notification */}
             {deletedMessage && (
                 <div className="deleted-message">{deletedMessage} has been deleted</div>
+            )}
+
+            {/* Conditionally render image when status is 1 */}
+            {notifications.length === 1 && notifications[0].id === 'smooth-commute' && (
+                <img src={smoothCommuteImage} alt="Smooth Commute" />
             )}
 
             <div className="notification-list">
