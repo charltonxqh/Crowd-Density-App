@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './NavBar';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import HomeUI from './HomeUI/home'
