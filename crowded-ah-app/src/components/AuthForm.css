@@ -1,0 +1,71 @@
+/* General styles */
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-form {
+    background-color: white; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 400px; /* Max width for form */
+    margin: auto; /* Center the form */
+    padding: 20px; /* Padding inside the form */
+    text-align: center; /* Centered text */
+}
+
+h2 {
+    font-size: 24px; /* Heading size */
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+input {
+    width: 100%; /* Full width inputs */
+    padding: 10px; /* Padding inside inputs */
+    margin: 10px 0; /* Space between inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners for inputs */
+    font-size: 16px; /* Input text size */
+}
+
+input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for button */
+    padding: 10px; /* Padding inside button */
+    font-size: 16px; /* Button text size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+button:disabled {
+    background-color: #c0c0c0; /* Light gray for disabled */
+    cursor: not-allowed; /* Not allowed cursor */
+}
+
+p {
+    font-size: 14px; /* Smaller text for links */
+    margin-top: 10px; /* Space above paragraph */
+}
+
+p a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+p a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
