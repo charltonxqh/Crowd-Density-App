@@ -1,18 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-const AboutUs = () => {
-    const handleLearnMore = () => {
-        // Logic for learning more about the application
-        console.log('Learn more about us!');
-    };
-
+const AboutUsUI = () => {
     return (
-        <div>
-            <h1>About Us</h1>
-            <p>Welcome to our application! We aim to provide the best services to our users.</p>
-            <button onClick={handleLearnMore}>Learn More</button>
-        </div>
-    );
-};
+        <Router>
+            {/* Placeholder for Navigation */}
+            <div className="navigation">
+                {/* Add links to different pages here */}
+            </div>
 
-export default AboutUs;
+            {/* Placeholder for Routes */}
+            <Routes>
+                <Route path="/" element={<Page1 />} />
+                <Route path="/page2" element={<Page2 />} />
+                <Route path="/page3" element={<Page3 />} />
+                <Route path="/page4" element={<Page4 />} />
+            </Routes>
+        </Router>
+    );
+}
+
+export default AboutUsUI;

@@ -3,11 +3,11 @@ import NavBar from './NavBar';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import HomeUI from './HomeUI/home'
-import MRT from './MrtLrtUI'
+import MRT from './StationsUI/MRT'
 import StatisticsUI from './StatisticsUI'
 import NotificationsUI from './NotificationsUI'
 import HelpUI from './HelpUI'
-import AboutUsUI from './AboutUsUI'
+import AboutUsUI from './AboutUsUI/About_us_index'
 
 function App() {
   return (
