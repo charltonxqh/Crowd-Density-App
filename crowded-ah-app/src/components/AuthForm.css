@@ -1,22 +1,7 @@
-/* General styles */
-body {
-    background-color: #c0cbfb; /* Light blue background */
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.logo-image {
-    width: 100px; /* Set desired width for the logo */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Space between logo and text */
-}
-
-.forgot-password {
-    color: blue;
-    cursor: pointer;
-    text-align: right;
-    font-size: 14px; /* Adjust font size as needed */
+h1 {
+    font-size: 50px; /* Heading size */
+    color: white; /* Dark text color */
+    margin-bottom: 20px; /* Space below heading */
 }
 
 .auth-form {
@@ -27,12 +12,6 @@ body {
     margin: auto; /* Center the form */
     padding: 30px; /* Padding inside the form */
     text-align: center; /* Centered text */
-}
-
-h1 {
-    font-size: 50px; /* Heading size */
-    color: white; /* Dark text color */
-    margin-bottom: 20px; /* Space below heading */
 }
 
 .input-container {
@@ -100,23 +79,9 @@ p a:hover {
     text-decoration: underline;
 }
 
-.signup-prompt {
-    margin-top: 5px;
-    font-size: 14px;
+.forgot-password {
     color: blue;
-    text-align: center;
-    padding: 10px;
-}
-
-
-.signup-link {
-    text-decoration: underline;
     cursor: pointer;
-}
-
-.header {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center the items vertically */
-    justify-content: center; /* Center the items horizontally */
-    margin-bottom: 20px; /* Space below the header */
+    text-align: right;
+    font-size: 14px; /* Adjust font size as needed */
 }
