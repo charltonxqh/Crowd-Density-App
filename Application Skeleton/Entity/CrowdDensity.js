@@ -1,8 +1,14 @@
 class CrowdDensity {
-    // Field for real-time crowd density data
+    /**
+     * Field for real-time crowd density data
+     * @type {CrowdDensityLevel}
+     */
     #realTimeCrowdDensity;
 
-    // Field for forecasted crowd density data
+    /**
+     * Field for forecasted crowd density data
+     * @type {CrowdDensityLevel}
+     */
     #forecastCrowdDensity;
 
     /**

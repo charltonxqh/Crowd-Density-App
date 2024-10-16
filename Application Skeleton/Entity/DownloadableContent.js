@@ -1,5 +1,4 @@
 class DownloadableContent {
-
     /**
      * The title of the downloadable content
      * @type {string}
@@ -43,10 +42,7 @@ class DownloadableContent {
     }
 
     /**
-     * Starts the download of the content.
+     * Download the content.
      */
-    download() {
-        // Implementation for initiating a download
-        console.log(`Downloading ${this.#title}`);
-    }
+    download() {  }
 }

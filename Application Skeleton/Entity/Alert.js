@@ -1,6 +1,3 @@
-/**
- * The entity class for an alert.
- */
 class Alert {
     /**
      * Status of the alert.
@@ -31,22 +28,6 @@ class Alert {
      * @type {string}
      */
     #message;
-
-    /**
-     * Constructor to initialize the alert.
-     * @param {number} status
-     * @param {string} line
-     * @param {string} direction
-     * @param {const} stations
-     * @param {string} message
-     */
-    constructor(status, line, direction, stations, message) {
-        this.#status = status;
-        this.#line = line;
-        this.#direction = direction;
-        this.#stations = stations;
-        this.#message = message;
-    }
 
     /**
      * Prints the alert details.

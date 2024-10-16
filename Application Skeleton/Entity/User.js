@@ -1,5 +1,4 @@
 class User {
-
     /**
      * Field for the unique user ID
      * @type {number}
