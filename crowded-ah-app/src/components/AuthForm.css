@@ -1,14 +1,27 @@
 /* General styles */
 body {
-    background-color: #f0f8ff; /* Light blue background */
+    background-color: #c0cbfb; /* Light blue background */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+.logo-image {
+    width: 100px; /* Set desired width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between logo and text */
+}
+
+.forgot-password {
+    color: blue;
+    cursor: pointer;
+    text-align: right;
+    font-size: 14px; /* Adjust font size as needed */
+}
+
 .auth-form {
     background-color: white; /* White background for the form */
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 30px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     max-width: 400px; /* Max width for form */
     margin: auto; /* Center the form */
@@ -18,16 +31,31 @@ body {
 
 h1 {
     font-size: 50px; /* Heading size */
-    color: #333; /* Dark text color */
+    color: white; /* Dark text color */
     margin-bottom: 20px; /* Space below heading */
+}
+
+.input-container {
+    border: 1px solid #b0c9ff;
+    border-radius: 30px;
+    display: flex;
+    align-items: center; /* Center the icon and input vertically */
+    margin-bottom: 15px; /* Space between input fields */
+}
+
+.input-icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    margin-left: 20px;
+    margin-right: 10px; /* Space between icon and input */
 }
 
 input {
     width: 100%; /* Full width inputs */
     padding: 10px; /* Padding inside inputs */
     margin: 10px 0; /* Space between inputs */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px; /* Rounded corners for inputs */
+    border: none;
+    background-color: transparent;
     font-size: 16px; /* Input text size */
 }
 
@@ -37,12 +65,14 @@ input:focus {
 }
 
 button {
+    width: 100%;
     background-color: #007bff; /* Primary button color */
     color: white; /* White text */
     border: none; /* No border */
-    border-radius: 5px; /* Rounded corners for button */
+    border-radius: 30px; /* Rounded corners for button */
     padding: 10px; /* Padding inside button */
-    font-size: 30px; /* Button text size */
+    font-size: 25px; /* Button text size */
+    font-weight: bold;
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Transition for hover effect */
 }
@@ -71,15 +101,22 @@ p a:hover {
 }
 
 .signup-prompt {
-    margin-top: 20px;
+    margin-top: 5px;
     font-size: 14px;
     color: blue;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 
 .signup-link {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.header {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center the items vertically */
+    justify-content: center; /* Center the items horizontally */
+    margin-bottom: 20px; /* Space below the header */
 }
