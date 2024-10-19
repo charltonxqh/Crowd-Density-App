@@ -1,15 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react'
-// Enum for Crowd Density Levels
-const CrowdDensityLevel = Object.freeze({
-    LOW: "Low",
-    MODERATE: "Moderate",
-    HIGH: "High"
-});
-=======
-
->>>>>>> Stashed changes
-
 /**
  * The control class for managing train crowd density state.
  */
