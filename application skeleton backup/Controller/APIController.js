@@ -7,13 +7,13 @@ const APIController = () => {
     /**
      * Constructor for the APIController.
      * @param {String} APIURL - The base URL of the API.
-     * @param {Station} station
+     * @param {String} stationCode - The unique code of the station.
      * @param {CrowdDensity} crowdDensityLevel - The current crowd density level at the station.
      * @param {boolean} description - A flag indicating if a description is needed.
      * @param {DateTime} time - The timestamp of the last update.
      * @param {TrainStation[]} affectedStation - List of stations affected by disruptions.
      */
-    const APIController = (APIURL, station, crowdDensityLevel, description, time, affectedStation) => { }
+    const APIController = (APIURL, stationCode, crowdDensityLevel, description, time, affectedStation) => { }
 
     /**
      * Sends a request to the specified API endpoint with the given parameters.
@@ -32,24 +32,24 @@ const APIController = () => {
 
     /**
      * Retrieves real-time crowd density information for the specified station.
-     * @param {Station} station - The unique code of the station.
+     * @param {String} stationCode - The unique code of the station.
      * @returns {CrowdDensity} - The crowd density information for the station.
      */
-    const getRealTimeCrowdDensity = (station) => { }
+    const getRealTimeCrowdDensity = (stationCode) => { }
 
     /**
      * Updates the real-time crowd density for the specified station.
-     * @param {Station} station - The unique code of the station to update.
+     * @param {String} stationCode - The unique code of the station to update.
      * @returns {boolean} - Returns true if the update was successful, false otherwise.
      */
-    const updateRealTimeCrowdDensity = (station) => { }
+    const updateRealTimeCrowdDensity = (stationCode) => { }
 
     /**
      * Updates the forecast crowd density for the specified station.
-     * @param {Station} station - The unique code of the station to update.
+     * @param {String} stationCode - The unique code of the station to update.
      * @returns {boolean} - Returns true if the update was successful, false otherwise.
      */
-    const updateForecastCrowdDensity = (station) => { }
+    const updateForecastCrowdDensity = (stationCode) => { }
 
     /**
      * Fetches the estimated time of arrival (ETA) for trains at the specified station.
