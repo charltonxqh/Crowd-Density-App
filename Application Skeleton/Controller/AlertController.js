@@ -1,5 +1,5 @@
 /**
- * Class responsible for managing alerts on the MRT website.
+ * The control class responsible for managing alerts on the MRT website.
  */
 const AlertController = () => {
     /**
