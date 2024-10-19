@@ -1,19 +1,19 @@
 class Feedback {
     /**
      * Name of the user providing feedback.
-     * @type {string}
+     * @type {string} - Name of feedback provider
      */
     #name;
 
     /**
      * Email of the user providing feedback.
-     * @type {string}
+     * @type {string} - Email of feedback provider
      */
     #email;
 
     /**
      * Category of the feedback.
-     * @type {string}
+     * @type {string} - Category of feedback
      */
     #category;
 
@@ -24,25 +24,19 @@ class Feedback {
     #message;
 
     /**
-     * Constructor to initialize feedback.
-     * @param {string} name - The name of the user.
-     * @param {string} email - The email of the user.
-     * @param {string} category - The category of feedback.
-     * @param {string} message - The feedback message.
-     */
-    constructor(name, email, category, message) {
-        this.#name = name;
-        this.#email = email;
-        this.#category = category;
-        this.#message = message;
-    }
-
-    /**
      * Get the name of the user.
      * @returns {string} - The user's name.
      */
     getName() {
         return this.#name;
+    }
+
+    /**
+     * Set the name of the user.
+     * @param {string} - The user's name.
+     */
+    setName(name) {
+        this.#name = name;
     }
 
     /**
@@ -54,11 +48,27 @@ class Feedback {
     }
 
     /**
+     * Set the email of the user.
+     * @param {string} - The user's email.
+     */
+    setEmail() {
+        this.#email = email;
+    }
+
+    /**
      * Get the category of the feedback.
      * @returns {string} - The feedback category.
      */
     getCategory() {
         return this.#category;
+    }
+
+    /**
+     * Get the category of the feedback.
+     * @param {string} - The feedback category.
+     */
+    setCategory() {
+        this.#category = category;
     }
 
     /**
@@ -70,18 +80,25 @@ class Feedback {
     }
 
     /**
+     * Set the feedback message.
+     * @param {string} - The feedback message.
+     */
+    setMessage(message) {
+        this.#message = message;
+    }
+
+    /**
      * Save feedback to the database.
      */
-    saveFeedback() {    }
+    saveFeedback() { }
 
     /**
      * Send confirmation email to the user.
      */
-    sendConfirmationEmail() {   }
+    sendConfirmationEmail() { }
 
     /**
      * Validate feedback fields.
-     * @returns {boolean} - True if valid, false otherwise.
      */
-    validateFeedback() {    }
+    validateFeedback() { }
 }

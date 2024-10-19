@@ -30,54 +30,11 @@ class Alert {
     #message;
 
     /**
-     * Prints the alert details.
-     * @param {string} line
-     * @param {string} direction
-     * @param {const} stations
-     * @param {string} message
-     */
-    printAlert(line, direction, stations, message) {
-        console.log(`Alert for Line: ${line}, Direction: ${direction}, Stations: ${stations}, Message: ${message}`);
-    }
-
-    /**
      * Get the status of the alert.
      * @returns {number} status
      */
     getStatus() {
         return this.#status;
-    }
-
-    /**
-     * Get the line associated with the alert.
-     * @returns {string} line
-     */
-    getLine() {
-        return this.#line;
-    }
-
-    /**
-     * Get the direction of the alert.
-     * @returns {string} direction
-     */
-    getDirection() {
-        return this.#direction;
-    }
-
-    /**
-     * Get the stations related to the alert.
-     * @returns {const} stations
-     */
-    getStations() {
-        return this.#stations;
-    }
-
-    /**
-     * Get the message of the alert.
-     * @returns {string} message
-     */
-    getMessage() {
-        return this.#message;
     }
 
     /**
@@ -89,11 +46,27 @@ class Alert {
     }
 
     /**
+     * Get the line associated with the alert.
+     * @returns {string} line
+     */
+    getLine() {
+        return this.#line;
+    }
+
+    /**
      * sets the line
      * @param {string} line - The line affected
      */
     setLine(line){
         this.#line = line;
+    }
+
+    /**
+     * Get the direction of the alert.
+     * @returns {string} direction
+     */
+    getDirection() {
+        return this.#direction;
     }
 
     /**
@@ -105,11 +78,27 @@ class Alert {
     }
 
     /**
+     * Get the stations related to the alert.
+     * @returns {const} stations
+     */
+    getStations() {
+        return this.#stations;
+    }
+
+    /**
      * sets the stations
      * @param {const} stations - The statations affected
      */
     setStations(stations){
         this.#stations = stations;
+    }
+
+    /**
+     * Get the message of the alert.
+     * @returns {string} message
+     */
+    getMessage() {
+        return this.#message;
     }
 
     /**
@@ -119,4 +108,9 @@ class Alert {
     setMessage(message){
         this.#message = message;
     }
+
+    /**
+    * Prints the alert details for debugging.
+    */
+    printAlert() { }
 }

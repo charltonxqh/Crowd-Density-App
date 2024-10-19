@@ -7,7 +7,7 @@ class Leaderboard {
 
     /**
      * Gets the list of stations in the leaderboard.
-     * @returns {Array<string>} The current list of stations.
+     * @returns {Station[]} The current list of stations.
      */
     getLeaderboard() {
         return this.#leaderboard
@@ -15,7 +15,7 @@ class Leaderboard {
 
     /**
      * Sets the list of stations in the leaderboard.
-     * @param {Array<string>} stations - An array of station names to set.
+     * @param {Station[]} stations - An array of station names to set.
      */
     setLeaderboard(leaderboard) {
         this.#leaderboard = leaderboard
@@ -23,16 +23,13 @@ class Leaderboard {
 
     /**
      * Adds a new station to the leaderboard.
-     * @param {string} station - The name of the station to add.
      */
-    addStation(station) {  }
+    addStation(station) { }
 
     /**
      * Removes a station from the leaderboard.
-     * @param {string} station - The name of the station to remove.
-     * @returns {boolean} True if the station was removed, false if the station did not exist.
      */
-    removeStation(station) {  }
+    removeStation(station) { }
 }
 
 
