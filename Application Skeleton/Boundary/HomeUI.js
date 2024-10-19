@@ -3,7 +3,7 @@ import { getCurrentLocation, fetchNearestStations, performSearch } from './Nearb
 
 /**
  * Home UI Component
- * @component
+ * @returns The HTML elements to be displayed on the website.
  */
 const HomeUI = () => {
   const [currentLocation, setCurrentLocation] = useState(null);

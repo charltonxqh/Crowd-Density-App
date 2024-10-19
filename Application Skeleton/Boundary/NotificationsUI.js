@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 /**
  * The boundary class for the notifications page.
- * @component
+ * @returns The HTML elements to be displayed on the website.
  */
 const NotificationsUI = () => {
     /**

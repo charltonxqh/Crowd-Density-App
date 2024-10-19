@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 /**
  * Help UI Component
  * This component provides a contact form for users to send messages.
- * 
- * @component
+ * @returns The HTML elements to be displayed on the website.
  */
 const HelpUI = () => {
   const [name, setName] = useState('');
