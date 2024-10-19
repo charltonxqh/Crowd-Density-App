@@ -61,7 +61,7 @@ class Station {
 
     /**
      * Set the station code
-     * @param {string} - 
+     * @param {string} stationCode
      */
     setStationCode(stationCode){
         this.#stationCode = stationCode
@@ -77,7 +77,7 @@ class Station {
 
     /**
      * set the station line of a station
-     * @param {stationLine} - The station line to set
+     * @param {StationLine} stationLine - The station line to set
      */
     setStationLine(stationLine){
         this.#stationLine = stationLine
@@ -93,7 +93,7 @@ class Station {
 
     /**
      * Set the crowd density data
-     * @param {CrowdDensity} - Crowd Density to set
+     * @param {CrowdDensity} crowdDensityData - Crowd Density to set
      */
     setCrowdDensity(crowdDensityData){
         this.#crowdDensityData = crowdDensityData;
@@ -125,7 +125,7 @@ class Station {
 
     /**
      * Get isFavourite
-     * @params {}
+     * @param {boolean} isFavourite
      */
     setIsFavourite(isFavourite){
         this.#isFavourite = isFavourite;

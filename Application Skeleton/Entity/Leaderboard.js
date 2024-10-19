@@ -18,17 +18,19 @@ class Leaderboard {
      * Sets the list of stations in the leaderboard.
      * @param {Station[]} stations - An array of station names to set.
      */
-    setLeaderboard(leaderboard) {
-        this.#leaderboard = leaderboard
+    setLeaderboard(stations) {
+        this.#leaderboard = stations
     }
 
     /**
      * Adds a new station to the leaderboard.
+     * @param {Station} station
      */
     addStation(station) { }
 
     /**
      * Removes a station from the leaderboard.
+     * * @param {Station} station
      */
     removeStation(station) { }
 }

@@ -27,7 +27,7 @@ class DownloadableContent {
 
     /**
      * Sets the title of the content.
-     * @param {string} - The title.
+     * @param {string} title - The title.
      */
     setTitle(title) {
         this.#title = title;
@@ -43,7 +43,7 @@ class DownloadableContent {
 
     /**
      * Sets the description of the content.
-     * @param {string} - The description.
+     * @param {string} description - The description.
      */
     setDescription(description) {
         this.#description = description;
@@ -59,9 +59,9 @@ class DownloadableContent {
 
     /**
      * Gets the file type of the content.
-     * @param {string} - The file type.
+     * @param {string} fileType - The file type.
      */
-    setFileType(string){
+    setFileType(fileType){
         this.#fileType = fileType
     }
 

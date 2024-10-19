@@ -49,9 +49,9 @@ class Feedback {
 
     /**
      * Set the email of the user.
-     * @param {string} - The user's email.
+     * @param {string} email - The user's email.
      */
-    setEmail() {
+    setEmail(email) {
         this.#email = email;
     }
 
@@ -65,9 +65,9 @@ class Feedback {
 
     /**
      * Get the category of the feedback.
-     * @param {string} - The feedback category.
+     * @param {string} category- The feedback category.
      */
-    setCategory() {
+    setCategory(category) {
         this.#category = category;
     }
 
@@ -81,7 +81,7 @@ class Feedback {
 
     /**
      * Set the feedback message.
-     * @param {string} - The feedback message.
+     * @param {string} message - The feedback message.
      */
     setMessage(message) {
         this.#message = message;

@@ -91,6 +91,7 @@ class User {
 
     /**
      * Removes a saved station by name.
+     * @param {Station} station
      */
     removeSavedStation(station) { }
 }
