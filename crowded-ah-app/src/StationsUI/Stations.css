@@ -1,0 +1,30 @@
+/* src/Stations.css */
+.mrt-page {
+    display: flex;
+  }
+  
+  .map-container {
+    width: 40%; /* Adjust width as necessary */
+    height: 360px;
+    border: 2px solid white;
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Optional: background color */
+  }
+  
+  .menu-container {
+    width: 70%; /* Adjust width as necessary */
+    padding: 20px;
+    background-color: #fff; /* Optional: background color */
+  }
+  
+  .line-container {
+    margin: 10px 0;
+  }
+  
+  .station-info {
+    margin-top: 20px;
+  }
+  
