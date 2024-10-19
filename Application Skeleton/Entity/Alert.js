@@ -1,3 +1,4 @@
+import Station from "./Station"
 class Alert {
     /**
      * Status of the alert.
@@ -19,7 +20,7 @@ class Alert {
 
     /**
      * Stations related to the alert.
-     * @type {const}
+     * @type {List<Station>}
      */
     #stations;
 
@@ -87,7 +88,7 @@ class Alert {
 
     /**
      * sets the stations
-     * @param {const} stations - The statations affected
+     * @param {List<Station>} stations - The statations affected
      */
     setStations(stations){
         this.#stations = stations;

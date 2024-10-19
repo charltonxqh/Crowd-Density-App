@@ -1,10 +1,5 @@
+import Station from "./Station"
 class User {
-    /**
-     * Field for the unique user ID
-     * @type {number}
-     */
-    #userID;
-
     /**
      * Field for the username of the user
      * @type {string}
@@ -25,25 +20,9 @@ class User {
 
     /**
      * Field for a mapping of stations to their types (e.g., favorite, work)
-     * @type {Map}
+     * @type {List<Station>}
      */
     #savedStations;
-
-    /*
-     * Gets the user ID.
-     * @returns {string} - The user ID.
-     */
-    getUserID() {
-        return this.#userID;
-    }
-
-    /**
-     * Sets the user ID.
-     * @param {number} userID - The user ID to set.
-     */
-    setUserID(userID) {
-        this.#userID = userID;
-    }
 
     /**
      * Gets the username.
@@ -94,8 +73,8 @@ class User {
     }
 
     /**
-     * Gets the saved stations as a mapping.
-     * @returns {Map} A mapping of station names to their types.
+     * Gets the saved stations as a list.
+     * @returns {List<Station>}
      */
     getSavedStations() {
         return this.#savedStations;

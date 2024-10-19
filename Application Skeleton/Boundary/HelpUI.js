@@ -1,5 +1,5 @@
-import React from 'react';
 import React, { useState } from 'react';
+import { handleSendMessage } from './HelpMessageController';
 
 /**
  * Help UI Component
@@ -9,29 +9,33 @@ import React, { useState } from 'react';
 const HelpUI = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [questionType, setQuestionType] = useState('');
+  const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
 
   /**
-   * Handles form submission
-   * Logs the contact information and resets the form fields.
-   * 
-   * @param {Event} e - The form submit event
+   * Resets the form fields
    */
-  const handleContactSubmit = (e) => {
-    e.preventDefault();
-    // Implementation here
-    console.log('Contact Info:', { name, email, questionType, message });
+  const resetForm = () => {
     setName('');
     setEmail('');
-    setQuestionType('');
+    setCategory('');
     setMessage('');
   };
 
+  /**
+   * Handles form submission
+   * @param {Event} e - The form submit event
+   */
+  const handleMessageSubmit = (e) => {
+    e.preventDefault();
+    const contactData = { name, email, category, message };
+    handleSendMessage(contactData, resetForm);
+  };
+
   return (
-    <>
-    </>
-)
+   <>
+   </>
+  );
 };
 
 export default HelpUI;
