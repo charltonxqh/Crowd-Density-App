@@ -11,7 +11,7 @@ const AuthUI = () => {
     return (
       <>
       </>
-    )
+  )
 }
 
 export default AuthUI

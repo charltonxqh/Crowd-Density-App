@@ -9,9 +9,9 @@ import React from 'react';
  */
 const HelpUI = () => {
   return (
-   <>
-   </>
-  );
+    <>
+    </>
+  )
 };
 
 export default HelpUI;
