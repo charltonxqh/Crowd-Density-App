@@ -1,31 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { getCurrentLocation, fetchNearestStations, performSearch } from './NearbyStationController';
+/**
+ * Import the necessary methods from 'react' libraries.
+ */
+import React from 'react';
 
 /**
- * Home UI Component
- * @returns The HTML elements to be displayed on the website.
+ * The boundary class for the Home page.
+ * Provides an overview of the application, allowing users to navigate to different sections of the app.
+ * 
+ * @component
+ * @returns {JSX.Element} The JSX elements to be displayed on the website.
  */
 const HomeUI = () => {
-  const [currentLocation, setCurrentLocation] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [nearestStations, setNearestStations] = useState([]);
-
-  useEffect(() => {
-    getCurrentLocation(setCurrentLocation, fetchNearestStations);
-  }, []);
-
-  /**
-   * Handles the search form submission
-   * Logs the search input and processes the search query.
-   * @param {Event} e - The form submit event
-   */
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const searchQuery = e.target.elements.searchInput.value;
-    console.log('Searching for station:', searchQuery);
-    performSearch(searchQuery, setNearestStations);
-  };
-
+  // TODO: Add content for the Home page
   return (
     <>
     </>

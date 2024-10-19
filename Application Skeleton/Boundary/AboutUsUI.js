@@ -1,3 +1,6 @@
+/**
+ * Import the necessary methods from 'react' libraries.
+ */
 import React from 'react';
 
 /**
@@ -8,7 +11,12 @@ import React from 'react';
  * @returns {JSX.Element} The HTML elements to be displayed on the website.
  */
 const AboutUsUI = () => {
-    // TODO: Implement the rendering logic for the About Us page
+    // TODO: Add content for the About Us page
+
+    return (
+        <>
+        </>
+    )
 };
 
 export default AboutUsUI;

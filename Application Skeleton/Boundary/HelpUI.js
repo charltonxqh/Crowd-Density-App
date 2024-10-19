@@ -1,33 +1,17 @@
+/**
+ * Import the necessary methods from 'react' libraries.
+ */
 import React from 'react';
-import React, { useState } from 'react';
 
 /**
- * Help UI Component
- * This component provides a contact form for users to send messages.
- * @returns The HTML elements to be displayed on the website.
+ * The boundary class for the Help page.
+ * Provides a contact form for users to send messages.
+ * 
+ * @component
+ * @returns {JSX.Element} The JSX elements to be displayed on the website.
  */
 const HelpUI = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [questionType, setQuestionType] = useState('');
-  const [message, setMessage] = useState('');
-
-  /**
-   * Handles form submission
-   * Logs the contact information and resets the form fields.
-   * 
-   * @param {Event} e - The form submit event
-   */
-  const handleContactSubmit = (e) => {
-    e.preventDefault();
-    // Implementation here
-    console.log('Contact Info:', { name, email, questionType, message });
-    setName('');
-    setEmail('');
-    setQuestionType('');
-    setMessage('');
-  };
-
+  // TODO: Add content for the Help page
   return (
     <>
     </>
