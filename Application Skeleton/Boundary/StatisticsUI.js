@@ -61,12 +61,9 @@ const StatisticsUI = () => {
     }, []);
 
     return (
-        <div>
-            {/* Placeholder for statistics and leaderboard display */}
-            <h2>Periodic statistical analysis of crowd density data</h2>
-            {/* TODO: Render crowd density graph and leaderboard here */}
-        </div>
-    );
+        <>
+        </>
+    )
 };
 
 export default StatisticsUI;

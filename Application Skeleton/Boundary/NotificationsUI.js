@@ -39,12 +39,9 @@ const NotificationsUI = () => {
     }, []);
 
     return (
-        <div>
-            {/* Placeholder for displaying notification list */}
-            <h2>Notifications</h2>
-            {/* TODO: Render notifications here */}
-        </div>
-    );
+        <>
+        </>
+    )
 };
 
 export default NotificationsUI;

@@ -41,12 +41,9 @@ const StationsUI = () => {
     }, []);
 
     return (
-        <div>
-            {/* Placeholder for displaying station list */}
-            <h2>Stations</h2>
-            {/* TODO: Render station information here */}
-        </div>
-    );
+        <>
+        </>
+    )
 };
 
 export default StationsUI;

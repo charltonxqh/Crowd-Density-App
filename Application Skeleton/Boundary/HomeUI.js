@@ -36,43 +36,9 @@ const HomeUI = () => {
   };
 
   return (
-    <div className="home-container">
-      <h2>Home</h2>
-
-      {/* Google Map */}
-      {currentLocation && (
-        <div className="map-container">
-          <GoogleMap
-            google={window.google}
-            zoom={12}
-            initialCenter={currentLocation}
-            center={currentLocation}
-          >
-            {/* Marker for current location can be added here */}
-          </GoogleMap>
-        </div>
-      )}
-
-      {/* Search MRT Station */}
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search for MRT Station"
-          required
-        />
-        <button type="submit">Search</button>
-      </form>
-
-      <h3>Nearest MRT Stations</h3>
-      <ul>
-        {nearestStations.map((station, index) => (
-          <li key={index}>{station}</li>
-        ))}
-      </ul>
-    </div>
-  );
+      <>
+      </>
+  )
 };
 
 export default HomeUI;

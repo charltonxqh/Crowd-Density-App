@@ -36,12 +36,9 @@ const NavBar = () => {
     };
 
     return (
-        <div className="nav-bar">
-            <h2>Navigation</h2>
-            {/* Render navigation buttons */}
-            {renderNavButtons()}
-        </div>
-    );
+        <>
+        </>
+    )
 };
 
 export default NavBar;
