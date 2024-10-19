@@ -1,9 +1,9 @@
-// // Enum for Crowd Density Levels
-// const CrowdDensityLevel = Object.freeze({
-//     LOW: "Low",
-//     MODERATE: "Moderate",
-//     HIGH: "High"
-// });
+// Enum for Crowd Density Levels
+const CrowdDensityLevel = Object.freeze({
+    LOW: "Low",
+    MODERATE: "Moderate",
+    HIGH: "High"
+});
 
 /**
  * The control class for managing train crowd density state.
