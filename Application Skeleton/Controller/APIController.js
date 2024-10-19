@@ -4,17 +4,6 @@
 const APIController = () => {
 
     /**
-     * Constructor for the APIController.
-     * @param {String} APIURL - The base URL of the API.
-     * @param {Station} station
-     * @param {CrowdDensity} crowdDensityLevel - The current crowd density level at the station.
-     * @param {boolean} description - A flag indicating if a description is needed.
-     * @param {DateTime} time - The timestamp of the last update.
-     * @param {TrainStation[]} affectedStation - List of stations affected by disruptions.
-     */
-    const APIController = (APIURL, station, crowdDensityLevel, description, time, affectedStation) => { }
-
-    /**
      * Sends a request to the specified API endpoint with the given parameters.
      * @param {String} endpoint - The specific endpoint to send the request to.
      * @param {Map<String, String>} params - A map of parameters to include in the request.
