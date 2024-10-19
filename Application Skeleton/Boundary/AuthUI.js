@@ -8,10 +8,10 @@ import React from 'react';
  * @returns {JSX.Element} The JSX elements to be displayed on the website.
  */
 const AuthUI = () => {
-  return (
-    <>
-    </>
-  )
+    return (
+      <>
+      </>
+    )
 }
 
 export default AuthUI

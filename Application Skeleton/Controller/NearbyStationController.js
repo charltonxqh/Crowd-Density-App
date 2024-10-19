@@ -1,4 +1,3 @@
-import React from 'react'
 /**
  * Controller responsible for handling requests related to fetching
  * nearby MRT station based on the user's current location.
@@ -19,14 +18,8 @@ const NearbyStationController = () => {
      * @returns {Station} - The nearby MRT station with details such as station name and distance.
      * @throws {Error} - Throws an error if no station is found within a reasonable distance.
      */
-    const fetchNearbyStation = (latitude, longitude) => {
-        // Implementation code
-    };
+    const fetchNearbyStation = (latitude, longitude) => { };
 
-    // Expose public methods
-    return {
-        fetchNearbyStation
-    };
 };
 
 export default NearbyStationController;

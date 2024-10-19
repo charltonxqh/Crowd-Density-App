@@ -1,5 +1,4 @@
 import React from 'react';
-import React, { useState } from 'react';
 
 /**
  * The boundary class for the Help page.

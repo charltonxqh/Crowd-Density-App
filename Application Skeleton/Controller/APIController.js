@@ -1,4 +1,3 @@
-import React from 'react'
 /**
  * The control class for managing API requests related to crowd density and train status information.
  */
