@@ -44,6 +44,7 @@ class NavigationController {
         console.log(`Navigating to: ${targetUrl}`); // Log the URL (you can replace this with real navigation logic)
         // Implement custom navigation logic here (e.g., load new page content)
     }
+    
 }
 
 // Example usage:

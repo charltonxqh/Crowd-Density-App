@@ -1,10 +1,12 @@
+import React from 'react';
 import React, { useState } from 'react';
-import { handleSendMessage } from './HelpMessageController';
 
 /**
- * Help UI Component
- * This component provides a contact form for users to send messages.
- * @returns The HTML elements to be displayed on the website.
+ * The boundary class for the Help page.
+ * Provides a contact form for users to send messages.
+ * 
+ * @component
+ * @returns {JSX.Element} The JSX elements to be displayed on the website.
  */
 const HelpUI = () => {
   const [name, setName] = useState('');
@@ -13,23 +15,19 @@ const HelpUI = () => {
   const [message, setMessage] = useState('');
 
   /**
-   * Resets the form fields
-   */
-  const resetForm = () => {
-    setName('');
-    setEmail('');
-    setCategory('');
-    setMessage('');
-  };
-
-  /**
    * Handles form submission
+   * Logs the contact information and resets the form fields.
+   * 
    * @param {Event} e - The form submit event
    */
-  const handleMessageSubmit = (e) => {
+  const handleContactSubmit = (e) => {
     e.preventDefault();
-    const contactData = { name, email, category, message };
-    handleSendMessage(contactData, resetForm);
+    // Implementation here
+    console.log('Contact Info:', { name, email, questionType, message });
+    setName('');
+    setEmail('');
+    setQuestionType('');
+    setMessage('');
   };
 
   return (

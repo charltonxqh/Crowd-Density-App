@@ -1,4 +1,7 @@
-import React from 'react'
+/**
+ * Import the necessary methods from 'react' libraries.
+ */
+import React from 'react';
 
 /**
  * The boundary class for the authentication page.
@@ -9,6 +12,10 @@ import React from 'react'
  */
 const AuthUI = () => {
   // TODO: Add content for the authentication page
+  return (
+    <>
+    </>
+  )
 }
 
 export default AuthUI
