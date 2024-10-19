@@ -1,6 +1,3 @@
-/**
- * Import the necessary methods from 'react' libraries.
- */
 import React from 'react';
 
 /**
@@ -11,7 +8,6 @@ import React from 'react';
  * @returns {JSX.Element} The JSX elements to be displayed on the website.
  */
 const AuthUI = () => {
-  // TODO: Add content for the authentication page
   return (
     <>
     </>

@@ -1,6 +1,6 @@
 import React from 'react'
 /**
- * Class responsible for managing and updating crowd density statistics.
+ * Control class responsible for managing and updating crowd density statistics.
  */
 const StatisticsController = () => {
     

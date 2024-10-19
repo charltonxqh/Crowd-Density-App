@@ -20,7 +20,7 @@ class User {
 
     /**
      * Field for a mapping of stations to their types (e.g., favorite, work)
-     * @type {List<Station>}
+     * @type {Map[Station, string]}
      */
     #savedStations;
 
@@ -74,7 +74,7 @@ class User {
 
     /**
      * Gets the saved stations as a list.
-     * @returns {List<Station>}
+     * @returns {Map[Station, string]}
      */
     getSavedStations() {
         return this.#savedStations;
@@ -82,7 +82,7 @@ class User {
 
     /**
      * Sets the saved stations.
-     * @param {string} station - The station name to set.
+     * @param {Station} station - The station name to set.
      * @param {string} type - The type of the station (e.g., favorite, work).
      */
     setSavedStation(station, type) {
