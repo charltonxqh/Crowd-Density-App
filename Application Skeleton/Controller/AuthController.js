@@ -1,4 +1,3 @@
-import React from 'react'
 /**
  * The control class for managing user account creation and verification.
  */

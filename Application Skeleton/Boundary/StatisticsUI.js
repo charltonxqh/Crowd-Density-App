@@ -1,6 +1,3 @@
-/**
- * Import the necessary methods from 'react' libraries and related entity classes.
- */
 import React from 'react';
 
 /**
@@ -12,7 +9,6 @@ import React from 'react';
  * @returns {JSX.Element} The JSX elements to be displayed on the website.
  */
 const StatisticsUI = () => {
-    // TODO: Add content for the Statistics page
     return (
         <>
         </>

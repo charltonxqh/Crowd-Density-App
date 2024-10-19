@@ -20,7 +20,7 @@ class Alert {
 
     /**
      * Stations related to the alert.
-     * @type {List<Station>}
+     * @type {Station[]}
      */
     #stations;
 

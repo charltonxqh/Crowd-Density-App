@@ -1,3 +1,4 @@
+import Station from "./Station"
 class Leaderboard {
     /**
      * Field for storing a list of stations
