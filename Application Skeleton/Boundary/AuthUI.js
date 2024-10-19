@@ -8,10 +8,17 @@ import React from 'react';
  * @returns {JSX.Element} The JSX elements to be displayed on the website.
  */
 const AuthUI = () => {
-    return (
-      <>
-      </>
-  )
+     /**
+     * Renders the login form.
+     * @returns {JSX.Element} The JSX representing the login form.
+     */
+     const renderLoginForm = () => {};
+
+     /**
+     * Renders the sign up form.
+     * @returns {JSX.Element} The JSX representing the sign up form.
+     */
+     const renderSignUpForm = () => {};
 }
 
 export default AuthUI
