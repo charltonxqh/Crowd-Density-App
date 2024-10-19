@@ -1,4 +1,3 @@
-import React from 'react'
 /**
  * Control class responsible for managing and updating crowd density statistics.
  */
