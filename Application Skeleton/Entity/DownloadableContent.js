@@ -12,7 +12,7 @@ class DownloadableContent {
     #description;  
 
     /**
-     * The type of file (e.g., 'pdf', 'csv', 'jpg')\
+     * The type of file (e.g., 'pdf', 'csv', 'jpg')
      * @type {string}
      */
     #fileType;
@@ -26,11 +26,27 @@ class DownloadableContent {
     }
 
     /**
+     * Sets the title of the content.
+     * @param {string} - The title.
+     */
+    setTitle(title) {
+        this.#title = title;
+    }
+
+    /**
      * Gets the description of the content.
      * @returns {string} - The description.
      */
     getDescription() {
         return this.#description;
+    }
+
+    /**
+     * Sets the description of the content.
+     * @param {string} - The description.
+     */
+    setDescription(description) {
+        this.#description = description;
     }
 
     /**
@@ -42,7 +58,15 @@ class DownloadableContent {
     }
 
     /**
+     * Gets the file type of the content.
+     * @param {string} - The file type.
+     */
+    setFileType(string){
+        this.#fileType = fileType
+    }
+
+    /**
      * Download the content.
      */
-    download() {  }
+    download() { }
 }

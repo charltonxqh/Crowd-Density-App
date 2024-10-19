@@ -13,7 +13,7 @@ class CrowdDensity {
 
     /**
      * Gets the real-time crowd density.
-     * @returns {number} The current real-time crowd density.
+     * @returns {CrowdDensityLevel} The current real-time crowd density.
      */
     getRealTimeCrowdDensity() {
         return this.#realTimeCrowdDensity;
@@ -21,7 +21,7 @@ class CrowdDensity {
 
     /**
      * Sets the real-time crowd density.
-     * @param {number} density - The real-time crowd density to set.
+     * @param {CrowdDensityLevel} density - The real-time crowd density to set.
      */
     setRealTimeCrowdDensity(density) {
         this.#realTimeCrowdDensity = density;
@@ -29,7 +29,7 @@ class CrowdDensity {
 
     /**
      * Gets the forecasted crowd density.
-     * @returns {number} The forecasted crowd density.
+     * @returns {CrowdDensityLevel} The forecasted crowd density.
      */
     getForecastCrowdDensity() {
         return this.#forecastCrowdDensity;
@@ -37,7 +37,7 @@ class CrowdDensity {
 
     /**
      * Sets the forecasted crowd density.
-     * @param {number} density - The forecasted crowd density to set.
+     * @param {CrowdDensityLevel} density - The forecasted crowd density to set.
      */
     setForecastCrowdDensity(density) {
         this.#forecastCrowdDensity = density;

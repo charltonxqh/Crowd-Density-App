@@ -25,32 +25,62 @@ class Station {
 
     /**
      * Estimated time of arrival for the train.
-     * @type {number}
+     * @type {number} 
      */
     #trainETA;
 
     /**
      * Indicates if the station is a favorite.
-     * @type {boolean}
+     * @type {boolean} 
      */
     #isFavourite;
 
     /**
-     * Constructor to initialize the station.
-     * @param {string} stationName - The name of the station.
-     * @param {string} stationCode - The code of the station.
-     * @param {StationLine} stationLine - The line associated with the station.
-     * @param {CrowdDensity} crowdDensityData - The crowd density data for the station.
-     * @param {number} trainETA - The estimated time of arrival for the train.
-     * @param {boolean} isFavourite - Indicates if the station is a favorite.
+     * Get the station name
+     * @returns {string}  
      */
-    constructor(stationName, stationCode, stationLine, crowdDensityData, trainETA, isFavourite) {
+    getStationName(){
+        return this.#stationName
+    }
+
+    /**
+     * Set the station name
+     * @param {string} stationName 
+     */
+    setStationName(stationName){
         this.#stationName = stationName;
-        this.#stationCode = stationCode;
-        this.#stationLine = stationLine;
-        this.#crowdDensityData = crowdDensityData;
-        this.#trainETA = trainETA;
-        this.#isFavourite = isFavourite;
+    }
+
+    /**
+     * Return the station code
+     * @returns {string} - 
+     */
+    getStationCode(){
+        return this.#stationCode;
+    }
+
+    /**
+     * Set the station code
+     * @param {string} - 
+     */
+    setStationCode(stationCode){
+        this.#stationCode = stationCode
+    }
+    
+    /**
+     * return the station line of a station
+     * @returns {StationLine} - The station line
+     */
+    getStationLine(){
+        return this.#stationLine
+    }
+
+    /**
+     * set the station line of a station
+     * @param {stationLine} - The station line to set
+     */
+    setStationLine(stationLine){
+        this.#stationLine = stationLine
     }
 
     /**
@@ -62,6 +92,14 @@ class Station {
     }
 
     /**
+     * Set the crowd density data
+     * @param {CrowdDensity} - Crowd Density to set
+     */
+    setCrowdDensity(crowdDensityData){
+        this.#crowdDensityData = crowdDensityData;
+    }
+
+    /**
      * Get the estimated time of arrival for the train.
      * @returns {number} - The estimated time of arrival.
      */
@@ -70,16 +108,36 @@ class Station {
     }
 
     /**
+     * Set the train eta
+     * @param {number} trainETA 
+     */
+    setTrainETA(trainETA){
+        this.#trainETA = trainETA;
+    }
+
+    /**
+     * Get isFavourite
+     * @returns {boolean} 
+     */
+    getIsFavourite(){
+        return this.#isFavourite
+    }
+
+    /**
+     * Get isFavourite
+     * @params {}
+     */
+    setIsFavourite(isFavourite){
+        this.#isFavourite = isFavourite;
+    }
+
+    /**
      * Mark the station as a favorite.
      */
-    favourite() {
-        this.#isFavourite = true;
-    }
+    favourite() { }
 
     /**
      * Unmark the station as a favorite.
      */
-    unfavourite() {
-        this.#isFavourite = false;
-    }
+    unfavourite() { }
 }
