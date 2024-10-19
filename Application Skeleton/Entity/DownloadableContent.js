@@ -19,7 +19,7 @@ class DownloadableContent {
 
     /**
      * Gets the title of the content.
-     * @returns {string} The title.
+     * @returns {string} - The title.
      */
     getTitle() {
         return this.#title;
@@ -27,7 +27,7 @@ class DownloadableContent {
 
     /**
      * Gets the description of the content.
-     * @returns {string} The description.
+     * @returns {string} - The description.
      */
     getDescription() {
         return this.#description;
@@ -35,7 +35,7 @@ class DownloadableContent {
 
     /**
      * Gets the file type of the content.
-     * @returns {string} The file type.
+     * @returns {string} - The file type.
      */
     getFileType() {
         return this.#fileType;
