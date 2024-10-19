@@ -1,3 +1,4 @@
+import React from 'react'
 /**
  * Controller responsible for handling requests related to fetching
  * nearby MRT station based on the user's current location.

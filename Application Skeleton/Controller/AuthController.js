@@ -1,9 +1,8 @@
 import React from 'react'
-
 /**
  * The control class for managing user account creation and verification.
  */
-const AccountController = () => {
+const AuthController = () => {
 
     /**
      * Creates a new user account.
@@ -37,7 +36,7 @@ const AccountController = () => {
      * @param {String} password - The password to verify.
      * @returns {boolean} - Returns true if the user credentials are valid, false otherwise.
      */
-    const verifyUser = (username, email, password) => { }
+    const login = (username, email, password) => { }
 }
 
-export default AccountController;
+export default AuthController;

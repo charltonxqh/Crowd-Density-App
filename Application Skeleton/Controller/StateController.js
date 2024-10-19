@@ -1,3 +1,4 @@
+import React from 'react'
 // Enum for Crowd Density Levels
 const CrowdDensityLevel = Object.freeze({
     LOW: "Low",

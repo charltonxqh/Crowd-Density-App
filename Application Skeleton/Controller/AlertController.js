@@ -1,7 +1,8 @@
+import React from 'react'
 /**
  * Class responsible for managing alerts on the MRT website.
  */
-class AlertController {
+const AlertController = () => {
     /**
      * Fetches disruption alerts.
      * @returns {string} - Returns a string describing the disruption alerts.
