@@ -31,7 +31,6 @@ class AlertController {
      */
     sendSystemAlert(message, type = 'alert') {
         // Placeholder logic for sending a system-wide alert
-        console.log(`System-wide alert: [${type}] ${message}`);
         return true; // Return true for success
     }
 
