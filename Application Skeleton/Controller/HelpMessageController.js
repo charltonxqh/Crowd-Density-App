@@ -3,17 +3,17 @@ const HelpMessageController = () => {
      * Handles sending contact messages
      * Logs the contact information and resets the form fields.
      *  
-     * @param {Object} contactData - The contact information
+     * @param {Object} Message - The contact information
      * @param {Function} resetForm - Function to reset the form fields
      */
-    const handleSendMessage = (contactData, resetForm) => { }
+    const handleSendMessage = (Message, resetForm) => { }
       
     /**
      * Sends the contact data to the backend or API
      * 
-     * @param {Object} contactData - The contact information
+     * @param {Object} Message - The contact information
      */
-    const sendContactData = (contactData) => { }
+    const sendMessage = (Message) => { }
 }
 
 export default HelpMessageController;
