@@ -1,20 +1,15 @@
-import './index.css'
-import NavButton from '../components/NavButton';
-import {React, memo} from "react"
+import React, { useState } from 'react';
+import Logo from '../components/Logo'
+import Hamburger from '../components/Hamburger';
+import './index.css'; // CSS for the NavBar
 
 
 function NavBar() {
     return (
         <div className="NavBar">
-            <NavButton label="Home" route="/" />
-            <NavButton label="MRT/LRT" route="/mrt-lrt" />
-            <NavButton label="Statistics" route="/statistics" />
-            <NavButton label="Notifications" route="/notifications" />
-            <NavButton label="Help" route="/help" />
-            <NavButton label="About Us" route="/about-us" />
+            <Logo/>
+            <Hamburger/>
         </div>
     );
 }
-
-
-export default memo(NavBar);
+export default NavBar;

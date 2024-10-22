@@ -13,6 +13,10 @@
   }
 }
 
+.content {
+  padding-top: 80px;  /* Adjust this value according to your navbar height */
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
