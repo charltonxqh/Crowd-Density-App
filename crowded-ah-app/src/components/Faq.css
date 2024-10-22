@@ -1,12 +1,20 @@
 /* General FAQ container styling */
 .faq-container {
-    width: 60%;
+    width: 70%;                     
+    max-width: 800px;               
+    min-height: 620px;             
     margin: 20px auto;
     padding: 20px;
-    background-color: #f0f4ff; /* Light blue background similar to image */
+    background-color: #f5f5f5;  
     border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); 
     font-family: 'Arial', sans-serif;
+}
+
+.faq-container h1 {
+    color: black;                  
+    margin-bottom: 20px;            
+    text-align: center;
 }
 
 /* Search bar styling */
@@ -20,19 +28,28 @@
     box-sizing: border-box;
 }
 
-/* FAQ item styling */
+.faq-items {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 10px;         /* Add padding inside the scrollable area */
+    max-height: 400px;     /* Ensure the FAQ list remains scrollable if needed */
+    overflow-y: auto;      /* Add a scrollbar for overflow */
+    margin: 0;             /* Remove default margin */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width/height */
+}
+
 .faq-item {
-    margin-bottom: 20px;
     background-color: white;
-    padding: 15px;
+    margin-bottom: 20px;
+    padding: 20px;         /* Add padding inside each FAQ item */
     border-radius: 8px;
-    border-left: 5px solid #4A90E2; /* Blue accent border */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .faq-item h3 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .faq-item p {
@@ -41,9 +58,19 @@
     color: #333;
 }
 
-/* FAQ container width on smaller screens */
+
+.no-results {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: red; /* Red text for the no results message */
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* Apply the desired font */
+    font-weight: bold; /* Optional: Make the text bold for emphasis */
+}
+
+
 @media (max-width: 768px) {
     .faq-container {
-        width: 90%;
+        width: 90%;                  
     }
 }

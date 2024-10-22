@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Logo from '../components/Logo'
 import Hamburger from '../components/Hamburger';
-import './index.css'; // CSS for the NavBar
+import './NavBar.css'; 
 
 
 function NavBar() {
     return (
-        <div className="NavBar">
+        <div className="nav-bar">
             <Logo/>
             <Hamburger/>
         </div>

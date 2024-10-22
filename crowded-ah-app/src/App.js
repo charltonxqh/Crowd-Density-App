@@ -1,5 +1,6 @@
 import './App.css';
-import NavBar from './NavBar';
+import NavBar from './NavBar/NavBar';
+import PageIdentifierHeader from './components/PageIdentifierHeader';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import HomeUI from './HomeUI/home'
@@ -15,6 +16,7 @@ function App() {
     <Router>
       <div>
         <NavBar/>
+        <PageIdentifierHeader/>
         <div className = "content">
         <Routes>
           <Route exact path="/" element={<HomeUI />} />

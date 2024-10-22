@@ -3,9 +3,7 @@ import './styles.css'; // Assuming you will store the CSS in this file
 
 const StatisticsUI = () => {
     return (
-        <div className="statistics-page">
-            <h1 className="title">Statistics</h1>
-            
+        <div className="statistics-page">            
             <div className="graph-section">
                 <h2 className="subtitle">Periodic statistical analysis of crowd density data</h2>
                 <div className="graph-container">
