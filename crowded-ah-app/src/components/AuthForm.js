@@ -8,6 +8,7 @@ const AuthForm = ({ mode, onSubmit }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const isSignup = mode === 'signup';
+    const isLogin = mode === 'login';
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,51 +17,59 @@ const AuthForm = ({ mode, onSubmit }) => {
 
     return (
         <div className="auth-form">
-            <h2>{isSignup ? 'Sign Up' : 'Login'}</h2>
             <form onSubmit={handleSubmit}>
                 {isSignup && (
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                )}
-                <div className="input-container">
-                        <img src='/images/email.png' alt="Email Icon" className="input-icon" />
+                    <div className="input-container">
+                        <img src='/images/username.png' alt="Username Icon" className="input-icon" />
                         <input
-                            type="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             required
                         />
+                    </div>
+                )}
+                <div className="input-container">
+                    <img src='/images/email.png' alt="Email Icon" className="input-icon" />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
                 </div>
                 <div className="input-container">
+                    <img src='/images/password.png' alt="Password Icon" className="input-icon" />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+
+                {isSignup && (
+                    <div className="input-container">
                         <img src='/images/password.png' alt="Password Icon" className="input-icon" />
                         <input
                             type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Confirm Password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
-                </div>
-
-                <p className="forgot-password">
-                        Forgot password?
-                </p>
-
-                {isSignup && (
-                    <input
-                        type="password"
-                        placeholder="Confirm Password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required
-                    />
+                    </div>
                 )}
+
+                {isLogin && (
+                    <p className="forgot-password">
+                        Forgot password?
+                    </p>
+                )}
+                
                 <button type="submit">{isSignup ? 'Sign Up' : 'Login'}</button>
             </form>
             
