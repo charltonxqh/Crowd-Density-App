@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './AuthForm.css';
 
 const AuthForm = ({ mode, onSubmit }) => {
@@ -9,10 +10,20 @@ const AuthForm = ({ mode, onSubmit }) => {
 
     const isSignup = mode === 'signup';
     const isLogin = mode === 'login';
+    const navigate = useNavigate(); // Get the navigate function
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit({ email, password, username, confirmPassword });
+        try {
+            await onSubmit({ email, password, username, confirmPassword });
+            if (isLogin) {
+                // Redirect to home page after successful login
+                navigate('/'); // Use navigate to redirect
+            }
+        } catch (error) {
+            console.error("Error logging in:", error);
+            // Handle error (e.g., show a notification)
+        }
     };
 
     return (
@@ -72,7 +83,6 @@ const AuthForm = ({ mode, onSubmit }) => {
                 
                 <button className="button-submit" type="submit">{isSignup ? 'Sign Up' : 'Login'}</button>
             </form>
-            
         </div>
     );
 };

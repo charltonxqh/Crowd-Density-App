@@ -1,16 +1,23 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth"; // Import getAuth
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCYigGKAMVVTTtC6E_2nn0OniNuETkXAW8",
+  authDomain: "crowded-ah-firestore.firebaseapp.com",
+  databaseURL: "https://crowded-ah-firestore-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "crowded-ah-firestore",
+  storageBucket: "crowded-ah-firestore.appspot.com",
+  messagingSenderId: "612812453338",
+  appId: "1:612812453338:web:0b378eef31269d62037ce3",
+  measurementId: "G-4DHMD2CQF4"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const analytics = getAnalytics(app);
+const auth = getAuth(app); // Initialize the Auth object
 
 export { auth };
