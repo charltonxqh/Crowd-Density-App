@@ -4,7 +4,7 @@ import PageIdentifierHeader from './components/PageIdentifierHeader';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import HomeUI from './HomeUI/home'
-import AuthForm from './AuthUI/index'
+import AuthForm from './AuthUI/Authentication'
 import Stations from './StationsUI/Stations'
 import StatisticsUI from './StatisticsUI'
 import NotificationsUI from './NotificationsUI'

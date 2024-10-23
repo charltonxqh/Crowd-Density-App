@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AuthForm from '../components/AuthForm';
 import '../components/AuthForm.css';
-import './LoginSignup.css'
+import './Authentication.css'
 
 const LoginSignup = () => {
     const [mode, setMode] = useState('login');  // Manage the mode (login or signup)
