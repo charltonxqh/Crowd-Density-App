@@ -5,8 +5,7 @@ import './About_us_styles.css';
 const Page1 = () =>  {
     return (
       <SwipePage nextPage="/about-us/page2" prevPage="/about-us/page4">
-        <div className="app-container">  
-          {/*Number Section*/}
+        <div className="app-container">   
           <header className = "number">
             <h1>01</h1>
           </header>
@@ -39,9 +38,8 @@ const Page1 = () =>  {
 
 const Page2 = () =>{
     return(
-      <SwipePage nextPage="/about-us/page3" prevPage="/about-us">
+      <SwipePage nextPage="/about-us/page3" prevPage="/about-us"> 
         <div className="app-container">
-          {/*Number Section*/}
           <header className = "number">
             <h1>02</h1>
           </header>
@@ -83,7 +81,6 @@ const Page3 = () =>{
     return(
       <SwipePage nextPage="/about-us/page4" prevPage="/about-us/page2">
         <div className="app-container">
-          {/*Number Section*/}
           <header className = "number">
             <h1>03</h1>
           </header>
@@ -96,9 +93,9 @@ const Page3 = () =>{
               <p>Your feedback has been instrumental in shaping our app, and we’re committed to listening to you as we grow.</p>
               {/* Slider Dots */}
               <div className="dots">
+                <span className="dot"></span>
+                <span className="dot"></span>
                 <span className="dot active"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
                 <span className="dot"></span>
               </div>
             </div>
@@ -117,11 +114,10 @@ const Page4 = () =>{
     return(
       <SwipePage nextPage="/about-us" prevPage="/about-us/page3">
         <div className="app-container">
-          {/*Number Section*/}
           <header className = "number">
             <h1>04</h1>
           </header>
-    
+
           {/* Purpose n mission */}
           <section className="Content">
             <div className="content-box">
@@ -134,7 +130,7 @@ const Page4 = () =>{
                 <span className="dot active"></span>
                 <span className="dot"></span>
                 <span className="dot"></span>
-                <span className="dot"></span>
+                <span className="dot active"></span>
               </div>
             </div>
           </section>

@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .swipe-container {
     width: 100vw;
     height: 100vh;
@@ -18,16 +19,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 88vh;
+    height: 100vh;
 }
 
 .number h1{
-    font-size: 150px;
+    font-size: 10vw;
     color: #3F72AF;
     text-align: right;
     opacity: 0.7;
     position: absolute;
-    top: 150px; /* Move it downwards */
+    top: 15vh; /* Move it downwards */
     right: 20px; /* Adjust position */
     z-index: 1; 
 }
@@ -35,23 +36,21 @@ body {
 .content-box {
     background-color: #FAFCFF;
     border-radius: 10px;
-    padding: 40px;
-    position: absolute;
-    top: 300px;
+    padding: 4vw;
+    position: relative;
     width: 100%; 
+    
 }
 
 .content-box h3 {
-    font-size: 45px;
+    font-size: 3vw;
     color: #0066cc;
     margin-bottom: 10px;
-    text-align: left;
-    position: relative;
-    top: 0px;
+    text-align: left; 
 }
 
 .content-box p {
-    font-size: 25px;
+    font-size: 2vw;
     color: #333;
     margin-bottom: 15px;
     text-align: center;
@@ -64,8 +63,8 @@ body {
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 1vw;
+    height: 1vw;
     background-color: #979595;
     border-radius: 50%;
     margin: 0 5px;
@@ -77,7 +76,7 @@ body {
 
 /* Background Image */
 .image-section {
-    height: 300px;
+    height: 30vh;
     margin-bottom: -100px; 
 }
 
@@ -85,28 +84,5 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    margin-bottom: 0; /* Ensure no extra space below the image */
-    padding-bottom: -10px;
-    bottom: 10px;
     opacity: 0.8;
-}
-
-/* Bottom Navigation */
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: white;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-}
-
-.nav-item {
-    font-size: 14px;
-    color: #333;
-    text-decoration: none;
-    text-align: center;
-}
-
-.nav-item:hover {
-    color: #0066cc;
 }
