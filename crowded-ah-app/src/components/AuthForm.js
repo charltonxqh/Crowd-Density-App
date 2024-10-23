@@ -70,7 +70,7 @@ const AuthForm = ({ mode, onSubmit }) => {
                     </p>
                 )}
                 
-                <button type="submit">{isSignup ? 'Sign Up' : 'Login'}</button>
+                <button className="button-submit" type="submit">{isSignup ? 'Sign Up' : 'Login'}</button>
             </form>
             
         </div>

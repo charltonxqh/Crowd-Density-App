@@ -42,7 +42,7 @@ input:focus {
     outline: none; /* Remove default outline */
 }
 
-button {
+.button-submit{
     margin-top: 50px;
     width: 100%;
     background-color: #007bff; /* Primary button color */
