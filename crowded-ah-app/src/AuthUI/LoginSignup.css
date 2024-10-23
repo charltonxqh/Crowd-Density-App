@@ -13,7 +13,7 @@ body {
 }
 
 .logo-image {
-    width: 100px; /* Set desired width for the logo */
+    width: 150px; /* Set desired width for the logo */
     height: auto; /* Maintain aspect ratio */
     margin-right: 20px; /* Space between logo and text */
 }

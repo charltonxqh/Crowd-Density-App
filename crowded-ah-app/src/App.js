@@ -31,7 +31,7 @@ function App() {
               <Route path="page2" element={<Page2 />} />
               <Route path="page3" element={<Page3 />} />
               <Route path="page4" element={<Page4 />} />
-            </Route>
+          </Route>
           </Routes>
         </div>
       </div>
@@ -39,17 +39,3 @@ function App() {
   );
 }
 export default App;
-
-//code to test Login + Signup
-// import React from 'react';
-// import AuthForm from './components/AuthForm';
-
-// function App() {
-//     return (
-//         <div className="App">
-//             <AuthForm />
-//         </div>
-//     );
-// }
-
-// export default App;

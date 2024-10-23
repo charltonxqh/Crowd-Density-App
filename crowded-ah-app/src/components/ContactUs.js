@@ -9,7 +9,7 @@ const ContactUs = () => {
                 <div className="contact-item">
                     <img src="/images/mail.png" alt="Email" className="contact-icon" />
                     <div className="contact-item-content">
-                        <p>support@crowdedah.sg</p>
+                        <p>crowdedah@gmail.com</p>
                     </div>
                 </div>
                 <div className="contact-item">
