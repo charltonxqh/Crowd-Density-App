@@ -127,7 +127,7 @@ const Page4 = () =>{
               <p>Have a suggestion? We’d love to hear from you—reach out to us anytime!</p>
               {/* Slider Dots */}
               <div className="dots">
-                <span className="dot active"></span>
+                <span className="dot"></span>
                 <span className="dot"></span>
                 <span className="dot"></span>
                 <span className="dot active"></span>

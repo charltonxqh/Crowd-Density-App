@@ -14,17 +14,11 @@ const pageTitles = {
 
 const PageIdentifierHeader = () => {
     const location = useLocation();
-    const currentPath = location.pathname;
-
-    const currentPageTitleKey = Object.keys(pageTitles).find(key => 
-        currentPath === key || currentPath.startsWith(key + '/')
-    );
-
-    const currentPageTitle = currentPageTitleKey ? pageTitles[currentPageTitleKey] : 'Home';
-
+    const currentPageTitle = pageTitles[location.pathname];
     return (
         <div className="header-banner">
-            <h2>{currentPageTitle}</h2>           
+            <h2>{currentPageTitle}</h2>
+            
         </div>
     );
 };
