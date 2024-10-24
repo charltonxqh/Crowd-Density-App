@@ -1,63 +1,136 @@
-/* General styles for the notifications page */
+/* styles.css */
+
+/* General page styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
 .notifications-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    height: 100vh; /* Full height of the viewport */
-    text-align: center; /* Center text */
-    background-color: #e6f7ff; /* Optional: light background color for the page */
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-/* Style for the notification list */
-.notification-list {
-    margin-top: 20px; /* Space between image and notification list */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Style for individual notification items */
+/* Notification item styles */
 .notification-item {
-    background-color: white; /* White background for notifications */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin: 10px 0; /* Spacing between notifications */
-    padding: 10px; /* Padding inside the notification */
-    transition: background-color 0.2s; /* Transition effect on hover */
+    background-color: #f9f9f9;
+    border-left: 6px solid #4CAF50; /* Green border for regular notifications */
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
 .notification-item:hover {
-    background-color: #f1f1f1; /* Light grey on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Style for buttons within notifications */
+/* Pinned notification */
+.notification-item.pinned {
+    border-left-color: #FFD700; /* Gold border for pinned notifications */
+}
+
+/* Notification text styles */
+.notification-item p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Strong text for labels */
+.notification-item strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Notification buttons */
 .notification-buttons {
     display: flex;
-    justify-content: space-between; /* Space between buttons */
-    margin-top: 10px; /* Spacing above buttons */
+    justify-content: flex-end;
+    margin-top: 10px;
 }
 
 .notification-buttons button {
-    padding: 5px 10px; /* Padding for buttons */
-    border: none; /* Remove default border */
-    border-radius: 4px; /* Rounded button corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white; /* White text on buttons */
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
 }
 
-/* Button hover effects */
 .notification-buttons button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
-/* Style for deleted notification message */
+.notification-buttons button:focus {
+    outline: none;
+}
+
+/* Deleted message styles */
 .deleted-message {
-    color: red; /* Red text for deleted message */
-    margin: 10px 0; /* Spacing around deleted message */
+    background-color: #FF6F61;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive image style */
+/* Images for smooth commute and train disruption */
 img {
-    max-width: 100%; /* Make sure the image is responsive */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px 0; /* Add some margin around the image */
+    display: block;
+    margin: 0 auto;
+    width: 200px; /* Set a fixed width */
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the set area while maintaining aspect ratio */
+}
+
+/* Notification list container */
+.notification-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .notifications-page {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .notification-item {
+        padding: 15px;
+    }
+
+    .notification-buttons button {
+        padding: 8px 12px;
+    }
+
+    img {
+        width: 150px; /* Adjust the image size for smaller screens */
+        height: 150px;
+    }
 }

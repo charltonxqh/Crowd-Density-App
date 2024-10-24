@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-// Import the image from your assets folder
-import smoothCommuteImage from './trainsmile.png'; // Adjust the path accordingly
+// Import the images from your assets folder
+import smoothCommuteImage from './trainsmile.png'; // Image for status 1
+import disruptionImage from './sadtrain.png'; // New image for status 2
 
-function Notification({ message, id, onPin, onDelete, isPinned }) {
+function Notification({ line, direction, stations, message, id, onPin, onDelete, isPinned, status }) {
     return (
         <div className={`notification-item ${isPinned ? 'pinned' : ''}`}>
-            <p>{message}</p>
+            {status === 2 && (
+                <>
+                    <p><strong>Line:</strong> {line}</p>
+                    <p><strong>Direction:</strong> {direction}</p>
+                    <p><strong>Stations:</strong> {stations}</p>
+                </>
+            )}
+            <p><strong>Message:</strong> {message}</p>
             <div className="notification-buttons">
                 <button onClick={() => onPin(id)}>
                     {isPinned ? 'Unpin' : 'Pin'}
@@ -30,30 +38,42 @@ function NotificationsPage() {
                         'accept': 'application/json',
                     },
                 });
-
+        
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-
+        
                 const data = await response.json();
                 console.log(data);
-
+        
+                // Force Status to 2 for testing purposes
+                //data.value.Status = 2; // <-- Forcing Status to 2
+                data.value.Line = "NSL";
+                data.value.Direction = "Marina Bay";
+                data.value.Stations = "list of stations affected";
+                data.value.Message = "NSL – Train delay on North-South Line due to a power fault. Trains are delayed by 15 minutes.";
+        
                 if (data.value.Status === 1) {
                     const smoothCommuteNotification = {
                         id: 'smooth-commute',
+                        status: 1,
                         message: 'All train services are running smoothly. Have a safe commute.',
                         pinned: false,
                         originalIndex: 0
                     };
                     setNotifications([smoothCommuteNotification]);
-                } else if (data.value.AffectedSegments && data.value.AffectedSegments.length > 0) {
-                    const fetchedNotifications = data.value.AffectedSegments.map((segment, index) => ({
-                        id: segment.id || index,
-                        message: segment.Message || 'Train service alert',
+                } else if (data.value.Status === 2) {
+                    const affectedNotification = {
+                        id: 'disruption',
+                        status: 2,
+                        line: data.value.Line,
+                        direction: data.value.Direction,
+                        stations: data.value.Stations,
+                        message: data.value.Message,
                         pinned: false,
-                        originalIndex: index,
-                    }));
-                    setNotifications(fetchedNotifications);
+                        originalIndex: 0,
+                    };
+                    setNotifications([affectedNotification]);
                 } else {
                     setNotifications([]);
                 }
@@ -101,9 +121,12 @@ function NotificationsPage() {
                 <div className="deleted-message">{deletedMessage} has been deleted</div>
             )}
 
-            {/* Conditionally render image when status is 1 */}
+            {/* Conditionally render image based on the status */}
             {notifications.length === 1 && notifications[0].id === 'smooth-commute' && (
                 <img src={smoothCommuteImage} alt="Smooth Commute" />
+            )}
+            {notifications.length === 1 && notifications[0].id === 'disruption' && (
+                <img src={disruptionImage} alt="Train Disruption" />
             )}
 
             <div className="notification-list">
@@ -111,6 +134,10 @@ function NotificationsPage() {
                     <Notification
                         key={notif.id}
                         id={notif.id}
+                        status={notif.status}
+                        line={notif.line}
+                        direction={notif.direction}
+                        stations={notif.stations}
                         message={notif.message}
                         isPinned={notif.pinned}
                         onPin={handlePin}
