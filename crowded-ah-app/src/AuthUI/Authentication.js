@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AuthForm from '../components/AuthForm';
 import { useNavigate } from 'react-router-dom';
 import '../components/AuthForm.css';
-import './Authentication.css'
+import './Authentication.css';
 
 const LoginSignup = () => {
     const [mode, setMode] = useState('login');  // Manage the mode (login or signup)

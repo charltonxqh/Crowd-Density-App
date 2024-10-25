@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './AuthForm.css';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase.js';
 
 const AuthForm = ({ mode, onSubmit }) => {
     const [email, setEmail] = useState('');
@@ -15,14 +17,24 @@ const AuthForm = ({ mode, onSubmit }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await onSubmit({ email, password, username, confirmPassword });
-            if (isLogin) {
-                // Redirect to home page after successful login
-                navigate('/'); // Use navigate to redirect
+            if (isSignup) {
+                // Check if passwords match for signup
+                if (password !== confirmPassword) {
+                    throw new Error("Passwords do not match");
+                }
+                // Create user account
+                await createUserWithEmailAndPassword(auth, email, password);
+                console.log("User signed up successfully");
+                navigate('/');
+            } else if (isLogin) {
+                // Sign in existing user
+                await signInWithEmailAndPassword(auth, email, password);
+                console.log("User logged in successfully");
+                navigate('/');
             }
         } catch (error) {
-            console.error("Error logging in:", error);
-            // Handle error (e.g., show a notification)
+            console.error("Error:", error.message);
+            alert(`Error: ${error.message}`); // Display the error to the user
         }
     };
 
@@ -81,7 +93,9 @@ const AuthForm = ({ mode, onSubmit }) => {
                     </p>
                 )}
                 
-                <button className="button-submit" type="submit">{isSignup ? 'Sign Up' : 'Login'}</button>
+                <button className="button-submit" type="submit">
+                    {isSignup ? 'Sign Up' : 'Login'}
+                </button>
             </form>
         </div>
     );
