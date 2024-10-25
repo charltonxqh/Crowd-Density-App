@@ -1,3 +1,42 @@
+.page-container{
+  display: flex;              /* Use flexbox to create a horizontal layout */
+  height: 100vh;   
+  background-color: #EFF5FF;          
+}
+
+.MRTmap {
+  flex: 1;                  /* Takes up half the width */
+  padding: 20px;           /* Add some padding */
+}
+
+.MRTBox {
+  flex: 1;                  /* Takes up half the width */
+  padding: 20px;           /* Add some padding */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

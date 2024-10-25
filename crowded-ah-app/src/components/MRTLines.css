@@ -3,26 +3,87 @@
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #f0f0f0;
     border: 1px solid #ccc;
     text-align: left;
     font-size: 18px;
     cursor: pointer;
     margin-bottom: 5px;
+    color: #fff; /* Text color for contrast */
 }
 
 .mrt-line-button:hover {
-    background-color: #e0e0e0; /* Optional hover effect */
+    opacity: 0.8; /* Reduce opacity on hover */
+    background-color: #bebbbb;
 }
 
-  /* Style for the station list */
-.station-list {
-    list-style-type: none;  /* Remove default bullet points */
+.circle-line{
+    background-color: #FF9E18;
+}
+
+.downtown-line{
+    background-color: #005DA6;
+}
+
+.east-west-line{
+    background-color: #00953B;
+}
+
+.north-east-line{
+    background-color: #9E28B5;
+}
+
+.north-south-line{
+    background-color: #E1251B;
+}
+
+.thomson-east-coast-line{
+    background-color: #9D5918;
+}
+
+
+.mrt-station-list {
+    padding: 0;
+    font-size: 1.1rem;
+    max-height: 200px; 
+    overflow-y: auto;
+    list-style-type: none;  
     padding-left: 20px;
     margin-bottom: 10px;
 }
 
-.station-item {
-    margin-bottom: 5px;
+.mrt-station-item {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center; 
     font-size: 16px;
+    color: #fff;
 }
+
+.circle-line-dropdown, .circle-line-items{
+    background-color: #fdd092;
+}
+
+.downtown-line-dropdown, .downtown-line-items{
+    background-color: #5fade8;
+}
+
+
+.east-west-line-dropdown, .east-west-line-items{
+    background-color: #44d47e;
+}
+
+.north-east-line-dropdown, .north-east-line-items{
+    background-color: #d35dea;
+}
+
+.north-south-line-dropdown, .north-south-line-items{
+    background-color: #ea6d66;
+}
+
+.thomson-east-coast-line-dropdown, .thomson-east-coast-line-items{
+    background-color: #e39144;
+}
+
+

@@ -5,8 +5,9 @@ import MrtDropdown from '../components/MRTLines';
 
 const App = () => {
   return (
-    <div>
+    <div className="page-container">
       <div className = "MRTmap">
+        <img src="/images/smrt-map.png" alt="smrt map" className="MRTmap" />
 
       </div>
 
