@@ -96,7 +96,7 @@ h1 {
 }
 
 /* Images for smooth commute and train disruption */
-img {
+.img {
     display: block;
     margin: 0 auto;
     width: 200px; /* Set a fixed width */
