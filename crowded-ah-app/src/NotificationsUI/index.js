@@ -47,7 +47,7 @@ function NotificationsPage() {
                 console.log(data);
         
                 // Force Status to 2 for testing purposes
-                //data.value.Status = 2; // <-- Forcing Status to 2
+                data.value.Status = 2; // <-- Forcing Status to 2
                 data.value.Line = "NSL";
                 data.value.Direction = "Marina Bay";
                 data.value.Stations = "list of stations affected";
