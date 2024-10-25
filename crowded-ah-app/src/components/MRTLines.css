@@ -1,0 +1,28 @@
+/* MrtDropdown.css */
+.mrt-line-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.mrt-line-button:hover {
+    background-color: #e0e0e0; /* Optional hover effect */
+}
+
+  /* Style for the station list */
+.station-list {
+    list-style-type: none;  /* Remove default bullet points */
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.station-item {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
