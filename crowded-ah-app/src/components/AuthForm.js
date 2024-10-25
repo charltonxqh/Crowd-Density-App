@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../firebase.js';
 
 const AuthForm = ({ mode, onSubmit }) => {
@@ -35,6 +35,20 @@ const AuthForm = ({ mode, onSubmit }) => {
         } catch (error) {
             console.error("Error:", error.message);
             alert(`Error: ${error.message}`); // Display the error to the user
+        }
+    };
+
+    const handleForgotPassword = async () => {
+        if (!email) {
+            alert("Please enter your email address to reset your password.");
+            return;
+        }
+        try {
+            await sendPasswordResetEmail(auth, email);
+            alert("Password reset email sent! Please check your inbox.");
+        } catch (error) {
+            console.error("Error resetting password:", error.message);
+            alert(`Error: ${error.message}`);
         }
     };
 
@@ -88,7 +102,7 @@ const AuthForm = ({ mode, onSubmit }) => {
                 )}
 
                 {isLogin && (
-                    <p className="forgot-password">
+                    <p className="forgot-password" onClick={handleForgotPassword}>
                         Forgot password?
                     </p>
                 )}

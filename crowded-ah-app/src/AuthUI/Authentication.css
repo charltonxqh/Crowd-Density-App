@@ -29,6 +29,11 @@ body {
 .signup-link {
     text-decoration: underline;
     cursor: pointer;
+    transition: color 0.3s;
+}
+
+.signup-link:hover{
+    color: #0056b3;
 }
 
 .button-submit{
