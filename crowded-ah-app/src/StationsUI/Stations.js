@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import './Stations.css'; // Ensure you import your CSS file
 import MrtDropdown from '../components/MRTLines';
+import GoogleMap from '../components/Map';
 
 const App = () => {
   return (
     <div className="page-container">
       <div className = "MRTmap">
-        <img src="/images/smrt-map.png" alt="smrt map" className="MRTmap" />
+      <GoogleMap />
 
       </div>
 

@@ -5,7 +5,7 @@ import { APIProvider, Map } from '@vis.gl/react-google-maps';
 const App = () => (
   <APIProvider apiKey={'AIzaSyBVamnyuIq-K7dy7S5w8RTxctHc5Oafb6w'} onLoad={() => console.log('Maps API has loaded.')}>
     <div style={{ 
-    width: '30%', 
+    width: '100%', 
     height: '300px', 
     border: '2px solid white', 
     borderRadius: '25px',

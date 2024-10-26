@@ -1,18 +1,27 @@
 .page-container{
-  display: flex;              /* Use flexbox to create a horizontal layout */
-  height: 100vh;   
+  display: flex;
+  flex-direction: row; /* Arrange children side by side */
+  width: 100%;
+  height: 100vh;  
   background-color: #EFF5FF;          
 }
 
 .MRTmap {
-  flex: 1;                  /* Takes up half the width */
-  padding: 20px;           /* Add some padding */
+  flex: 1;                  /* Allows flexible growth within flex container */
+  padding: 0;               /* Remove padding if you want the map flush to the edges */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .MRTBox {
   flex: 1;                  /* Takes up half the width */
   padding: 20px;           /* Add some padding */
 }
+
 
 
 
