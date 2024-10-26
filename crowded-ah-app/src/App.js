@@ -2,7 +2,6 @@ import './App.css';
 import NavBar from './NavBar/NavBar';
 import PageIdentifierHeader from './components/PageIdentifierHeader';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import { useState } from 'react';
 
 import HomeUI from './HomeUI/home'
 import Authentication from './AuthUI/Authentication'
@@ -14,8 +13,6 @@ import AboutUsUI from './AboutUsUI/About_us_index'
 import { Page1, Page2, Page3, Page4 } from './AboutUsUI/About_us_pages'
 
 function App() {
-  const [isGuest, setIsGuest] = useState(true);
-
   return (
     <Router>
       <div>
