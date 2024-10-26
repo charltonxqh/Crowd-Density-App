@@ -1,9 +1,10 @@
 /* global google, map, infowindow */
 
 import React, { useEffect, useState } from 'react';
-import './NearbyStations.css';
+import './NearbyStationMap.css';
+import NearbyStationList from './NearbyStationList';
 
-const NearbyStations = () => {
+const NearbyStationMap = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [stations, setStations] = useState([]);
 
@@ -100,18 +101,10 @@ const NearbyStations = () => {
     <div>
       <div id="map" style={{ height: '300px', width: '100%' }}></div>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <div className="stations-list">
-        <h2>MRT near you:</h2>
-        <ul>
-          {stations.map((station, index) => (
-            <li key={index}>
-              <strong>{station.name}</strong> - {station.vicinity}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* Render the NearbyStationsList component and pass stations as a prop */}
+      <NearbyStationList stations={stations} />
     </div>
   );
 };
 
-export default NearbyStations;
+export default NearbyStationMap;
