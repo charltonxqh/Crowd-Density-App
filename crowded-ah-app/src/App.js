@@ -1,7 +1,9 @@
 import './App.css';
 import NavBar from './NavBar/NavBar';
+import TopBar from './components/TopBar';
 import PageIdentifierHeader from './components/PageIdentifierHeader';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { useState } from 'react';
 
 import HomeUI from './HomeUI/home'
 import AuthForm from './AuthUI/Authentication'
@@ -13,15 +15,18 @@ import AboutUsUI from './AboutUsUI/About_us_index'
 import { Page1, Page2, Page3, Page4 } from './AboutUsUI/About_us_pages'
 
 function App() {
+  const [isGuest, setIsGuest] = useState(true);
+
   return (
     <Router>
       <div>
+        <TopBar isGuest={isGuest}/>
         <NavBar/>
         <PageIdentifierHeader/>
         <div className = "content">
         <Routes>
-          <Route exact path="/" element={<HomeUI />} />
-          <Route exact path="/login" element={<AuthForm />} />
+          <Route exact path="/" element={<AuthForm setIsGuest={setIsGuest}/>} />
+          <Route exact path="/home" element={<HomeUI />} />
           <Route exact path="/stations" element={<Stations />} />
           <Route exact path="/statistics" element={<StatisticsUI />} />
           <Route exact path="/notifications" element={<NotificationsUI />} />

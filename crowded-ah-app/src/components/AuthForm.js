@@ -25,12 +25,12 @@ const AuthForm = ({ mode, onSubmit }) => {
                 // Create user account
                 await createUserWithEmailAndPassword(auth, email, password);
                 console.log("User signed up successfully");
-                navigate('/');
+                navigate('/home');
             } else if (isLogin) {
                 // Sign in existing user
                 await signInWithEmailAndPassword(auth, email, password);
                 console.log("User logged in successfully");
-                navigate('/');
+                navigate('/home');
             }
         } catch (error) {
             console.error("Error:", error.message);

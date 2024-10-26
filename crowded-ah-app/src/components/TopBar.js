@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TopBar.css';
 
-const TopBar = () => {
+const TopBar = ({ isGuest }) => {
   const [showLogout, setShowLogout] = useState(false);
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const TopBar = () => {
   // Handle logout and redirect to the login page
   const handleLogout = () => {
     // Perform any necessary cleanup, like removing authentication tokens
-    navigate('/login'); // Replace with your actual login route
+    navigate('/'); // Replace with your actual login route
   };
 
   return (
@@ -26,7 +26,7 @@ const TopBar = () => {
       />
       <div className="profile-icon">
         <img 
-          src="./images/profile_pic.png" 
+          src={isGuest ? './images/guest_pic.png' : './images/profile_pic.png'}  
           alt="Profile" 
           onClick={toggleLogout}
         />
