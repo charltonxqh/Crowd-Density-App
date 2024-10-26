@@ -1,30 +1,53 @@
-/* src/Stations.css */
-.mrt-page {
-    display: flex;
-  }
-  
-  .map-container {
-    width: 40%; /* Adjust width as necessary */
-    height: 360px;
-    border: 2px solid white;
-    margin: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0; /* Optional: background color */
-  }
-  
-  .menu-container {
-    width: 70%; /* Adjust width as necessary */
-    padding: 20px;
-    background-color: #fff; /* Optional: background color */
-  }
-  
-  .line-container {
-    margin: 10px 0;
-  }
-  
-  .station-info {
-    margin-top: 20px;
-  }
-  
+.page-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #EFF5FF;
+}
+
+.MRTmap {
+  flex: 1;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.view-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.view-buttons button {
+  flex: 1;
+  padding: 13px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.view-buttons .active {
+  background-color: #aca9a9;
+  color: #fff;
+}
+
+.view-content {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
