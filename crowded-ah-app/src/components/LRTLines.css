@@ -69,11 +69,11 @@
 
 .station-code {
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
 }
 
 .station-name {
-    font-style: italic;
+    font-style: normal;
     color: #000000;
     font-weight: bold;
 }

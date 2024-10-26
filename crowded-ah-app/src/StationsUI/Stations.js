@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div className="page-container">
       <div className = "MRTmap">
-        <GoogleMap />
+        <GoogleMap width="100%" />
 
       </div>
 
