@@ -1,12 +1,11 @@
 import './App.css';
 import NavBar from './NavBar/NavBar';
-import TopBar from './components/TopBar';
 import PageIdentifierHeader from './components/PageIdentifierHeader';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { useState } from 'react';
 
 import HomeUI from './HomeUI/home'
-import AuthForm from './AuthUI/Authentication'
+import Authentication from './AuthUI/Authentication'
 import Stations from './StationsUI/Stations'
 import StatisticsUI from './StatisticsUI'
 import NotificationsUI from './NotificationsUI'
@@ -20,12 +19,11 @@ function App() {
   return (
     <Router>
       <div>
-        <TopBar isGuest={isGuest}/>
         <NavBar/>
         <PageIdentifierHeader/>
         <div className = "content">
         <Routes>
-          <Route exact path="/" element={<AuthForm setIsGuest={setIsGuest}/>} />
+          <Route exact path="/" element={<Authentication />} />
           <Route exact path="/home" element={<HomeUI />} />
           <Route exact path="/stations" element={<Stations />} />
           <Route exact path="/statistics" element={<StatisticsUI />} />

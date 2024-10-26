@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // or 'next/router' for Next.js
+import { useNavigate } from 'react-router-dom';
+import './ProfileIcon.css';
 
 const ProfileIcon = () => {
     const [showLogout, setShowLogout] = useState(false);
@@ -14,16 +15,15 @@ const ProfileIcon = () => {
     const handleLogout = () => {
         // Perform any necessary cleanup, like removing authentication tokens
         // Then redirect to the login page
-        navigate.push('/login'); // Replace with your login page route
+        navigate('/'); // Replace with your login page route
     };
 
     return (
         <div className="profile-icon">
             <img
-                src="profile-pic.png"
+                src={'/images/profile_pic.png'}
                 alt="Profile"
                 onClick={toggleLogout}
-                style={{ cursor: 'pointer', width: '50px' }}
             />
             
             {showLogout && (

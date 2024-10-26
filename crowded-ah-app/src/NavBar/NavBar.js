@@ -8,7 +8,7 @@ function NavBar() {
     const location = useLocation();
     
     // Check if the current path is the authentication page
-    const isAuthPage = location.pathname === '/login';
+    const isAuthPage = location.pathname === '/';
 
     return (
         <div className="nav-bar">
