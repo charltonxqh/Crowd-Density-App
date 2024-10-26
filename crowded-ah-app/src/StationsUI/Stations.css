@@ -1,81 +1,53 @@
-.page-container{
+.page-container {
   display: flex;
-  flex-direction: row; /* Arrange children side by side */
+  flex-direction: row;
   width: 100%;
-  height: 100vh;  
-  background-color: #EFF5FF;          
+  background-color: #EFF5FF;
 }
 
 .MRTmap {
-  flex: 1;                  /* Allows flexible growth within flex container */
-  padding: 0;               /* Remove padding if you want the map flush to the edges */
+  flex: 1;
+  padding: 0;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
 }
 
-.MRTBox {
-  flex: 1;                  /* Takes up half the width */
-  padding: 20px;           /* Add some padding */
+.content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  margin-right: 20px;
 }
 
+.view-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
+.view-buttons button {
+  flex: 1;
+  padding: 13px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: bold;
+}
 
+.view-buttons .active {
+  background-color: #aca9a9;
+  color: #fff;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .mrt-page {
-    display: flex;
-  }
-  
-  .map-container {
-    width: 40%; 
-    height: 360px;
-    border: 2px solid white;
-    margin: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0; 
-  }
-  
-  .menu-container {
-    width: 70%; 
-    padding: 20px;
-    background-color: #fff; 
-  }
-  
-  .line-container {
-    margin: 10px 0;
-  }
-  
-  .station-info {
-    margin-top: 20px;
-  } */
+.view-content {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
