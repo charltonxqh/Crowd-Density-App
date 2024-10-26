@@ -8,7 +8,6 @@ const HomeUI = () => {
         <div>
             <TopBar />
             <NearbyStationMap />
-            <NearbyStationList />
         </div>
     )
 }

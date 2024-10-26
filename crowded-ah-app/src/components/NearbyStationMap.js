@@ -65,6 +65,7 @@ const NearbyStationMap = () => {
               service.nearbySearch(request, (results, status) => {
                 if (status === google.maps.places.PlacesServiceStatus.OK && results) {
                   setStations(results);
+                  getDistanceToStations(userLocation, results);
                   for (let i = 0; i < results.length; i++) {
                     createMarker(results[i], map);
                   }
@@ -96,6 +97,32 @@ const NearbyStationMap = () => {
       });
     }
   }, []);
+
+  function getDistanceToStations(userLocation, stations) {
+    const service = new google.maps.DistanceMatrixService();
+    const destinations = stations.map((station) => station.geometry.location);
+
+    service.getDistanceMatrix(
+      {
+        origins: [userLocation],
+        destinations: destinations,
+        travelMode: google.maps.TravelMode.WALKING,
+      },
+      (response, status) => {
+        if (status === google.maps.DistanceMatrixStatus.OK) {
+          console.log("Distance Matrix response:", response);
+          const results = response.rows[0].elements;
+          const updatedStations = stations.map((station, index) => ({
+            ...station,
+            distance: results[index].distance.text,
+          }));
+          setStations(updatedStations); // Update stations with distance and duration
+        } else {
+          console.error('Distance Matrix request failed due to ' + status);
+        }
+      }
+    );
+  }
 
   return (
     <div>

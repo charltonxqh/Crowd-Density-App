@@ -9,13 +9,13 @@ const NearbyStationList = ({ stations = [] }) => {
           <h2>MRT near you:</h2>
           <ul>
             {stations.map((station, index) => (
-              <li key={index}>
+              <li key={index} className="station-item">
                 <span className="station-code">{station.name}</span>
                 <div className="station-info">
                   <div className="station-name">{station.name}</div>
                   <div className="station-distance">
                     <span className="walking-icon">🚶</span>
-                    <span className="time-text">2 mins</span> {/* Replace with actual time */}
+                    <span className="distance-text">{station.distance}</span> {/* Replace with actual time */}
                   </div>
                   <div className="station-status">
                     <span className={`status-light`}></span> Light {/* Replace with actual status */}
