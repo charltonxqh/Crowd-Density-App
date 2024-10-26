@@ -13,8 +13,9 @@ const App = () => {
 
   return (
     <div className="page-container">
-      <div className="MRTmap">
+      <div className = "MRTmap">
         <GoogleMap />
+
       </div>
 
       <div className="content-container">
