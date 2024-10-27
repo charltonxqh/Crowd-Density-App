@@ -1,7 +1,50 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './ContactUs.css';
 
 const ContactUs = () => {
+    const form = useRef();
+    const [error, setError] = useState('');
+    const [isSent, setIsSent] = useState(false); // State to manage success pop-up
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        // Form validation
+        const name = form.current.user_name.value;
+        const email = form.current.user_email.value;
+        const subject = form.current.subject.value;
+        const message = form.current.message.value;
+
+        if (!name || !email || !subject || !message) {
+            setError('Please fill out all fields.');
+            return;
+        }
+
+        setError(''); // Clear any previous error message
+
+        emailjs
+            .sendForm('service_jnfw9ef', 'template_aylqgfr', form.current, {
+                publicKey: 'GIXDGeo-T3ZjwqMg7',
+            })
+            .then(
+                () => {
+                    console.log('SUCCESS!');
+                    setIsSent(true); // Show success pop-up
+                    form.current.reset(); // Clear form fields
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                    setError('Failed to send the message. Please try again.');
+                }
+            );
+    };
+
+    // Function to close the pop-up
+    const closePopup = () => {
+        setIsSent(false);
+    };
+
     return (
         <div className="contact-container">
             <div className="contact-details">
@@ -30,34 +73,37 @@ const ContactUs = () => {
             </div>
             <div className="contact-form-container">
                 <h1>Send a Message</h1>
-                <form className="contact-form">
+                <form className="contact-form" ref={form} onSubmit={sendEmail}>
+                    {error && <p className="error-message">{error}</p>} {/* Display error message if any */}
                     <label htmlFor="name">Name</label>
-                    <input type="text" id="name" placeholder="Your name..." />
-
+                    <input type="text" id="name" name="from_name" placeholder="Your name..." />
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" placeholder="Your email..." />
-
-                    <label htmlFor="subject">I have a question about...</label>
-                    <select id="subject">
+                    <input type="email" id="email" name="from_email" placeholder="Your email..." />
+                    <label htmlFor="subject">Subject</label>
+                    <select id="subject" name="subject">
                         <option value="">Select one...</option>
                         <option value="general">General Inquiry</option>
                         <option value="support">Support</option>
                         <option value="feedback">Feedback</option>
                     </select>
-
-                    <textarea 
-                        id="message" 
-                        rows="4" 
-                        placeholder="What can we help you with?"
-                    ></textarea>
-
-                    <button type="submit">Send</button>
+                    <label>Message</label>
+                    <textarea name="message" id="message" rows="4" placeholder="What can we help you with?" />
+                    <button type="submit" value="Send">Send</button>
                 </form>
             </div>
+
+            {/* Pop-up for success message */}
+            {isSent && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <p>Your message has been successfully sent!</p>
+                        <button onClick={closePopup}>Close</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
 
 export default ContactUs;
-
 

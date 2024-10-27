@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './About_us_styles.css';
+import './AboutUs.css';
 
 const SwipePage = ({ children, nextPage, prevPage }) => {
   const [startX, setStartX] = useState(0);
@@ -8,47 +8,60 @@ const SwipePage = ({ children, nextPage, prevPage }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Handle both touch and mouse events
+    // Handle touch start for swipe detection
     const handleTouchStart = (e) => {
       setStartX(e.touches ? e.touches[0].clientX : e.clientX);
     };
 
+    // Handle touch move for swipe detection
     const handleTouchMove = (e) => {
       setEndX(e.touches ? e.touches[0].clientX : e.clientX);
     };
 
+    // Handle touch end to determine swipe direction
     const handleTouchEnd = () => {
-        if (startX - endX > 50) {
-            navigate(nextPage);  // Ensure that nextPage points to '/about-us/page2', etc.
-        } else if (endX - startX > 50) {
-            navigate(prevPage);  // Ensure that prevPage points to '/about-us/page4', etc.
-        }
+      if (startX - endX > 50) {
+        navigate(nextPage); // Swiped left, navigate to next page
+      } else if (endX - startX > 50) {
+        navigate(prevPage); // Swiped right, navigate to previous page
+      }
     };
 
-    // Mouse event handlers for desktop
-    const handleMouseDown = (e) => {
-      setStartX(e.clientX);
+    // Handle click to navigate based on which half of the screen was clicked
+    const handleClick = (e) => {
+      const screenWidth = window.innerWidth;
+      const clickX = e.clientX;
+
+      if (clickX > screenWidth / 2) {
+        navigate(nextPage); // Right half clicked, navigate to next page
+      } else {
+        navigate(prevPage); // Left half clicked, navigate to previous page
+      }
     };
 
-    const handleMouseUp = (e) => {
-      setEndX(e.clientX);
-      handleTouchEnd(); // Call the same logic as touch end
+    // Handle keydown for left and right arrow keys
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        navigate(nextPage); // Right arrow key pressed, navigate to next page
+      } else if (e.key === 'ArrowLeft') {
+        navigate(prevPage); // Left arrow key pressed, navigate to previous page
+      }
     };
 
-    // Add event listeners for touch and mouse
+    // Add event listeners for touch, click, and keydown events
     document.addEventListener('touchstart', handleTouchStart);
     document.addEventListener('touchmove', handleTouchMove);
     document.addEventListener('touchend', handleTouchEnd);
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('click', handleClick);
+    document.addEventListener('keydown', handleKeyDown);
 
+    // Cleanup all listeners on component unmount
     return () => {
-      // Cleanup listeners
       document.removeEventListener('touchstart', handleTouchStart);
       document.removeEventListener('touchmove', handleTouchMove);
       document.removeEventListener('touchend', handleTouchEnd);
-      document.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('click', handleClick);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [startX, endX, navigate, nextPage, prevPage]);
 
@@ -56,4 +69,5 @@ const SwipePage = ({ children, nextPage, prevPage }) => {
 };
 
 export default SwipePage;
+
 
