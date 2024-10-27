@@ -90,17 +90,71 @@
 }
 
 .contact-form button {
+    width: 100%; /* Set the button to full width */
+    padding: 12px; /* Match padding with input fields */
     background-color: #1a73e8;
     color: white;
-    padding: 12px 24px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.2s, transform 0.2s;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
 }
 
 .contact-form button:hover {
     background-color: #165bb5;
     transform: translateY(-2px);
 }
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensures the popup appears above other content */
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.popup-content button {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.popup-content button:hover {
+    background-color: #165bb5;
+}
+
