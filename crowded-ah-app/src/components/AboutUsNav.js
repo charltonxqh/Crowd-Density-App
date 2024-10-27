@@ -1,7 +1,8 @@
 import '../AboutUsUI/AboutUs.css';
 
 export const Page1Dots = () => {
-  <div className="dots">
+  return(
+    <div className="dots">
     <span className="dot active"></span>
     <span className="dot"></span>
     <span className="dot"></span>
@@ -10,10 +11,12 @@ export const Page1Dots = () => {
     <span className="dot"></span>
     <span className="dot"></span>
   </div>
+  )
 }
 
 export const Page2Dots = () => {
-  <div className="dots">
+  return(
+    <div className="dots">
     <span className="dot"></span>
     <span className="dot active"></span>
     <span className="dot"></span>
@@ -22,10 +25,13 @@ export const Page2Dots = () => {
     <span className="dot"></span>
     <span className="dot"></span>
   </div>
+  )
+  
 }
 
 export const Page3Dots = () => {
-  <div className="dots">
+  return(
+    <div className="dots">
     <span className="dot"></span>
     <span className="dot"></span>
     <span className="dot active"></span>
@@ -34,11 +40,15 @@ export const Page3Dots = () => {
     <span className="dot"></span>
     <span className="dot"></span>
   </div>
+
+  )
+  
 }
 
 
 export const Page4Dots = () => {
-  <div className="dots">
+  return (
+    <div className="dots">
     <span className="dot"></span>
     <span className="dot"></span>
     <span className="dot"></span>
@@ -47,11 +57,15 @@ export const Page4Dots = () => {
     <span className="dot"></span>
     <span className="dot"></span>
   </div>
+
+  )
+  
 }
 
 
 export const Page5Dots = () => {
-  <div className="dots">
+  return(
+    <div className="dots">
     <span className="dot"></span>
     <span className="dot"></span>
     <span className="dot"></span>
@@ -60,11 +74,15 @@ export const Page5Dots = () => {
     <span className="dot"></span>
     <span className="dot"></span>
   </div>
+
+  )
+  
 }
 
 
 export const Page6Dots = () => {
-  <div className="dots">
+  return(
+    <div className="dots">
     <span className="dot"></span>
     <span className="dot"></span>
     <span className="dot"></span>
@@ -73,11 +91,15 @@ export const Page6Dots = () => {
     <span className="dot active"></span>
     <span className="dot"></span>
   </div>
+
+  )
+  
 }
 
 
 export const Page7Dots = () => {
-  <div className="dots">
+  return(
+    <div className="dots">
     <span className="dot"></span>
     <span className="dot"></span>
     <span className="dot"></span>
@@ -86,4 +108,7 @@ export const Page7Dots = () => {
     <span className="dot"></span>
     <span className="dot active"></span>
   </div>
+
+  )
+  
 }

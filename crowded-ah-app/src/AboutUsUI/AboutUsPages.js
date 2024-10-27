@@ -1,7 +1,7 @@
 import React from 'react';
 import SwipePage from './SwipePage';
 import './AboutUs.css';
-import {Page1Dots, Page2Dots, Page3Dots, Page4Dots, Page5Dots, Page6Dots, Page7Dots} from '../components/AboutUsNav'
+import { Page1Dots, Page2Dots, Page3Dots, Page4Dots, Page5Dots, Page6Dots, Page7Dots } from '../components/AboutUsNav';
 import AboutUsBottomImage from '../components/AboutUsBottomImage'
 
 
@@ -33,8 +33,6 @@ const Page2 = () =>{
           <header className = "number">
             <h1>02</h1>
           </header>
-    
-          {/* Purpose n mission */}
           <section className="Content">
             <div className="content-box">
               <h3>Background Story</h3>
@@ -57,8 +55,6 @@ const Page3 = () =>{
         <header className = "number">
           <h1>03</h1>
         </header>
-  
-        {/* Purpose n mission */}
         <section className="Content">
           <div className="content-box">
             <h3>Team Introduction</h3>
@@ -80,14 +76,12 @@ const Page4 = () =>{
         <header className = "number">
           <h1>04</h1>
         </header>
-  
-        {/* Purpose n mission */}
         <section className="Content">
           <div className="content-box">
             <h3>Key Features</h3>
             <p>Our app offers a suite of features designed to improve your commuting experience, including:</p>
             <p>Real-Time Crowd Levels: Know how crowded your MRT station is before you arrive.</p>
-            <p>Forecasted Crowd Levels: Plan ahead with predictions based on historical data and current trends.</p>
+            <p>Forecasted Crowd Levels: Plan ahead with predictions based on historical current data.</p>
             <p>Train Arrival Timings: Never miss a train with up-to-the-minute arrival times.</p>
             <p>Manual Updates for Special Events: Stay informed during special events like concerts or parades, where stations may be exceptionally crowded.</p> 
             <Page4Dots/>
