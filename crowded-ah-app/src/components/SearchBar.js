@@ -32,6 +32,10 @@ const SearchBar = () => {
         setSuggestions([]);
       }
     };
+
+    const clearSearch = () => {
+      setQuery('');
+    };
   
     useEffect(() => {
       document.addEventListener('click', handleClickOutside);
@@ -40,13 +44,17 @@ const SearchBar = () => {
   
     return (
       <div className="search-container">
+        <div className="search-bar">
+        <button className="icon magnifying-glass" onClick={() => console.log(query)}>🔍</button>
         <input
           type="text"
           value={query}
           onChange={handleInputChange}
-          placeholder="Search station..."
+          placeholder="Search for a station..."
           className="search-input"
         />
+         <button className="icon trash-bin" onClick={clearSearch}>🗑️</button>
+         </div>
         {suggestions.length > 0 && (
           <div className="suggestions-box">
             {suggestions.map((station) => (
