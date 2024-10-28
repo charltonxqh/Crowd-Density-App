@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { fetchTrainLineData, TRAIN_LINES } from './API.js';
+import { fetchTrainLineData, TRAIN_LINES } from './API.mjs';
 const app = express();
 const PORT = 4000;
 
