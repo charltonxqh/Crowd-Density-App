@@ -15,39 +15,3 @@
   font-size: 16px;
   margin-right: 10px;
 }
-
-.profile-icon {
-  position: relative;
-}
-
-.profile-icon img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.logout-popup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50px; /* Adjust based on your layout */
-  right: 0;
-  padding: 10px;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-}
-
-.logout-button {
-  background-color: red;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-}

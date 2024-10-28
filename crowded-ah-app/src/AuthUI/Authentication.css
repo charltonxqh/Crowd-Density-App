@@ -29,4 +29,27 @@ body {
 .signup-link {
     text-decoration: underline;
     cursor: pointer;
+    transition: color 0.3s;
+}
+
+.signup-link:hover{
+    color: #0056b3;
+}
+
+.button-submit{
+    margin-top: 50px;
+    max-width: 400px;
+    background-color: #007bff; /* Primary button color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 30px; /* Rounded corners for button */
+    padding: 10px; /* Padding inside button */
+    font-size: 25px; /* Button text size */
+    font-weight: bold;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition for hover effect */
+
+    display: block;
+    margin: 50px auto 50px auto;
+    text-align: center;
 }

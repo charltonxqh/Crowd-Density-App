@@ -83,5 +83,11 @@ p a:hover {
     color: blue;
     cursor: pointer;
     text-align: right;
-    font-size: 14px; /* Adjust font size as needed */
+    font-size: 14px;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #0056b3;
 }
