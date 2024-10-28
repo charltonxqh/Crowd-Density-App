@@ -1,34 +1,30 @@
-/* General page styling */
+/* General Page Styling */
 .statistics-page {
     padding: 20px;
     font-family: Arial, sans-serif;
     background-color: #f5f7fa;
+    color: #333;
 }
 
-.title {
-    font-size: 2rem;
+/* Title and Section Styling */
+h2.subtitle {
+    font-size: 1.5rem;
     color: #003366;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .graph-section {
-    background-color: #e0f0ff;
+    background-color: #e0f7fa;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
 }
 
-.subtitle {
-    font-size: 1.25rem;
-    color: #003366;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
 .graph-container {
-    background-color: #fff;
-    border: 2px solid #b0c4de;
+    background-color: #ffffff;
+    border: 1px solid #b0bec5;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
@@ -40,49 +36,72 @@
     gap: 10px;
 }
 
-/* Scrollable list styling */
+.download-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00796b;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #004d40;
+}
+
+/* Crowded Stations Section */
 .crowded-stations-section {
-    background-color: #e0f0ff;
+    background-color: #e0f7fa;
     padding: 20px;
-    border-radius: 10px;
-    /* Ensure this section has its own layout */
-    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .station-list {
     list-style-type: none;
     padding: 0;
-    font-size: 1.1rem;
-    /* Set a max height for scrollable content */
-    max-height: 200px; /* Adjust this to suit your design */
-    overflow-y: auto; /* Enables vertical scrolling */
+    margin: 0;
 }
 
 .station-item {
+    background-color: #ffffff;
+    padding: 15px;
     margin: 10px 0;
-    padding: 10px;
-    background-color: white;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 1px solid #b0bec5;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
 .station-code {
     font-weight: bold;
+    color: #006064;
+    background-color: #b2ebf2;
     padding: 5px 10px;
-    margin-right: 10px;
     border-radius: 5px;
-    color: white;
 }
 
-.green {
-    background-color: #00b300;
+.station-item strong {
+    color: #04312a;
 }
 
-.red {
-    background-color: #ff3333;
-}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .download-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
 
-.purple {
-    background-color: #9933ff;
+    .station-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .station-code {
+        margin-bottom: 10px;
+    }
 }

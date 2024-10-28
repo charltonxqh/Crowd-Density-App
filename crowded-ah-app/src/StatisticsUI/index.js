@@ -1,7 +1,18 @@
-import React from "react";
-import './styles.css'; // Assuming you will store the CSS in this file
+import React, { useEffect, useState } from "react";
+import './styles.css';
+import sortedTrainData from './sortedTrainData.json'; // Import JSON file directly
 
 const StatisticsUI = () => {
+    const [stations, setStations] = useState([]);
+
+    useEffect(() => {
+        // Sort stations based on total volume in descending order
+        const sortedStations = sortedTrainData.sort((a, b) => b.total_volume - a.total_volume);
+        // Get top 10 most crowded stations
+        const topStations = sortedStations.slice(0, 10);
+        setStations(topStations);
+    }, []);
+
     return (
         <div className="statistics-page">            
             <div className="graph-section">
@@ -18,13 +29,19 @@ const StatisticsUI = () => {
             </div>
 
             <div className="crowded-stations-section">
-                <h2 className="subtitle">MOST Crowded Stations (2024 Week 31)</h2>
+                <h2 className="subtitle">Top 10 Most Crowded Stations (Sorted by Total Volume)</h2>
                 <ul className="station-list">
-                    <li className="station-item">1. <span className="station-code green">EW25</span> Chinese Garden</li>
-                    <li className="station-item">2. <span className="station-code green">EW1</span> Pasir Ris</li>
-                    <li className="station-item">3. <span className="station-code red">NS7</span> Kranji</li>
-                    <li className="station-item">4. <span className="station-code red">NS2</span> Bukit Batok</li>
-                    <li className="station-item">5. <span className="station-code purple">NE1</span> HarbourFront</li>
+                    {stations.length > 0 ? (
+                        stations.map((station, index) => (
+                            <li key={index} className="station-item">
+                                {index + 1}. <span className="station-code">{station.station_code}</span>
+                                <br />
+                                <strong>Station:</strong> {station.station_code.toLocaleString()}
+                            </li>
+                        ))
+                    ) : (
+                        <li>Loading...</li>
+                    )}
                 </ul>
             </div>
         </div>

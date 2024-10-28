@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-// Import the images from your assets folder
 import smoothCommuteImage from './trainsmile.png'; // Image for status 1
 import disruptionImage from './sadtrain.png'; // New image for status 2
 
@@ -30,6 +29,8 @@ function NotificationsPage() {
     const [deletedMessage, setDeletedMessage] = useState('');
 
     useEffect(() => {
+
+
         const fetchNotifications = async () => {
             try {
                 const response = await fetch('/ltaodataservice/TrainServiceAlerts', {
@@ -38,21 +39,52 @@ function NotificationsPage() {
                         'accept': 'application/json',
                     },
                 });
-        
+
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-        
+
                 const data = await response.json();
                 console.log(data);
-        
+ 
                 // Force Status to 2 for testing purposes
-                data.value.Status = 2; // <-- Forcing Status to 2
-                data.value.Line = "NSL";
-                data.value.Direction = "Marina Bay";
-                data.value.Stations = "list of stations affected";
-                data.value.Message = "NSL – Train delay on North-South Line due to a power fault. Trains are delayed by 15 minutes.";
-        
+                //data.value.Status = 2;  // Assign status 2 to simulate disruption
+
+                // Mock multiple disruption cases
+                const disruptions = [
+                    {
+                        id: 'disruption-1',
+                        status: 2,
+                        line: "NSL",
+                        direction: "Marina Bay",
+                        stations: "Yishun to Marina Bay",
+                        message: "Train delay on North-South Line due to a power fault. Trains are delayed by 15 minutes.",
+                        pinned: false,
+                        originalIndex: 0
+                    },
+                    {
+                        id: 'disruption-2',
+                        status: 2,
+                        line: "EWL",
+                        direction: "Pasir Ris",
+                        stations: "Paya Lebar to Pasir Ris",
+                        message: "Train delay on East-West Line due to a track fault. Expect delays of up to 10 minutes.",
+                        pinned: false,
+                        originalIndex: 1
+                    },
+                    {
+                        id: 'disruption-3',
+                        status: 2,
+                        line: "CCL",
+                        direction: "HarbourFront",
+                        stations: "Kent Ridge to HarbourFront",
+                        message: "Service disruption on Circle Line due to signaling issues. Trains delayed by 20 minutes.",
+                        pinned: false,
+                        originalIndex: 2
+                    }
+                ];
+
+                // Check the current status for smooth commute or disruption
                 if (data.value.Status === 1) {
                     const smoothCommuteNotification = {
                         id: 'smooth-commute',
@@ -63,17 +95,7 @@ function NotificationsPage() {
                     };
                     setNotifications([smoothCommuteNotification]);
                 } else if (data.value.Status === 2) {
-                    const affectedNotification = {
-                        id: 'disruption',
-                        status: 2,
-                        line: data.value.Line,
-                        direction: data.value.Direction,
-                        stations: data.value.Stations,
-                        message: data.value.Message,
-                        pinned: false,
-                        originalIndex: 0,
-                    };
-                    setNotifications([affectedNotification]);
+                    setNotifications(disruptions); // Add multiple disruptions to the state
                 } else {
                     setNotifications([]);
                 }
@@ -125,7 +147,7 @@ function NotificationsPage() {
             {notifications.length === 1 && notifications[0].id === 'smooth-commute' && (
                 <img src={smoothCommuteImage} alt="Smooth Commute" />
             )}
-            {notifications.length === 1 && notifications[0].id === 'disruption' && (
+            {notifications.some(notif => notif.status === 2) && (
                 <img src={disruptionImage} alt="Train Disruption" />
             )}
 
