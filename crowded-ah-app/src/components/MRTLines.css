@@ -80,12 +80,12 @@
 
 .station-code {
     font-weight: bold;
-    color: #ffffff;
+    color: white;
 }
 
 .station-name {
     font-style: normal;
-    color: #000000;
+    color: white;
     font-weight: bold;
 }
 
@@ -148,6 +148,25 @@
     border-radius:4px; 
     margin-right: 5px;  
 } 
+
+.crowd-density-dot {
+    display: inline-block;
+    width: 10px; /* Adjust size as needed */
+    height: 10px; /* Adjust size as needed */
+    border-radius: 50%; /* Make it circular */
+    margin-left: 8px; /* Space between button and dot */
+  }  
+.crowd-density-dot.low {
+background-color: green; /* Low crowd density */
+}
+
+.crowd-density-dot.moderate {
+background-color: yellow; /* Moderate crowd density */
+}
+
+.crowd-density-dot.high {
+background-color: red; /* High crowd density */
+}
 
 
 

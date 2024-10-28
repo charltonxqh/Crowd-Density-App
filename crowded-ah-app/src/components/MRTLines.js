@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import StationPopup from './StationPopup';
+//import { fetchCrowdDensity } from './API';
 import './MRTLines.css';
 
 const MRTLines = () => {
+
   const mrtLines = {
     'Circle Line': {code: 'CC',stations: [{ code: 'CC1', name: 'Marina Bay' },{ code: 'CC2', name: 'Bayfront' },{ code: 'CC3', name: 'Dhoby Ghaut' },{ code: 'CC4', name: 'Bras Basah' },{ code: 'CC5', name: 'Esplanade' },{ code: 'CC6', name: 'Promenade' },{ code: 'CC7', name: 'Nicoll Highway' },{ code: 'CC8', name: 'Stadium' },{ code: 'CC9', name: 'Mountbatten' },{ code: 'CC10', name: 'Dakota' },{ code: 'CC11', name: 'Paya Lebar' },{ code: 'CC12', name: 'MacPherson' },{ code: 'CC13', name: 'Tai Seng' },{ code: 'CC14', name: 'Bartley' },{code: 'CC15', name: 'Serangoon' },{ code: 'CC16', name: 'Lorong Chuan' },{ code: 'CC17', name: 'Bishan' },{ code: 'CC18', name: 'Marymount' },{ code: 'CC19', name: 'Caldecott' },{ code: 'CC20', name: 'Botanic Gardens' },{ code: 'CC21', name: 'Farrer Road' },{ code: 'CC22', name: 'Holland Village' },{ code: 'CC23', name: 'Buona Vista' },{ code: 'CC24', name: 'one-north' },{ code: 'CC25', name: 'Kent Ridge' },{ code: 'CC26', name: 'Haw Par Villa' },{ code: 'CC27', name: 'Pasir Panjang' },{ code: 'CC28', name: 'Labrador Park' },{ code: 'CC29', name: 'Telok Blangah' },{ code: 'CC30', name: 'HarbourFront' }]},
     'Downtown Line': {code: 'DT',stations: [{ code: 'DT1', name: 'Bukit Panjang' },{ code: 'DT2', name: 'Cashew' },{ code: 'DT3', name: 'Hillview' },{ code: 'DT4', name: 'Beauty World' },{ code: 'DT5', name: 'King Albert Park' },{ code: 'DT6', name: 'Sixth Avenue' },{ code: 'DT7', name: 'Tan Kah Kee' },{ code: 'DT8', name: 'Botanic Gardens' },{ code: 'DT9', name: 'Stevens' },{ code: 'DT10', name: 'Newton' },{ code: 'DT11', name: 'Little India' },{ code: 'DT12', name: 'Rochor' },{ code: 'DT13', name: 'Bugis' },{ code: 'DT14', name: 'Promenade' },{ code: 'DT15', name: 'Bayfront' },{ code: 'DT16', name: 'Downtown' },{ code: 'DT17', name: 'Telok Ayer' },{ code: 'DT18', name: 'Chinatown' },{ code: 'DT19', name: 'Fort Canning' },{ code: 'DT20', name: 'Bencoolen' },{ code: 'DT21', name: 'Jalan Besar' },{ code: 'DT22', name: 'Bendemeer' },{ code: 'DT23', name: 'Geylang Bahru' },{ code: 'DT24', name: 'Mattar' },{ code: 'DT25', name: 'MacPherson' },{ code: 'DT26', name: 'Ubi' },{ code: 'DT27', name: 'Kaki Bukit' },{ code: 'DT28', name: 'Bedok North' },{ code: 'DT29', name: 'Bedok Reservoir' },{ code: 'DT30', name: 'Tampines West' },{ code: 'DT31', name: 'Tampines' },{ code: 'DT32', name: 'Tampines East' },{ code: 'DT33', name: 'Upper Changi' },{ code: 'DT34', name: 'Expo' }]},
@@ -18,12 +21,22 @@ const MRTLines = () => {
     'North East Line': { buttonClass: 'north-east-line', dropdownClass: 'north-east-line-dropdown', itemClass: 'north-east-line-items' },     
     'North-South Line': { buttonClass: 'north-south-line', dropdownClass: 'north-south-line-dropdown', itemClass: 'north-south-line-items' },   
     'Thomson-East Coast Line': { buttonClass: 'thomson-east-coast-line', dropdownClass: 'thomson-east-coast-line-dropdown', itemClass: 'thomson-east-coast-line-items' },
-  }
+  };
 
+  const [crowdData, setCrowdData] = useState([]);
   const [openLine, setOpenLine] = useState(null);
+  const [selectedStation, setSelectedStation] = useState(null);
 
   const handleToggle = (line) => {
-    setOpenLine(openLine === line ? null : line); // Toggle open state
+    setOpenLine(openLine === line ? null : line);
+  };
+
+  const handleStationClick = (station) => {
+    setSelectedStation(station);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedStation(null);
   };
 
   return (
@@ -40,22 +53,39 @@ const MRTLines = () => {
             </span> 
             {line}
           </button>
-          
           {/* Directly display list of MRT stations */}
         {openLine === line && (
           <ul className={`mrt-station-list ${lineClasses[line].dropdownClass}`}>
             {mrtLines[line].stations.map((station, index) => (
+
               <li key={index} className={`mrt-station-item ${lineClasses[line].itemClass}`}>
-                <span className={`station-code-box-${line.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <span className="station-code">{station.code}</span>
-                </span> 
+                <button
+                key={station.code}
+                className={`station-code-box-${line.toLowerCase().replace(/\s+/g, '-')}`}
+                onClick={() => handleStationClick(station)}>
+                <span className="station-code">{station.code}</span>
                 <span className="station-name">{station.name}</span>
+                </button> 
+                {
+                /* Crowd density indicator 
+                <span 
+                className={`crowd-density-indicator ${getCrowdInfo(station.code)}`}
+                title={getCrowdInfo(station.code)}/>
+                */
+                }
               </li>
+
           ))}
             </ul>
           )}
         </div>
       ))}
+        {selectedStation && (
+        <StationPopup
+          station={selectedStation}
+          onClose={handleClosePopup}
+        />
+      )}
     </div>
   );
 };
