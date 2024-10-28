@@ -149,26 +149,26 @@
     margin-right: 5px;  
 } 
 
-.crowd-density-dot {
+.crowd-density-indicator {
     display: inline-block;
-    width: 10px; /* Adjust size as needed */
-    height: 10px; /* Adjust size as needed */
-    border-radius: 50%; /* Make it circular */
-    margin-left: 8px; /* Space between button and dot */
-  }  
-.crowd-density-dot.low {
-background-color: green; /* Low crowd density */
+    width: 24px;
+    height: 24px; 
+    border-radius: 50%;
+    margin-left: 8px;
 }
-
-.crowd-density-dot.moderate {
-background-color: yellow; /* Moderate crowd density */
+  
+.crowd-density-indicator.l{
+background-color: limegreen; /* Low crowd density */
 }
-
-.crowd-density-dot.high {
-background-color: red; /* High crowd density */
+.crowd-density-indicator.m{
+background-color: gold; /* Moderate crowd density */
 }
-
-
+.crowd-density-indicator.h{
+background-color: coral; /* High crowd density */
+}
+.crowd-density-indicator.unknown{
+    background-color: gray; /* Unknown crowd density */
+}
 
 
 

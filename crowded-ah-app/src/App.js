@@ -2,7 +2,7 @@ import './App.css';
 import NavBar from './NavBar/NavBar';
 import PageIdentifierHeader from './components/PageIdentifierHeader';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-
+import React, { useState, useEffect } from 'react';
 import HomeUI from './HomeUI/home'
 import Authentication from './AuthUI/Authentication'
 import Stations from './StationsUI/Stations'
