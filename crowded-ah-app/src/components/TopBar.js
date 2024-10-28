@@ -1,15 +1,12 @@
 import ProfileIcon from './ProfileIcon';
 import './TopBar.css';
+import SearchBar from './SearchBar';
 
 const TopBar = () => {
 
   return (
     <div className="top-bar">
-      <input
-        type="text"
-        placeholder="Search for MRT Station"
-        className="search-bar"
-      />
+      <SearchBar/>
       <ProfileIcon/>
     </div>
   );
