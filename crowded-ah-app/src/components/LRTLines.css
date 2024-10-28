@@ -1,0 +1,88 @@
+/* LRTLines.css */
+.line-code-box {
+    display: inline-block; /* Ensures the box only takes up the width of the code */
+    background-color: #B7C2B7; /* Change this to any color you want */
+    color: rgb(0, 0, 0); /* Text color */
+    padding: 4px 8px; /* Adds some padding around the text */
+    border-radius: 4px; /* Rounds the corners of the box */
+    margin-right: 5px; /* Space between the code box and the line name */
+}
+
+.line-code {
+    font-weight: bold;
+    color: white;
+}
+
+.lrt-line-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 21px;
+    cursor: pointer;
+    color: #000000;
+    font-weight: bold;
+}
+
+.lrt-line-button:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+    background-color: #d4cdcd;
+}
+
+.bukit-panjang-line, .sengkang-line, .punggol-line{
+    background-color: #aca9a9;
+}
+
+.lrt-station-list {
+    padding: 0;
+    font-size: 1.1rem;
+    max-height: 350px; 
+    overflow-y: auto;
+    list-style-type: none;  
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.lrt-station-item {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center; 
+    font-size: 18px;
+    color: #fff;
+}
+
+.bukit-panjang-line-dropdown, .bukit-panjang-line-items{
+    background-color: #E3E3E3;
+}
+
+.sengkang-line-dropdown, .sengkang-line-items{
+    background-color: #E3E3E3;
+}
+
+
+.punggol-line-dropdown, .punggol-line-items{
+    background-color: #E3E3E3;
+}
+
+.station-code {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.station-name {
+    font-style: normal;
+    color: #000000;
+    font-weight: bold;
+}
+
+.station-code-box {
+    display: inline-block; /* Ensures the box only takes up the width of the code */
+    background-color: grey; /* Change this to any color you want */
+    color: white; /* Text color */
+    padding: 4px 4px; /* Adds some padding around the text */
+    border-radius: 4px; /* Rounds the corners of the box */
+    margin-right: 5px; /* Space between the code box and the name */
+}

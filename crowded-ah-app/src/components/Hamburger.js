@@ -33,7 +33,7 @@ function Hamburger() {
             </button>
             {isOpen && (
                 <div className="dropDownMenu">
-                    <NavButton label="Home" route="/" />
+                    <NavButton label="Home" route="/home" />
                     <NavButton label="Stations" route="/stations" />
                     <NavButton label="Statistics" route="/statistics" />
                     <NavButton label="Notifications" route="/notifications" />
