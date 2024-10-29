@@ -10,7 +10,7 @@ const NearbyStationList = ({ stations = [] }) => {
           <ul>
             {stations.map((station, index) => (
               <li key={index} className="station-item">
-                <span className="station-code">{station.name}</span>
+                <span className="Station-code">{station.name}</span>
                 <div className="station-info">
                   <div className="station-name">{station.name}</div>
                   <div className="station-distance">

@@ -30,7 +30,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .station-code {
+  .Station-code {
     background-color: #2e7d32; /* Default green background for the station code */
     color: white;
     font-weight: bold;
