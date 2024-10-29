@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGuest } from '../components/GuestContext';
 import './ProfileIcon.css';
 
 const ProfileIcon = () => {
     const [showLogout, setShowLogout] = useState(false);
     const navigate = useNavigate();
-    const { isGuest } = useGuest();
 
     // Toggle the visibility of the logout button
     const toggleLogout = () => {
@@ -23,7 +21,7 @@ const ProfileIcon = () => {
     return (
         <div className="profile-icon">
             <img
-                src={isGuest ? '/images/guest_pic.png' : '/images/profile_pic.png'}
+                src={'/images/profile_pic.png'}
                 alt="Profile"
                 onClick={toggleLogout}
             />
