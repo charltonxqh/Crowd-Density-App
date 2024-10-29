@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import AuthForm from '../components/AuthForm';
 import { useNavigate } from 'react-router-dom';
+import { useGuest } from '../components/GuestContext';
 import '../components/AuthForm.css';
 import './Authentication.css';
 
 const Authentication = () => {
     const [mode, setMode] = useState('login');  // Manage the mode (login or signup)
     const navigate = useNavigate();  // For redirection
+    const { setIsGuest } = useGuest();  // Access the guest context
 
     const handleSubmit = (formData) => {
         console.log('Form submitted:', formData);
     };
 
     const handleGuestContinue = () => {
+        setIsGuest(true);
         navigate('/home');  // Redirect to the home page as a guest
     };
 
