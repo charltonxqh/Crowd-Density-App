@@ -1,14 +1,12 @@
 import React from 'react';
 import TopBar from "../components/TopBar"
-import Map from "../components/Map"
-import MRTNearU from '../components/MRTNearU';
+import NearbyStationMap from '../components/NearbyStationMap';
 
 const HomeUI = () => {
     return (
         <div>
             <TopBar />
-            <Map />
-            <MRTNearU />
+            <NearbyStationMap />
         </div>
     )
 }

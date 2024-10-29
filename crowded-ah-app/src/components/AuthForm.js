@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useGuest } from '../components/GuestContext';
 import './AuthForm.css';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../firebase.js';
@@ -13,10 +14,17 @@ const AuthForm = ({ mode, onSubmit }) => {
     const isSignup = mode === 'signup';
     const isLogin = mode === 'login';
     const navigate = useNavigate(); // Get the navigate function
+    const { setIsGuest } = useGuest();  // Access the guest context
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email format validation
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Check email format
+            if (!emailRegex.test(email)) {
+                throw new Error("Invalid email format");
+            }
+            
             if (isSignup) {
                 // Check if passwords match for signup
                 if (password !== confirmPassword) {
@@ -25,11 +33,13 @@ const AuthForm = ({ mode, onSubmit }) => {
                 // Create user account
                 await createUserWithEmailAndPassword(auth, email, password);
                 console.log("User signed up successfully");
+                setIsGuest(false);
                 navigate('/home');
             } else if (isLogin) {
                 // Sign in existing user
                 await signInWithEmailAndPassword(auth, email, password);
                 console.log("User logged in successfully");
+                setIsGuest(false);
                 navigate('/home');
             }
         } catch (error) {
