@@ -26,7 +26,7 @@ function App() {
           <Route exact path="/statistics" element={<StatisticsUI />} />
           <Route exact path="/notifications" element={<NotificationsUI />} />
           <Route exact path="/help" element={<HelpUI />} />
-          <Route exact path="/about-us" element={<AboutUsUI />}>
+          <Route path="/about-us" element={<AboutUsUI />}>
               <Route index element={<Page1 />} /> 
               <Route path="page2" element={<Page2 />} />
               <Route path="page3" element={<Page3 />} />
