@@ -43,7 +43,7 @@ async function fetchRealTimeData() {
 
 
 
-async function fetchAllTrainLinesData() {
+async function fetchForecastData() {
     const results = {};
     for (const trainLine of TRAIN_LINES) {
         const lineData = await fetchTrainLineData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', trainLine);

@@ -41,7 +41,7 @@ export async function fetchTrainServiceAlerts() {
     try {
         const response = await axios.get(url, {
             headers: {
-                'AccountKey': ACCOUNT_KEY,
+                'AccountKey': AccountKey,
                 'Accept': 'application/json'
             }
         });
