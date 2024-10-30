@@ -12,6 +12,7 @@ let storedData = {
     realTime: {},
     forecast: {}
 };
+let storedAlerts = {};         // Train service alerts data
 
 // Function to fetch real-time data
 async function fetchRealTimeData() {
@@ -39,9 +40,8 @@ async function fetchRealTimeData() {
 }
 
 // Function to fetch forecast data
-async function fetchForecastData() {
-let storedData = {};           // Train line data
-let storedAlerts = {};         // Train service alerts data
+
+
 
 async function fetchAllTrainLinesData() {
     const results = {};
