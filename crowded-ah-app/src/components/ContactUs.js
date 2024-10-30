@@ -9,20 +9,20 @@ const ContactUs = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-
-        // Form validation
-        const name = form.current.user_name.value;
-        const email = form.current.user_email.value;
+    
+        // Form validation with updated names
+        const name = form.current.from_name.value;
+        const email = form.current.from_email.value;
         const subject = form.current.subject.value;
         const message = form.current.message.value;
-
+    
         if (!name || !email || !subject || !message) {
             setError('Please fill out all fields.');
             return;
         }
-
+    
         setError(''); // Clear any previous error message
-
+    
         emailjs
             .sendForm('service_jnfw9ef', 'template_aylqgfr', form.current, {
                 publicKey: 'GIXDGeo-T3ZjwqMg7',
@@ -38,7 +38,7 @@ const ContactUs = () => {
                     setError('Failed to send the message. Please try again.');
                 }
             );
-    };
+    };    
 
     // Function to close the pop-up
     const closePopup = () => {

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AuthForm.css';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { useGuest } from '../components/GuestContext';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from 'firebase/auth';
 import { auth } from '../firebase.js';
+import './AuthForm.css';
 
 const AuthForm = ({ mode, onSubmit }) => {
     const [email, setEmail] = useState('');
@@ -13,23 +14,40 @@ const AuthForm = ({ mode, onSubmit }) => {
     const isSignup = mode === 'signup';
     const isLogin = mode === 'login';
     const navigate = useNavigate(); // Get the navigate function
+    const { setIsGuest } = useGuest();  // Access the guest context
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email format validation
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Check email format
+            if (!emailRegex.test(email)) {
+                throw new Error("Invalid email format");
+            }
+            
             if (isSignup) {
                 // Check if passwords match for signup
                 if (password !== confirmPassword) {
                     throw new Error("Passwords do not match");
                 }
                 // Create user account
-                await createUserWithEmailAndPassword(auth, email, password);
-                console.log("User signed up successfully");
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                await sendEmailVerification(user);
+                alert("Verification email sent to your email address! Please check your inbox. Click on the verification link to complete sign up process.");
+
+                setIsGuest(false);
                 navigate('/home');
             } else if (isLogin) {
-                // Sign in existing user
-                await signInWithEmailAndPassword(auth, email, password);
-                console.log("User logged in successfully");
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                if (!user.emailVerified) {
+                    throw new Error("Please verify your email address before logging in.");
+                }
+
+                setIsGuest(false);
                 navigate('/home');
             }
         } catch (error) {

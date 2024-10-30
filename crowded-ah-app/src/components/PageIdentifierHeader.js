@@ -4,7 +4,7 @@ import './PageIdentifierHeader.css';
 
 
 const pageTitles = {
-    '/': 'Home',
+    '/home': 'Home',
     '/stations': 'Stations',
     '/statistics': 'Statistics',
     '/notifications': 'Notifications',

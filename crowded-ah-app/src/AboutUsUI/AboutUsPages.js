@@ -6,6 +6,7 @@ import AboutUsBottomImage from '../components/AboutUsBottomImage'
 
 
 const Page1 = () =>  {
+  console.log("Rendering AboutUsUI at:", window.location.href);
     return (
       <SwipePage nextPage="/about-us/page2" prevPage="/about-us/page7">
         <div className="app-container">   

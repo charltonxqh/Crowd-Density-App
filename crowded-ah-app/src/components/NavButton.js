@@ -1,15 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './NavButton.css'
 
 const NavButton = ({label, route}) => {
+    console.log(`Navigating to: ${route}`);
     return(
-        <Link to = {route}>
+        <NavLink to = {route}>
             <button className = 'navButton'>
                 <img src = {`/images/${label}.png`} alt={label} />
                 <span>{label}</span>
             </button>
-        </Link>
+        </NavLink>
     );
 };
 

@@ -1,13 +1,12 @@
 import axios from "axios";
-const ACCOUNT_KEY = 'dfC6rhhiQWm0aCPj9Yxq0w==';
+const AccountKey = 'dfC6rhhiQWm0aCPj9Yxq0w==';
 export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
 
-export async function fetchTrainLineData(trainLine) {
-    const url = 'https://datamall2.mytransport.sg/ltaodataservice/PCDRealTime';
+export async function fetchTrainLineData(url, trainLine) {
     try {
         const response = await axios.get(url, {
             headers: {
-                'AccountKey': ACCOUNT_KEY,
+                'AccountKey': AccountKey,
                 'Accept': 'application/json'
             },
             params: {
@@ -27,12 +26,12 @@ export async function fetchTrainLineData(trainLine) {
         });
 
         return lineData;
+        
     } catch (error) {
-        console.error(`Error fetching data for ${trainLine}:`, error);
+        console.error(`Error fetching data from ${url} for ${trainLine}:`, error);
         return {
             TrainLine: trainLine,
             error: error.message
         };
     }
 }
-
