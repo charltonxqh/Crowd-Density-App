@@ -1,0 +1,59 @@
+{
+    "odata.metadata": "http://datamall2.mytransport.sg/ltaodataservice/$metadata#TrainServiceAlerts",
+    "status": 2,
+    "affectedSegments": [
+        {
+            "Line": "DTL",
+            "Direction": "Both",
+            "Stations": "DT5,DT6,DT7,DT8,DT9,DT10,DT11,DT12,DT13,DT14,DT15,DT16,DT17",
+            "FreePublicBus": "Free bus service island-wide",
+            "FreeMRTShuttle": "EW21|CC22,EW23,EW24|NS1,EW27|NS9,NS13,NS16,NS17|CC15,EWL|EW8|CC9,EW5,EW2|NS1|EW24,NS4|BP1",
+            "MRTShuttleDirection": "Both"
+        },
+        {
+            "Line": "EWL",
+            "Direction": "Both",
+            "Stations": "EW8,EW7,EW6,EW5,EW4,EW3,EW2,EW1",
+            "FreePublicBus": "EW8,EW7,EW6,EW5,EW4,EW3,EW2,EW1",
+            "FreeMRTShuttle": "EW21|CC22,EW23,EW24|NS1,EW27;NS9,NS13,NS16,NS17|CC15;EW8|CC9,EW5,EW2,NS1|EW24,NS4|BP1",
+            "MRTShuttleDirection": "Both"
+        },
+        {
+            "Line": "NSL",
+            "Direction": "Jurong East",
+            "Stations": "NS17,NS16,NS15,NS14,NS13,NS11,NS10,NS9",
+            "FreePublicBus": "",
+            "FreeMRTShuttle": "EW21|CC22,EW23,EW24|NS1,EW27;NS9,NS13,NS16,NS17|CC15;EW8|CC9,EW5,EW2,NS1|EW24,NS4|BP1",
+            "MRTShuttleDirection": "Both"
+        }
+    ],
+    "message": [
+        {
+            "Content": "1822hrs: DTL - No train service between Downtown and Beauty World stations in both direction due to signal fault. 1822hrs: EWL - Train service resumes. Free bus rides are still available island-wide.",
+            "CreatedDate": "2017-12-11 18:22:07"
+        },
+        {
+            "Content": "1818hrs: DTL - No train service between Downtown and Beauty World stations in both direction due to signal fault. 1818hrs: EWL - Additional travelling time of 30 minutes between Paya Lebar and Pasir Ris stations due to a train fault at Paya Lebar station. 1818hrs: NSL - No train service between Bishan and Woodlands stations towards Jurong East station due to a signal fault. Free bus rides are available island-wide.",
+            "CreatedDate": "2017-12-11 18:18:40"
+        },
+        {
+            "Content": "1815hrs: DTL - No train service between Downtown and Beauty World stations in both direction due to signal fault. 1815hrs: EWL - Additional travelling time of 30 minutes between Paya Lebar and Pasir Ris stations due to a train fault at Paya Lebar station. 1815hrs: NSL - No train service between Bishan and Woodlands stations towards Jurong East station due to a signal fault. Free bus rides are available at designated bus stops.",
+            "CreatedDate": "2017-12-11 18:15:12"
+        },
+        {
+            "Content": "1811hrs: EWL - Additional travelling time of 30 minutes between Paya Lebar and Pasir Ris stations due to a train fault at Paya Lebar station. 1808hrs: NSL - No train service between Bishan and Woodlands stations towards Jurong East station due to a signal fault. Free bus rides are available at designated bus stops.",
+            "CreatedDate": "2017-12-11 18:12:06"
+        },
+        {
+            "Content": "1756hrs: NSL - No train service between Bishan and Woodlands stations towards Jurong East station due to a signal fault. Free bus shuttle are available at designated bus stops.",
+            "CreatedDate": "2017-12-11 17:56:50"
+        }
+    ]
+}
+
+
+
+
+
+
+

@@ -1,13 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import { fetchTrainLineData, TRAIN_LINES } from './API.mjs';
+import { fetchTrainLineData, TRAIN_LINES, fetchTrainServiceAlerts } from './API.mjs';
+
 const app = express();
 const PORT = 4000;
 
 app.use(cors());
 app.use(express.json());
 
-let storedData = {};
+let storedData = {};           // Train line data
+let storedAlerts = {};         // Train service alerts data
 
 async function fetchAllTrainLinesData() {
     const results = {};
@@ -33,13 +35,29 @@ async function fetchAllTrainLinesData() {
     }
 }
 
+async function fetchAllTrainServiceAlerts() {
+    const alertData = await fetchTrainServiceAlerts();
+    storedAlerts = alertData;
+    console.log('Train service alert data updated');
+}
+
 // Schedule data fetching every 10 minutes
 setInterval(fetchAllTrainLinesData, 10 * 60 * 1000);
+// Schedule data fetching every 1 minutes
+setInterval(fetchAllTrainServiceAlerts,  60 * 1000);
+   
+// Initial fetch
 fetchAllTrainLinesData();
+fetchAllTrainServiceAlerts();
 
-// API route to get train data
+// API route to get train line data
 app.get('/api/train-data', (req, res) => {
     res.json(storedData);
+});
+
+// New API route to get train service alerts
+app.get('/api/train-alerts', (req, res) => {
+    res.json(storedAlerts);
 });
 
 app.listen(PORT, () => {

@@ -36,3 +36,45 @@ export async function fetchTrainLineData(trainLine) {
     }
 }
 
+export async function fetchTrainServiceAlerts() {
+    const url = 'https://datamall2.mytransport.sg/ltaodataservice/TrainServiceAlerts';
+    try {
+        const response = await axios.get(url, {
+            headers: {
+                'AccountKey': ACCOUNT_KEY,
+                'Accept': 'application/json'
+            }
+        });
+
+        const data = response.data.value;
+
+        // Check if there is a disruption
+        if (data.Status === 2) {
+            // Structure the alert data
+            const alertData = {
+                status: data.Status,
+                affectedSegments: data.AffectedSegments.map(segment => ({
+                    line: segment.Line,
+                    direction: segment.Direction,
+                    stations: segment.Stations,
+                    freePublicBus: segment.FreePublicBus,
+                    freeMRTShuttle: segment.FreeMRTShuttle,
+                    MRTShuttleDirection: segment.MRTShuttleDirection
+                })),
+                messages: data.Message.map(msg => ({
+                    content: msg.Content,
+                    createdDate: msg.CreatedDate
+                }))
+            };
+
+            return alertData;
+        } else {
+            // If no disruptions, return a smooth commute message
+            return { status: data.Status, message: 'All train services are running smoothly.' };
+        }
+    } catch (error) {
+        console.error('Error fetching train service alerts:', error);
+        return { error: error.message };
+    }
+}
+
