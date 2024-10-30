@@ -73,12 +73,6 @@ async function fetchAllTrainServiceAlerts() {
     console.log('Train service alert data updated');
 }
 
-async function fetchAllTrainServiceAlerts() {
-    const alertData = await fetchTrainServiceAlerts();
-    storedAlerts = alertData;
-    console.log('Train service alert data updated');
-}
-
 // Schedule real-time data fetching every 10 minutes
 setInterval(fetchRealTimeData, 10 * 60 * 1000);
 // Schedule data fetching every 1 minutes
