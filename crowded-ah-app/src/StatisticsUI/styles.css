@@ -4,59 +4,64 @@
     font-family: Arial, sans-serif;
     background-color: #f5f7fa;
     color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Title and Section Styling */
 h2.subtitle {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: #003366;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .graph-section {
     background-color: #e0f7fa;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
 }
 
 .graph-container {
     background-color: #ffffff;
-    border: 1px solid #b0bec5;
-    border-radius: 8px;
+    border: 2px solid #b0bec5;
+    border-radius: 10px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
+/* Download Buttons Styling */
 .download-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .download-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 12px 25px;
+    font-size: 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background-color: #00796b;
     color: white;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .download-btn:hover {
     background-color: #004d40;
+    transform: translateY(-3px);
 }
 
 /* Crowded Stations Section */
 .crowded-stations-section {
     background-color: #e0f7fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .station-list {
@@ -67,33 +72,40 @@ h2.subtitle {
 
 .station-item {
     background-color: #ffffff;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
     border: 1px solid #b0bec5;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.station-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .station-code {
     font-weight: bold;
     color: #006064;
     background-color: #b2ebf2;
-    padding: 5px 10px;
+    padding: 8px 15px;
     border-radius: 5px;
+    font-size: 1.1rem;
 }
 
 .station-item strong {
     color: #04312a;
+    font-size: 1.1rem;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .download-buttons {
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
     }
 
     .station-item {
@@ -102,6 +114,6 @@ h2.subtitle {
     }
 
     .station-code {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 }
