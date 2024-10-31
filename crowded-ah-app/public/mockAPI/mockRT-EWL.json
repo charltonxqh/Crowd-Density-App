@@ -1,0 +1,203 @@
+{
+    "odata.metadata": "http://datamall2.mytransport.sg/ltaodataservice/$metadata#PcdRealTime",
+    "value": [
+        {
+            "Station": "EW1",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW10",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW11",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW12",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW13",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW14",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW15",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW16",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW17",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW18",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW19",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW2",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW20",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW21",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW22",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW23",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW24",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW25",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW26",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW27",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW28",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW29",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW3",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW30",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW31",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW32",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "EW33",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW4",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW5",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW6",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW7",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "EW8",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "EW9",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        }
+    ]
+}

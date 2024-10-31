@@ -1,0 +1,83 @@
+{
+    "odata.metadata": "http://datamall2.mytransport.sg/ltaodataservice/$metadata#PcdRealTime",
+    "value": [
+        {
+            "Station": "BP1",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "BP10",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "BP11",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "BP12",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "BP13",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "BP2",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "BP3",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "BP4",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "BP5",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "BP6",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "BP7",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "BP8",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "BP9",
+            "StartTime": "2024-10-31T14:00:00+08:00",
+            "EndTime": "2024-10-31T14:10:00+08:00",
+            "CrowdLevel": "s"
+        }
+    ]
+}
