@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-import smoothCommuteImage from './trainsmile.png'; // Image for status 1
-import disruptionImage from './sadtrain.png'; // New image for status 2
+import Popup from '../components/NotiPopUp';
 
-function Notification({ line, direction, stations, message, id, onPin, onDelete, isPinned, status }) {
+function Notification({ content, time, id, onPin, onDelete, isPinned }) {
     return (
         <div className={`notification-item ${isPinned ? 'pinned' : ''}`}>
-            {status === 2 && (
-                <>
-                    <p><strong>Line:</strong> {line}</p>
-                    <p><strong>Direction:</strong> {direction}</p>
-                    <p><strong>Stations:</strong> {stations}</p>
-                </>
-            )}
-            <p><strong>Message:</strong> {message}</p>
+            <p><strong>Message:</strong> {content}</p>
+            <p><strong>Time:</strong> {time}</p>
             <div className="notification-buttons">
-                <button onClick={() => onPin(id)}>
+                <button className="pin-button" onClick={() => onPin(id, isPinned)}>
                     {isPinned ? 'Unpin' : 'Pin'}
                 </button>
-                <button onClick={() => onDelete(id)}>Delete</button>
+                <button className="delete-button" onClick={() => onDelete(id)}>Delete</button>
             </div>
         </div>
     );
@@ -26,79 +19,51 @@ function Notification({ line, direction, stations, message, id, onPin, onDelete,
 
 function NotificationsPage() {
     const [notifications, setNotifications] = useState([]);
-    const [deletedMessage, setDeletedMessage] = useState('');
+    const [isNormalService, setIsNormalService] = useState(false);
+    const [isDisruptedService, setIsDisruptedService] = useState(false);
+    const [deletionMessage, setDeletionMessage] = useState('');
+    const [pinnedMessage, setPinnedMessage] = useState('');
+    const [allDeletedMessage, setAllDeletedMessage] = useState('');
+    const [affectedSegments, setAffectedSegments] = useState([]);
 
     useEffect(() => {
 
 
         const fetchNotifications = async () => {
             try {
-                const response = await fetch('/ltaodataservice/TrainServiceAlerts', {
-                    headers: {
-                        'AccountKey': 'fI9eYMuuS8ufXqQOI7wdFA==',
-                        'accept': 'application/json',
-                    },
-                });
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                const response = await fetch("/mockTrainServiceAlerts.json");
+                //const response = await fetch("http://localhost:4000/api/train-alerts");
+                if (!response.ok) throw new Error('Failed to load data');
 
                 const data = await response.json();
-                console.log(data);
- 
-                // Force Status to 2 for testing purposes
-                //data.value.Status = 2;  // Assign status 2 to simulate disruption
+                console.log('Full data:', data);
 
-                // Mock multiple disruption cases
-                const disruptions = [
-                    {
-                        id: 'disruption-1',
-                        status: 2,
-                        line: "NSL",
-                        direction: "Marina Bay",
-                        stations: "Yishun to Marina Bay",
-                        message: "Train delay on North-South Line due to a power fault. Trains are delayed by 15 minutes.",
-                        pinned: false,
-                        originalIndex: 0
-                    },
-                    {
-                        id: 'disruption-2',
-                        status: 2,
-                        line: "EWL",
-                        direction: "Pasir Ris",
-                        stations: "Paya Lebar to Pasir Ris",
-                        message: "Train delay on East-West Line due to a track fault. Expect delays of up to 10 minutes.",
-                        pinned: false,
-                        originalIndex: 1
-                    },
-                    {
-                        id: 'disruption-3',
-                        status: 2,
-                        line: "CCL",
-                        direction: "HarbourFront",
-                        stations: "Kent Ridge to HarbourFront",
-                        message: "Service disruption on Circle Line due to signaling issues. Trains delayed by 20 minutes.",
-                        pinned: false,
-                        originalIndex: 2
-                    }
-                ];
+                if (data.status === 1) {
+                    setIsNormalService(true);
+                    setIsDisruptedService(false);
+                } else if (data.status === 2) {
+                    setIsNormalService(false);
+                    setIsDisruptedService(true);
 
-                // Check the current status for smooth commute or disruption
-                if (data.value.Status === 1) {
-                    const smoothCommuteNotification = {
-                        id: 'smooth-commute',
-                        status: 1,
-                        message: 'All train services are running smoothly. Have a safe commute.',
+                    // Set affected segments once, separately from messages
+                    setAffectedSegments(data.affectedSegments.map(segment => ({
+                        line: segment.Line,
+                        direction: segment.Direction,
+                        stations: segment.Stations
+                    })));
+
+                    // Create a notification for each message
+                    const newNotifications = data.message.map((msg, index) => ({
+                        id: `message-${index}`,
+                        content: msg.Content,
+                        time: msg.CreatedDate,
                         pinned: false,
-                        originalIndex: 0
-                    };
-                    setNotifications([smoothCommuteNotification]);
-                } else if (data.value.Status === 2) {
-                    setNotifications(disruptions); // Add multiple disruptions to the state
-                } else {
-                    setNotifications([]);
+                        originalIndex: index
+                    }));
+
+                    setNotifications(newNotifications);
                 }
+                setAllDeletedMessage('');
             } catch (error) {
                 console.error('Error fetching notifications:', error);
             }
@@ -107,7 +72,11 @@ function NotificationsPage() {
         fetchNotifications();
     }, []);
 
-    const handlePin = (id) => {
+    const handlePopupClose = () => {
+        setIsDisruptedService(false);
+    };
+
+    const handlePin = (id, isPinned) => {
         const updatedNotifications = notifications.map((notif) =>
             notif.id === id ? { ...notif, pinned: !notif.pinned } : notif
         );
@@ -120,55 +89,77 @@ function NotificationsPage() {
         });
 
         setNotifications(updatedNotifications);
+        setPinnedMessage(isPinned ? 'Notification is unpinned successfully' : 'Notification pinned successfully');
+        setTimeout(() => setPinnedMessage(''), 3000);
     };
 
-    const handleDelete = (id) => {
-        const deletedNotif = notifications.find((notif) => notif.id === id);
-        setDeletedMessage(deletedNotif.message);
-
-        const updatedNotifications = notifications.filter((notif) => notif.id !== id);
-        setNotifications(updatedNotifications);
-
-        setTimeout(() => {
-            setDeletedMessage('');
-        }, 3000);
-    };
+        const handleDelete = (id) => {
+            const updatedNotifications = notifications.filter((notif) => notif.id !== id);
+            setNotifications(updatedNotifications);
+        
+            setDeletionMessage('Notification deleted successfully');
+            setTimeout(() => setDeletionMessage(''), 3000);
+        
+            // Check if all notifications have been deleted
+            if (updatedNotifications.length === 0) {
+                setAllDeletedMessage('All notifications have been deleted');
+                setAffectedSegments([]); // Clear the affected segments when all notifications are deleted
+            }
+        };
+    
 
     return (
         <div className="notifications-page">
-            <h1>Notifications</h1>
-
-            {/* Deleted message notification */}
-            {deletedMessage && (
-                <div className="deleted-message">{deletedMessage} has been deleted</div>
+            {isDisruptedService && (
+                <Popup 
+                    message="Dear User, you are experiencing disrupted train services, please plan your trip as early as possible!" 
+                    onClose={handlePopupClose}
+                />
             )}
+            {deletionMessage && <div className="deletion-message">{deletionMessage}</div>}
+            {pinnedMessage && <div className="pinned-message">{pinnedMessage}</div>}
+            {allDeletedMessage && <div className="all-deleted-message">{allDeletedMessage}</div>}
 
-            {/* Conditionally render image based on the status */}
-            {notifications.length === 1 && notifications[0].id === 'smooth-commute' && (
-                <img src={smoothCommuteImage} alt="Smooth Commute" />
-            )}
-            {notifications.some(notif => notif.status === 2) && (
-                <img src={disruptionImage} alt="Train Disruption" />
+            {/* Display affected segments at the top */}
+            {affectedSegments.length > 0 && (
+                <div className="affected-segments">
+                    <h3>Affected Train Segments</h3>
+                    {affectedSegments.map((segment, index) => (
+                        <div key={index}>
+                            <p><strong>Line:</strong> {segment.line}</p>
+                            <p><strong>Direction:</strong> {segment.direction}</p>
+                            <p><strong>Stations Affected:</strong> {segment.stations}</p>
+                        </div>
+                    ))}
+                </div>
             )}
 
             <div className="notification-list">
-                {notifications.map((notif) => (
-                    <Notification
-                        key={notif.id}
-                        id={notif.id}
-                        status={notif.status}
-                        line={notif.line}
-                        direction={notif.direction}
-                        stations={notif.stations}
-                        message={notif.message}
-                        isPinned={notif.pinned}
-                        onPin={handlePin}
-                        onDelete={handleDelete}
-                    />
-                ))}
+                {isNormalService ? (
+                    <p className="normal-service-message">
+                        Dear User, you are experiencing Normal Train Service! No alert messages for now! Safe Commuting!
+                    </p>
+                ) : notifications.length === 0 ? (
+                    <p className="no-notifications-message">No notifications available.</p>
+                ) : (
+                    notifications.map((notif) => (
+                        <Notification
+                            key={notif.id}
+                            id={notif.id}
+                            content={notif.content}
+                            time={notif.time}
+                            isPinned={notif.pinned}
+                            onPin={handlePin}
+                            onDelete={handleDelete}
+                        />
+                    ))
+                )}
             </div>
         </div>
     );
 }
 
 export default NotificationsPage;
+
+
+
