@@ -125,11 +125,12 @@ const NearbyStationMap = () => {
   }
 
   return (
-    <div>
-      <div id="map" style={{ height: '300px', width: '100%' }}></div>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      {/* Render the NearbyStationsList component and pass stations as a prop */}
-      <NearbyStationList stations={stations} />
+    <div className="nearby-station-container">
+      <div id="map" className="map-container"></div>
+      <div className="nearby-station-list-container">
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <NearbyStationList stations={stations} />
+      </div>
     </div>
   );
 };

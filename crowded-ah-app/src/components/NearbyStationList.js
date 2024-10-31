@@ -1,7 +1,47 @@
-import React from 'react';
-import './NearbyStationList.css';
+import React, { useEffect, useState } from "react";
+import "./NearbyStationList.css";
+import stationsInfo from "../stationsInfo.json";
 
 const NearbyStationList = ({ stations = [] }) => {
+  const [trainData, setTrainData] = useState([]);
+
+  async function getTrainData() {
+    try {
+      const response = await fetch("http://localhost:4000/api/train-data");
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      const data = await response.json();
+      console.log("Fetched train data:", data);
+      setTrainData(data);
+    } catch (error) {
+      console.error("Error fetching train data:", error);
+    }
+  }
+
+  useEffect(() => {
+    getTrainData();
+  }, []);
+
+  const getCrowdLevel = (line, stationCode) => {
+    if (trainData[line] && trainData[line][stationCode]) {
+      return trainData[line][stationCode].CrowdLevel || "unknown";
+    }
+    return "unknown";
+  };
+  const CrowdLabel = (level) => {
+    switch (level) {
+      case "l":
+        return "Low";
+      case "m":
+        return "Medium";
+      case "h":
+        return "High";
+      default:
+        return "Unknown";
+    }
+  };
+
   return (
     <div className="stations-list">
       {stations.length > 0 ? (
@@ -10,15 +50,30 @@ const NearbyStationList = ({ stations = [] }) => {
           <ul>
             {stations.map((station, index) => (
               <li key={index} className="station-item">
-                <span className="station-code">{station.name}</span>
+                <span className="station-code">
+                  {stationsInfo[station.name]["stationCode"]}
+                </span>
                 <div className="station-info">
-                  <div className="station-name">{station.name}</div>
+                  <span className="station-name">{station.name}</span>
                   <div className="station-distance">
                     <span className="walking-icon">🚶</span>
-                    <span className="distance-text">{station.distance}</span> {/* Replace with actual time */}
+                    <span className="distance-text">{station.distance}</span>
                   </div>
-                  <div className="station-status">
-                    <span className={`status-light`}></span> Light {/* Replace with actual status */}
+                  <div className="crowd-density-indicator">
+                    <span
+                      className={`crowd-density-circle ${getCrowdLevel(
+                        stationsInfo[station.name].trainLine,
+                        stationsInfo[station.name].stationCode
+                      )}`}
+                    ></span>
+                    <span className="crowd-density-text">
+                      {CrowdLabel(
+                        getCrowdLevel(
+                          stationsInfo[station.name].trainLine,
+                          stationsInfo[station.name].stationCode
+                        )
+                      )}
+                    </span>
                   </div>
                 </div>
               </li>
@@ -26,7 +81,9 @@ const NearbyStationList = ({ stations = [] }) => {
           </ul>
         </>
       ) : (
-        <p className="no-stations-message">No stations found within the specified range.</p>
+        <p className="no-stations-message">
+          No stations found within the specified range.
+        </p>
       )}
     </div>
   );

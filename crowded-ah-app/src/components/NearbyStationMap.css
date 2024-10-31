@@ -1,17 +1,23 @@
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
- #map {
-    height: 100%;
-  }
-  
-  /* 
-   * Optional: Makes the sample page fill the window. 
-   */
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+/* NearbyStationMap.css */
+
+.nearby-station-container {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+
+.map-container {
+  width: 50%;
+  height: 500px;
+}
+
+.nearby-station-list-container {
+  width: 50%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}

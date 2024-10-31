@@ -1,9 +1,9 @@
 /* NearbyStationsList.css */
 
 .stations-list {
-  background-color: #4c7bd9; /* Blue background for the list container */
+  background-color: #4b71aa;
   padding: 20px;
-  border-radius: 15px; /* Rounded corners */
+  border-radius: 15px;
   color: white;
   font-family: Arial, sans-serif;
 }
@@ -31,17 +31,33 @@
 }
 
 .station-code {
-  background-color: #2e7d32; /* Default green background for the station code */
+  background-color: #2e7d32;
   color: white;
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 5px;
-  margin-right: 10px;
-  display: inline-block;
+  text-align: center;
+  min-width: 50px;
+  max-width: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .station-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.station-name,
+.station-distance,
+.crowd-density-indicator {
   flex: 1;
+  text-align: left;
+  align-items: center;
 }
 
 .station-name {
@@ -49,39 +65,46 @@
   font-weight: bold;
 }
 
-.station-distance,
-.station-status {
+.station-distance{
   font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
 }
 
-.station-status span {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
+.crowd-density-indicator {
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+.crowd-density-circle {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
+  display: inline-block;
   margin-right: 5px;
 }
 
-.status-light {
-  background-color: green;
+.crowd-density-circle.l{
+background-color: limegreen; /* Low crowd density */
 }
 
-.status-moderate {
-  background-color: orange;
+.crowd-density-circle.m{
+background-color: gold; /* Moderate crowd density */
 }
 
-.status-heavy {
-  background-color: red;
+.crowd-density-circle.h{
+background-color: coral; /* High crowd density */
+}
+
+.crowd-density-circle.unknown{
+  background-color: gray; /* Unknown crowd density */
+}
+
+.crowd-density-text {
+  color: #555;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .walking-icon {
   margin-right: 5px;
-}
-
-.time-text {
-  font-size: 0.9rem;
-  color: #555;
 }
