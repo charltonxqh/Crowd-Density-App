@@ -1,6 +1,6 @@
 /* NearbyStationsList.css */
 
-.stations-list {
+.nearby-stations-list {
   background-color: #4b71aa;
   padding: 20px;
   border-radius: 15px;
@@ -8,18 +8,18 @@
   font-family: Arial, sans-serif;
 }
 
-.stations-list h2 {
+.nearby-stations-list h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
-.stations-list ul {
+.nearby-stations-list ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.stations-list li {
+.nearby-stations-list li {
   background-color: white;
   color: #333;
   border-radius: 8px;
@@ -30,7 +30,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.station-code {
+.nearby-station-code {
   background-color: #2e7d32;
   color: white;
   font-weight: bold;
@@ -43,39 +43,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 5px;
 }
 
-.station-info {
+.nearby-station-info {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.station-name,
-.station-distance,
-.crowd-density-indicator {
+.nearby-station-name,
+.nearby-station-distance,
+.nearby-crowd-density-indicator {
   flex: 1;
   text-align: left;
   align-items: center;
 }
 
-.station-name {
+.nearby-station-name {
   font-size: 1rem;
   font-weight: bold;
 }
 
-.station-distance{
+.nearby-station-distance{
   font-size: 0.8rem;
 }
 
-.crowd-density-indicator {
+.nearby-crowd-density-indicator {
   display: flex;
   font-size: 1rem;
   justify-content: center;
 }
 
-.crowd-density-circle {
+.nearby-crowd-density-circle {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -83,23 +84,23 @@
   margin-right: 5px;
 }
 
-.crowd-density-circle.l{
+.nearby-crowd-density-circle.l{
 background-color: limegreen; /* Low crowd density */
 }
 
-.crowd-density-circle.m{
+.nearby-crowd-density-circle.m{
 background-color: gold; /* Moderate crowd density */
 }
 
-.crowd-density-circle.h{
+.nearby-crowd-density-circle.h{
 background-color: coral; /* High crowd density */
 }
 
-.crowd-density-circle.unknown{
+.nearby-crowd-density-circle.unknown{
   background-color: gray; /* Unknown crowd density */
 }
 
-.crowd-density-text {
+.nearby-crowd-density-text {
   color: #555;
   font-weight: bold;
   text-transform: capitalize;

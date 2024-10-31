@@ -43,30 +43,30 @@ const NearbyStationList = ({ stations = [] }) => {
   };
 
   return (
-    <div className="stations-list">
+    <div className="nearby-stations-list">
       {stations.length > 0 ? (
         <>
           <h2>MRT near you:</h2>
           <ul>
             {stations.map((station, index) => (
-              <li key={index} className="station-item">
-                <span className="station-code">
+              <li key={index} className="nearby-station-item">
+                <span className="nearby-station-code">
                   {stationsInfo[station.name]["stationCode"]}
                 </span>
-                <div className="station-info">
-                  <span className="station-name">{station.name}</span>
-                  <div className="station-distance">
+                <div className="nearby-station-info">
+                  <span className="nearby-station-name">{station.name}</span>
+                  <div className="nearby-station-distance">
                     <span className="walking-icon">🚶</span>
                     <span className="distance-text">{station.distance}</span>
                   </div>
-                  <div className="crowd-density-indicator">
+                  <div className="nearby-crowd-density-indicator">
                     <span
-                      className={`crowd-density-circle ${getCrowdLevel(
+                      className={`nearby-crowd-density-circle ${getCrowdLevel(
                         stationsInfo[station.name].trainLine,
                         stationsInfo[station.name].stationCode
                       )}`}
                     ></span>
-                    <span className="crowd-density-text">
+                    <span className="nearby-crowd-density-text">
                       {CrowdLabel(
                         getCrowdLevel(
                           stationsInfo[station.name].trainLine,
