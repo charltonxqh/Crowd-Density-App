@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, updateDoc, arrayUnion, onSnapshot } from "firebase/firestore";
+import { getFirestore, doc, updateDoc, arrayUnion, arrayRemove, onSnapshot } from "firebase/firestore";
 import { useGuest } from '../components/GuestContext';
 import './SearchBar.css';
 
@@ -50,7 +50,14 @@ const SearchBar = () => {
         setSuggestions([]);
       }
     };
-  
+    
+    const handleFocus = () => {
+      // Show favourite stations when the search bar is clicked and there's no query
+      if (!query && favourites.length > 0) {
+        setSuggestions(favourites);
+      }
+    };
+
     const handleSuggestionClick = (station) => {
       setQuery(station);
       setSelectedStation(station);
@@ -65,6 +72,7 @@ const SearchBar = () => {
 
     const clearSearch = () => {
       setQuery('');
+      setSuggestions(favourites);
     };
     
     const handleAddFavourite = async () => {
@@ -86,6 +94,22 @@ const SearchBar = () => {
       }
   };
 
+    const handleDeleteFavourite = async (station) => {
+      if (isGuest || !user) {
+          alert("Please log in to delete a favourite station.");
+          return;
+      }
+      try {
+          const userRef = doc(db, "users", user.uid);
+          await updateDoc(userRef, {
+              favourites: arrayRemove(station)
+          });
+          alert(`${station} has been removed from your favourites!`);
+      } catch (error) {
+          console.error("Error deleting favourite station:", error);
+      }
+    };
+
     useEffect(() => {
       document.addEventListener('click', handleClickOutside);
       return () => document.removeEventListener('click', handleClickOutside);
@@ -104,6 +128,7 @@ const SearchBar = () => {
           type="text"
           value={query}
           onChange={handleInputChange}
+          onFocus={handleFocus}
           placeholder="Search for a station..."
           className="search-input"
         />
@@ -112,44 +137,18 @@ const SearchBar = () => {
         </div>
 
         {suggestions.length > 0 && (
-            <div className="results-box">
+            <div className="result-box">
                 {combinedResults.map(({ name, isFavourite }) => (
-                    <div
-                        key={name}
-                        onClick={() => handleSuggestionClick(name)}
-                        className="result-item"
-                    >
-                        {isFavourite && <span className="star-icon">⭐</span>}
-                        {name}
-                    </div>
-                ))}
-            </div>
-        )}
-
-        {/* {favourites.length > 0 && (
-            <div className="favourites-box">
-              <h3>Your Favourites:</h3>
-                  {favourites.map((station) => (
-                    <div key={station} className="favourite-item">
-                        {station}
+                    <div key={name} className="result-item" onClick={() => handleSuggestionClick(name)}>
+                      {isFavourite && <span className="star-icon">⭐ </span>}
+                      {name}
+                      {isFavourite && (
+                        <button className="remove-icon" onClick={() => handleDeleteFavourite(name)}>🗑️</button>
+                      )}
                     </div>
                   ))}
             </div>
         )}
-
-        {suggestions.length > 0 && (
-          <div className="suggestions-box">
-            {suggestions.map((station) => (
-              <div
-                key={station}
-                onClick={() => handleSuggestionClick(station)}
-                className="suggestion-item"
-              >
-                {station}
-              </div>
-            ))}
-          </div>
-        )} */}
       </div>
     );
   };
