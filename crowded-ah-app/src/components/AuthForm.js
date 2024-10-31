@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGuest } from '../components/GuestContext';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from 'firebase/auth';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { auth } from '../firebase.js';
 import './AuthForm.css';
 
@@ -16,7 +17,8 @@ const AuthForm = ({ mode, onSubmit }) => {
     const navigate = useNavigate(); // Get the navigate function
     const { setIsGuest } = useGuest();  // Access the guest context
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email format validation
-
+    const db = getFirestore();
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -34,6 +36,12 @@ const AuthForm = ({ mode, onSubmit }) => {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
 
+                // Create a Firestore document for the new user
+                const userRef = doc(db, "users", user.uid); // Use user's UID as the document ID
+                await setDoc(userRef, {
+                    favourites: [] // Initialize favourites as an empty array
+                });
+                
                 await sendEmailVerification(user);
                 alert("Verification email sent! Please check your inbox to verify your email before logging in.");
 

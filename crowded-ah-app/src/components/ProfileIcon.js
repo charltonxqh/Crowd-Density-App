@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGuest } from '../components/GuestContext';
+import { getAuth, signOut } from 'firebase/auth';
 import './ProfileIcon.css';
 
 const ProfileIcon = () => {
     const [showLogout, setShowLogout] = useState(false);
     const navigate = useNavigate();
     const { isGuest } = useGuest();
+    const auth = getAuth();
 
     // Toggle the visibility of the logout button
     const toggleLogout = () => {
@@ -14,10 +16,13 @@ const ProfileIcon = () => {
     };
 
     // Handle logout and redirect to the login page
-    const handleLogout = () => {
-        // Perform any necessary cleanup, like removing authentication tokens
-        // Then redirect to the login page
-        navigate('/'); // Replace with your login page route
+    const handleLogout = async () => {
+        try {
+            await signOut(auth); // Sign out from Firebase
+            navigate('/'); // Redirect to the login page
+        } catch (error) {
+            console.error("Logout failed: ", error); // Handle error if necessary
+        }
     };
 
     return (

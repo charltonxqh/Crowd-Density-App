@@ -111,7 +111,7 @@ const SearchBar = () => {
          <button className="icon favourite-star" onClick={handleAddFavourite}>⭐</button>
         </div>
 
-        {combinedResults.length > 0 && (
+        {suggestions.length > 0 && (
             <div className="results-box">
                 {combinedResults.map(({ name, isFavourite }) => (
                     <div
