@@ -29,9 +29,9 @@ const ProfileIcon = () => {
             />
             
             {showLogout && (
-                <div className="logout-popup">
-                    <button className="logout-button" onClick={handleLogout}>
-                        Log Out
+                <div className="auth-popup">
+                    <button className="auth-button" onClick={handleLogout}>
+                        {isGuest ? 'Log In' : 'Log Out'}
                     </button>
                 </div>
             )}

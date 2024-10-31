@@ -51,7 +51,7 @@
   color: #00C78C; /* Change icon color on hover */
 }
 
-.suggestions-box {
+.results-box {
   position: absolute;
   width: 100%; /* Full width of the search container */
   max-height: 200px; /* Maximum height for suggestions */
@@ -64,14 +64,14 @@
   z-index: 10; /* Make sure it appears above other elements */
 }
 
-.suggestion-item {
+.results-item {
   padding: 10px; /* Padding for suggestion items */
   cursor: pointer; /* Pointer cursor */
   font-size: 16px; /* Font size for suggestion text */
   transition: background-color 0.3s; /* Smooth transition for background */
 }
 
-.suggestion-item:hover {
+.results-item:hover {
   background-color: #f0f0f0; /* Highlight suggestion on hover */
   font-weight: bold; /* Bold text on hover */
 }

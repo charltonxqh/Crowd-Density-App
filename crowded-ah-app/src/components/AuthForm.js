@@ -35,10 +35,10 @@ const AuthForm = ({ mode, onSubmit }) => {
                 const user = userCredential.user;
 
                 await sendEmailVerification(user);
-                alert("Verification email sent to your email address! Please check your inbox. Click on the verification link to complete sign up process.");
+                alert("Verification email sent! Please check your inbox to verify your email before logging in.");
 
                 setIsGuest(false);
-                navigate('/home');
+
             } else if (isLogin) {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;

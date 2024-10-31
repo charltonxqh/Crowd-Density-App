@@ -9,7 +9,7 @@
     cursor: pointer;
 }
   
-.logout-popup {
+.auth-popup {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,12 +24,13 @@
     z-index: 100;
 }
   
-.logout-button {
-    background-color: red;
+.auth-button {
+    background-color: rgb(255, 66, 66);
     color: white;
     padding: 8px 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
+    white-space: nowrap;
 }
