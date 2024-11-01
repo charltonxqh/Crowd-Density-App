@@ -50,32 +50,68 @@ const NearbyStationList = ({ stations = [] }) => {
           <ul>
             {stations.map((station, index) => (
               <li key={index} className="nearby-station-item">
-                <span className="nearby-station-code">
-                  {stationsInfo[station.name]["stationCode"]}
-                </span>
-                <div className="nearby-station-info">
-                  <span className="nearby-station-name">{station.name}</span>
-                  <div className="nearby-station-distance">
-                    <span className="walking-icon">🚶</span>
-                    <span className="distance-text">{station.distance}</span>
-                  </div>
-                  <div className="nearby-crowd-density-indicator">
-                    <span
-                      className={`nearby-crowd-density-circle ${getCrowdLevel(
-                        stationsInfo[station.name].trainLine,
-                        stationsInfo[station.name].stationCode
-                      )}`}
-                    ></span>
-                    <span className="nearby-crowd-density-text">
-                      {CrowdLabel(
-                        getCrowdLevel(
-                          stationsInfo[station.name].trainLine,
-                          stationsInfo[station.name].stationCode
-                        )
-                      )}
+                {Array.isArray(stationsInfo[station.name]) ? (
+                  // If multiple station codes exist for this station
+                  stationsInfo[station.name].map((info, i) => (
+                    <div key={i} className="station-info-wrapper">
+                      <span className="nearby-station-code">
+                        {info.stationCode}
+                      </span>
+                      <div className="nearby-station-info">
+                        <span className="nearby-station-name">
+                          {station.name}
+                        </span>
+                        <div className="nearby-station-distance">
+                          <span className="walking-icon">🚶</span>
+                          <span className="distance-text">{station.distance}</span>
+                        </div>
+                        <div className="nearby-crowd-density-indicator">
+                          <span
+                            className={`nearby-crowd-density-circle ${getCrowdLevel(
+                              info.trainLine,
+                              info.stationCode
+                            )}`}
+                          ></span>
+                          <span className="nearby-crowd-density-text">
+                            {CrowdLabel(
+                              getCrowdLevel(info.trainLine, info.stationCode)
+                            )}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  // If only one station code exists for this station
+                  <div className="station-info-wrapper">
+                    <span className="nearby-station-code">
+                      {stationsInfo[station.name].stationCode}
                     </span>
+                    <div className="nearby-station-info">
+                      <span className="nearby-station-name">{station.name}</span>
+                      <div className="nearby-station-distance">
+                        <span className="walking-icon">🚶</span>
+                        <span className="distance-text">{station.distance}</span>
+                      </div>
+                      <div className="nearby-crowd-density-indicator">
+                        <span
+                          className={`nearby-crowd-density-circle ${getCrowdLevel(
+                            stationsInfo[station.name].trainLine,
+                            stationsInfo[station.name].stationCode
+                          )}`}
+                        ></span>
+                        <span className="nearby-crowd-density-text">
+                          {CrowdLabel(
+                            getCrowdLevel(
+                              stationsInfo[station.name].trainLine,
+                              stationsInfo[station.name].stationCode
+                            )
+                          )}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
               </li>
             ))}
           </ul>
