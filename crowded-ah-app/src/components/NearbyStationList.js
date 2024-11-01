@@ -43,22 +43,79 @@ const NearbyStationList = ({ stations = [] }) => {
   };
 
   return (
-    <div className="nearby-Stations-list">
+    <div className="nearby-stations-list">
       {stations.length > 0 ? (
         <>
           <h2>MRT near you:</h2>
           <ul>
             {stations.map((station, index) => (
-              <li key={index} className="station-item">
-                <span className="station-code">{station.name}</span>
-                <div className="station-info">
-                  <div className="station-name">{station.name}</div>
-                  <div className="station-distance">
-                    <span className="walking-icon">🚶</span>
-                    <span className="distance-text">{station.distance}</span> {/* Replace with actual time */}
-                  </div>
-                  <div className="station-status">
-                    <span className={`status-light`}></span> Light {/* Replace with actual status */}
+              <li key={index} className="nearby-station-item">
+                {Array.isArray(stationsInfo[station.name]) ? (
+                  // If multiple station codes exist for this station
+                  stationsInfo[station.name].map((info, i) => (
+                    <div key={i} className="station-info-wrapper">
+                      <span className="nearby-station-code">
+                        {info.stationCode}
+                      </span>
+                      <div className="nearby-station-info">
+                        <span className="nearby-station-name">
+                          {station.name}
+                        </span>
+                        <div className="nearby-station-distance">
+                          <span className="walking-icon">🚶</span>
+                          <span className="distance-text">
+                            {station.distance}
+                          </span>
+                        </div>
+                        <div className="nearby-crowd-density-indicator">
+                          <span
+                            className={`nearby-crowd-density-circle ${getCrowdLevel(
+                              info.trainLine,
+                              info.stationCode
+                            )}`}
+                          ></span>
+                          <span className="nearby-crowd-density-text">
+                            {CrowdLabel(
+                              getCrowdLevel(info.trainLine, info.stationCode)
+                            )}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  // If only one station code exists for this station
+                  <div className="station-info-wrapper">
+                    <span className="nearby-station-code">
+                      {stationsInfo[station.name].stationCode}
+                    </span>
+                    <div className="nearby-station-info">
+                      <span className="nearby-station-name">
+                        {station.name}
+                      </span>
+                      <div className="nearby-station-distance">
+                        <span className="walking-icon">🚶</span>
+                        <span className="distance-text">
+                          {station.distance}
+                        </span>
+                      </div>
+                      <div className="nearby-crowd-density-indicator">
+                        <span
+                          className={`nearby-crowd-density-circle ${getCrowdLevel(
+                            stationsInfo[station.name].trainLine,
+                            stationsInfo[station.name].stationCode
+                          )}`}
+                        ></span>
+                        <span className="nearby-crowd-density-text">
+                          {CrowdLabel(
+                            getCrowdLevel(
+                              stationsInfo[station.name].trainLine,
+                              stationsInfo[station.name].stationCode
+                            )
+                          )}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 )}
               </li>
