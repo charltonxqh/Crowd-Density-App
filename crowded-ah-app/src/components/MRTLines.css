@@ -1,15 +1,7 @@
 /* MrtDropdown.css */
-.line-code-box {
-    display: inline-block; /* Ensures the box only takes up the width of the code */
-    background-color: #B7C2B7; /* Change this to any color you want */
-    color: rgb(0, 0, 0); /* Text color */
-    padding: 4px 8px; /* Adds some padding around the text */
-    border-radius: 4px; /* Rounds the corners of the box */
-    margin-right: 5px; /* Space between the code box and the line name */
-}
-
 .line-code {
-    font-weight: bold; /* Optional: make the code bold */
+    font-weight: bold;
+    color: white;
 }
 
 .mrt-line-button {
@@ -18,10 +10,11 @@
     padding: 10px;
     border: 1px solid #ccc;
     text-align: left;
-    font-size: 20px;
+    font-size: 21px;
     cursor: pointer;
     color: #000000;
     font-weight: bold;
+    background-color: #ACA9A9;
 }
 
 .mrt-line-button:hover {
@@ -43,6 +36,7 @@
     margin-bottom: 10px;
 }
 
+
 .mrt-station-item {
     margin: 10px 0;
     padding: 10px;
@@ -53,28 +47,28 @@
     color: #fff;
 }
 
-.circle-line-dropdown, .circle-line-items{
+.mrt-station-list-ccl{
     background-color: #fad29a;
 }
 
-.downtown-line-dropdown, .downtown-line-items{
+.mrt-station-list-dtl, .downtown-line-items{
     background-color: #70bbf4;
 }
 
 
-.east-west-line-dropdown, .east-west-line-items{
+.mrt-station-list-ewl, .east-west-line-items{
     background-color: #79f6ab;
 }
 
-.north-east-line-dropdown, .north-east-line-items{
+.mrt-station-list-nel, .north-east-line-items{
     background-color: #e489f7;
 }
 
-.north-south-line-dropdown, .north-south-line-items{
+.mrt-station-list-nsl, .north-south-line-items{
     background-color: #fb8881;
 }
 
-.thomson-east-coast-line-dropdown, .thomson-east-coast-line-items{
+.mrt-station-list-tel, .thomson-east-coast-line-items{
     background-color: #e39144;
 }
 
@@ -89,13 +83,7 @@
     font-weight: bold;
 }
 
-.station-code-box {
-    display: inline-block; /* Ensures the box only takes up the width of the code */
-    color: white; /* Text color */
-    padding: 4px 4px; /* Adds some padding around the text */
-    border-radius: 4px; /* Rounds the corners of the box */
-    margin-right: 5px; /* Space between the code box and the name */
-}
+
 
 .station-code-box-circle-line { 
     background-color: #ffa515;
