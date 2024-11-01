@@ -15,12 +15,7 @@ const NearbyStationList = ({ stations = [] }) => {
       const data = await response.json();
       console.log("Fetched train data:", data);
 
-      const formattedData = {};
-      data.value.forEach((item) => {
-        formattedData[item.Station] = item.CrowdLevel;
-      });
-
-      setTrainData(formattedData);
+      setTrainData(data);
     } catch (error) {
       console.error("Error fetching train data:", error);
     }
@@ -31,7 +26,7 @@ const NearbyStationList = ({ stations = [] }) => {
   }, []);
 
   const getCrowdLevel = (line, stationCode) => {
-    return trainData[stationCode] || "unknown";
+    return trainData.realTime?.[line]?.[stationCode]?.CrowdLevel || "unknown";
   };
 
   const CrowdLabel = (level) => {
