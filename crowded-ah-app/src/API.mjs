@@ -78,3 +78,24 @@ export async function fetchTrainServiceAlerts() {
     }
 }
 
+export async function fetchStatisticsLinkAPI() {
+    const url = 'https://datamall2.mytransport.sg/ltaodataservice/PV/Train'
+    try {
+        const response = await axios.get(url, {
+            headers: {
+                'AccountKey': AccountKey,
+                'Accept': 'application/json',
+            },
+        });
+
+        // Assuming the API response contains a field "link" with the CSV URL
+        if (response.data && response.data.link) {
+            return response.data.link; // Returning the link for downloading the CSV
+        } else {
+            throw new Error('No link found in the API response');
+        }
+    } catch (error) {
+        console.error('Error fetching statistics link:', error);
+        return { error: error.message };
+    }
+}

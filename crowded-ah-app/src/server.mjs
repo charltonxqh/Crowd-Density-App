@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { fetchTrainLineData, TRAIN_LINES, fetchTrainServiceAlerts } from './API.mjs';
+import { fetchTrainLineData, TRAIN_LINES, fetchTrainServiceAlerts, fetchStatisticsLinkAPI } from './API.mjs';
 
 const app = express();
 const PORT = 4000;
@@ -94,6 +94,21 @@ app.get('/api/train-data', (req, res) => {
 // New API route to get train service alerts
 app.get('/api/train-alerts', (req, res) => {
     res.json(storedAlerts);
+});
+
+app.get('/api/statistics-link', async (req, res) => {
+    try {
+        const link = await fetchStatisticsLinkAPI();
+        
+        if (link.error) {
+            res.status(500).json({ error: link.error });
+        } else {
+            res.json({ link });
+        }
+    } catch (error) {
+        console.error('Error fetching statistics link:', error);
+        res.status(500).json({ error: 'An error occurred while fetching the statistics link' });
+    }
 });
 
 app.listen(PORT, () => {
