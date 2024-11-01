@@ -7,13 +7,20 @@ const NearbyStationList = ({ stations = [] }) => {
 
   async function getTrainData() {
     try {
+      // const response = await fetch("../mockAPI/mockRT-EWL.json");
       const response = await fetch("http://localhost:4000/api/train-data");
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }
       const data = await response.json();
       console.log("Fetched train data:", data);
-      setTrainData(data);
+
+      const formattedData = {};
+      data.value.forEach((item) => {
+        formattedData[item.Station] = item.CrowdLevel;
+      });
+
+      setTrainData(formattedData);
     } catch (error) {
       console.error("Error fetching train data:", error);
     }
@@ -24,11 +31,9 @@ const NearbyStationList = ({ stations = [] }) => {
   }, []);
 
   const getCrowdLevel = (line, stationCode) => {
-    if (trainData[line] && trainData[line][stationCode]) {
-      return trainData[line][stationCode].CrowdLevel || "unknown";
-    }
-    return "unknown";
+    return trainData[stationCode] || "unknown";
   };
+
   const CrowdLabel = (level) => {
     switch (level) {
       case "l":
@@ -63,7 +68,9 @@ const NearbyStationList = ({ stations = [] }) => {
                         </span>
                         <div className="nearby-station-distance">
                           <span className="walking-icon">🚶</span>
-                          <span className="distance-text">{station.distance}</span>
+                          <span className="distance-text">
+                            {station.distance}
+                          </span>
                         </div>
                         <div className="nearby-crowd-density-indicator">
                           <span
@@ -88,10 +95,14 @@ const NearbyStationList = ({ stations = [] }) => {
                       {stationsInfo[station.name].stationCode}
                     </span>
                     <div className="nearby-station-info">
-                      <span className="nearby-station-name">{station.name}</span>
+                      <span className="nearby-station-name">
+                        {station.name}
+                      </span>
                       <div className="nearby-station-distance">
                         <span className="walking-icon">🚶</span>
-                        <span className="distance-text">{station.distance}</span>
+                        <span className="distance-text">
+                          {station.distance}
+                        </span>
                       </div>
                       <div className="nearby-crowd-density-indicator">
                         <span
