@@ -2,13 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGuest } from '../components/GuestContext';
 import { getAuth, signOut } from 'firebase/auth';
+import { getFirestore, doc, updateDoc } from 'firebase/firestore';
 import './ProfileIcon.css';
 
 const ProfileIcon = () => {
     const [showLogout, setShowLogout] = useState(false);
+    const [newUsername, setNewUsername] = useState('');
+    const [showUsernameInput, setShowUsernameInput] = useState(false);
     const navigate = useNavigate();
     const { isGuest } = useGuest();
     const auth = getAuth();
+    const db = getFirestore();
     const profileRef = useRef(null);
 
     // Toggle the visibility of the logout button
@@ -19,17 +23,36 @@ const ProfileIcon = () => {
     // Handle logout and redirect to the login page
     const handleLogout = async () => {
         try {
-            await signOut(auth); // Sign out from Firebase
-            navigate('/'); // Redirect to the login page
+            await signOut(auth);
+            navigate('/');
         } catch (error) {
-            console.error("Logout failed: ", error); // Handle error if necessary
+            console.error("Logout failed: ", error);
+        }
+    };
+
+    // Handle username change
+    const handleUsernameChange = async () => {
+        const user = auth.currentUser;
+        if (user && newUsername) {
+            try {
+                const userRef = doc(db, "users", user.uid);
+                await updateDoc(userRef, { username: newUsername });
+                alert('Username updated successfully!');
+                setNewUsername(''); // Clear input after update
+                setShowUsernameInput(false); // Hide input after confirming change
+            } catch (error) {
+                console.error("Error updating username: ", error);
+            }
+        } else {
+            alert('Please enter a new username.');
         }
     };
 
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (profileRef.current && !profileRef.current.contains(event.target)) {
-                setShowLogout(false); // Close the popup if clicking outside
+                setShowLogout(false);
+                setShowUsernameInput(false); // Close input field if clicking outside
             }
         };
 
@@ -53,6 +76,27 @@ const ProfileIcon = () => {
                     <button className="auth-button" onClick={handleLogout}>
                         {isGuest ? 'Log In' : 'Log Out'}
                     </button>
+                    {!isGuest && (
+                        <>
+                            <button className="auth-button" onClick={() => setShowUsernameInput(!showUsernameInput)}>
+                                Change Username
+                            </button>
+                            {showUsernameInput && (
+                                <div className="username-popup">
+                                    <input
+                                        type="text"
+                                        value={newUsername}
+                                        onChange={(e) => setNewUsername(e.target.value)}
+                                        placeholder="New Username"
+                                        className="username-input"
+                                    />
+                                    <button className="auth-button" onClick={handleUsernameChange}>
+                                        Confirm
+                                    </button>
+                                </div>
+                            )}
+                        </>
+                    )}
                 </div>
             )}
         </div>
