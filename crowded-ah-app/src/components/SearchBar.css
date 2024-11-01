@@ -78,6 +78,8 @@
 }
 
 .remove-icon {
+  font-size: 20px;
+  margin-right: 10px;
   background: none; /* Remove default button background */
   border: none; /* Remove default button border */
   cursor: pointer; /* Change cursor to pointer */

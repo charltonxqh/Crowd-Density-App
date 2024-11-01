@@ -9,18 +9,15 @@ import NotificationsUI from './NotificationsUI'
 import HelpUI from './HelpUI'
 import AboutUsUI from './AboutUsUI/index'
 import { Page1, Page2, Page3, Page4, Page5, Page6, Page7} from './AboutUsUI/AboutUsPages'
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import { GuestProvider } from './components/GuestContext';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <GuestProvider>
-      <Router>
-        <div>
-          <NavBar/>
-          <PageIdentifierHeader/>
-          <div className = "content">
-          <Routes>
+    <div>
+      <NavBar/>
+      <PageIdentifierHeader/>
+      <div className = "content">
+        <Routes>
             <Route exact path="/" element={<Authentication />} />
             <Route exact path="/home" element={<HomeUI />} />
             <Route exact path="/stations" element={<Stations />} />
@@ -36,11 +33,9 @@ function App() {
                 <Route path="page6" element={<Page6 />} />
                 <Route path="page7" element={<Page7 />} />
             </Route>
-            </Routes>
-          </div>
-        </div>
-      </Router>
-    </GuestProvider>
+        </Routes>
+      </div>
+    </div>
   );
 }
 export default App;
