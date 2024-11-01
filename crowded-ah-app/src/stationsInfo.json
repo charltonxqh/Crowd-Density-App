@@ -1,1155 +1,789 @@
 {
-
     "Dhoby Ghaut": [
         {
             "stationCode": "CC1",
-            "trainLine": "CCL",
-            "lat": 1.298701307,
-            "lng": 103.8461152
+            "trainLine": "CCL"
         },
         {
             "stationCode": "NE6",
-            "trainLine": "NEL",
-            "lat": 1.298701307,
-            "lng": 103.8461152
+            "trainLine": "NEL"
         },
         {
             "stationCode": "NS24",
-            "trainLine": "NSL",
-            "lat": 1.298701307,
-            "lng": 103.8461152
+            "trainLine": "NSL"
         }
     ],
     "Bras Basah": {
-        "stationCode": "CC2",
-        "trainLine": "CCL",
-        "lat": 1.296861687,
-        "lng": 103.8506674
+      "stationCode": "CC2",
+      "trainLine": "CCL"
     },
     "Esplanade": {
-        "stationCode": "CC3",
-        "trainLine": "CCL",
-        "lat": 1.293657725,
-        "lng": 103.8550812
+      "stationCode": "CC3",
+      "trainLine": "CCL"
     },
-    "Promenade": [
+    "Promenade": [ 
         {
             "stationCode": "CC4",
-            "trainLine": "CCL",
-            "lat": 1.292891754,
-            "lng": 103.8608918
+            "trainLine": "CCL"
         },
         {
             "stationCode": "DT15",
-            "trainLine": "DTL",
-            "lat": 1.292891754,
-            "lng": 103.8608918
+            "trainLine": "DTL"
         }
     ],
     "Nicoll Highway": {
-        "stationCode": "CC5",
-        "trainLine": "CCL",
-        "lat": 1.299766835,
-        "lng": 103.863637
+      "stationCode": "CC5",
+      "trainLine": "CCL"
     },
     "Stadium": {
-        "stationCode": "CC6",
-        "trainLine": "CCL",
-        "lat": 1.302812469,
-        "lng": 103.8753377
+      "stationCode": "CC6",
+      "trainLine": "CCL"
     },
     "Mountbatten": {
-        "stationCode": "CC7",
-        "trainLine": "CCL",
-        "lat": 1.306201905,
-        "lng": 103.8825281
+      "stationCode": "CC7",
+      "trainLine": "CCL"
     },
     "Dakota": {
-        "stationCode": "CC8",
-        "trainLine": "CCL",
-        "lat": 1.308547984,
-        "lng": 103.8890647
+      "stationCode": "CC8",
+      "trainLine": "CCL"
     },
     "Paya Lebar": [
         {
             "stationCode": "CC9",
-            "trainLine": "CCL",
-            "lat": 1.317247386,
-            "lng": 103.8922608
+            "trainLine": "CCL"
         },
         {
             "stationCode": "EW8",
-            "trainLine": "EWL",
-            "lat": 1.317247386,
-            "lng": 103.8922608
+            "trainLine": "EWL"
         }
     ],
     "MacPherson": [
         {
             "stationCode": "CC10",
-            "trainLine": "CCL",
-            "lat": 1.326150243,
-            "lng": 103.8892986
+            "trainLine": "CCL"
         },
         {
             "stationCode": "DT26",
-            "trainLine": "DTL",
-            "lat": 1.326150243,
-            "lng": 103.8892986
+            "trainLine": "DTL"
         }
     ],
     "Tai Seng": {
-        "stationCode": "CC11",
-        "trainLine": "CCL",
-        "lat": 1.335102085,
-        "lng": 103.888433
+      "stationCode": "CC11",
+      "trainLine": "CCL"
     },
     "Bartley": {
-        "stationCode": "CC12",
-        "trainLine": "CCL",
-        "lat": 1.342501178,
-        "lng": 103.8801779
+      "stationCode": "CC12",
+      "trainLine": "CCL"
     },
     "Serangoon": [
         {
             "stationCode": "CC13",
-            "trainLine": "CCL",
-            "lat": 1.350633615,
-            "lng": 103.8727717
+            "trainLine": "CCL"
         },
         {
             "stationCode": "NE12",
-            "trainLine": "NEL",
-            "lat": 1.350633615,
-            "lng": 103.8727717
+            "trainLine": "NEL"
         }
     ],
     "Lorong Chuan": {
-        "stationCode": "CC14",
-        "trainLine": "CCL",
-        "lat": 1.351612171,
-        "lng": 103.8641519
+      "stationCode": "CC14",
+      "trainLine": "CCL"
     },
     "Bishan": [
         {
             "stationCode": "CC15",
-            "trainLine": "CCL",
-            "lat": 1.35130868,
-            "lng": 103.8491544
+            "trainLine": "CCL"
         },
         {
             "stationCode": "NS17",
-            "trainLine": "NSL",
-            "lat": 1.35130868,
-            "lng": 103.8491544
+            "trainLine": "NSL"
         }
     ],
     "Marymount": {
-        "stationCode": "CC16",
-        "trainLine": "CCL",
-        "lat": 1.348707263,
-        "lng": 103.8394231
+      "stationCode": "CC16",
+      "trainLine": "CCL"
     },
     "Caldecott": {
-        "stationCode": "CC17",
-        "trainLine": "CCL",
-        "lat": 1.337674508,
-        "lng": 103.8395298
+      "stationCode": "CC17",
+      "trainLine": "CCL"
     },
     "Botanic Gardens": [
         {
             "stationCode": "CC19",
-            "trainLine": "CCL",
-            "lat": 1.322488071,
-            "lng": 103.816014
+            "trainLine": "CCL"
         },
         {
             "stationCode": "DT9",
-            "trainLine": "DTL",
-            "lat": 1.322488071,
-            "lng": 103.816014
+            "trainLine": "DTL"
         }
     ],
     "Farrer Road": {
-        "stationCode": "CC20",
-        "trainLine": "CCL",
-        "lat": 1.317439151,
-        "lng": 103.8073792
+      "stationCode": "CC20",
+      "trainLine": "CCL"
     },
     "Holland Village": {
-        "stationCode": "CC21",
-        "trainLine": "CCL",
-        "lat": 1.312240296,
-        "lng": 103.7963991
+      "stationCode": "CC21",
+      "trainLine": "CCL"
     },
     "Buona Vista": [
         {
             "stationCode": "CC22",
-            "trainLine": "CCL",
-            "lat": 1.306634504,
-            "lng": 103.7907094
+            "trainLine": "CCL"
         },
         {
             "stationCode": "EW21",
-            "trainLine": "EWL",
-            "lat": 1.306634504,
-            "lng": 103.7907094
+            "trainLine": "EWL"
         }
     ],
     "one-north": {
-        "stationCode": "CC23",
-        "trainLine": "CCL",
-        "lat": 1.299759879,
-        "lng": 103.7874575
+      "stationCode": "CC23",
+      "trainLine": "CCL"
     },
     "Kent Ridge": {
-        "stationCode": "CC24",
-        "trainLine": "CCL",
-        "lat": 1.293536986,
-        "lng": 103.7845724
+      "stationCode": "CC24",
+      "trainLine": "CCL"
     },
     "Haw Par Villa": {
-        "stationCode": "CC25",
-        "trainLine": "CCL",
-        "lat": 1.282571358,
-        "lng": 103.7817527
+      "stationCode": "CC25",
+      "trainLine": "CCL"
     },
     "Pasir Panjang": {
-        "stationCode": "CC26",
-        "trainLine": "CCL",
-        "lat": 1.276213523,
-        "lng": 103.7913503
+      "stationCode": "CC26",
+      "trainLine": "CCL"
     },
     "Labrador Park": {
-        "stationCode": "CC27",
-        "trainLine": "CCL",
-        "lat": 1.272254178,
-        "lng": 103.8026316
+      "stationCode": "CC27",
+      "trainLine": "CCL"
     },
     "Telok Blangah": {
-        "stationCode": "CC28",
-        "trainLine": "CCL",
-        "lat": 1.270706478,
-        "lng": 103.8097616
+      "stationCode": "CC28",
+      "trainLine": "CCL"
     },
     "HarbourFront": [
         {
             "stationCode": "CC29",
-            "trainLine": "CCL",
-            "lat": 1.265389384,
-            "lng": 103.8215302
+            "trainLine": "CCL"
         },
         {
             "stationCode": "NE1",
-            "trainLine": "NEL",
-            "lat": 1.265389384,
-            "lng": 103.8215302
+            "trainLine": "NEL"
         }
     ],
     "Bayfront": [
         {
             "stationCode": "CE1",
-            "trainLine": "CEL",
-            "lat": 1.281873788,
-            "lng": 103.8590798
+            "trainLine": "CEL"
         },
         {
             "stationCode": "DT16",
-            "trainLine": "DTL",
-            "lat": 1.281873788,
-            "lng": 103.8590798
+            "trainLine": "DTL"
         }
     ],
     "Marina Bay": [
         {
             "stationCode": "CE2",
-            "trainLine": "CEL",
-            "lat": 1.276311144,
-            "lng": 103.854605
+            "trainLine": "CEL"
         },
         {
             "stationCode": "NS27",
-            "trainLine": "NSL",
-            "lat": 1.276311144,
-            "lng": 103.854605
+            "trainLine": "NSL"
         }
     ],
     "Expo": [
         {
             "stationCode": "CG1",
-            "trainLine": "CGL",
-            "lat": 1.335382137,
-            "lng": 103.9623757
+            "trainLine": "CGL"
         },
         {
             "stationCode": "DT35",
-            "trainLine": "DTL",
-            "lat": 1.335382137,
-            "lng": 103.9623757
+            "trainLine": "DTL"
         }
     ],
     "Changi Airport": {
-        "stationCode": "CG2",
-        "trainLine": "CGL",
-        "lat": 1.357478975,
-        "lng": 103.9878836
+      "stationCode": "CG2",
+      "trainLine": "CGL"
     },
     "Bukit Panjang": [
         {
             "stationCode": "DT1",
-            "trainLine": "DTL",
-            "lat": 1.379002117,
-            "lng": 103.7615351
+            "trainLine": "DTL"
         },
         {
             "stationCode": "BP6",
-            "trainLine": "BPL",
-            "lat": 1.379002117,
-            "lng": 103.7615351
+            "trainLine": "BPL"
         }
     ],
     "Cashew": {
-        "stationCode": "DT2",
-        "trainLine": "DTL",
-        "lat": 1.369815449,
-        "lng": 103.7644392
+      "stationCode": "DT2",
+      "trainLine": "DTL"
     },
     "Hillview": {
-        "stationCode": "DT3",
-        "trainLine": "DTL",
-        "lat": 1.362344868,
-        "lng": 103.7674183
+      "stationCode": "DT3",
+      "trainLine": "DTL"
     },
     "Beauty World": {
-        "stationCode": "DT5",
-        "trainLine": "DTL",
-        "lat": 1.341223176,
-        "lng": 103.7757943
+      "stationCode": "DT5",
+      "trainLine": "DTL"
     },
     "King Albert Park": {
-        "stationCode": "DT6",
-        "trainLine": "DTL",
-        "lat": 1.335662762,
-        "lng": 103.7833991
+      "stationCode": "DT6",
+      "trainLine": "DTL"
     },
     "Sixth Avenue": {
-        "stationCode": "DT7",
-        "trainLine": "DTL",
-        "lat": 1.330857645,
-        "lng": 103.7969068
+      "stationCode": "DT7",
+      "trainLine": "DTL"
     },
     "Tan Kah Kee": {
-        "stationCode": "DT8",
-        "trainLine": "DTL",
-        "lat": 1.325556235,
-        "lng": 103.8077603
+      "stationCode": "DT8",
+      "trainLine": "DTL"
     },
     "Stevens": {
-        "stationCode": "DT10",
-        "trainLine": "DTL",
-        "lat": 1.320065558,
-        "lng": 103.8260244
+      "stationCode": "DT10",
+      "trainLine": "DTL"
     },
     "Newton": [
         {
             "stationCode": "DT11",
-            "trainLine": "DTL",
-            "lat": 1.3123201,
-            "lng": 103.8379853
+            "trainLine": "DTL"
         },
         {
             "stationCode": "NS21",
-            "trainLine": "NSL",
-            "lat": 1.3123201,
-            "lng": 103.8379853
+            "trainLine": "NSL"
         }
     ],
     "Little India": [
         {
             "stationCode": "DT12",
-            "trainLine": "DTL",
-            "lat": 1.306800025,
-            "lng": 103.849647
+            "trainLine": "DTL"
         },
         {
             "stationCode": "NE7",
-            "trainLine": "NEL",
-            "lat": 1.306800025,
-            "lng": 103.849647
+            "trainLine": "NEL"
         }
     ],
     "Rochor": {
-        "stationCode": "DT13",
-        "trainLine": "DTL",
-        "lat": 1.303852185,
-        "lng": 103.8527694
+      "stationCode": "DT13",
+      "trainLine": "DTL"
     },
     "Bugis": [
         {
             "stationCode": "DT14",
-            "trainLine": "DTL",
-            "lat": 1.30026469,
-            "lng": 103.8556148
+            "trainLine": "DTL"
         },
         {
             "stationCode": "EW12",
-            "trainLine": "EWL",
-            "lat": 1.30026469,
-            "lng": 103.8556148
+            "trainLine": "EWL"
         }
     ],
     "Downtown": {
-        "stationCode": "DT17",
-        "trainLine": "DTL",
-        "lat": 1.27944619,
-        "lng": 103.8528404
+      "stationCode": "DT17",
+      "trainLine": "DTL"
     },
     "Telok Ayer": {
-        "stationCode": "DT18",
-        "trainLine": "DTL",
-        "lat": 1.282068948,
-        "lng": 103.8486488
+      "stationCode": "DT18",
+      "trainLine": "DTL"
     },
     "Chinatown": [
         {
             "stationCode": "DT19",
-            "trainLine": "DTL",
-            "lat": 1.284359578,
-            "lng": 103.8434268
+            "trainLine": "DTL"
         },
         {
             "stationCode": "NE4",
-            "trainLine": "NEL",
-            "lat": 1.284359578,
-            "lng": 103.8434268
+            "trainLine": "NEL"
         }
     ],
     "Fort Canning": {
-        "stationCode": "DT20",
-        "trainLine": "DTL",
-        "lat": 1.292478928,
-        "lng": 103.8443283
+      "stationCode": "DT20",
+      "trainLine": "DTL"
     },
     "Bencoolen": {
-        "stationCode": "DT21",
-        "trainLine": "DTL",
-        "lat": 1.298918434,
-        "lng": 103.8503538
+      "stationCode": "DT21",
+      "trainLine": "DTL"
     },
     "Jalan Besar": {
-        "stationCode": "DT22",
-        "trainLine": "DTL",
-        "lat": 1.305171388,
-        "lng": 103.8552957
+      "stationCode": "DT22",
+      "trainLine": "DTL"
     },
     "Bendemeer": {
-        "stationCode": "DT23",
-        "trainLine": "DTL",
-        "lat": 1.313672233,
-        "lng": 103.862978
+      "stationCode": "DT23",
+      "trainLine": "DTL"
     },
     "Geylang Bahru": {
-        "stationCode": "DT24",
-        "trainLine": "DTL",
-        "lat": 1.321505838,
-        "lng": 103.8719006
+      "stationCode": "DT24",
+      "trainLine": "DTL"
     },
     "Mattar": {
-        "stationCode": "DT25",
-        "trainLine": "DTL",
-        "lat": 1.326876715,
-        "lng": 103.8832475
-    },
+      "stationCode": "DT25",
+      "trainLine": "DTL"
+    }, 
     "Ubi": {
-        "stationCode": "DT27",
-        "trainLine": "DTL",
-        "lat": 1.329974629,
-        "lng": 103.8992267
+      "stationCode": "DT27",
+      "trainLine": "DTL"
     },
     "Kaki Bukit": {
-        "stationCode": "DT28",
-        "trainLine": "DTL",
-        "lat": 1.334967302,
-        "lng": 103.9084597
+      "stationCode": "DT28",
+      "trainLine": "DTL"
     },
     "Bedok North": {
-        "stationCode": "DT29",
-        "trainLine": "DTL",
-        "lat": 1.334742117,
-        "lng": 103.9179783
+      "stationCode": "DT29",
+      "trainLine": "DTL"
     },
     "Bedok Reservoir": {
-        "stationCode": "DT30",
-        "trainLine": "DTL",
-        "lat": 1.33660783,
-        "lng": 103.9322346
+      "stationCode": "DT30",
+      "trainLine": "DTL"
     },
     "Tampines West": {
-        "stationCode": "DT31",
-        "trainLine": "DTL",
-        "lat": 1.345515305,
-        "lng": 103.938437
+      "stationCode": "DT31",
+      "trainLine": "DTL"
     },
     "Tampines": [
         {
             "stationCode": "DT32",
-            "trainLine": "DTL",
-            "lat": 1.353301533,
-            "lng": 103.9451447
+            "trainLine": "DTL"
         },
         {
             "stationCode": "EW2",
-            "trainLine": "EWL",
-            "lat": 1.353301533,
-            "lng": 103.9451447
+            "trainLine": "EWL"
         }
     ],
     "Tampines East": {
-        "stationCode": "DT33",
-        "trainLine": "DTL",
-        "lat": 1.356191483,
-        "lng": 103.9546345
+      "stationCode": "DT33",
+      "trainLine": "DTL"
     },
     "Upper Changi": {
-        "stationCode": "DT34",
-        "trainLine": "DTL",
-        "lat": 1.341737484,
-        "lng": 103.9614718
+      "stationCode": "DT34",
+      "trainLine": "DTL"
     },
     "Pasir Ris": {
-        "stationCode": "EW1",
-        "trainLine": "EWL",
-        "lat": 1.373043212,
-        "lng": 103.9492846
+      "stationCode": "EW1",
+      "trainLine": "EWL"
     },
     "Simei": {
-        "stationCode": "EW3",
-        "trainLine": "EWL",
-        "lat": 1.343202895,
-        "lng": 103.9533717
+      "stationCode": "EW3",
+      "trainLine": "EWL"
     },
     "Tanah Merah": {
-        "stationCode": "EW4",
-        "trainLine": "EWL",
-        "lat": 1.327187135,
-        "lng": 103.9463465
+      "stationCode": "EW4",
+      "trainLine": "EWL"
     },
     "Bedok": {
-        "stationCode": "EW5",
-        "trainLine": "EWL",
-        "lat": 1.323979969,
-        "lng": 103.9299845
+      "stationCode": "EW5",
+      "trainLine": "EWL"
     },
     "Kembangan": {
-        "stationCode": "EW6",
-        "trainLine": "EWL",
-        "lat": 1.321038249,
-        "lng": 103.9129494
+      "stationCode": "EW6",
+      "trainLine": "EWL"
     },
     "Eunos": {
-        "stationCode": "EW7",
-        "trainLine": "EWL",
-        "lat": 1.319838347,
-        "lng": 103.9036269
+      "stationCode": "EW7",
+      "trainLine": "EWL"
     },
     "Aljunied": {
-        "stationCode": "EW9",
-        "trainLine": "EWL",
-        "lat": 1.316432612,
-        "lng": 103.882906
+      "stationCode": "EW9",
+      "trainLine": "EWL"
     },
     "Kallang": {
-        "stationCode": "EW10",
-        "trainLine": "EWL",
-        "lat": 1.31148891,
-        "lng": 103.8713865
+      "stationCode": "EW10",
+      "trainLine": "EWL"
     },
     "Lavender": {
-        "stationCode": "EW11",
-        "trainLine": "EWL",
-        "lat": 1.307391879,
-        "lng": 103.8627846
+      "stationCode": "EW11",
+      "trainLine": "EWL"
     },
     "City Hall": [
         {
             "stationCode": "EW13",
-            "trainLine": "EWL",
-            "lat": 1.292936243,
-            "lng": 103.8525859
+            "trainLine": "EWL"
         },
         {
             "stationCode": "NS25",
-            "trainLine": "NSL",
-            "lat": 1.292936243,
-            "lng": 103.8525859
+            "trainLine": "NSL"
         }
     ],
     "Raffles Place": [
         {
             "stationCode": "EW14",
-            "trainLine": "EWL",
-            "lat": 1.284125611,
-            "lng": 103.8514617
+            "trainLine": "EWL"
         },
         {
             "stationCode": "NS26",
-            "trainLine": "NSL",
-            "lat": 1.284125611,
-            "lng": 103.8514617
+            "trainLine": "NSL"
         }
     ],
     "Tanjong Pagar": {
-        "stationCode": "EW15",
-        "trainLine": "EWL",
-        "lat": 1.276604487,
-        "lng": 103.8459522
+      "stationCode": "EW15",
+      "trainLine": "EWL"
     },
     "Outram Park": [
         {
             "stationCode": "EW16",
-            "trainLine": "EWL",
-            "lat": 1.279739707,
-            "lng": 103.8395135
+            "trainLine": "EWL"
         },
         {
             "stationCode": "NE3",
-            "trainLine": "NEL",
-            "lat": 1.279739707,
-            "lng": 103.8395135
+            "trainLine": "NEL"
         }
     ],
     "Tiong Bahru": {
-        "stationCode": "EW17",
-        "trainLine": "EWL",
-        "lat": 1.286194579,
-        "lng": 103.8269989
+      "stationCode": "EW17",
+      "trainLine": "EWL"
     },
     "Redhill": {
-        "stationCode": "EW18",
-        "trainLine": "EWL",
-        "lat": 1.289634533,
-        "lng": 103.816741
+      "stationCode": "EW18",
+      "trainLine": "EWL"
     },
     "Queenstown": {
-        "stationCode": "EW19",
-        "trainLine": "EWL",
-        "lat": 1.294550852,
-        "lng": 103.8060772
+      "stationCode": "EW19",
+      "trainLine": "EWL"
     },
     "Commonwealth": {
-        "stationCode": "EW20",
-        "trainLine": "EWL",
-        "lat": 1.302508537,
-        "lng": 103.7982261
+      "stationCode": "EW20",
+      "trainLine": "EWL"
     },
     "Dover": {
-        "stationCode": "EW22",
-        "trainLine": "EWL",
-        "lat": 1.311405293,
-        "lng": 103.7786378
+      "stationCode": "EW22",
+      "trainLine": "EWL"
     },
     "Clementi": {
-        "stationCode": "EW23",
-        "trainLine": "EWL",
-        "lat": 1.315201264,
-        "lng": 103.7651824
+      "stationCode": "EW23",
+      "trainLine": "EWL"
     },
     "Jurong East": [
         {
             "stationCode": "EW24",
-            "trainLine": "EWL",
-            "lat": 1.33315262,
-            "lng": 103.7422865
+            "trainLine": "EWL"
         },
         {
             "stationCode": "NS1",
-            "trainLine": "NSL",
-            "lat": 1.33315262,
-            "lng": 103.7422865
+            "trainLine": "NSL"
         }
     ],
     "Chinese Garden": {
-        "stationCode": "EW25",
-        "trainLine": "EWL",
-        "lat": 1.342352821,
-        "lng": 103.7325967
+      "stationCode": "EW25",
+      "trainLine": "EWL"
     },
     "Lakeside": {
-        "stationCode": "EW26",
-        "trainLine": "EWL",
-        "lat": 1.34425925,
-        "lng": 103.7209493
+      "stationCode": "EW26",
+      "trainLine": "EWL"
     },
     "Boon Lay": {
-        "stationCode": "EW27",
-        "trainLine": "EWL",
-        "lat": 1.338604055,
-        "lng": 103.7060646
+      "stationCode": "EW27",
+      "trainLine": "EWL"
     },
     "Pioneer": {
-        "stationCode": "EW28",
-        "trainLine": "EWL",
-        "lat": 1.337586882,
-        "lng": 103.6973215
+      "stationCode": "EW28",
+      "trainLine": "EWL"
     },
     "Joo Koon": {
-        "stationCode": "EW29",
-        "trainLine": "EWL",
-        "lat": 1.327717173,
-        "lng": 103.6783751
+      "stationCode": "EW29",
+      "trainLine": "EWL"
     },
     "Gul Circle": {
-        "stationCode": "EW30",
-        "trainLine": "EWL",
-        "lat": 1.319505215,
-        "lng": 103.660553
+      "stationCode": "EW30",
+      "trainLine": "EWL"
     },
     "Tuas Crescent": {
-        "stationCode": "EW31",
-        "trainLine": "EWL",
-        "lat": 1.321026553,
-        "lng": 103.6490755
+      "stationCode": "EW31",
+      "trainLine": "EWL"
     },
     "Tuas West Road": {
-        "stationCode": "EW32",
-        "trainLine": "EWL",
-        "lat": 1.329989089,
-        "lng": 103.6396141
+      "stationCode": "EW32",
+      "trainLine": "EWL"
     },
     "Tuas Link": {
-        "stationCode": "EW33",
-        "trainLine": "EWL",
-        "lat": 1.340866096,
-        "lng": 103.6369856
+      "stationCode": "EW33",
+      "trainLine": "EWL"
     },
     "Clarke Quay": {
-        "stationCode": "NE5",
-        "trainLine": "NEL",
-        "lat": 1.288386024,
-        "lng": 103.8465552
-    },
+      "stationCode": "NE5",
+      "trainLine": "NEL"
+    }, 
     "Farrer Park": {
-        "stationCode": "NE8",
-        "trainLine": "NEL",
-        "lat": 1.311905574,
-        "lng": 103.8534777
+      "stationCode": "NE8",
+      "trainLine": "NEL"
     },
     "Boon Keng": {
-        "stationCode": "NE9",
-        "trainLine": "NEL",
-        "lat": 1.319335709,
-        "lng": 103.8615695
+      "stationCode": "NE9",
+      "trainLine": "NEL"
     },
     "Potong Pasir": {
-        "stationCode": "NE10",
-        "trainLine": "NEL",
-        "lat": 1.331379525,
-        "lng": 103.8690557
+      "stationCode": "NE10",
+      "trainLine": "NEL"
     },
     "Woodleigh": {
-        "stationCode": "NE11",
-        "trainLine": "NEL",
-        "lat": 1.339190046,
-        "lng": 103.8708183
+      "stationCode": "NE11",
+      "trainLine": "NEL"
     },
     "Kovan": {
-        "stationCode": "NE13",
-        "trainLine": "NEL",
-        "lat": 1.36017917,
-        "lng": 103.8850649
+      "stationCode": "NE13",
+      "trainLine": "NEL"
     },
     "Hougang": {
-        "stationCode": "NE14",
-        "trainLine": "NEL",
-        "lat": 1.371292293,
-        "lng": 103.8923805
+      "stationCode": "NE14",
+      "trainLine": "NEL"
     },
     "Buangkok": {
-        "stationCode": "NE15",
-        "trainLine": "NEL",
-        "lat": 1.382877858,
-        "lng": 103.8931216
+      "stationCode": "NE15",
+      "trainLine": "NEL"
     },
     "Sengkang": [
         {
             "stationCode": "NE16",
-            "trainLine": "NEL",
-            "lat": 1.391609364,
-            "lng": 103.8954426
+            "trainLine": "NEL"
         },
         {
             "stationCode": "STC",
-            "trainLine": "SLRT",
-            "lat": 1.391609364,
-            "lng": 103.8954426
+            "trainLine": "SLRT"
         }
     ],
     "Punggol": [
         {
             "stationCode": "NE17",
-            "trainLine": "NEL",
-            "lat": 1.404546728,
-            "lng": 103.9020726
+            "trainLine": "NEL"
         },
         {
             "stationCode": "PTC",
-            "trainLine": "PLRT",
-            "lat": 1.404546728,
-            "lng": 103.9020726
+            "trainLine": "PLRT"
         }
     ],
     "Bukit Batok": {
-        "stationCode": "NS2",
-        "trainLine": "NSL",
-        "lat": 1.349034109,
-        "lng": 103.7495668
+      "stationCode": "NS2",
+      "trainLine": "NSL"
     },
     "Bukit Gombak": {
-        "stationCode": "NS3",
-        "trainLine": "NSL",
-        "lat": 1.358611591,
-        "lng": 103.7517909
+      "stationCode": "NS3",
+      "trainLine": "NSL"
     },
     "Choa Chu Kang": [
         {
             "stationCode": "NS4",
-            "trainLine": "NSL",
-            "lat": 1.385363165,
-            "lng": 103.7443708
+            "trainLine": "NSL"
         },
         {
             "stationCode": "BP1",
-            "trainLine": "BPL",
-            "lat": 1.385363165,
-            "lng": 103.7443708
+            "trainLine": "BPL"
         }
     ],
     "Yew Tee": {
-        "stationCode": "NS5",
-        "trainLine": "NSL",
-        "lat": 1.397535018,
-        "lng": 103.7474051
+      "stationCode": "NS5",
+      "trainLine": "NSL"
     },
     "Kranji": {
-        "stationCode": "NS7",
-        "trainLine": "NSL",
-        "lat": 1.42508698,
-        "lng": 103.7621375
+      "stationCode": "NS7",
+      "trainLine": "NSL"
     },
     "Marsiling": {
-        "stationCode": "NS8",
-        "trainLine": "NSL",
-        "lat": 1.432521148,
-        "lng": 103.7740746
+      "stationCode": "NS8",
+      "trainLine": "NSL"
     },
     "Woodlands": {
-        "stationCode": "NS9",
-        "trainLine": "NSL",
-        "lat": 1.436968247,
-        "lng": 103.7864625
+      "stationCode": "NS9",
+      "trainLine": "NSL"
     },
     "Admiralty": {
-        "stationCode": "NS10",
-        "trainLine": "NSL",
-        "lat": 1.440585001,
-        "lng": 103.800988
+      "stationCode": "NS10",
+      "trainLine": "NSL"
     },
     "Sembawang": {
-        "stationCode": "NS11",
-        "trainLine": "NSL",
-        "lat": 1.449050821,
-        "lng": 103.8200461
+      "stationCode": "NS11",
+      "trainLine": "NSL"
     },
     "Canberra": {
-        "stationCode": "NS12",
-        "trainLine": "NSL",
-        "lat": 1.443243716,
-        "lng": 103.8295781
+      "stationCode": "NS12",
+      "trainLine": "NSL"
     },
     "Yishun": {
-        "stationCode": "NS13",
-        "trainLine": "NSL",
-        "lat": 1.429443081,
-        "lng": 103.835005
+      "stationCode": "NS13",
+      "trainLine": "NSL"
     },
     "Khatib": {
-        "stationCode": "NS14",
-        "trainLine": "NSL",
-        "lat": 1.41738337,
-        "lng": 103.8329799
+      "stationCode": "NS14",
+      "trainLine": "NSL"
     },
     "Yio Chu Kang": {
-        "stationCode": "NS15",
-        "trainLine": "NSL",
-        "lat": 1.381756046,
-        "lng": 103.8449473
+      "stationCode": "NS15",
+      "trainLine": "NSL"
     },
     "Ang Mo Kio": {
-        "stationCode": "NS16",
-        "trainLine": "NSL",
-        "lat": 1.369933175,
-        "lng": 103.8495581
+      "stationCode": "NS16",
+      "trainLine": "NSL"
     },
     "Braddell": {
-        "stationCode": "NS18",
-        "trainLine": "NSL",
-        "lat": 1.340105207,
-        "lng": 103.8467559
+      "stationCode": "NS18",
+      "trainLine": "NSL"
     },
     "Toa Payoh": {
-        "stationCode": "NS19",
-        "trainLine": "NSL",
-        "lat": 1.332628987,
-        "lng": 103.8475018
+      "stationCode": "NS19",
+      "trainLine": "NSL"
     },
     "Novena": {
-        "stationCode": "NS20",
-        "trainLine": "NSL",
-        "lat": 1.320440791,
-        "lng": 103.8438256
+      "stationCode": "NS20",
+      "trainLine": "NSL"
     },
     "Orchard": {
-        "stationCode": "NS22",
-        "trainLine": "NSL",
-        "lat": 1.303981013,
-        "lng": 103.8322415
+      "stationCode": "NS22",
+      "trainLine": "NSL"
     },
     "Somerset": {
-        "stationCode": "NS23",
-        "trainLine": "NSL",
-        "lat": 1.300252877,
-        "lng": 103.8391583
+      "stationCode": "NS23",
+      "trainLine": "NSL"
     },
     "Marina South Pier": {
-        "stationCode": "NS28",
-        "trainLine": "NSL",
-        "lat": 1.271027036,
-        "lng": 103.8624475
+      "stationCode": "NS28",
+      "trainLine": "NSL"
     },
     "South View": {
-        "stationCode": "BP2",
-        "trainLine": "BPL",
-        "lat": 1.380298287,
-        "lng": 103.7452918
+      "stationCode": "BP2",
+      "trainLine": "BPL"
     },
     "Keat Hong": {
-        "stationCode": "BP3",
-        "trainLine": "BPL",
-        "lat": 1.378602766,
-        "lng": 103.7490555
+      "stationCode": "BP3",
+      "trainLine": "BPL"
     },
     "Teck Whye": {
-        "stationCode": "BP4",
-        "trainLine": "BPL",
-        "lat": 1.376684679,
-        "lng": 103.7537122
+      "stationCode": "BP4",
+      "trainLine": "BPL"
     },
     "Pheonix": {
-        "stationCode": "BP5",
-        "trainLine": "BPL"
+      "stationCode": "BP5",
+      "trainLine": "BPL"
     },
     "Petir": {
-        "stationCode": "BP7",
-        "trainLine": "BPL",
-        "lat": 1.377750334,
-        "lng": 103.766669
+      "stationCode": "BP7",
+      "trainLine": "BPL"
     },
     "Pending": {
-        "stationCode": "BP8",
-        "trainLine": "BPL",
-        "lat": 1.376135744,
-        "lng": 103.7712612
+      "stationCode": "BP8",
+      "trainLine": "BPL"
     },
     "Bangkit": {
-        "stationCode": "BP9",
-        "trainLine": "BPL",
-        "lat": 1.38002223,
-        "lng": 103.7726474
+      "stationCode": "BP9",
+      "trainLine": "BPL"
     },
     "Fajar": {
-        "stationCode": "BP10",
-        "trainLine": "BPL",
-        "lat": 1.384520797,
-        "lng": 103.7708086
+      "stationCode": "BP10",
+      "trainLine": "BPL"
     },
     "Segar": {
-        "stationCode": "BP11",
-        "trainLine": "BPL",
-        "lat": 1.387772131,
-        "lng": 103.7695984
+      "stationCode": "BP11",
+      "trainLine": "BPL"
     },
     "Jelapang": {
-        "stationCode": "BP12",
-        "trainLine": "BPL",
-        "lat": 1.386703025,
-        "lng": 103.7645033
+      "stationCode": "BP12",
+      "trainLine": "BPL"
     },
     "Senja": {
-        "stationCode": "BP13",
-        "trainLine": "BPL",
-        "lat": 1.382692296,
-        "lng": 103.7623672
+      "stationCode": "BP13",
+      "trainLine": "BPL"
     },
     "Cheng Lim": {
-        "stationCode": "SW1",
-        "trainLine": "SLRT",
-        "lat": 1.396277631,
-        "lng": 103.8937972
+      "stationCode": "SW1",
+      "trainLine": "SLRT"
     },
     "Farmway": {
-        "stationCode": "SW2",
-        "trainLine": "SLRT",
-        "lat": 1.397170196,
-        "lng": 103.8893048
+      "stationCode": "SW2",
+      "trainLine": "SLRT"
     },
     "Kupang": {
-        "stationCode": "SW3",
-        "trainLine": "SLRT",
-        "lat": 1.398212828,
-        "lng": 103.8812562
+      "stationCode": "SW3",
+      "trainLine": "SLRT"
     },
     "Thanggam": {
-        "stationCode": "SW4",
-        "trainLine": "SLRT",
-        "lat": 1.397318156,
-        "lng": 103.8756352
+      "stationCode": "SW4",
+      "trainLine": "SLRT"
     },
     "Fernvale": {
-        "stationCode": "SW5",
-        "trainLine": "SLRT",
-        "lat": 1.391885888,
-        "lng": 103.8763086
+      "stationCode": "SW5",
+      "trainLine": "SLRT"
     },
     "Layar": {
-        "stationCode": "SW6",
-        "trainLine": "SLRT",
-        "lat": 1.392079839,
-        "lng": 103.8800296
+      "stationCode": "SW6",
+      "trainLine": "SLRT"
     },
     "Tongkang": {
-        "stationCode": "SW7",
-        "trainLine": "SLRT",
-        "lat": 1.389347954,
-        "lng": 103.8858442
+      "stationCode": "SW7",
+      "trainLine": "SLRT"
     },
     "Renjong": {
-        "stationCode": "SW8",
-        "trainLine": "SLRT",
-        "lat": 1.386723922,
-        "lng": 103.8905394
+      "stationCode": "SW8",
+      "trainLine": "SLRT"
     },
     "Compassvale": {
-        "stationCode": "SE1",
-        "trainLine": "SLRT",
-        "lat": 1.394493046,
-        "lng": 103.9004925
+      "stationCode": "SE1",
+      "trainLine": "SLRT"
     },
     "Rumbia": {
-        "stationCode": "SE2",
-        "trainLine": "SLRT",
-        "lat": 1.391468497,
-        "lng": 103.9059736
+      "stationCode": "SE2",
+      "trainLine": "SLRT"
     },
     "Bakau": {
-        "stationCode": "SE3",
-        "trainLine": "SLRT",
-        "lat": 1.387992934,
-        "lng": 103.905414
+      "stationCode": "SE3",
+      "trainLine": "SLRT"
     },
     "Kangkar": {
-        "stationCode": "SE4",
-        "trainLine": "SLRT",
-        "lat": 1.383959115,
-        "lng": 103.9022254
+      "stationCode": "SE4",
+      "trainLine": "SLRT"
     },
     "Ranggung": {
-        "stationCode": "SE5",
-        "trainLine": "SLRT",
-        "lat": 1.384233561,
-        "lng": 103.8971947
+      "stationCode": "SE5",
+      "trainLine": "SLRT"
     },
     "Cove": {
-        "stationCode": "PE1",
-        "trainLine": "PLRT",
-        "lat": 1.399281985,
-        "lng": 103.9059619
+      "stationCode": "PE1",
+      "trainLine": "PLRT"
     },
     "Meridian": {
-        "stationCode": "PE2",
-        "trainLine": "PLRT",
-        "lat": 1.396912053,
-        "lng": 103.9089502
+      "stationCode": "PE2",
+      "trainLine": "PLRT"
     },
     "Coral Edge": {
-        "stationCode": "PE3",
-        "trainLine": "PLRT",
-        "lat": 1.393909226,
-        "lng": 103.9125809
+      "stationCode": "PE3",
+      "trainLine": "PLRT"
     },
     "Riviera": {
-        "stationCode": "PE4",
-        "trainLine": "PLRT",
-        "lat": 1.394524496,
-        "lng": 103.9161661
+      "stationCode": "PE4",
+      "trainLine": "PLRT"
     },
     "Kadaloor": {
-        "stationCode": "PE5",
-        "trainLine": "PLRT",
-        "lat": 1.399509113,
-        "lng": 103.916575
+      "stationCode": "PE5",
+      "trainLine": "PLRT"
     },
     "Oasis": {
-        "stationCode": "PE6",
-        "trainLine": "PLRT",
-        "lat": 1.402286677,
-        "lng": 103.9127274
+      "stationCode": "PE6",
+      "trainLine": "PLRT"
     },
     "Damai": {
-        "stationCode": "PE7",
-        "trainLine": "PLRT",
-        "lat": 1.405234836,
-        "lng": 103.9086035
+      "stationCode": "PE7",
+      "trainLine": "PLRT"
     },
     "Sam Kee": {
-        "stationCode": "PW1",
-        "trainLine": "PLRT",
-        "lat": 1.409612685,
-        "lng": 103.9048316
+      "stationCode": "PW1",
+      "trainLine": "PLRT"
     },
     "Teck Lee": {
-        "stationCode": "PW2",
-        "trainLine": "PLRT",
-        "lat": 1.412770894,
-        "lng": 103.9065776
+      "stationCode": "PW2",
+      "trainLine": "PLRT"
     },
     "Punggol Point": {
-        "stationCode": "PW3",
-        "trainLine": "PLRT",
-        "lat": 1.416848521,
-        "lng": 103.9066508
+      "stationCode": "PW3",
+      "trainLine": "PLRT"
     },
     "Samudera": {
-        "stationCode": "PW4",
-        "trainLine": "PLRT",
-        "lat": 1.415901719,
-        "lng": 103.9021563
+      "stationCode": "PW4",
+      "trainLine": "PLRT"
     },
     "Nibong": {
-        "stationCode": "PW5",
-        "trainLine": "PLRT",
-        "lat": 1.411870458,
-        "lng": 103.9003138
+      "stationCode": "PW5",
+      "trainLine": "PLRT"
     },
     "Sumang": {
-        "stationCode": "PW6",
-        "trainLine": "PLRT",
-        "lat": 1.408452426,
-        "lng": 103.8985585
+      "stationCode": "PW6",
+      "trainLine": "PLRT"
     },
     "Soo Teck": {
-        "stationCode": "PW7",
-        "trainLine": "PLRT",
-        "lat": 1.405088585,
-        "lng": 103.8972097
+      "stationCode": "PW7",
+      "trainLine": "PLRT"
     }
 }
+  

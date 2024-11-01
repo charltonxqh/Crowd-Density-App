@@ -1,0 +1,19 @@
+.top-bar {
+  display: flex;
+  height: 100px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-right: 10px;
+}

@@ -5,7 +5,7 @@
             "Station": "BP1",
             "StartTime": "2024-10-31T14:00:00+08:00",
             "EndTime": "2024-10-31T14:10:00+08:00",
-            "CrowdLevel": "h"
+            "CrowdLevel": "s"
         },
         {
             "Station": "BP10",
@@ -17,7 +17,7 @@
             "Station": "BP11",
             "StartTime": "2024-10-31T14:00:00+08:00",
             "EndTime": "2024-10-31T14:10:00+08:00",
-            "CrowdLevel": "h"
+            "CrowdLevel": "s"
         },
         {
             "Station": "BP12",
@@ -41,7 +41,7 @@
             "Station": "BP3",
             "StartTime": "2024-10-31T14:00:00+08:00",
             "EndTime": "2024-10-31T14:10:00+08:00",
-            "CrowdLevel": "h"
+            "CrowdLevel": "s"
         },
         {
             "Station": "BP4",
@@ -53,13 +53,13 @@
             "Station": "BP5",
             "StartTime": "2024-10-31T14:00:00+08:00",
             "EndTime": "2024-10-31T14:10:00+08:00",
-            "CrowdLevel": "h"
+            "CrowdLevel": "s"
         },
         {
             "Station": "BP6",
             "StartTime": "2024-10-31T14:00:00+08:00",
             "EndTime": "2024-10-31T14:10:00+08:00",
-            "CrowdLevel": "h"
+            "CrowdLevel": "s"
         },
         {
             "Station": "BP7",
@@ -77,7 +77,7 @@
             "Station": "BP9",
             "StartTime": "2024-10-31T14:00:00+08:00",
             "EndTime": "2024-10-31T14:10:00+08:00",
-            "CrowdLevel": "h"
+            "CrowdLevel": "s"
         }
     ]
 }

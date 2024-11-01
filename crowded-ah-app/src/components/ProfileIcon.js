@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGuest } from '../components/GuestContext';
 import { getAuth, signOut } from 'firebase/auth';
@@ -9,7 +9,6 @@ const ProfileIcon = () => {
     const navigate = useNavigate();
     const { isGuest } = useGuest();
     const auth = getAuth();
-    const profileRef = useRef(null);
 
     // Toggle the visibility of the logout button
     const toggleLogout = () => {
@@ -26,22 +25,8 @@ const ProfileIcon = () => {
         }
     };
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (profileRef.current && !profileRef.current.contains(event.target)) {
-                setShowLogout(false); // Close the popup if clicking outside
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
     return (
-        <div className="profile-icon" ref={profileRef}>
+        <div className="profile-icon">
             <img
                 src={isGuest ? '/images/guest_pic.png' : '/images/profile_pic.png'}
                 alt="Profile"
