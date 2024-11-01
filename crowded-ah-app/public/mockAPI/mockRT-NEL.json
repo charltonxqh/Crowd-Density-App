@@ -1,0 +1,101 @@
+{
+    "odata.metadata": "http://datamall2.mytransport.sg/ltaodataservice/$metadata#PcdRealTime",
+    "value": [
+        {
+            "Station": "NE1",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "NE10",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "NE11",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "NE12",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "NE13",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "NE14",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "NE15",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "NE16",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "NE17",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "NE3",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "NE4",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "NE5",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "NE6",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "NE7",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "NE8",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "NE9",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        }
+    ]
+}

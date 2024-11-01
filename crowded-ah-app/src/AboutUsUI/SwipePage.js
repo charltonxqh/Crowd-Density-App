@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './About_us_styles.css';
+import './AboutUs.css';
 
 const SwipePage = ({ children, nextPage, prevPage }) => {
   const [startX, setStartX] = useState(0);
@@ -8,7 +8,6 @@ const SwipePage = ({ children, nextPage, prevPage }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Handle both touch and mouse events
     const handleTouchStart = (e) => {
       setStartX(e.touches ? e.touches[0].clientX : e.clientX);
     };
@@ -18,37 +17,49 @@ const SwipePage = ({ children, nextPage, prevPage }) => {
     };
 
     const handleTouchEnd = () => {
-        if (startX - endX > 50) {
-            navigate(nextPage);  // Ensure that nextPage points to '/about-us/page2', etc.
-        } else if (endX - startX > 50) {
-            navigate(prevPage);  // Ensure that prevPage points to '/about-us/page4', etc.
-        }
+      if (startX - endX > 50) {
+        navigate(nextPage);
+      } else if (endX - startX > 50) {
+        navigate(prevPage);
+      }
+      setStartX(0); // Reset after swipe
+      setEndX(0);   // Reset after swipe
     };
 
-    // Mouse event handlers for desktop
-    const handleMouseDown = (e) => {
-      setStartX(e.clientX);
+    const handleClick = (e) => {
+      const screenWidth = window.innerWidth;
+      const clickX = e.clientX;
+
+      if (clickX > screenWidth / 2) {
+        navigate(nextPage);
+      } else {
+        navigate(prevPage);
+      }
     };
 
-    const handleMouseUp = (e) => {
-      setEndX(e.clientX);
-      handleTouchEnd(); // Call the same logic as touch end
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        navigate(nextPage);
+      } else if (e.key === 'ArrowLeft') {
+        navigate(prevPage);
+      }
     };
 
-    // Add event listeners for touch and mouse
-    document.addEventListener('touchstart', handleTouchStart);
-    document.addEventListener('touchmove', handleTouchMove);
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchmove', handleTouchMove, { passive: true });
     document.addEventListener('touchend', handleTouchEnd);
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Wrap `handleClick` specifically to `swipe-container`
+    const container = document.querySelector('.swipe-container');
+    container?.addEventListener('click', handleClick);
 
     return () => {
-      // Cleanup listeners
       document.removeEventListener('touchstart', handleTouchStart);
       document.removeEventListener('touchmove', handleTouchMove);
       document.removeEventListener('touchend', handleTouchEnd);
-      document.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('keydown', handleKeyDown);
+      container?.removeEventListener('click', handleClick);
     };
   }, [startX, endX, navigate, nextPage, prevPage]);
 
@@ -56,4 +67,5 @@ const SwipePage = ({ children, nextPage, prevPage }) => {
 };
 
 export default SwipePage;
+
 

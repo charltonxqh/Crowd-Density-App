@@ -1,0 +1,17 @@
+{
+    "odata.metadata": "http://datamall2.mytransport.sg/ltaodataservice/$metadata#PcdRealTime",
+    "value": [
+        {
+            "Station": "CE1",
+            "StartTime": "2024-10-30T23:40:00+08:00",
+            "EndTime": "2024-10-30T23:50:00+08:00",
+            "CrowdLevel": "l"
+        },
+        {
+            "Station": "CE2",
+            "StartTime": "2024-10-30T23:40:00+08:00",
+            "EndTime": "2024-10-30T23:50:00+08:00",
+            "CrowdLevel": "l"
+        }
+    ]
+}

@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // or 'next/router' for Next.js
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useGuest } from '../components/GuestContext';
+import { getAuth, signOut } from 'firebase/auth';
+import './ProfileIcon.css';
 
 const ProfileIcon = () => {
     const [showLogout, setShowLogout] = useState(false);
     const navigate = useNavigate();
+    const { isGuest } = useGuest();
+    const auth = getAuth();
+    const profileRef = useRef(null);
 
     // Toggle the visibility of the logout button
     const toggleLogout = () => {
@@ -11,25 +17,41 @@ const ProfileIcon = () => {
     };
 
     // Handle logout and redirect to the login page
-    const handleLogout = () => {
-        // Perform any necessary cleanup, like removing authentication tokens
-        // Then redirect to the login page
-        navigate.push('/login'); // Replace with your login page route
+    const handleLogout = async () => {
+        try {
+            await signOut(auth); // Sign out from Firebase
+            navigate('/'); // Redirect to the login page
+        } catch (error) {
+            console.error("Logout failed: ", error); // Handle error if necessary
+        }
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (profileRef.current && !profileRef.current.contains(event.target)) {
+                setShowLogout(false); // Close the popup if clicking outside
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="profile-icon">
+        <div className="profile-icon" ref={profileRef}>
             <img
-                src="profile-pic.png"
+                src={isGuest ? '/images/guest_pic.png' : '/images/profile_pic.png'}
                 alt="Profile"
                 onClick={toggleLogout}
-                style={{ cursor: 'pointer', width: '50px' }}
             />
             
             {showLogout && (
-                <div className="logout-popup">
-                    <button className="logout-button" onClick={handleLogout}>
-                        Log Out
+                <div className="auth-popup">
+                    <button className="auth-button" onClick={handleLogout}>
+                        {isGuest ? 'Log In' : 'Log Out'}
                     </button>
                 </div>
             )}

@@ -1,9 +1,9 @@
 .hamburgerContainer {
-    position: absolute;
-    right: 0; 
-    top: 0;  
-    margin-right: 20px; 
+    right: 20px;
+    top: 20px;
+    width: 40px; 
 }
+
 
 .hamburger {
     background: none;                  
@@ -29,12 +29,12 @@
     height: auto;                     
 }
 
-.dropdownMenu {
+.dropDownMenu {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 40px; 
-    right: 0;
+    right: 0px;
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

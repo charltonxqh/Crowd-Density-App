@@ -1,0 +1,117 @@
+/* NearbyStationsList.css */
+
+.nearby-stations-list {
+  background-color: #4b71aa;
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.nearby-stations-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.nearby-stations-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nearby-stations-list li {
+  background-color: white;
+  color: #333;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.station-info-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.nearby-station-code {
+  background-color: #2e7d32;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 50px;
+  max-width: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.nearby-station-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nearby-station-name,
+.nearby-station-distance,
+.nearby-crowd-density-indicator {
+  flex: 1;
+}
+
+.nearby-station-name {
+  font-size: 1rem;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.nearby-station-distance {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.walking-icon {
+  margin-right: 5px;
+}
+
+.nearby-crowd-density-indicator {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.nearby-crowd-density-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.nearby-crowd-density-circle.l {
+  background-color: limegreen; /* Low crowd density */
+}
+
+.nearby-crowd-density-circle.m {
+  background-color: gold; /* Moderate crowd density */
+}
+
+.nearby-crowd-density-circle.h {
+  background-color: coral; /* High crowd density */
+}
+
+.nearby-crowd-density-circle.unknown {
+  background-color: gray; /* Unknown crowd density */
+}
+
+.nearby-crowd-density-text {
+  color: #555;
+  font-weight: bold;
+  text-transform: capitalize;
+}

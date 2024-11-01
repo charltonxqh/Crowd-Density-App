@@ -1,0 +1,84 @@
+.search-container {
+  width: 400px; 
+  position: relative;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  border: 1px solid #ccc; /* Border for the search bar */
+  border-radius: 25px; /* Rounded corners */
+  padding: 5px; /* Padding inside the search bar */
+  background-color: #ffffff; /* Background color */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: box-shadow 0.3s; /* Smooth transition for shadow */
+}
+
+.search-bar:hover {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+}
+
+.search-input {
+  flex: 1; /* Allow input to take up remaining space */
+  padding: 10px; /* Padding inside the input field */
+  font-size: 16px; /* Font size for input text */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  border-radius: 25px; /* Match the border radius */
+  background-color: #F0F4F8; /* Light background for input */
+  transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+.search-input::placeholder {
+  color: #aaa; /* Placeholder color */
+  font-style: italic; /* Italic style for placeholder */
+}
+
+.search-input:focus {
+  background-color: #ffffff; /* Change background on focus */
+}
+
+.icon {
+  cursor: pointer; /* Pointer cursor for icons */
+  margin: 0 10px; /* Space between icons and input */
+  font-size: 20px; /* Adjust icon size */
+  transition: color 0.3s; /* Smooth transition for icon color */
+  border: none;
+  background-color: #ffffff; /* Background color */
+}
+
+.icon:hover {
+  color: #00C78C; /* Change icon color on hover */
+}
+
+.result-box {
+  position: absolute;
+  width: 100%; /* Full width of the search container */
+  max-height: 200px; /* Maximum height for suggestions */
+  overflow-y: auto; /* Scroll if too many suggestions */
+  border: 1px solid #ccc; /* Border for suggestions */
+  border-top: none; /* No top border */
+  background-color: #fff; /* Background color for suggestions */
+  border-radius: 25px; /* Rounded bottom corners */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for suggestions */
+  z-index: 10; /* Make sure it appears above other elements */
+}
+
+.result-item {
+  margin-left: 10px;
+  padding: 10px; /* Padding for suggestion items */
+  cursor: pointer; /* Pointer cursor */
+  font-size: 16px; /* Font size for suggestion text */
+  transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+.result-item:hover {
+  background-color: #f0f0f0; /* Highlight suggestion on hover */
+  font-weight: bold; /* Bold text on hover */
+}
+
+.remove-icon {
+  background: none; /* Remove default button background */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Change cursor to pointer */
+}

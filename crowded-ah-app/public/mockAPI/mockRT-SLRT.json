@@ -1,0 +1,89 @@
+{
+    "odata.metadata": "http://datamall2.mytransport.sg/ltaodataservice/$metadata#PcdRealTime",
+    "value": [
+        {
+            "Station": "SE1",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SE2",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SE3",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SE4",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SE5",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "STC",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SW1",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "m"
+        },
+        {
+            "Station": "SW2",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SW3",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": ""
+        },
+        {
+            "Station": "SW4",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SW5",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SW6",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SW7",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        },
+        {
+            "Station": "SW8",
+            "StartTime": "2024-10-31T14:10:00+08:00",
+            "EndTime": "2024-10-31T14:20:00+08:00",
+            "CrowdLevel": "s"
+        }
+    ]
+}

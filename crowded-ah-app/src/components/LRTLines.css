@@ -69,11 +69,11 @@
 
 .station-code {
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
 }
 
 .station-name {
-    font-style: italic;
+    font-style: normal;
     color: #000000;
     font-weight: bold;
 }
@@ -85,4 +85,25 @@
     padding: 4px 4px; /* Adds some padding around the text */
     border-radius: 4px; /* Rounds the corners of the box */
     margin-right: 5px; /* Space between the code box and the name */
+}
+
+.crowd-density-indicator {
+    display: inline-block;
+    width: 24px;
+    height: 24px; 
+    border-radius: 50%;
+    margin-left: 8px;
+}
+  
+.crowd-density-indicator.l{
+background-color: limegreen; /* Low crowd density */
+}
+.crowd-density-indicator.m{
+background-color: gold; /* Moderate crowd density */
+}
+.crowd-density-indicator.h{
+background-color: coral; /* High crowd density */
+}
+.crowd-density-indicator.unknown{
+    background-color: gray; /* Unknown crowd density */
 }

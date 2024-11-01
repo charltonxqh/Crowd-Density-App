@@ -1,7 +1,5 @@
-/* styles.css */
-
 /* General page styles */
-body {
+.body {
     font-family: 'Roboto', sans-serif;
     background-color: #f4f4f9;
     margin: 0;
@@ -24,34 +22,33 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Notification item styles */
-.notification-item {
-    background-color: #f9f9f9;
-    border-left: 6px solid #4CAF50; /* Green border for regular notifications */
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
 
 .notification-item:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Pinned notification */
+/* Notification item styles */
+.notification-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: #f9f9f9;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
 .notification-item.pinned {
-    border-left-color: #FFD700; /* Gold border for pinned notifications */
+    background-color: #f1f8ff;
+    border-left: 4px solid #007bff;
+    transform: translateY(-10px); /* Moves the pinned message slightly up */
 }
 
-/* Notification text styles */
 .notification-item p {
     margin: 5px 0;
     font-size: 1rem;
     color: #444;
 }
 
-/* Strong text for labels */
 .notification-item strong {
     font-weight: bold;
     color: #333;
@@ -64,45 +61,42 @@ h1 {
     margin-top: 10px;
 }
 
-.notification-buttons button {
-    background-color: #007BFF;
-    border: none;
-    color: #fff;
-    padding: 10px 15px;
-    margin-left: 10px;
-    font-size: 0.9rem;
+/* Notification buttons */
+/* Notification buttons */
+.notification-buttons .pin-button {
+    background-color: #fff; /* White background */
+    color: #007bff; /* Blue text */
+    border: 2px solid #007bff; /* Blue border */
+    padding: 12px 20px;
+    font-size: 1rem;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 10px;
+}
+
+.notification-buttons .pin-button:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: #fff; /* White text on hover */
+}
+
+.notification-buttons .delete-button {
+    background-color: #dc3545; /* Keep delete button red */
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 10px;
     transition: background-color 0.3s ease;
 }
 
-.notification-buttons button:hover {
-    background-color: #0056b3;
+.notification-buttons .delete-button:hover {
+    background-color: #c82333;
 }
 
-.notification-buttons button:focus {
-    outline: none;
-}
 
-/* Deleted message styles */
-.deleted-message {
-    background-color: #FF6F61;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Images for smooth commute and train disruption */
-img {
-    display: block;
-    margin: 0 auto;
-    width: 200px; /* Set a fixed width */
-    height: 200px; /* Set a fixed height */
-    object-fit: cover; /* Ensures the image covers the set area while maintaining aspect ratio */
-}
 
 /* Notification list container */
 .notification-list {
@@ -128,9 +122,89 @@ img {
     .notification-buttons button {
         padding: 8px 12px;
     }
-
-    img {
-        width: 150px; /* Adjust the image size for smaller screens */
-        height: 150px;
-    }
 }
+
+/* Deletion message styling */
+.deletion-message {
+    background-color: #c82333;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.deletion-message.fade-out {
+    opacity: 0;
+}
+
+/* Pinned message styling */
+.pinned-message {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.pinned-message.fade-out {
+    opacity: 0;
+}
+
+/* All deleted message styling */
+.all-deleted-message {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+/* Style for normal train service message */
+.normal-service-message {
+    font-size: 1.1rem;
+    color: #28a745; /* Green color for positive message */
+    text-align: center;
+    padding: 15px;
+    background-color: #e6f4e9; /* Light green background */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.no-notifications-message {
+    font-size: 1.1rem;
+    color: #6c757d; 
+    text-align: center;
+    padding: 15px;
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.affected-segments {
+    margin-bottom: 30px;
+}
+
+.affected-segment-item {
+    padding-bottom: 10px;
+    margin-bottom: 20px; 
+    border-bottom: 1px solid #d0d0d0; 
+}
+
+.affected-segment-item:last-child {
+    border-bottom: none; 
+}
+
+
+

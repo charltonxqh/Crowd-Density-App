@@ -4,12 +4,19 @@ import './PageIdentifierHeader.css';
 
 
 const pageTitles = {
-    '/': 'Home',
+    '/home': 'Home',
     '/stations': 'Stations',
     '/statistics': 'Statistics',
     '/notifications': 'Notifications',
     '/help': 'Help',
-    '/about-us': 'About Us'
+    '/about-us': 'About Us',
+    '/about-us/page2': 'About Us',
+    '/about-us/page3': 'About Us',
+    '/about-us/page4': 'About Us',
+    '/about-us/page5': 'About Us',
+    '/about-us/page6': 'About Us',
+    '/about-us/page7': 'About Us'
+
 };
 
 const PageIdentifierHeader = () => {
