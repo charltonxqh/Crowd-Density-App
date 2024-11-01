@@ -2,7 +2,6 @@ import React from 'react';
 import Logo from '../components/Logo'
 import Hamburger from '../components/Hamburger';
 import './NavBar.css';
-import ProfileIcon from '../components/ProfileIcon';
 import { useLocation } from 'react-router-dom';
 
 function NavBar() {
@@ -14,10 +13,7 @@ function NavBar() {
     return (
         <div className="nav-bar">
             <Logo/>
-            <div className="nav-right">
-                <ProfileIcon/>
-                {!isAuthPage && <Hamburger/> }
-            </div>
+            {!isAuthPage && <Hamburger/> } {/* Hide Hamburger on Auth page */}
         </div>
     );
 }

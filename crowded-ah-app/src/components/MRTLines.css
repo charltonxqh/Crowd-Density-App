@@ -8,8 +8,7 @@
 }
 
 .line-code {
-    font-weight: bold;
-    color: white;
+    font-weight: bold; /* Optional: make the code bold */
 }
 
 .mrt-line-button {
@@ -18,10 +17,9 @@
     padding: 10px;
     border: 1px solid #ccc;
     text-align: left;
-    font-size: 21px;
+    font-size: 20px;
     cursor: pointer;
     font-weight: bold;
-    background-color: #ACA9A9;
 }
 
 .mrt-line-button:hover {
@@ -39,7 +37,6 @@
     margin-bottom: 10px;
 }
 
-
 .mrt-station-item {
     padding: 10px;
     border-radius: 5px;
@@ -47,28 +44,28 @@
     align-items: center; 
 }
 
-.circle-line-dropdown, .circle-line-items{
+.circle-line, .circle-line-dropdown, .circle-line-items{
     background-color: #fad29a;
 }
 
-.downtown-line-dropdown, .downtown-line-items{
+.downtown-line, .downtown-line-dropdown, .downtown-line-items{
     background-color: #70bbf4;
 }
 
 
-.east-west-line-dropdown, .east-west-line-items{
+.east-west-line, .east-west-line-dropdown, .east-west-line-items{
     background-color: #79f6ab;
 }
 
-.north-east-line-dropdown, .north-east-line-items{
+.north-east-line, .north-east-line-dropdown, .north-east-line-items{
     background-color: #e489f7;
 }
 
-.north-south-line-dropdown, .north-south-line-items{
+.north-south-line, .north-south-line-dropdown, .north-south-line-items{
     background-color: #fb8881;
 }
 
-.thomson-east-coast-line-dropdown, .thomson-east-coast-line-items{
+.thomson-east-coast-line, .thomson-east-coast-line-dropdown, .thomson-east-coast-line-items{
     background-color: #e39144;
 }
 
@@ -85,10 +82,6 @@
 
 .station-code-box {
     display: inline-block; /* Ensures the box only takes up the width of the code */
-    color: white; /* Text color */
-    padding: 4px 4px; /* Adds some padding around the text */
-    border-radius: 4px; /* Rounds the corners of the box */
-    margin-right: 5px; /* Space between the code box and the name */
 }
 
 .station-code-box-circle-line { 
