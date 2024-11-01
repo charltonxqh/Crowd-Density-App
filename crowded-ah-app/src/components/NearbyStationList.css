@@ -1,6 +1,6 @@
 /* NearbyStationsList.css */
 
-.nearby-Stations-list {
+.nearby-stations-list {
   background-color: #4b71aa;
   padding: 20px;
   border-radius: 15px;
@@ -8,18 +8,18 @@
   font-family: Arial, sans-serif;
 }
 
-.stations-list h2 {
+.nearby-stations-list h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
-.stations-list ul {
+.nearby-stations-list ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.stations-list li {
+.nearby-stations-list li {
   background-color: white;
   color: #333;
   border-radius: 8px;
@@ -28,8 +28,14 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.station-code {
-  background-color: #2e7d32; /* Default green background for the station code */
+.station-info-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.nearby-station-code {
+  background-color: #2e7d32;
   color: white;
   font-weight: bold;
   padding: 5px 10px;
@@ -51,39 +57,53 @@
   width: 100%;
 }
 
-.station-info {
+.nearby-station-name,
+.nearby-station-distance,
+.nearby-crowd-density-indicator {
   flex: 1;
 }
 
-.station-name {
+.nearby-station-name {
   font-size: 1rem;
   font-weight: bold;
   flex-grow: 1;
 }
 
-.station-distance,
-.station-status {
-  font-size: 0.8rem;
+.nearby-station-distance {
+  font-size: 1rem;
   display: flex;
   align-items: center;
   margin-left: 10px;
 }
 
-.station-status span {
+.walking-icon {
+  margin-right: 5px;
+}
+
+.nearby-crowd-density-indicator {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.nearby-crowd-density-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
   display: inline-block;
   margin-right: 5px;
 }
 
-.status-light {
-  background-color: green;
+.nearby-crowd-density-circle.l {
+  background-color: limegreen; /* Low crowd density */
 }
 
-.status-moderate {
-  background-color: orange;
+.nearby-crowd-density-circle.m {
+  background-color: gold; /* Moderate crowd density */
 }
 
-.status-heavy {
-  background-color: red;
+.nearby-crowd-density-circle.h {
+  background-color: coral; /* High crowd density */
 }
 
 .nearby-crowd-density-circle.unknown {

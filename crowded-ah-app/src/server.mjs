@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+import { exec } from 'child_process'; // Import child_process
 import { fetchRealTimeAPIData, fetchForecastAPIData, fetchTrainServiceAlerts, TRAIN_LINES } from './API.mjs';
+import Bottleneck from 'bottleneck';
 
 const app = express();
 const PORT = 4000;
@@ -22,10 +24,8 @@ async function updateRealTimeData() {
     storedData.realTime = results;
 }
 
-import Bottleneck from 'bottleneck';
-
 const limiter = new Bottleneck({
-    minTime: 2000, // Minimum time between requests (1 second)
+    minTime: 1000, // Minimum time between requests (1 second)
     maxConcurrent: 1, // Only 1 request at a time
 });
 
@@ -58,5 +58,28 @@ updateServiceAlerts();
 // API routes
 app.get('/api/train-data', (req, res) => res.json(storedData));
 app.get('/api/train-alerts', (req, res) => res.json(storedAlerts));
+
+app.get('/api/train-arrival/:stationName', (req, res) => {
+    const stationName = req.params.stationName;
+
+    // Command to run your Python script
+    exec(`python src/TrainETA.py ${stationName}`, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error executing Python script: ${stderr}`);
+            return res.status(500).json({ error: 'Error fetching train arrival data' });
+        }
+
+        try {
+            const arrivalData = JSON.parse(stdout);  
+            res.json(arrivalData);
+        } catch (parseError) {
+            console.error(`Error parsing JSON: ${parseError}`);
+            res.status(500).json({ error: 'Error parsing arrival data' });
+        }
+    });
+});
+
+
+
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

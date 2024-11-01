@@ -69,15 +69,12 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
       fetchTrainData();
     }, []);
   
-    const getCrowdLevel = (line, station, isForecast = false) => {
-      const dataKey = isForecast ? 'forecast' : 'realTime';
-      if (trainData[dataKey] && trainData[dataKey][line]) {
-        const stationData = trainData[dataKey][line].find(s => s.Station === station);
-        return stationData ? stationData.CrowdLevel || 'NA' : 'NA';
+    const getCrowdLevel = (line, stationCode) => {
+      if (trainData[line] && trainData[line][stationCode]) {
+          return trainData[line][stationCode].CrowdLevel || 'unknown';
       }
-      return 'NA';
-    };
-  
+      return 'unknown';
+  };
     const CrowdLabel = (level) => {
       switch (level) {
           case 'l':
@@ -87,7 +84,7 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
           case 'h':
               return 'High';
           default:
-              return 'NA';
+              return 'Unknown';
       }
     };
 
@@ -139,4 +136,3 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
   
 
 export default LRTLines;
-

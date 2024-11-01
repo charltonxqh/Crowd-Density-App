@@ -1,12 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
 import StationPopup from './StationPopup';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './MRTLines.css';
 import stationsData from '../stationsInfo.json';
 
 const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStation, setSelectedStation }) => {
   const validLines = ['CCL', 'DTL', 'EWL', 'NEL', 'NSL', 'TEL'];
+  const orderedLines = ['CCL', 'DTL', 'EWL', 'NEL', 'NSL', 'TEL'];
+
   const lineNames = {
     CCL: 'Circle Line',
     DTL: 'Downtown Line',
@@ -39,16 +40,6 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
     return acc;
   }, {});
 
-  const lineClasses = {
-    CCL: { buttonClass: 'circle-line', dropdownClass: 'circle-line-dropdown', itemClass: 'circle-line-items' },
-    DTL: { buttonClass: 'downtown-line', dropdownClass: 'downtown-line-dropdown', itemClass: 'downtown-line-items' },
-    EWL: { buttonClass: 'east-west-line', dropdownClass: 'east-west-line-dropdown', itemClass: 'east-west-line-items' },
-    NEL: { buttonClass: 'north-east-line', dropdownClass: 'north-east-line-dropdown', itemClass: 'north-east-line-items' },
-    NSL: { buttonClass: 'north-south-line', dropdownClass: 'north-south-line-dropdown', itemClass: 'north-south-line-items' },
-    TEL: { buttonClass: 'thomson-east-coast-line', dropdownClass: 'thomson-east-coast-line-dropdown', itemClass: 'thomson-east-coast-line-items' },
-  };
-  
-
   const handleToggle = (line) => {
     const isOpen = openLine === line;
     setOpenLine(prevLine => {
@@ -68,7 +59,7 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
 
   const handleStationClick = (station) => {
     setMarkerPositions([{ lat: station.lat, lng: station.lng }]);
-    setSelectedStation(station);
+    setSelectedStation(station); // This will trigger the StationPopup
   };
 
   useEffect(() => {
@@ -87,58 +78,55 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
 
   const getCrowdLevel = (line, stationCode) => {
     if (trainData[line] && trainData[line][stationCode]) {
-        return trainData[line][stationCode].CrowdLevel || 'unknown';
+      return trainData[line][stationCode].CrowdLevel || 'unknown';
     }
     return 'unknown';
-};
+  };
+
   const CrowdLabel = (level) => {
     switch (level) {
-        case 'l':
-            return 'Low';
-        case 'm':
-            return 'Medium';
-        case 'h':
-            return 'High';
-        default:
-            return 'Unknown';
+      case 'l': return 'Low';
+      case 'm': return 'Medium';
+      case 'h': return 'High';
+      default: return 'Unknown';
     }
   };
 
   return (
     <div>
-      {Object.keys(mrtLines).map((line) => (
-        <div key={line}>
-          {/* Line Banner Button */}
-          <button 
-            onClick={() => handleToggle(line)} 
-            className={`mrt-line-button ${lineClasses[line].buttonClass}`}
-          >
-            <span className={`station-code-box-${line.toLowerCase().replace(/\s+/g, '-')}`}>
-              <span className="line-code">{mrtLines[line].code}</span>
-            </span> 
-            {line}
-          </button>
-          {/* Directly display list of MRT station */}
-        {openLine === line && (
-          <ul className={`mrt-station-list ${lineClasses[line].dropdownClass}`}>
-            {mrtLines[line].station.map((station, index) => (
-              <li key={index} className={`mrt-station-item ${lineClasses[line].itemClass}`}>
-                <button
-                key={station.code}
-                className={`station-code-box-${line.toLowerCase().replace(/\s+/g, '-')}`}
-                onClick={() => handleStationClick(station)}>
-                <span className="station-code">{station.code}</span>
-                <span className="station-name">{station.name}</span>
-                </button> 
-                <span
-                className={`crowd-density-indicator ${getCrowdLevel(mrtLines[line].code, station.code)}`}
-                title={getCrowdLevel(mrtLines[line].code, station.code)}
-                >{CrowdLabel(getCrowdLevel(mrtLines[line].code, station.code))}</span>
-              </li>
-          ))}
-            </ul>
-          )}
-        </div>
+      {orderedLines.map((line) => (
+        mrtLines[line] && (
+          <div key={line}>
+            <button 
+              onClick={() => handleToggle(line)}
+              className={`mrt-line-button ${line === selectedLine ? 'active' : ''}`}
+            >
+            <span className="line-code-box">
+              <span className={`station-code-box-${line.toLowerCase()}`}></span>
+              <span className="line-code">{line}</span>
+            </span>
+            {lineNames[line]}
+
+            </button>
+            {openLine === line && (
+                <ul className={`mrt-station-list mrt-station-list-${line.toLowerCase()}`}>
+                {mrtLines[line].station.map((station, index) => (
+                  <li key={index} className="mrt-station-item">
+                    <button
+                      onClick={() => handleStationClick(station)}
+                    >
+                      <span className="station-code">{station.code}</span>
+                      <span className="station-name">{station.name}</span>
+                    </button> 
+                    <span className="crowd-density-indicator">
+                      {CrowdLabel(getCrowdLevel(mrtLines[line].code, station.code))}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )
       ))}
       {selectedStation && (
         <StationPopup
