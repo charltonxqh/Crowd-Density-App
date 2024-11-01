@@ -1,7 +1,6 @@
 /* MrtDropdown.css */
 .line-code-box {
     display: inline-block; /* Ensures the box only takes up the width of the code */
-    background-color: #B7C2B7; /* Change this to any color you want */
     color: rgb(0, 0, 0); /* Text color */
     padding: 4px 8px; /* Adds some padding around the text */
     border-radius: 4px; /* Rounds the corners of the box */
@@ -20,17 +19,12 @@
     text-align: left;
     font-size: 20px;
     cursor: pointer;
-    color: #000000;
     font-weight: bold;
 }
 
 .mrt-line-button:hover {
-    opacity: 0.8; /* Reduce opacity on hover */
-    background-color: #bebbbb;
-}
-
-.circle-line, .downtown-line,.east-west-line,.north-east-line,.north-south-line,.thomson-east-coast-line {
-    background-color: #aca9a9;
+    opacity: 0.5;
+    background-color: #70bbf4;
 }
 
 .mrt-station-list {
@@ -44,131 +38,169 @@
 }
 
 .mrt-station-item {
-    margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
     display: flex;
     align-items: center; 
-    font-size: 18px;
-    color: #fff;
 }
 
-.circle-line-dropdown, .circle-line-items{
+.circle-line, .circle-line-dropdown, .circle-line-items{
     background-color: #fad29a;
 }
 
-.downtown-line-dropdown, .downtown-line-items{
+.downtown-line, .downtown-line-dropdown, .downtown-line-items{
     background-color: #70bbf4;
 }
 
 
-.east-west-line-dropdown, .east-west-line-items{
+.east-west-line, .east-west-line-dropdown, .east-west-line-items{
     background-color: #79f6ab;
 }
 
-.north-east-line-dropdown, .north-east-line-items{
+.north-east-line, .north-east-line-dropdown, .north-east-line-items{
     background-color: #e489f7;
 }
 
-.north-south-line-dropdown, .north-south-line-items{
+.north-south-line, .north-south-line-dropdown, .north-south-line-items{
     background-color: #fb8881;
 }
 
-.thomson-east-coast-line-dropdown, .thomson-east-coast-line-items{
+.thomson-east-coast-line, .thomson-east-coast-line-dropdown, .thomson-east-coast-line-items{
     background-color: #e39144;
 }
 
 .station-code {
     font-weight: bold;
-    color: white;
+    font-size: 14px;
 }
 
 .station-name {
     font-style: normal;
-    color: white;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .station-code-box {
     display: inline-block; /* Ensures the box only takes up the width of the code */
-    color: white; /* Text color */
-    padding: 4px 4px; /* Adds some padding around the text */
-    border-radius: 4px; /* Rounds the corners of the box */
-    margin-right: 5px; /* Space between the code box and the name */
 }
 
 .station-code-box-circle-line { 
     background-color: #ffa515;
-    display: inline-block; 
+    display: inline-block;  
     padding: 4px 4px; 
     border-radius:4px; 
-    margin-right: 5px; 
+    margin-right: 2px;  
 } 
 
 .station-code-box-downtown-line { 
     background-color: #005DA6; 
-    display: inline-block; 
+    display: inline-block;  
     padding: 4px 4px; 
     border-radius:4px; 
-    margin-right: 5px; 
+    margin-right: 2px;  
 }
 
 .station-code-box-east-west-line { 
     background-color: #00953B;
-    display: inline-block; 
-    color: white; 
+    display: inline-block;  
     padding: 4px 4px; 
     border-radius:4px; 
-    margin-right: 5px;  
+    margin-right: 2px;  
 } 
 
 .station-code-box-north-east-line {
     background-color: #9E28B5;
-    display: inline-block; 
-    color: white; 
+    display: inline-block;  
     padding: 4px 4px; 
     border-radius:4px; 
-    margin-right: 5px;  
+    margin-right: 2px;  
 }
 
 .station-code-box-north-south-line{ 
     background-color: #E1251B;
-    display: inline-block; 
-    color: white; 
+    display: inline-block;  
     padding: 4px 4px; 
     border-radius:4px; 
-    margin-right: 5px;  
+    margin-right: 2px;  
 }
 
 .station-code-box-thomson-east-coast-line { 
     background-color: #9D5918;
-    display: inline-block; 
-    color: white; 
+    display: inline-block;  
     padding: 4px 4px; 
     border-radius:4px; 
-    margin-right: 5px;  
-} 
+    margin-right: 2px;  
+}
 
-.crowd-density-indicator {
-    display: inline-block;
-    width: 24px;
-    height: 24px; 
+.crowd-density {
+    display: flex; 
+    justify-content: flex-end;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.crowd-density span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-right: 4px;
+    align-self: center;
+}
+
+.crowd-density-box {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #fff; /* Changed to white background */
+    border: 1px solid #eee;
+    width: 105px;
+}
+
+.crowd-level {
+    font-size: 1.03rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: black;
+    gap: 4px; /* Consistent spacing between dot and text */
+}
+
+.crowd-level-dot {
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    margin-left: 8px;
+    flex-shrink: 0; /* Prevent dot from shrinking */
 }
   
-.crowd-density-indicator.l{
-background-color: limegreen; /* Low crowd density */
-}
-.crowd-density-indicator.m{
-background-color: gold; /* Moderate crowd density */
-}
-.crowd-density-indicator.h{
-background-color: coral; /* High crowd density */
-}
-.crowd-density-indicator.unknown{
-    background-color: gray; /* Unknown crowd density */
+.crowd-level-dot.l {
+    background-color: #22c55e; /* Bright green for low crowd */
 }
 
+.crowd-level-dot.m {
+    background-color: #f59e0b; /* Amber for moderate crowd */
+}
 
+.crowd-level-dot.h {
+    background-color: #ef4444; /* Red for high crowd */
+}
 
+.crowd-level-dot.NA {
+    background-color: #9ca3af; /* Gray for unknown status */
+}
+
+.crowd-level.l {
+    color: #22c55e;
+}
+
+.crowd-level.m {
+    color: #f59e0b;
+}
+
+.crowd-level.h {
+    color: #ef4444;
+}
+
+.crowd-level.NA {
+    color: #9ca3af;
+}

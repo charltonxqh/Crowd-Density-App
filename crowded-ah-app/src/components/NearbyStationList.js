@@ -3,22 +3,22 @@ import './NearbyStationList.css';
 
 const NearbyStationList = ({ stations = [] }) => {
   return (
-    <div className="stations-list">
+    <div className="Stations-list">
       {stations.length > 0 ? (
         <>
           <h2>MRT near you:</h2>
           <ul>
             {stations.map((station, index) => (
-              <li key={index} className="station-item">
-                <span className="station-code">{station.name}</span>
-                <div className="station-info">
-                  <div className="station-name">{station.name}</div>
-                  <div className="station-distance">
+              <li key={index} className="Station-item">
+                <span className="Station-code">{station.name}</span>
+                <div className="Station-info">
+                  <div className="Station-name">{station.name}</div>
+                  <div className="Station-distance">
                     <span className="walking-icon">🚶</span>
                     <span className="distance-text">{station.distance}</span> {/* Replace with actual time */}
                   </div>
-                  <div className="station-status">
-                    <span className={`status-light`}></span> Light {/* Replace with actual status */}
+                  <div className="Station-status">
+                    <span className={`Status-light`}></span> Light {/* Replace with actual status */}
                   </div>
                 </div>
               </li>

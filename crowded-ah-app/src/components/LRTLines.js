@@ -49,12 +49,15 @@ const LRTLines = () => {
       getTrainData();
     }, []);
   
-    const getCrowdLevel = (line, stationCode) => {
-      if (trainData[line] && trainData[line][stationCode]) {
-          return trainData[line][stationCode].CrowdLevel || 'unknown';
+    const getCrowdLevel = (line, station, isForecast = false) => {
+      const dataKey = isForecast ? 'forecast' : 'realTime';
+      if (trainData[dataKey] && trainData[dataKey][line]) {
+        const stationData = trainData[dataKey][line].find(s => s.Station === station);
+        return stationData ? stationData.CrowdLevel || 'NA' : 'NA';
       }
-      return 'unknown';
-  };
+      return 'NA';
+    };
+  
     const CrowdLabel = (level) => {
       switch (level) {
           case 'l':
@@ -64,7 +67,7 @@ const LRTLines = () => {
           case 'h':
               return 'High';
           default:
-              return 'Unknown';
+              return 'NA';
       }
     };
 
@@ -95,10 +98,22 @@ const LRTLines = () => {
                                 <span className="station-code">{station.code}</span>
                                 <span className="station-name">{station.name}</span>
                                 </button> 
-                                <span
-                                className={`crowd-density-indicator ${getCrowdLevel(lrtLines[line].code, station.code)}`}
-                                title={getCrowdLevel(lrtLines[line].code, station.code)}
-                                >{CrowdLabel(getCrowdLevel(lrtLines[line].code, station.code))}</span>
+                                <div className="crowd-density">
+                                      <span>Now:</span>
+                                      <div className="crowd-density-box">
+                                          <div className={`crowd-level ${getCrowdLevel(lrtLines[line].code, station.code)}`}>
+                                              <div className={`crowd-level-dot ${getCrowdLevel(lrtLines[line].code, station.code)}`}></div>
+                                              {CrowdLabel(getCrowdLevel(lrtLines[line].code, station.code))}
+                                          </div>
+                                      </div>
+                                      <span>Forecast:</span>
+                                      <div className="crowd-density-box">
+                                          <div className={`crowd-level ${getCrowdLevel(lrtLines[line].code, station.code, true)}`}>
+                                              <div className={`crowd-level-dot ${getCrowdLevel(lrtLines[line].code, station.code, true)}`}></div>
+                                              {CrowdLabel(getCrowdLevel(lrtLines[line].code, station.code, true))}
+                                          </div>
+                                      </div>
+                                  </div>
                                 </li>
                             ))}
                         </ul>
