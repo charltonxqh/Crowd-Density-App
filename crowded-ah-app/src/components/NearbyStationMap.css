@@ -1,23 +1,49 @@
-/* NearbyStationMap.css */
-
-.nearby-station-container {
+.nearby-station-page {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.search-bar-container {
+  width: 100%;
   padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nearby-station-content {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .map-container {
   width: 50%;
-  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nearby-station-list-container {
   width: 50%;
-  overflow-y: auto;
-  box-sizing: border-box;
+  max-height: 80vh; /* Restrict maximum height */
+  overflow-y: auto; /* Scroll if content exceeds max height */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #4b71aa;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Ensures it stretches based on content */
 }
+
 
 .error-message {
   color: red;
+  text-align: center;
   margin-top: 10px;
 }

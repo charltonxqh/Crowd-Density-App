@@ -1,5 +1,6 @@
 .profile-icon {
     position: relative;
+    place-items: center;
 }
   
 .profile-icon img {
