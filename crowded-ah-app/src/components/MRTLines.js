@@ -39,6 +39,16 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
     return acc;
   }, {});
 
+  const lineClasses = {
+    CCL: { buttonClass: 'circle-line', dropdownClass: 'circle-line-dropdown', itemClass: 'circle-line-items' },
+    DTL: { buttonClass: 'downtown-line', dropdownClass: 'downtown-line-dropdown', itemClass: 'downtown-line-items' },
+    EWL: { buttonClass: 'east-west-line', dropdownClass: 'east-west-line-dropdown', itemClass: 'east-west-line-items' },
+    NEL: { buttonClass: 'north-east-line', dropdownClass: 'north-east-line-dropdown', itemClass: 'north-east-line-items' },
+    NSL: { buttonClass: 'north-south-line', dropdownClass: 'north-south-line-dropdown', itemClass: 'north-south-line-items' },
+    TEL: { buttonClass: 'thomson-east-coast-line', dropdownClass: 'thomson-east-coast-line-dropdown', itemClass: 'thomson-east-coast-line-items' },
+  };
+  
+
   const handleToggle = (line) => {
     const isOpen = openLine === line;
     setOpenLine(prevLine => {
