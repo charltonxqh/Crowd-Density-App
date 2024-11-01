@@ -23,7 +23,7 @@ async function updateRealTimeData() {
 import Bottleneck from 'bottleneck';
 
 const limiter = new Bottleneck({
-    minTime: 1000, // Minimum time between requests (1 second)
+    minTime: 2000, // Minimum time between requests (1 second)
     maxConcurrent: 1, // Only 1 request at a time
 });
 

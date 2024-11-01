@@ -1,4 +1,4 @@
-/* LRTLines.css */
+/* MrtDropdown.css */
 .line-code-box {
     display: inline-block; /* Ensures the box only takes up the width of the code */
     background-color: #B7C2B7; /* Change this to any color you want */
@@ -9,8 +9,7 @@
 }
 
 .line-code {
-    font-weight: bold;
-    color: white;
+    font-weight: bold; /* Optional: make the code bold */
 }
 
 .lrt-line-button {
@@ -19,7 +18,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     text-align: left;
-    font-size: 21px;
+    font-size: 20px;
     cursor: pointer;
     color: #000000;
     font-weight: bold;
@@ -27,14 +26,29 @@
 
 .lrt-line-button:hover {
     opacity: 0.8; /* Reduce opacity on hover */
-    background-color: #d4cdcd;
+    background-color: #bebbbb;
 }
 
+
 .bukit-panjang-line, .sengkang-line, .punggol-line{
-    background-color: #aca9a9;
+    background-color: whitesmoke;
+}
+
+.bukit-panjang-line-dropdown, .bukit-panjang-line-items .sengkang-line-dropdown, .sengkang-line-items .punggol-line-dropdown, .punggol-line-items{
+    background-color: #E3E3E3;
 }
 
 .lrt-station-list {
+    padding: 0;
+    font-size: 1.1rem;
+    max-height: 350px; 
+    overflow-y: auto;
+    list-style-type: none;  
+    padding-left: 21px;
+    margin-bottom: 10px;
+}
+
+.lrt-station-item {
     padding: 0;
     font-size: 1.1rem;
     max-height: 350px; 
@@ -44,66 +58,98 @@
     margin-bottom: 10px;
 }
 
-.lrt-station-item {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center; 
-    font-size: 18px;
-    color: #fff;
-}
-
-.bukit-panjang-line-dropdown, .bukit-panjang-line-items{
-    background-color: #E3E3E3;
-}
-
-.sengkang-line-dropdown, .sengkang-line-items{
-    background-color: #E3E3E3;
-}
-
-
-.punggol-line-dropdown, .punggol-line-items{
-    background-color: #E3E3E3;
-}
-
 .station-code {
     font-weight: bold;
-    color: #ffffff;
+    font-size: 14px;
 }
 
 .station-name {
     font-style: normal;
-    color: #000000;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .station-code-box {
-    display: inline-block; /* Ensures the box only takes up the width of the code */
-    background-color: grey; /* Change this to any color you want */
-    color: white; /* Text color */
-    padding: 4px 4px; /* Adds some padding around the text */
-    border-radius: 4px; /* Rounds the corners of the box */
-    margin-right: 5px; /* Space between the code box and the name */
+    display: inline-block;
 }
 
-.crowd-density-indicator {
-    display: inline-block;
-    width: 24px;
-    height: 24px; 
+.station-code-box-bukit-panjang-line, .station-code-box-sengkang-line .station-code-box-punggol-line { 
+    background-color: #bebbbb;
+    display: inline-block; 
+    padding: 6px; 
+    border-radius:4px; 
+    margin-right: 5px; 
+} 
+
+.crowd-density {
+    display: flex; 
+    justify-content: flex-end;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.crowd-density span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-right: 4px;
+    align-self: center;
+}
+
+.crowd-density-box {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #fff; /* Changed to white background */
+    border: 1px solid #eee;
+    width: 105px;
+}
+
+.crowd-level {
+    font-size: 1.03rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: black;
+    gap: 4px; /* Consistent spacing between dot and text */
+}
+
+.crowd-level-dot {
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    margin-left: 8px;
+    flex-shrink: 0; /* Prevent dot from shrinking */
 }
   
-.crowd-density-indicator.l{
-background-color: limegreen; /* Low crowd density */
+.crowd-level-dot.l {
+    background-color: #22c55e; /* Bright green for low crowd */
 }
-.crowd-density-indicator.m{
-background-color: gold; /* Moderate crowd density */
+
+.crowd-level-dot.m {
+    background-color: #f59e0b; /* Amber for moderate crowd */
 }
-.crowd-density-indicator.h{
-background-color: coral; /* High crowd density */
+
+.crowd-level-dot.h {
+    background-color: #ef4444; /* Red for high crowd */
 }
-.crowd-density-indicator.unknown{
-    background-color: gray; /* Unknown crowd density */
+
+.crowd-level-dot.NA {
+    background-color: #9ca3af; /* Gray for unknown status */
+}
+
+.crowd-level.l {
+    color: #22c55e;
+}
+
+.crowd-level.m {
+    color: #f59e0b;
+}
+
+.crowd-level.h {
+    color: #ef4444;
+}
+
+.crowd-level.NA {
+    color: #9ca3af;
 }

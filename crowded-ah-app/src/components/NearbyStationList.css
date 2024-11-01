@@ -1,6 +1,6 @@
 /* NearbyStationsList.css */
 
-.stations-list {
+.Stations-list {
   background-color: #4c7bd9; /* Blue background for the list container */
   padding: 20px;
   border-radius: 15px; /* Rounded corners */
@@ -8,18 +8,18 @@
   font-family: Arial, sans-serif;
 }
 
-.stations-list h2 {
+.Stations-list h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
-.stations-list ul {
+.Stations-list ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.stations-list li {
+.Stations-list li {
   background-color: white;
   color: #333;
   border-radius: 8px;
@@ -30,8 +30,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.station-code {
-  background-color: #2e7d32; /* Default green background for the station code */
+.Station-code {
+  background-color: #2e7d32; /* Default green background for the Station code */
   color: white;
   font-weight: bold;
   padding: 5px 10px;
@@ -40,24 +40,24 @@
   display: inline-block;
 }
 
-.station-info {
+.Station-info {
   flex: 1;
 }
 
-.station-name {
+.Station-name {
   font-size: 1rem;
   font-weight: bold;
 }
 
-.station-distance,
-.station-status {
+.Station-distance,
+.Station-status {
   font-size: 0.8rem;
   display: flex;
   align-items: center;
   margin-top: 5px;
 }
 
-.station-status span {
+.Station-status span {
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -65,15 +65,15 @@
   margin-right: 5px;
 }
 
-.status-light {
+.Status-light {
   background-color: green;
 }
 
-.status-moderate {
+.Status-moderate {
   background-color: orange;
 }
 
-.status-heavy {
+.Status-heavy {
   background-color: red;
 }
 
