@@ -58,7 +58,7 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
 
   const handleStationClick = (station) => {
     setMarkerPositions([{ lat: station.lat, lng: station.lng }]);
-    setSelectedStation(station);
+    setSelectedStation(station); // This will trigger the StationPopup
   };
 
   useEffect(() => {

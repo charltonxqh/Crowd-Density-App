@@ -170,5 +170,13 @@ def get_all_train_arrival_time(limit=None):  # type: (int | None) -> str
         station_name: json.loads(get_train_arrival_time_by_id(station_name))
         for station_name in station_names[:limit]
     }
-
     return json.dumps(results)
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        station_name = sys.argv[1]
+        arrival_data = get_train_arrival_time_by_id(station_name)
+        print(arrival_data)  # Ensure you output the data as JSON
+    else:
+        print('{"results": []}')  # Handle cases where no station name is provided
+        
