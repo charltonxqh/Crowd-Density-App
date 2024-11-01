@@ -16,6 +16,7 @@
     background-color: #bebbbb;
 }
 
+<<<<<<< Updated upstream
 .circle-line{
     background-color: #FF9E18;
 }
@@ -41,6 +42,8 @@
 }
 
 
+=======
+>>>>>>> Stashed changes
 .mrt-station-list {
     padding: 0;
     font-size: 1.1rem;
@@ -57,6 +60,7 @@
     border-radius: 5px;
     display: flex;
     align-items: center; 
+<<<<<<< Updated upstream
     font-size: 16px;
     color: #fff;
 }
@@ -86,4 +90,179 @@
     background-color: #e39144;
 }
 
+=======
+    font-size: 18px;
+    color:black;
+}
 
+.station-code {
+    font-size: 14px;        /* Adjust the font size */
+    color: #fff;            /* Set text color */
+    border-radius: 4px;     /* Rounded corners */
+    padding: 4px 8px;       /* Padding around the text */
+    margin-right: 8px;      /* Space between code and name */
+    font-weight: bold;       /* Make the text bold */
+    display: inline-block;   /* Ensure it behaves like a block for padding */
+}
+
+.station-code:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.mrt-line-button.CCL, .line-code-box.CCL, .mrt-station-button.CCL{
+    background-color: #ffa515; /* Circle Line */
+  }  
+.line-code-box.DTL, .mrt-station-button.DTL {
+    background-color: #37a1f2; /* Downtown Line */
+  }
+  .line-code-box.EWL, .mrt-station-button.EWL {
+    background-color: #51fa94; /* East West Line */
+  }
+  
+  .line-code-box.NEL, .mrt-station-button.NEL{
+    background-color: #e057fb; /* North East Line */
+  }
+  
+  .line-code-box.NSL, .mrt-station-button.NSL {
+    background-color: #ff645c; /* North South Line */
+  }
+  
+  .line-code-box.TEL, .mrt-station-button.TEL {
+    background-color: #be6b1e; /* Thomson-East Coast Line */
+  }
+
+.mrt-station-list-CCL{
+    background-color: #fad29a;
+}
+.mrt-station-list-DTL{
+    background-color: #70bbf4;
+}
+.mrt-station-list-EWL{
+    background-color: #79f6ab;
+}
+.mrt-station-list-NEL{
+    background-color: #e489f7;
+}
+.mrt-station-list-NSL{
+    background-color: #fb8881;
+}
+.mrt-station-list-TEL{
+    background-color: #be6b1e;
+}
+
+.mrt-station-button.CCL{
+    background-color: #ffa515;
+    display: inline-block;  
+    padding: 4px 4px; 
+    border-radius:4px; 
+    margin-right: 2px;
+}
+.mrt-station-button.EWL{
+    background-color: #00953B;
+    display: inline-block;  
+    padding: 4px 4px; 
+    border-radius:4px; 
+    margin-right: 2px;
+}
+.mrt-station-button.DTL{
+    background-color: #005DA6;
+    display: inline-block;  
+    padding: 4px 4px; 
+    border-radius:4px; 
+    margin-right: 2px;
+}
+.mrt-station-button.NEL{
+    background-color: #9E28B5;
+    display: inline-block;  
+    padding: 4px 4px; 
+    border-radius:4px; 
+    margin-right: 2px;
+}
+.mrt-station-button.NSL{
+    background-color: #E1251B;
+    display: inline-block;  
+    padding: 4px 4px; 
+    border-radius:4px; 
+    margin-right: 2px;
+}
+.mrt-station-button.TEL{
+    background-color: #be6b1e;
+    display: inline-block;  
+    padding: 4px 4px; 
+    border-radius:4px; 
+    margin-right: 2px;
+}
+.crowd-density {
+    display: flex; 
+    justify-content: flex-end;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.crowd-density span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-right: 4px;
+    align-self: center;
+}
+
+.crowd-density-box {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #fff; /* Changed to white background */
+    border: 1px solid #eee;
+    width: 115px;
+}
+
+.crowd-level {
+    font-size: 1.03rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: black;
+    gap: 4px; /* Consistent spacing between dot and text */
+}
+
+.crowd-level-dot {
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    flex-shrink: 0; /* Prevent dot from shrinking */
+}
+  
+.crowd-level-dot.l {
+    background-color: #22c55e; /* Bright green for low crowd */
+}
+
+.crowd-level-dot.m {
+    background-color: #f59e0b; /* Amber for moderate crowd */
+}
+>>>>>>> Stashed changes
+
+.crowd-level-dot.h {
+    background-color: #ef4444; /* Red for high crowd */
+}
+
+.crowd-level-dot.unknown {
+    background-color: #9ca3af; /* Gray for unknown status */
+}
+
+.crowd-level.l {
+    color: #22c55e;
+}
+
+.crowd-level.m {
+    color: #f59e0b;
+}
+
+.crowd-level.h {
+    color: #ef4444;
+}
+
+.crowd-level.unknown {
+    color: #9ca3af;
+}

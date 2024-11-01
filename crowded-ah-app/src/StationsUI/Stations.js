@@ -1,8 +1,75 @@
+<<<<<<< Updated upstream
 // src/MRTPage.js
+=======
+// import React, { useState } from 'react';
+// import './Stations.css';
+// import MRTLines from '../components/MRTLines';
+// import LRTLines from '../components/LRTLines';
+// import Map from '../components/MRTApp';
+// import stationsData from '../stationsInfo.json';
+
+// const App = () => {
+//   const [view, setView] = useState('mrt'); // Track MRT or LRT view
+//   const [selectedLine, setSelectedLine] = useState(null); // Track selected line
+//   const [stations, setStations] = useState([]); // Track station markers for the map
+//   const [markers, setMarkers] = useState([]);
+
+//   const handleLineChange = (lineCode) => {
+//     const selectedLineData = stationsData[lineCode]?.station || [];
+    
+//     const lineStations = selectedLineData
+//       .map((station) => ({
+//         name: station.name,
+//         lat: stationsData[station.code]?.lat,
+//         lng: stationsData[station.code]?.lng,
+//       }))
+//       .filter((station) => station.lat && station.lng);
+
+//     setStations(lineStations); 
+//     console.log("Stations for selected line:", lineStations);
+//     setSelectedLine(lineCode); // Update selected line
+//   };
+
+//   const handleViewChange = (newView) => {
+//     setView(newView);
+//     setMarkers([]); 
+//     setSelectedLine(null); 
+//   };
+
+//   return (
+//     <div className="page-container">
+//       <div className="MRTmap">
+//         {/* Pass stations as a prop to GoogleMap */}
+//         <Map width="90%" stations={stations} />
+//       </div>
+
+//       <div className="content-container">
+//         <div className="view-buttons">
+//           <button onClick={() => handleViewChange('mrt')} className={view === 'mrt' ? 'active' : ''}>MRT</button>
+//           <button onClick={() => handleViewChange('lrt')} className={view === 'lrt' ? 'active' : ''}>LRT</button>
+//         </div>
+//         <div className="view-content">
+//           {view === 'lrt' && <LRTLines />}
+//           {view === 'mrt' && (
+//             <MRTLines onLineChange={handleLineChange} selectedLine={selectedLine} />
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+>>>>>>> Stashed changes
 import React, { useState } from 'react';
 import './Stations.css'; // Ensure you import your CSS file
 import MrtDropdown from '../components/MRTLines';
 import GoogleMap from '../components/Map';
+<<<<<<< Updated upstream
+=======
+import StationDetails from '../components/StationDetails';
+>>>>>>> Stashed changes
 
 const App = () => {
   return (
@@ -12,9 +79,49 @@ const App = () => {
 
       </div>
 
+<<<<<<< Updated upstream
       <div className ='MRTBox'>
         <MrtDropdown />
 
+=======
+      <div className="content-container">
+        <div className="view-buttons">
+          <button onClick={() => handleViewChange('mrt')} className={view === 'mrt' ? 'active' : ''}>MRT</button>
+          <button onClick={() => handleViewChange('lrt')} className={view === 'lrt' ? 'active' : ''}>LRT</button>
+        </div>
+        <div className="view-content">
+          {view === 'mrt' && (
+            <MRTLines 
+              onLineChange={handleLineChange} 
+              selectedLine={selectedLine} 
+              setMarkerPositions={setMarkerPositions} 
+              selectedStation={selectedStation} 
+              setSelectedStation={setSelectedStation} 
+            />
+          )}
+          {selectedStation && (
+            <StationDetails
+              station={selectedStation}
+              onClose={() => setSelectedStation(null)}
+            />
+          )}
+          {view === 'lrt' && (
+            <LRTLines 
+              onLineChange={handleLineChange} 
+              selectedLine={selectedLine} 
+              setMarkerPositions={setMarkerPositions} 
+              selectedStation={selectedStation} 
+              setSelectedStation={setSelectedStation} 
+            />
+          )}
+          {selectedStation && (
+            <StationDetails
+              station={selectedStation}
+              onClose={() => setSelectedStation(null)}
+            />
+          )}
+        </div>
+>>>>>>> Stashed changes
       </div>
 
       <div className = "LRTBox">
