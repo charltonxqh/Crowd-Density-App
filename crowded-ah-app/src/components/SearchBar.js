@@ -178,16 +178,8 @@ const SearchBar = () => {
               className="result-item"
               onClick={() => handleSuggestionClick(name)}
             >
-              {isFavourite && <span className="star-icon">⭐ </span>}
+              {isFavourite && <button className="remove-icon" onClick={() => handleDeleteFavourite(name)}>⭐</button>}
               {name}
-              {isFavourite && (
-                <button
-                  className="remove-icon"
-                  onClick={() => handleDeleteFavourite(name)}
-                >
-                  🗑️
-                </button>
-              )}
             </div>
           ))}
         </div>

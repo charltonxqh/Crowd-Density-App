@@ -15,7 +15,7 @@ function NavBar() {
         <div className="nav-bar">
             <Logo/>
             <div className="nav-right">
-                <ProfileIcon/>
+                {!isAuthPage && <ProfileIcon/> }
                 {!isAuthPage && <Hamburger/> }
             </div>
         </div>

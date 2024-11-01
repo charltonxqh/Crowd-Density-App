@@ -39,7 +39,8 @@ const AuthForm = ({ mode, onSubmit }) => {
                 // Create a Firestore document for the new user
                 const userRef = doc(db, "users", user.uid); // Use user's UID as the document ID
                 await setDoc(userRef, {
-                    favourites: [] // Initialize favourites as an empty array
+                    username: username,
+                    favourites: []
                 });
                 
                 await sendEmailVerification(user);
