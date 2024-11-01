@@ -1,5 +1,5 @@
 import axios from "axios";
-const AccountKey = 'dfC6rhhiQWm0aCPj9Yxq0w==';
+const AccountKey = 'rgOwUkNtQCSXQMg9MhAfkw==';
 export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
 
 export async function fetchTrainLineData(url, trainLine) {
@@ -79,7 +79,7 @@ export async function fetchTrainServiceAlerts() {
 }
 
 export async function fetchStatisticsLinkAPI() {
-    const url = 'https://datamall2.mytransport.sg/ltaodataservice/PV/Train'
+    const url = 'https://datamall2.mytransport.sg/ltaodataservice/PV/Train';
     try {
         const response = await axios.get(url, {
             headers: {
@@ -88,14 +88,16 @@ export async function fetchStatisticsLinkAPI() {
             },
         });
 
-        // Assuming the API response contains a field "link" with the CSV URL
-        if (response.data && response.data.link) {
-            return response.data.link; // Returning the link for downloading the CSV
+        console.log("Full API Response:", response.data); // Log the full response for debugging
+
+        // Extract the link from the response
+        if (response.data && response.data.value && Array.isArray(response.data.value) && response.data.value[0] && response.data.value[0].Link) {
+            return response.data.value[0].Link; // Return the download link
         } else {
             throw new Error('No link found in the API response');
         }
     } catch (error) {
-        console.error('Error fetching statistics link:', error);
+        console.error('Error fetching statistics link:', error.response ? error.response.data : error.message);
         return { error: error.message };
     }
 }
