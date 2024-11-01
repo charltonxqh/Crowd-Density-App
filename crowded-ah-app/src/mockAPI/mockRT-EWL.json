@@ -17,31 +17,31 @@
             "Station": "EW1",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW10",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW11",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW12",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW13",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW14",
@@ -89,19 +89,19 @@
             "Station": "EW20",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW21",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW22",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW23",
@@ -119,7 +119,7 @@
             "Station": "EW25",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW26",
@@ -137,7 +137,7 @@
             "Station": "EW28",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW29",
@@ -149,7 +149,7 @@
             "Station": "EW3",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW30",
@@ -173,13 +173,13 @@
             "Station": "EW33",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW4",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW5",
@@ -203,13 +203,13 @@
             "Station": "EW8",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         },
         {
             "Station": "EW9",
             "StartTime": "2024-10-31T14:10:00+08:00",
             "EndTime": "2024-10-31T14:20:00+08:00",
-            "CrowdLevel": "s"
+            "CrowdLevel": "h"
         }
     ]
 }
