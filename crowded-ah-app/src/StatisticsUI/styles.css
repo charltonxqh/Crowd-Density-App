@@ -1,119 +1,220 @@
-/* General Page Styling */
-.statistics-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+/* Singapore MRT and LRT Line Colors */
 
-/* Title and Section Styling */
-h2.subtitle {
-    font-size: 1.75rem;
-    color: #003366;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.graph-section {
-    background-color: #e0f7fa;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-}
-
-.graph-container {
-    background-color: #ffffff;
-    border: 2px solid #b0bec5;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 25px;
-}
-
-/* Download Buttons Styling */
-.download-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.download-btn {
-    padding: 12px 25px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #00796b;
-    color: white;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.download-btn:hover {
-    background-color: #004d40;
-    transform: translateY(-3px);
-}
-
-/* Crowded Stations Section */
-.crowded-stations-section {
-    background-color: #e0f7fa;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.station-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.station-item {
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 10px;
-    border: 1px solid #b0bec5;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: box-shadow 0.3s ease;
-}
-
-.station-item:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.station-code {
-    font-weight: bold;
-    color: #006064;
-    background-color: #b2ebf2;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 1.1rem;
-}
-
-.station-item strong {
-    color: #04312a;
-    font-size: 1.1rem;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .download-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .station-item {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .station-code {
-        margin-bottom: 15px;
-    }
-}
+/* North-South Line (NSL) */
+.ns-line {
+    background-color: #d42e12; /* Red */
+    color: #ffffff;
+  }
+  
+  /* East-West Line (EWL) */
+  .ew-line {
+    background-color: #009645; /* Green */
+    color: #ffffff;
+  }
+  
+  /* North-East Line (NEL) */
+  .ne-line {
+    background-color: #9900aa; /* Purple */
+    color: #ffffff;
+  }
+  
+  /* Circle Line (CCL) */
+  .cc-line {
+    background-color: #fa9e0d; /* Orange */
+    color: #ffffff;
+  }
+  
+  /* Downtown Line (DTL) */
+  .dt-line {
+    background-color: #005ec4; /* Blue */
+    color: #ffffff;
+  }
+  
+  /* Thomson-East Coast Line (TEL) */
+  .te-line {
+    background-color: #784008; /* Brown */
+    color: #ffffff;
+  }
+  
+  /* Bukit Panjang LRT (BPLRT) */
+  .bp-line {
+    background-color: #bcae2b; /* Yellow-Green */
+    color: #ffffff;
+  }
+  
+  /* Sengkang LRT (SKLRT) */
+  .sk-line {
+    background-color: #84c0dd; /* Light Blue */
+    color: #ffffff;
+  }
+  
+  /* Punggol LRT (PGLRT) */
+  .pg-line {
+    background-color: #b0a7e4; /* Lavender */
+    color: #ffffff;
+  }
+  
+  /* General Page Styling */
+  .statistics-page {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+  }
+  
+  /* Title and Section Styling */
+  h2.subtitle {
+      font-size: 1.5rem;
+      color: #003366;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  
+  .crowded-stations-section {
+      background-color: #e0f7fa;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .station-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
+  
+  .station-item {
+      background-color: #ffffff;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #b0bec5;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+  }
+  
+  .station-details {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+  }
+  
+  /* Styling for station names */
+  .station-name {
+      flex: 1;
+      font-weight: bold;
+      color: #006064;
+      text-align: left;
+  }
+  
+  /* Station Codes Section */
+  .station-codes {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+  }
+  
+  /* Styling for Station Codes */
+  .station-code {
+      width: 60px; /* Ensures uniform size for each station code */
+      height: 35px; /* Consistent height for all codes */
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #ffffff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  /* Custom Colors for Train Lines */
+  .station-code.NS {
+      background-color: #d42e12; /* North-South Line - Red */
+  }
+  
+  .station-code.EW {
+      background-color: #009645; /* East-West Line - Green */
+  }
+  
+  .station-code.NE {
+      background-color: #9900aa; /* North-East Line - Purple */
+  }
+  
+  .station-code.CC {
+      background-color: #fa9e0d; /* Circle Line - Orange */
+  }
+  
+  .station-code.DT {
+      background-color: #005ec4; /* Downtown Line - Blue */
+  }
+  
+  .station-code.TE {
+      background-color: #784008; /* Thomson-East Coast Line - Brown */
+  }
+  
+  .station-code.BP {
+      background-color: #bcae2b; /* Bukit Panjang LRT - Yellow-Green */
+  }
+  
+  .station-code.SK {
+      background-color: #84c0dd; /* Sengkang LRT - Light Blue */
+  }
+  
+  .station-code.PG {
+      background-color: #b0a7e4; /* Punggol LRT - Lavender */
+  }
+  
+  /* Chart Section */
+  .chart-section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+  }
+  
+  .navigation-buttons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #00796b;
+      color: white;
+      transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+      background-color: #004d40;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+      .station-item {
+          flex-direction: column;
+          align-items: flex-start;
+      }
+  
+      .station-details {
+          flex-direction: column;
+          align-items: flex-start;
+      }
+  
+      .station-name {
+          margin-bottom: 10px;
+      }
+  
+      .station-codes {
+          margin-top: 10px;
+      }
+  }
+  
