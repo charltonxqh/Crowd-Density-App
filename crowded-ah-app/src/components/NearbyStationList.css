@@ -1,87 +1,97 @@
 /* NearbyStationsList.css */
 
-.Stations-list {
-  background-color: #4c7bd9; /* Blue background for the list container */
+.nearby-Stations-list {
+  background-color: #4b71aa;
   padding: 20px;
-  border-radius: 15px; /* Rounded corners */
+  border-radius: 15px;
   color: white;
   font-family: Arial, sans-serif;
 }
 
-.Stations-list h2 {
+.stations-list h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
-.Stations-list ul {
+.stations-list ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.Stations-list li {
+.stations-list li {
   background-color: white;
   color: #333;
   border-radius: 8px;
-  display: flex;
-  align-items: center;
   padding: 10px;
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.Station-code {
-  background-color: #2e7d32; /* Default green background for the Station code */
+.station-code {
+  background-color: #2e7d32; /* Default green background for the station code */
   color: white;
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 5px;
+  text-align: center;
+  min-width: 50px;
+  max-width: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 10px;
-  display: inline-block;
 }
 
-.Station-info {
+.nearby-station-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.station-info {
   flex: 1;
 }
 
-.Station-name {
+.station-name {
   font-size: 1rem;
   font-weight: bold;
+  flex-grow: 1;
 }
 
-.Station-distance,
-.Station-status {
+.station-distance,
+.station-status {
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-  margin-top: 5px;
+  margin-left: 10px;
 }
 
-.Station-status span {
+.station-status span {
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
   margin-right: 5px;
 }
 
-.Status-light {
+.status-light {
   background-color: green;
 }
 
-.Status-moderate {
+.status-moderate {
   background-color: orange;
 }
 
-.Status-heavy {
+.status-heavy {
   background-color: red;
 }
 
-.walking-icon {
-  margin-right: 5px;
+.nearby-crowd-density-circle.unknown {
+  background-color: gray; /* Unknown crowd density */
 }
 
-.time-text {
-  font-size: 0.9rem;
+.nearby-crowd-density-text {
   color: #555;
+  font-weight: bold;
+  text-transform: capitalize;
 }
