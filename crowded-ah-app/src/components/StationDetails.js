@@ -20,10 +20,8 @@ const StationDetails = () => {
         }
         const data = await response.json();
         setStationData(data);
-
         // Extract line, code, and name
         const [line, code, name] = stationId.split('-');
-
         // Set the initial selected direction if available
         if (line && stationLines[line]) {
           const directions = stationLines[line];
@@ -43,10 +41,6 @@ const StationDetails = () => {
 
   if (loading) {
     return <div className="station-details loading">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="station-details error">Error: {error}</div>;
   }
 
   const { nextTrainETA, realTimeCrowd, forecastCrowd } = stationData || {};

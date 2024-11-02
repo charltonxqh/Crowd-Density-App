@@ -121,8 +121,8 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
                         className={`lrt-station-button ${line}`}
                         onClick={() => handleStationClick(line,station)}
                       >
-                        <span className="station-code">{station.code}</span>
-                        <span className="station-name">{station.name}</span>
+                        <span className="station_code">{station.code} | </span>
+                        <span className="station_name">{station.name}</span>
                       </button>
                       <div className="crowd-density">
                         <span>Now:</span>

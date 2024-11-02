@@ -80,18 +80,18 @@
     background-color: #e39144;
 }
 
-.station-code {
+.station_code {
     font-weight: bold;
 }
 
-.station-name {
+.station_name {
     font-style: normal;
     font-weight: bold;
 }
 .mrt-station-button{
     cursor: pointer;
     display: inline-block;  
-    padding: 4px 4px; 
+    padding: 6px;
     border-radius:4px; 
     margin-right: 2px;
 }
@@ -99,16 +99,16 @@
     background-color: #ffa515;
 }
 .mrt-station-button.EWL{
-    background-color: #00953B;
+    background-color: #04bb4d;
 }
 .mrt-station-button.DTL{
-    background-color: #005DA6;
+    background-color: #1079c9;
 }
 .mrt-station-button.NEL{
-    background-color: #9E28B5;
+    background-color: #c833e6;
 }
 .mrt-station-button.NSL{
-    background-color: #E1251B;
+    background-color: #ea4b43;
 }
 .mrt-station-button.TEL{
     background-color: #e39144;
@@ -130,7 +130,6 @@
     display: flex;
     align-items: center; /* Vertically aligns content */
     justify-content: flex-start; /* Aligns content to the left */
-    padding: 5px;
     border-radius: 6px;
     background-color: #fff; /* Changed to white background */
     border: 1px solid #eee;
@@ -139,8 +138,8 @@
 
 .crowd-level-indicator{
     display: inline-block;
-    width: 50px;
-    height: 30px;
+    width: 30px;
+    height: 18px;
     border-radius: 50%;
 }
   

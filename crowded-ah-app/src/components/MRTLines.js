@@ -26,6 +26,7 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
 
   const [openLine, setOpenLine] = useState(null);
   const [trainData, setTrainData] = useState([]);
+  const [arrivalData, setArrivalData] = useState(null); // State to hold arrival data
 
   const mrtLines = Object.entries(stationsData).reduce((acc, [stationName, data]) => {
     const stationArray = Array.isArray(data) ? data : [data];
@@ -121,8 +122,8 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
                         className={`mrt-station-button ${line}`}
                         onClick={() => handleStationClick(line,station)}
                       >
-                        <span className="station-code">{station.code}</span>
-                        <span className="station-name">{station.name}</span>
+                        <span className="station_code">{station.code} | </span>
+                        <span className="station_name">{station.name}</span>
                       </button>
                       <div className="crowd-density">
                         <span>Now:</span>

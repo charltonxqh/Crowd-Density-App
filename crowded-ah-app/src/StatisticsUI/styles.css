@@ -1,88 +1,264 @@
-/* General page styling */
-.statistics-page {
+/* Singapore MRT and LRT Line Colors */
+
+/* North-South Line (NSL) */
+.ns-line {
+    background-color: #d42e12; /* Red */
+    color: #ffffff;
+  }
+  
+  /* East-West Line (EWL) */
+  .ew-line {
+    background-color: #009645; /* Green */
+    color: #ffffff;
+  }
+  
+  /* North-East Line (NEL) */
+  .ne-line {
+    background-color: #9900aa; /* Purple */
+    color: #ffffff;
+  }
+  
+  /* Circle Line (CCL) */
+  .cc-line {
+    background-color: #fa9e0d; /* Orange */
+    color: #ffffff;
+  }
+  
+  /* Downtown Line (DTL) */
+  .dt-line {
+    background-color: #005ec4; /* Blue */
+    color: #ffffff;
+  }
+  
+  /* Thomson-East Coast Line (TEL) */
+  .te-line {
+    background-color: #784008; /* Brown */
+    color: #ffffff;
+  }
+  
+  /* Bukit Panjang LRT (BPLRT) */
+  .bp-line {
+    background-color: #bcae2b; /* Yellow-Green */
+    color: #ffffff;
+  }
+  
+  /* Sengkang LRT (SKLRT) */
+  .sk-line {
+    background-color: #84c0dd; /* Light Blue */
+    color: #ffffff;
+  }
+  
+  /* Punggol LRT (PGLRT) */
+  .pg-line {
+    background-color: #b0a7e4; /* Lavender */
+    color: #ffffff;
+  }
+  
+  /* General Page Styling */
+  .statistics-page {
     padding: 20px;
     font-family: Arial, sans-serif;
     background-color: #f5f7fa;
-}
-
-.title {
-    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* Title and Section Styling */
+  h2.subtitle {
+    font-size: 1.5rem;
     color: #003366;
     text-align: center;
     margin-bottom: 20px;
-}
-
-.graph-section {
-    background-color: #e0f0ff;
+  }
+  
+  /* Crowded Stations Section */
+  .crowded-stations-section {
+    background-color: #e0f7fa;
     padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
-.subtitle {
-    font-size: 1.25rem;
-    color: #003366;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.graph-container {
-    background-color: #fff;
-    border: 2px solid #b0c4de;
     border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.download-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-/* Scrollable list styling */
-.crowded-stations-section {
-    background-color: #e0f0ff;
-    padding: 20px;
-    border-radius: 10px;
-    /* Ensure this section has its own layout */
-    margin-bottom: 30px;
-}
-
-.station-list {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+  
+  .station-list {
     list-style-type: none;
     padding: 0;
-    font-size: 1.1rem;
-    /* Set a max height for scrollable content */
-    max-height: 200px; /* Adjust this to suit your design */
-    overflow-y: auto; /* Enables vertical scrolling */
-}
-
-.station-item {
+    margin: 0;
+  }
+  
+  .station-item {
+    background-color: #ffffff;
+    padding: 15px;
     margin: 10px 0;
-    padding: 10px;
-    background-color: white;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 1px solid #b0bec5;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-}
-
-.station-code {
+  }
+  
+  .station-details {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  /* Styling for station names */
+  .station-name {
+    flex: 1;
     font-weight: bold;
-    padding: 5px 10px;
-    margin-right: 10px;
+    color: #006064;
+    text-align: left;
+  }
+  
+  /* Station Codes Section */
+  .station-codes {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  
+  /* Styling for Station Codes */
+  .station-code {
+    width: 60px; /* Ensures uniform size for each station code */
+    height: 35px; /* Consistent height for all codes */
+    padding: 5px;
     border-radius: 5px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Custom Colors for Train Lines */
+  .station-code.NS {
+    background-color: #d42e12; /* North-South Line - Red */
+  }
+  
+  .station-code.EW {
+    background-color: #009645; /* East-West Line - Green */
+  }
+  
+  .station-code.NE {
+    background-color: #9900aa; /* North-East Line - Purple */
+  }
+  
+  .station-code.CC {
+    background-color: #fa9e0d; /* Circle Line - Orange */
+  }
+  
+  .station-code.DT {
+    background-color: #005ec4; /* Downtown Line - Blue */
+  }
+  
+  .station-code.TE {
+    background-color: #784008; /* Thomson-East Coast Line - Brown */
+  }
+  
+  .station-code.BP {
+    background-color: #bcae2b; /* Bukit Panjang LRT - Yellow-Green */
+  }
+  
+  .station-code.SK {
+    background-color: #84c0dd; /* Sengkang LRT - Light Blue */
+  }
+  
+  .station-code.PG {
+    background-color: #b0a7e4; /* Punggol LRT - Lavender */
+  }
+  
+  /* Chart Section */
+  .chart-section-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Space between buttons and chart */
+    margin: 20px 0;
+  }
+  
+  .chart-container {
+    width: 700px; /* Fixed width for the chart */
+    height: 400px; /* Fixed height for the chart */
+    position: relative;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  /* Navigation Button Styling */
+  .navigation-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00796b;
     color: white;
-}
-
-.green {
-    background-color: #00b300;
-}
-
-.red {
-    background-color: #ff3333;
-}
-
-.purple {
-    background-color: #9933ff;
-}
+    transition: background-color 0.3s ease;
+  }
+  
+  .navigation-button:disabled {
+    background-color: #b0bec5; /* Disabled button color */
+    cursor: not-allowed;
+  }
+  
+  .navigation-button.left-button {
+    margin-right: 20px;
+  }
+  
+  .navigation-button.right-button {
+    margin-left: 20px;
+  }
+  
+  .navigation-button:hover {
+    background-color: #004d40;
+  }
+  
+  /* Make X-axis label clearer */
+  .x-axis-label {
+    font-size: 16px; /* Larger text for better visibility */
+    fill: #333; /* Darker color for better contrast */
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .chart-section-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navigation-button {
+      margin: 10px 0;
+    }
+  
+    .chart-container {
+      width: 100%;
+      max-width: 90vw;
+    }
+  
+    .station-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .station-details {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .station-name {
+      margin-bottom: 10px;
+    }
+  
+    .station-codes {
+      margin-top: 10px;
+    }
+  }
+  
