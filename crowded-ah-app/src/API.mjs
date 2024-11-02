@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const AccountKey = 'kcq4zn02Tge/ffgkOyNFFQ==';
+const AccountKey = 'rgOwUkNtQCSXQMg9MhAfkw==';
 export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
 
 export async function fetchRealTimeAPIData(url, trainLine) {
@@ -118,16 +117,26 @@ export async function fetchTrainServiceAlerts() {
     }
 }
 
-export async function fetchStationData(stationCode) {
+export async function fetchStatisticsLinkAPI() {
+    const url = 'https://datamall2.mytransport.sg/ltaodataservice/PV/Train';
     try {
-        const response = await fetch(`http://localhost:4000/api/train-arrival/${station.name}`); // Update the endpoint if necessary
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+        const response = await axios.get(url, {
+            headers: {
+                'AccountKey': AccountKey,
+                'Accept': 'application/json',
+            },
+        });
+
+        console.log("Full API Response:", response.data); // Log the full response for debugging
+
+        // Extract the link from the response
+        if (response.data && response.data.value && Array.isArray(response.data.value) && response.data.value[0] && response.data.value[0].Link) {
+            return response.data.value[0].Link; // Return the download link
+        } else {
+            throw new Error('No link found in the API response');
         }
-        const data = await response.json();
-        return data; // Return the fetched station data
     } catch (error) {
-        console.error('Error fetching station data:', error);
-        return null; // Return null or handle the error as needed
+        console.error('Error fetching statistics link:', error.response ? error.response.data : error.message);
+        return { error: error.message };
     }
-};
+}
