@@ -21,6 +21,7 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
 
     const [openLine, setOpenLine] = useState(null);
     const [trainData, setTrainData] = useState([]);
+    const [arrivalData, setArrivalData] = useState(null);
     
     const lrtLines = Object.entries(stationsData).reduce((acc, [stationName, data]) => {
       const stationArray = Array.isArray(data) ? data : [data];
