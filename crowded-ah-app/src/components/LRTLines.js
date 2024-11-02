@@ -1,9 +1,9 @@
 import React, { useEffect,useState } from 'react';
-import StationPopup from './StationPopup';
-import './LRTLines.css';
 import stationsData from '../stationsInfo.json';
+import './LRTLines.css';
+import { useNavigate } from 'react-router-dom';
 
-const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStation, setSelectedStation }) => {
+const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
   const validLines = ['BPL', 'SLRT', 'PLRT'];
   const orderedLines = ['BPL', 'SLRT', 'PLRT'];
 
@@ -14,7 +14,7 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
   };
 
     const stationLines = {
-      BPL: ['Choa Chu Kang', 'South View','Keat Hong','Teck Whye' ,'Phoenix','Bukit Panjang','Petir','Pending', 'Bangkit',,'Fajar','Segar','Jelapang','Senja'],
+      BPL: ['Choa Chu Kang', 'South View','Keat Hong','Teck Whye' ,'Phoenix','Bukit Panjang','Petir','Pending', 'Bangkit','Fajar','Segar','Jelapang','Senja'],
       SLRT: ['Cheng Lim','Farmway','Kupang','Thanggam','Fernvale','Layar' , 'Tongkang','Renjong','Sengkang','Compassvale','Rumbia','Bakau','Kangkar','Ranggung'],
       PLRT: ['Cove','Meridian','Coral Edge','Riviera','Kadaloor','Oasis','Damai','Punggol','Sam Kee' ,'Teck Lee','Punggol Point','Samudera', 'Nibong','Sumang','Soo Teck'],
     };
@@ -50,11 +50,13 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
       }
     };
   
-    const handleStationClick = (station) => {
+    const handleStationClick = (line,station) => {
       setMarkerPositions([{ lat: station.lat, lng: station.lng }]);
-      setSelectedStation(station);
+      navigate(`/station/${line}-${station.code}-${encodeURIComponent(station.name)}`);
     };
-  
+    
+    const navigate = useNavigate();
+
     useEffect(() => {
       const fetchTrainData = async () => {
         try {
@@ -69,12 +71,19 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
       fetchTrainData();
     }, []);
   
-    const getCrowdLevel = (line, stationCode) => {
-      if (trainData[line] && trainData[line][stationCode]) {
-          return trainData[line][stationCode].CrowdLevel || 'unknown';
+    const getCrowdLevel = (line, stationCode, isForecast=false) => {
+      const type = isForecast ? 'forecast' : 'realTime';
+      if (
+        trainData &&
+        trainData[type] &&
+        trainData[type][line] &&
+        trainData[type][line][stationCode]
+      ) {
+        return trainData[type][line][stationCode].CrowdLevel || 'unknown';
       }
       return 'unknown';
-  };
+    };
+
     const CrowdLabel = (level) => {
       switch (level) {
           case 'l':
@@ -91,48 +100,52 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
     return (
       <div>
         {orderedLines.map((line) => (
-          lrtLines[line] && (
-            <div key={line}>
-              <button 
-                onClick={() => handleToggle(line)}
-                className={`lrt-line-button ${line === selectedLine ? 'active' : ''}`}
-              >
-              <span className="line-code-box">
-                <span className={`station-code-box-${line.toLowerCase()}`}></span>
+        lrtLines[line] && (
+          <div key={line}>
+            <button 
+              onClick={() => handleToggle(line)}
+              className={`mrt-line-button ${line === selectedLine ? 'active' : ''}`}
+            >
+              <span className={`line-code-box ${line}`}>
                 <span className="line-code">{line}</span>
               </span>
               {lineNames[line]}
-  
-              </button>
-              {openLine === line && (
-                  <ul className={`lrt-station-list mrt-station-list-${line.toLowerCase()}`}>
-                  {lrtLines[line].station.map((station, index) => (
+            </button>
+            {openLine === line && (
+              <ul className={`lrt-station-list lrt-station-list-${line}`}>
+                {lrtLines[line].station
+                  .sort((a, b) => stationLines[line].indexOf(a.name) - stationLines[line].indexOf(b.name))
+                  .map((station, index) => (
                     <li key={index} className="lrt-station-item">
                       <button
-                        onClick={() => handleStationClick(station)}
+                        className={`lrt-station-button ${line}`}
+                        onClick={() => handleStationClick(line,station)}
                       >
                         <span className="station-code">{station.code}</span>
                         <span className="station-name">{station.name}</span>
-                      </button> 
-                      <span className="crowd-density-indicator">
-                        {CrowdLabel(getCrowdLevel(lrtLines[line].code, station.code))}
-                      </span>
+                      </button>
+                      <div className="crowd-density">
+                        <span>Now:</span>
+                        <div className="crowd-density-box">
+                            <div className={`crowd-level-indicator ${getCrowdLevel(line, station.code)}`}>
+                              {CrowdLabel(getCrowdLevel(line, station.code))}
+                            </div>
+                        </div>
+                        <span>Forecast:</span>
+                        <div className="crowd-density-box">
+                          <div className={`crowd-level-indicator ${getCrowdLevel(line, station.code, true)}`}>
+                          {CrowdLabel(getCrowdLevel(line, station.code, true))}
+                          </div>
+                      </div>
+                      </div>
                     </li>
                   ))}
-                </ul>
-              )}
-            </div>
-          )
-        ))}
-        {selectedStation && (
-          <StationPopup
-            station={selectedStation}
-            onClose={() => setSelectedStation(null)}
-          />
-        )}
-      </div>
-    );
-  };
-  
-
+              </ul>
+            )}
+          </div>
+        )
+      ))}
+    </div>
+  );
+};
 export default LRTLines;

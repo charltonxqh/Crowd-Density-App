@@ -1,11 +1,18 @@
-
 import React, { useEffect, useState } from 'react';
-import StationPopup from './StationPopup';
 import './MRTLines.css';
+import { useNavigate } from 'react-router-dom';
 import stationsData from '../stationsInfo.json';
 
-const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStation, setSelectedStation }) => {
-  const validLines = ['CCL', 'DTL', 'EWL', 'NEL', 'NSL', 'TEL'];
+export const stationLines = {
+  CCL: ['Marina Bay', 'Bayfront', 'Dhoby Ghaut', 'Bras Basah', 'Esplanade', 'Promenade', 'Nicoll Highway', 'Stadium', 'Mountbatten', 'Dakota', 'Paya Lebar', 'MacPherson', 'Tai Seng', 'Bartley', 'Serangoon', 'Lorong Chuan', 'Bishan', 'Marymount', 'Caldecott', 'Botanic Gardens', 'Farrer Road', 'Holland Village', 'Buona Vista', 'one-north', 'Kent Ridge', 'Haw Par Villa', 'Pasir Panjang', 'Labrador Park', 'Telok Blangah', 'HarbourFront'],
+  DTL: ['Bukit Panjang','Cashew','Hillview','Beauty World','King Albert Park','Sixth Avenue','Tan Kah Kee','Botanic Gardens','Stevens', 'Newton','Little India','Rochor','Bugis','Promenade','Bayfront','Downtown','Telok Ayer','Chinatown','Fort Canning','Bencoolen','Jalan Besar','Bendemeer','Geylang Bahru','Mattar','MacPherson','Ubi','Kaki Bukit','Bedok North','Bedok Reservoir','Tampines West','Tampines','Tampines East','Upper Changi' ,'Expo'],
+  EWL: ['Changi Airport','Expo','Pasir Ris','Tampines','Simei','Tanah Merah','Bedok','Kembangan','Eunos', 'Paya Lebar','Aljunied','Kallang','Lavender','Bugis','City Hall','Raffles Place','Tanjong Pagar','Outram Park','Tiong Bahru','Redhill','Queenstown','Commonwealth','Buona Vista','Dover','Clementi','Jurong East' ,'Chinese Garden','Lakeside','Boon Lay','Pioneer' ,'Joo Koon','Gul Circle' ,'Tuas Crescent','Tuas West Road','Tuas Link'],
+  NEL: ['HarbourFront','Outram Park','Chinatown','Clarke Quay','Dhoby Ghaut','Little India','Farrer Park','Boon Keng','Potong Pasir','Woodleigh','Serangoon','Kovan','Hougang','Buangkok','Sengkang','Punggol'],
+  NSL: ['Jurong East','Bukit Batok','Bukit Gombak','Choa Chu Kang','Yew Tee','Kranji','Marsiling','Woodlands','Admiralty','Sembawang','Canberra','Yishun','Khatib','Yio Chu Kang','Ang Mo Kio','Bishan','Braddell','Toa Payoh','Novena','Newton','Orchard','Somerset','Dhoby Ghaut','City Hall','Raffles Place','Marina Bay','Marina South Pier'],
+  TEL: ['Woodlands North','Woodlands','Woodlands South','Springleaf','Lentor','Mayflower','Bright Hill','Upper Thomson','Caldecott','Stevens','Napier','Orchard Boulevard','Orchard','Great World','Havelock','Outram Park','Maxwell','Shenton Way','Marina Bay','Gardens by the Bay','Tanjong Rhu','Katong Park','Tanjong Katong','Marine Parade','Marine Terrace','Siglap','Bayshore'],
+};
+
+const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
   const orderedLines = ['CCL', 'DTL', 'EWL', 'NEL', 'NSL', 'TEL'];
 
   const lineNames = {
@@ -17,22 +24,13 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
     TEL: 'Thomson-East Coast Line',
   };
 
-  const stationLines = {
-    CCL: ['Marina Bay', 'Bayfront', 'Dhoby Ghaut', 'Bras Basah', 'Esplanade', 'Promenade', 'Nicoll Highway', 'Stadium', 'Mountbatten', 'Dakota', 'Paya Lebar', 'MacPherson', 'Tai Seng', 'Bartley', 'Serangoon', 'Lorong Chuan', 'Bishan', 'Marymount', 'Caldecott', 'Botanic Gardens', 'Farrer Road', 'Holland Village', 'Buona Vista', 'one-north', 'Kent Ridge', 'Haw Par Villa', 'Pasir Panjang', 'Labrador Park', 'Telok Blangah', 'HarbourFront'],
-    DTL: ['Bukit Panjang','Cashew','Hillview','Beauty World','King Albert Park','Sixth Avenue','Tan Kah Kee','Botanic Gardens','Stevens', 'Newton','Little India','Rochor','Bugis','Promenade','Bayfront','Downtown','Telok Ayer','Chinatown','Fort Canning','Bencoolen','Jalan Besar','Bendemeer','Geylang Bahru','Mattar','MacPherson','Ubi','Kaki Bukit','Bedok North','Bedok Reservoir','Tampines West','Tampines','Tampines East','Upper Changi' ,'Expo'],
-    EWL: ['Changi Airport','Expo','Pasir Ris','Tampines','Simei','Tanah Merah','Bedok','Kembangan','Eunos', 'Paya Lebar','Aljunied','Kallang','Lavender','Bugis','City Hall','Raffles Place','Tanjong Pagar','Outram Park','Tiong Bahru','Redhill','Queenstown','Commonwealth','Buona Vista','Dover','Clementi','Jurong East' ,'Chinese Garden','Lakeside','Boon Lay','Pioneer' ,'Joo Koon','Gul Circle' ,'Tuas Crescent','Tuas West Road','Tuas Link'],
-    NEL: ['HarbourFront','Outram Park','Chinatown','Clarke Quay','Dhoby Ghaut','Little India','Farrer Park','Boon Keng','Potong Pasir','Woodleigh','Serangoon','Kovan','Hougang','Buangkok','Sengkang','Punggol'],
-    NSL: ['Jurong East','Bukit Batok','Bukit Gombak','Choa Chu Kang','Yew Tee','Kranji','Marsiling','Woodlands','Admiralty','Sembawang','Canberra','Yishun','Khatib','Yio Chu Kang','Ang Mo Kio','Bishan','Braddell','Toa Payoh','Novena','Newton','Orchard','Somerset','Dhoby Ghaut','City Hall','Raffles Place','Marina Bay','Marina South Pier'],
-    TEL: ['Woodlands North','Woodlands','Woodlands South','Springleaf','Lentor','Mayflower','Bright Hill','Upper Thomson','Caldecott','Stevens','Napier','Orchard Boulevard','Orchard','Great World','Havelock','Outram Park','Maxwell','Shenton Way','Marina Bay','Gardens by the Bay','Tanjong Rhu','Katong Park','Tanjong Katong','Marine Parade','Marine Terrace','Siglap','Bayshore'],
-  };
-
   const [openLine, setOpenLine] = useState(null);
   const [trainData, setTrainData] = useState([]);
 
   const mrtLines = Object.entries(stationsData).reduce((acc, [stationName, data]) => {
     const stationArray = Array.isArray(data) ? data : [data];
     stationArray.forEach(({ trainLine, stationCode, lat, lng }) => {
-      if (validLines.includes(trainLine)) {
+      if (orderedLines.includes(trainLine)) {
         acc[trainLine] = acc[trainLine] || { code: trainLine, station: [] };
         acc[trainLine].station.push({ code: stationCode, name: stationName, lat, lng });
       }
@@ -49,18 +47,20 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
     });
     
     if (!isOpen) {
-      onLineChange(line); // Notify the parent of the selected line
+      onLineChange(line); 
       const markerPositions = mrtLines[line].station.map(station => ({ lat: station.lat, lng: station.lng }));
       setMarkerPositions(markerPositions);
     } else {
-      setMarkerPositions([]); // Reset marker positions if line is closed
+      setMarkerPositions([]);
     }
   };
 
-  const handleStationClick = (station) => {
+  const handleStationClick = (line,station) => {
     setMarkerPositions([{ lat: station.lat, lng: station.lng }]);
-    setSelectedStation(station); // This will trigger the StationPopup
+    navigate(`/station/${line}-${station.code}-${encodeURIComponent(station.name)}`);
   };
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTrainData = async () => {
@@ -76,9 +76,15 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
     fetchTrainData();
   }, []);
 
-  const getCrowdLevel = (line, stationCode) => {
-    if (trainData[line] && trainData[line][stationCode]) {
-      return trainData[line][stationCode].CrowdLevel || 'unknown';
+  const getCrowdLevel = (line, stationCode, isForecast=false) => {
+    const type = isForecast ? 'forecast' : 'realTime';
+    if (
+      trainData &&
+      trainData[type] &&
+      trainData[type][line] &&
+      trainData[type][line][stationCode]
+    ) {
+      return trainData[type][line][stationCode].CrowdLevel || 'unknown';
     }
     return 'unknown';
   };
@@ -91,7 +97,6 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
       default: return 'Unknown';
     }
   };
-
   return (
     <div>
       {orderedLines.map((line) => (
@@ -101,48 +106,49 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
               onClick={() => handleToggle(line)}
               className={`mrt-line-button ${line === selectedLine ? 'active' : ''}`}
             >
-            <span className="line-code-box">
-              <span className={`station-code-box-${line.toLowerCase()}`}></span>
-              <span className="line-code">{line}</span>
-            </span>
-            {lineNames[line]}
-
+              <span className={`line-code-box ${line}`}>
+                <span className="line-code">{line}</span>
+              </span>
+              {lineNames[line]}
             </button>
             {openLine === line && (
-                <ul className={`mrt-station-list mrt-station-list-${line.toLowerCase()}`}>
-                {mrtLines[line].station.map((station, index) => (
-                  <li key={index} className="mrt-station-item">
-                    <button
-                      onClick={() => handleStationClick(station)}
-                    >
-                      <span className="station-code">{station.code}</span>
-                      <span className="station-name">{station.name}</span>
-                    </button> 
-                    <span className="crowd-density-indicator">
-                      {CrowdLabel(getCrowdLevel(mrtLines[line].code, station.code))}
-                    </span>
-                  </li>
-                ))}
+              <ul className={`mrt-station-list mrt-station-list-${line}`}>
+                {mrtLines[line].station
+                  .sort((a, b) => stationLines[line].indexOf(a.name) - stationLines[line].indexOf(b.name))
+                  .map((station, index) => (
+                    <li key={index} className="mrt-station-item">
+                      <button
+                        className={`mrt-station-button ${line}`}
+                        onClick={() => handleStationClick(line,station)}
+                      >
+                        <span className="station-code">{station.code}</span>
+                        <span className="station-name">{station.name}</span>
+                      </button>
+                      <div className="crowd-density">
+                        <span>Now:</span>
+                        <div className="crowd-density-box">
+                            <div className={`crowd-level-indicator ${getCrowdLevel(line, station.code)}`}>
+                              {CrowdLabel(getCrowdLevel(line, station.code))}
+                            </div>
+                        </div>
+                        <span>Forecast:</span>
+                        <div className="crowd-density-box">
+                          <div className={`crowd-level-indicator ${getCrowdLevel(line, station.code, true)}`}>
+                          {CrowdLabel(getCrowdLevel(line, station.code, true))}
+                          </div>
+                      </div>
+                      </div>
+                    </li>
+                  ))}
               </ul>
             )}
           </div>
         )
       ))}
-      {selectedStation && (
-        <StationPopup
-          station={selectedStation}
-          onClose={() => setSelectedStation(null)}
-        />
-      )}
     </div>
   );
 };
-
 export default MRTLines;
-
-
-
-
 
 // import React, { useEffect,useState } from 'react';
 // import StationPopup from './StationPopup';

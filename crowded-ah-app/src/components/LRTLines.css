@@ -14,6 +14,7 @@
 }
 
 .lrt-line-button {
+    cursor: pointer;
     display: block;
     width: 100%;
     padding: 10px;
@@ -23,11 +24,12 @@
     cursor: pointer;
     color: #000000;
     font-weight: bold;
+    background-color: #ACA9A9;
 }
 
 .lrt-line-button:hover {
     opacity: 0.8; /* Reduce opacity on hover */
-    background-color: #d4cdcd;
+    background-color: #bebbbb;
 }
 
 .bukit-panjang-line, .sengkang-line, .punggol-line{
@@ -40,7 +42,7 @@
     max-height: 350px; 
     overflow-y: auto;
     list-style-type: none;  
-    padding-left: 20px;
+    padding-left: 21px;
     margin-bottom: 10px;
 }
 
@@ -49,9 +51,9 @@
     padding: 10px;
     border-radius: 5px;
     display: flex;
-    align-items: center; 
+    color: black;
     font-size: 18px;
-    color: #fff;
+    align-items: center; 
 }
 
 .bukit-panjang-line-dropdown, .bukit-panjang-line-items{
@@ -67,43 +69,59 @@
     background-color: #E3E3E3;
 }
 
-.station-code {
+.lrt-station-button{
+    cursor: pointer;
+    background-color: grey;
+    display: inline-block;  
+    padding: 4px 4px; 
+    border-radius:4px; 
+    margin-right: 2px;
+}
+
+
+.crowd-density {
+    display: flex; 
+    justify-content: flex-end;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.crowd-density span {
+    font-size: 0.9rem;
     font-weight: bold;
-    color: #ffffff;
+    margin-right: 4px;
 }
 
-.station-name {
-    font-style: normal;
-    color: #000000;
-    font-weight: bold;
+.crowd-density-box {
+    display: flex;
+    align-items: center; /* Vertically aligns content */
+    justify-content: flex-start; /* Aligns content to the left */
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #fff; /* Changed to white background */
+    border: 1px solid #eee;
+    width: 100px;
 }
 
-.station-code-box {
-    display: inline-block; /* Ensures the box only takes up the width of the code */
-    background-color: grey; /* Change this to any color you want */
-    color: white; /* Text color */
-    padding: 4px 4px; /* Adds some padding around the text */
-    border-radius: 4px; /* Rounds the corners of the box */
-    margin-right: 5px; /* Space between the code box and the name */
-}
-
-.crowd-density-indicator {
+.crowd-level-indicator{
     display: inline-block;
-    width: 24px;
-    height: 24px; 
+    width: 50px;
+    height: 30px;
     border-radius: 50%;
-    margin-left: 8px;
 }
   
-.crowd-density-indicator.l{
-background-color: limegreen; /* Low crowd density */
+.crowd-level-indicator.l {
+    background-color: #22c55e; /* Bright green for low crowd */
 }
-.crowd-density-indicator.m{
-background-color: gold; /* Moderate crowd density */
+
+.crowd-level-indicator.m {
+    background-color: #f59e0b; /* Amber for moderate crowd */
 }
-.crowd-density-indicator.h{
-background-color: coral; /* High crowd density */
+
+.crowd-level-indicator.h {
+    background-color: #ef4444; /* Red for high crowd */
 }
-.crowd-density-indicator.unknown{
-    background-color: gray; /* Unknown crowd density */
+
+.crowd-level-indicator.unknown {
+    background-color: #9ca3af; /* Gray for unknown status */
 }
