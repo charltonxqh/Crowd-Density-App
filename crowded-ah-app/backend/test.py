@@ -1,5 +1,6 @@
 import json
 import unittest
+import unittest
 
 from train_arrival import (
     get_all_station_names,
@@ -56,7 +57,20 @@ class TestTrainArrival(unittest.TestCase):
             TestTrainArrival._verify_arrival_time_response(
                 arrival_time_response, station_name
             )
+            
+    arrival_times = get_train_arrival_time_by_id("City Hall")
+    print(arrival_times)
 
 
 if __name__ == "__main__":
-    unittest.main()
+    if len(sys.argv) > 1:
+        # Get the station name from command-line argument
+        station_name = sys.argv[1]
+        
+        # Fetch and print train arrival time for the specified station
+        arrival_times = get_train_arrival_time_by_id(station_name)
+        print(arrival_times)  # Output will be returned as stdout to Node.js
+        
+    else:
+        # Run unit tests if no station name is provided
+        unittest.main()

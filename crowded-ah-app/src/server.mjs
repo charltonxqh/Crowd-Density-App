@@ -107,22 +107,23 @@ app.get('/api/train-alerts', (req, res) => res.json(storedAlerts));
 
 app.get('/api/train-arrival/:stationName', (req, res) => {
     const stationName = req.params.stationName;
-
-    // Command to run your Python script
-    exec(`python src/TrainETA.py ${stationName}`, (error, stdout, stderr) => {
+    exec(`python backend/call_train_arrival.py "${stationName}"`, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing Python script: ${stderr}`);
             return res.status(500).json({ error: 'Error fetching train arrival data' });
         }
-
+    
+        console.log("Python script output:", stdout); // Log the output from the Python script
         try {
-            const arrivalData = JSON.parse(stdout);  
-            res.json(arrivalData);
+            const arrivalData = JSON.parse(stdout);
+            console.log("Arrival data fetched:", arrivalData); // Log the parsed data for debugging
+            res.json(arrivalData); // Send the data as a JSON response
         } catch (parseError) {
             console.error(`Error parsing JSON: ${parseError}`);
             res.status(500).json({ error: 'Error parsing arrival data' });
         }
     });
+    
 });
 
 // API route to get the statistics link

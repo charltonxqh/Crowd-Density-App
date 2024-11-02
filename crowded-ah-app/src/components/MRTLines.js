@@ -28,6 +28,7 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
 
   const [openLine, setOpenLine] = useState(null);
   const [trainData, setTrainData] = useState([]);
+  const [arrivalData, setArrivalData] = useState(null); // State to hold arrival data
 
   const mrtLines = Object.entries(stationsData).reduce((acc, [stationName, data]) => {
     const stationArray = Array.isArray(data) ? data : [data];
@@ -57,9 +58,18 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
     }
   };
 
-  const handleStationClick = (station) => {
+  const handleStationClick = async (station) => {
     setMarkerPositions([{ lat: station.lat, lng: station.lng }]);
-    setSelectedStation(station); // This will trigger the StationPopup
+    setSelectedStation(station); 
+    try {
+      const response = await fetch(`http://localhost:4000/api/train-arrival/${station.name}`);
+      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+      const data = await response.json();
+      console.log("Train arrival data:", data);
+      // You can now set this data to state if you want to display it in the StationPopup component
+    } catch (error) {
+      console.error("Error fetching train arrival data:", error);
+    }
   };
 
   useEffect(() => {
@@ -131,7 +141,11 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
       {selectedStation && (
         <StationPopup
           station={selectedStation}
-          onClose={() => setSelectedStation(null)}
+          onClose={() => {
+            setSelectedStation(null);
+            setArrivalData(null); // Clear the arrival data when popup is closed
+          }}
+          arrivalData={arrivalData} // Pass the arrival data to StationPopup
         />
       )}
     </div>

@@ -21,6 +21,7 @@ handler = logging.StreamHandler()
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 handler.setFormatter(formatter)
 logger.addHandler(handler)
+logger.setLevel(logging.INFO)
 
 REFERER = "http://journey.smrt.com.sg/journey/station_info/"  # Credits: https://github.com/cheeaun/railrouter-sg
 
@@ -106,65 +107,39 @@ def get_all_station_names():  # type: () -> list[str]
     return sorted(station_names)
 
 
-def get_train_arrival_time_by_id(station_name):  # type: (str) -> str
-    """Get train arrival times for a given train station as a JSON string.
-
-    Args:
-        station_name (str): Name of train station (e.g. City Hall, Eunos etc.)
-
-    Returns:
-        str: Train arrival times as a JSON string. If no relevant data is available, return {"results": []}.
-    """
+def get_train_arrival_time_by_id(station_name):
+    """Get train arrival times for a given train station as a JSON string."""
     params = {"station": station_name}
-
     max_attempts = 3
+    logger.info(f"Fetching train arrival time for station: {station_name}")
 
     for attempt in range(max_attempts):
         if attempt:
-            time.sleep(
-                2 ** (attempt - 1)
-            )  # Sleep with exponential backoff for rate-limiting.
-        data = _get(
-            "https://connectv3.smrt.wwprojects.com/smrt/api/train_arrival_time_by_id",
-            params,
-        )
+            time.sleep(2 ** (attempt - 1))  # Exponential backoff
+        data = _get("https://connectv3.smrt.wwprojects.com/smrt/api/train_arrival_time_by_id", params)
+        
+        # Check if the response data is as expected
+        if data:
+            logger.debug("Raw API Response: %s", data)  # Log raw response for debugging
 
-        d = json.loads(data)
-        results = d.get("results", [])
-        if not isinstance(results, list):
+        try:
+            d = json.loads(data)
+            results = d.get("results", [])
+            if not isinstance(results, list):
+                logger.warning(f"No valid results returned for station {station_name}")
+                continue
+            
+            mrt_names = set(result.get("mrt", "") for result in results if isinstance(result, dict)) - {""}
+            if len(mrt_names) != 1 or station_name not in mrt_names:
+                logger.warning(f"Station names mismatch: Expected {station_name}, got {mrt_names}")
+                continue
+            
+            return data  # Output guaranteed to be valid JSON.
+        except json.JSONDecodeError:
+            logger.error("Failed to decode JSON from response.")
             continue
-        mrt_names = set(
-            result.get("mrt", "") for result in results if isinstance(result, dict)
-        ) - set([""])
-        if (
-            len(mrt_names) != 1 or station_name not in mrt_names
-        ):  # Ensure that the 'mrt' field matches station name.
-            continue
-        return data  # Output guaranteed to be valid JSON.
-    return '{"results": []}'
 
-
-def get_all_train_arrival_time(limit=None):  # type: (int | None) -> str
-    """Get train arrival times for all train stations as a JSON string.
-
-    Warning: Estimated execution time is at least 5 minutes.
-
-    Args:
-        limit (int | None, optional): Limit search results to
-        first N station names in ascending alphabetical order.
-        Has no effect if `limit` is not a positive integer or is
-        larger than total number of station names. Defaults to None.
-
-    Returns:
-        str: Train arrival times for all train stations in
-        ascending alphabetical order as a JSON string.
-    """
-    station_names = get_all_station_names()
-    limit = (
-        min(limit, len(station_names))
-        if isinstance(limit, int) and (0 < limit <= len(station_names))
-        else len(station_names)
-    )
+    return '{"results": []}'  # If no valid data found after attempts
 
     results = {
         station_name: json.loads(get_train_arrival_time_by_id(station_name))
