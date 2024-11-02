@@ -28,7 +28,7 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions, selectedStat
 
   const [openLine, setOpenLine] = useState(null);
   const [trainData, setTrainData] = useState([]);
-  const [arrivalData, setArrivalData] = useState(null); // State to hold arrival data
+  const [arrivalData, setArrivalData] = useState(null); 
 
   const mrtLines = Object.entries(stationsData).reduce((acc, [stationName, data]) => {
     const stationArray = Array.isArray(data) ? data : [data];
