@@ -26,7 +26,6 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
 
   const [openLine, setOpenLine] = useState(null);
   const [trainData, setTrainData] = useState([]);
-  const [arrivalData, setArrivalData] = useState(null); 
 
   const mrtLines = Object.entries(stationsData).reduce((acc, [stationName, data]) => {
     const stationArray = Array.isArray(data) ? data : [data];
@@ -58,10 +57,16 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
 
   const handleStationClick = (line,station) => {
     setMarkerPositions([{ lat: station.lat, lng: station.lng }]);
-    navigate(`/station/${line}-${station.code}-${encodeURIComponent(station.name)}`);
-  };
-
-  const navigate = useNavigate();
+    const currentCrowdLevel = CrowdLabel(getCrowdLevel(line, station.code));
+    const forecastCrowdLevel = CrowdLabel(getCrowdLevel(line, station.code, true));
+    navigate(`/station/${line}-${station.code}-${encodeURIComponent(station.name)}`, {
+      state: { 
+        currentCrowdLevel, 
+        forecastCrowdLevel 
+      },
+    });
+    };
+    const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTrainData = async () => {

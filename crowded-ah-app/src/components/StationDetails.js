@@ -1,83 +1,78 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { stationLines } from './MRTLines';
+import { useLocation } from 'react-router-dom';
 import './StationDetails.css';
 
 const StationDetails = () => {
   const { stationId } = useParams();
-  const [stationData, setStationData] = useState(null);
+  const [ETA, setETA] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedDirection, setSelectedDirection] = useState(null); // Store selected direction
   const navigate = useNavigate();
+  const location = useLocation();
+  const { currentCrowdLevel, forecastCrowdLevel } = location.state || {};
 
   useEffect(() => {
-    const fetchStationData = async () => {
+    const fetchETA = async () => {
+      // Extract line, code, and name
+      const [line, code, name] = stationId.split('-');
       try {
-        const response = await fetch(`http://localhost:4000/api/train-arrival/${stationId}`);
+        const response = await fetch(`http://localhost:4000/api/train-arrival/${name}`);
         if (!response.ok) {
           throw new Error('Failed to fetch station data');
         }
         const data = await response.json();
-        setStationData(data);
-        // Extract line, code, and name
-        const [line, code, name] = stationId.split('-');
-        // Set the initial selected direction if available
-        if (line && stationLines[line]) {
-          const directions = stationLines[line];
-          if (directions && directions.length > 0) {
-            setSelectedDirection(directions[0]); // Set initial direction to first line
-          }
-        }
+        setETA(data);
       } catch (error) {
         setError(error.message);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchStationData();
+    fetchETA();
   }, [stationId]);
 
   if (loading) {
     return <div className="station-details loading">Loading...</div>;
   }
-
-  const { nextTrainETA, realTimeCrowd, forecastCrowd } = stationData || {};
   const [line, code, name] = stationId.split('-');
+  // Check if we have fetched data
+  const hasArrivalData = ETA && ETA.results && ETA.results.length > 0;
 
   return (
     <div className="station-details-container">
-      <button className="back-button" onClick={() => navigate('/stations')}>← Back to Stations</button>
       <h1>{`${code} ${name}`}</h1>
-      
       <div className="station-info-card">
         <h2>Station Information</h2>
         <div className="info-grid">
           <div className="info-item">
             <label>Next Train ETA</label>
-            <span>{nextTrainETA || 'N/A'}</span>
+            {loading ? (
+          <p>Loading...</p> // Display loading message
+        ) : hasArrivalData ? (
+          <ul>
+            {ETA.results.map((arrival, index) => (
+              <ol key={index}>
+                {/* Display the arrival information */}
+                Next Train Arrival: {arrival.next_train_arr} mins - (Destination: {arrival.next_train_destination})
+              </ol>
+            ))}
+          </ul>
+        ) : (
+          <p>No arrival data available.</p>
+        )}
           </div>
           <div className="info-item">
             <label>Real-Time Crowd Level</label>
-            <span>{realTimeCrowd || 'N/A'}</span>
+            <span>{currentCrowdLevel|| 'N/A'}</span>
           </div>
           <div className="info-item">
             <label>Forecast Crowd Level</label>
-            <span>{forecastCrowd || 'N/A'}</span>
+            <span>{forecastCrowdLevel|| 'N/A'}</span>
           </div>
+          <button className="back-button" onClick={() => navigate('/stations')}>← Back to Stations</button>
         </div>
       </div>
-      <footer className="station-footer">
-      <h3>Switch Direction</h3>
-          <button onClick={() => setSelectedDirection(stationLines[line][0])}>
-            {stationLines[line][0]}
-          </button>
-          <button onClick={() => setSelectedDirection(stationLines[line][stationLines[line].length - 1])}>
-            {stationLines[line][stationLines[line].length - 1]}
-          </button>
-          <p>Current Direction: {selectedDirection || 'Select a direction'}</p>
-    </footer>
     </div>
   );
 };
