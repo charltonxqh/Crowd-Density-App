@@ -1,6 +1,7 @@
 .page-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   background-color: #EFF5FF;
 }
@@ -9,7 +10,7 @@
   flex: 1;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 400px; 
   display: flex;
   justify-content: center;
   position: relative;
@@ -37,7 +38,7 @@
   border: none;
   background-color: #f8f8f8;
   border-radius: 5px;
-  font-size: 30px;
+  font-size: 18px; 
   font-weight: bold;
 }
 
@@ -50,4 +51,46 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .MRTmap {
+    height: 300px; 
+  }
+
+  .view-buttons button {
+    font-size: 16px; 
+    padding: 10px 15px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column; 
+  }
+
+  .MRTmap {
+    height: 250px;
+  }
+
+  .content-container {
+    margin-top: 10px;
+    margin-right: 0;
+  }
+
+  .view-buttons button {
+    font-size: 14px; 
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .MRTmap {
+    height: 200px; 
+  }
+
+  .view-buttons button {
+    font-size: 12px; 
+    padding: 6px 8px; 
+  }
 }

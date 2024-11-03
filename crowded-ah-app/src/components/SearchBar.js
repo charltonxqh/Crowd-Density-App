@@ -22,6 +22,7 @@ const SearchBar = () => {
   const [favourites, setFavourites] = useState([]);
   const [user, setUser] = useState(null);
   const [trainData, setTrainData] = useState([]);
+  const [showError, setShowError] = useState(false);
 
   const { isGuest } = useGuest();
   const auth = getAuth();
@@ -30,7 +31,6 @@ const SearchBar = () => {
 
   async function getTrainData() {
     try {
-      // const response = await fetch("../mockAPI/mockRT-EWL.json");
       const response = await fetch("http://localhost:4000/api/train-data");
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
@@ -49,11 +49,9 @@ const SearchBar = () => {
   }, []);
 
   useEffect(() => {
-    // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       if (user) {
-        // Fetch user's favourites from Firestore
         const userRef = doc(db, "users", user.uid);
         const unsubscribeFavourites = onSnapshot(userRef, (doc) => {
           setFavourites(doc.data()?.favourites || []);
@@ -76,14 +74,21 @@ const SearchBar = () => {
       const filteredStations = stations
         .filter((station) => station.toLowerCase().includes(value))
         .slice(0, 5);
+
+      if (filteredStations.length === 0) {
+        setShowError(true); 
+      } else {
+        setShowError(false); 
+      }
+
       setSuggestions(filteredStations);
     } else {
       setSuggestions([]);
+      setShowError(false); 
     }
   };
 
   const handleFocus = () => {
-    // Show favourite stations when the search bar is clicked and there's no query
     if (!query && favourites.length > 0) {
       setSuggestions(favourites);
     }
@@ -103,6 +108,7 @@ const SearchBar = () => {
 
   const clearSearch = () => {
     setQuery("");
+    setSelectedStation(null);
     setSuggestions(favourites);
   };
 
@@ -117,7 +123,7 @@ const SearchBar = () => {
     try {
       const userRef = doc(db, "users", user.uid);
       await updateDoc(userRef, {
-        favourites: arrayUnion(selectedStation), // Add the station to the user's favourites
+        favourites: arrayUnion(selectedStation),
       });
       alert(`${selectedStation} has been added to your favourites!`);
     } catch (error) {
@@ -151,7 +157,6 @@ const SearchBar = () => {
       const stationData = stationsInfo[selectedStation];
 
       if (stationData) {
-        // Handle cases where station data could be an array (multiple lines) or a single object
         const stationInfo = Array.isArray(stationData)
           ? stationData[0]
           : stationData;
@@ -163,7 +168,6 @@ const SearchBar = () => {
           getCrowdLevel(trainLine, stationCode, true)
         );
 
-        // Use selectedStation as station name since stationName might be undefined in stationsInfo
         navigate(
           `/station/${trainLine}-${stationCode}-${encodeURIComponent(
             selectedStation
@@ -224,7 +228,7 @@ const SearchBar = () => {
     <div className="search-container">
       <div className="search-bar">
         <button className="icon magnifying-glass" onClick={onSearch}>
-          🔍
+          <img src="/images/search.png" alt="Search" className="search" />
         </button>
         <input
           type="text"
@@ -236,12 +240,16 @@ const SearchBar = () => {
           className="search-input"
         />
         <button className="icon trash-bin" onClick={clearSearch}>
-          🗑️
+          <img src="/images/delete.png" alt="Delete" className="dustbin" />
         </button>
         <button className="icon favourite-star" onClick={handleAddFavourite}>
-          ⭐
+          <img src="/images/fav.png" alt="Favourite" className="favourite" />
         </button>
       </div>
+
+      {showError && (
+        <div className="error-message">No matching results found.</div>
+      )}
 
       {suggestions.length > 0 && (
         <div className="result-box">
@@ -256,7 +264,7 @@ const SearchBar = () => {
                   className="remove-icon"
                   onClick={() => handleDeleteFavourite(name)}
                 >
-                  ⭐
+                  <img src="/images/fav.png" alt="Favourite" className="favourite" />
                 </button>
               )}
               {name}

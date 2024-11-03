@@ -134,69 +134,74 @@ const StatisticsUI = () => {
 
     return (
         <div className="statistics-page">
-            {stations.length > 0 && (
-                <div className="chart-section-wrapper">
-                    <button 
-                        className="navigation-button left-button" 
-                        onClick={previousStation} 
-                        disabled={currentStationIndex === 0}
-                    >
-                        Back
-                    </button>
-                    <div className="chart-container">
-                        <h2 className="subtitle">
-                            Crowd Level for {getStationName(stations[currentStationIndex]?.PT_CODE)}
-                        </h2>
-                        <LineChart
-                            width={700}
-                            height={400}
-                            data={getChartData(stations[currentStationIndex])}
-                            margin={{ top: 10, right: 30, left: 0, bottom: 30 }}
-                        >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis 
-                                dataKey="hour" 
-                                label={{ value: "Time of Day", position: "insideBottom", dy: 20, style: { fontSize: 16, fill: "#333" } }} 
-                            />
-                            <Tooltip />
-                            <Line type="monotone" dataKey="crowdLevel" stroke="#8884d8" />
-                        </LineChart>
-                    </div>
-                    <button 
-                        className="navigation-button right-button" 
-                        onClick={nextStation} 
-                        disabled={currentStationIndex === stations.length - 1}
-                    >
-                        Next
-                    </button>
-                </div>
-            )}
-            <div className="crowded-stations-section">
-                <h2 className="subtitle">Top 10 Most Crowded Stations (Sorted by Total Volume)</h2>
-                <ul className="station-list">
-                    {stations.map((station, index) => (
-                        <li key={index} className="station-item">
-                            <div className="station-details">
-                                <span className="station-name">
-                                    {getStationName(station.PT_CODE)}
-                                </span>
-                                <div className="station-codes">
-                                    {station.PT_CODE.split("/").map((code, i) => (
-                                        <span key={i} className={`station-code ${code.substring(0, 2)}`}>
-                                            {code}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+    {stations.length > 0 && (
+        <div className="chart-section-wrapper">
+            <div className="chart-container">
+                <h2 className="subtitle">
+                    Crowd Level for {getStationName(stations[currentStationIndex]?.PT_CODE)}
+                </h2>
+                <LineChart
+                    width={700}
+                    height={400}
+                    data={getChartData(stations[currentStationIndex])}
+                    margin={{ top: 10, right: 30, left: 0, bottom: 30 }}
+                >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis 
+                        dataKey="hour" 
+                        label={{ value: "Time of Day", position: "insideBottom", dy: 20, style: { fontSize: 16, fill: "#333" } }} 
+                    />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="crowdLevel" stroke="#8884d8" />
+                </LineChart>
+            </div>
+            <div className="navigation-buttons">
+                <button 
+                    className="navigation-button left-button" 
+                    onClick={previousStation} 
+                    disabled={currentStationIndex === 0}
+                >
+                    Back
+                </button>
+                <button 
+                    className="navigation-button right-button" 
+                    onClick={nextStation} 
+                    disabled={currentStationIndex === stations.length - 1}
+                >
+                    Next
+                </button>
             </div>
         </div>
+    )}
+    <div className="crowded-stations-section">
+        <h2 className="subtitle">Top 10 Most Crowded Stations (Sorted by Total Volume)</h2>
+        <ul className="station-list">
+            {stations.map((station, index) => (
+                <li key={index} className="station-item">
+                    <div className="station-details">
+                        <span className="station-rank">{index + 1}.</span>
+                        <span className="station-name">
+                            {getStationName(station.PT_CODE)}
+                        </span>
+                        <div className="station-codes">
+                            {station.PT_CODE.split("/").map((code, i) => (
+                                <span key={i} className={`station-code ${code.substring(0, 2)}`}>
+                                    {code}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </li>
+            ))}
+        </ul>
+    </div>
+</div>
+
     );
 };
 
 export default StatisticsUI;
+
 
 
 

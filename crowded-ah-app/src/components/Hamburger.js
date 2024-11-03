@@ -22,7 +22,7 @@ function Hamburger() {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
-
+    
     return (
         <div className="hamburgerContainer" ref={dropdownRef}>
             <button className="hamburger" onClick={toggleMenu}>

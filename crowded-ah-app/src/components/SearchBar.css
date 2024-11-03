@@ -84,3 +84,40 @@
   border: none;
   cursor: pointer;
 }
+
+.search {
+  width: 20px; 
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.search:hover {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1); 
+}
+
+.dustbin {
+  width: 20px; 
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.dustbin:hover {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1); 
+}
+
+.favourite {
+  width: 20px; 
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.favourite:hover {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1); 
+}
+

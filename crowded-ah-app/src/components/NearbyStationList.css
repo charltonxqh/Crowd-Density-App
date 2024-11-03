@@ -1,5 +1,3 @@
-/* NearbyStationsList.css */
-
 .nearby-stations-list {
   background-color: #4b71aa;
   padding: 20px;
@@ -95,19 +93,19 @@
 }
 
 .nearby-crowd-density-circle.l {
-  background-color: #22c55e; /* Low crowd density */
+  background-color: #22c55e; 
 }
 
 .nearby-crowd-density-circle.m {
-  background-color: #f59e0b; /* Moderate crowd density */
+  background-color: #f59e0b; 
 }
 
 .nearby-crowd-density-circle.h {
-  background-color: #ef4444; /* High crowd density */
+  background-color: #ef4444;
 }
 
 .nearby-crowd-density-circle.unknown {
-  background-color: #9ca3af; /* Unknown crowd density */
+  background-color: #9ca3af; 
 }
 
 .nearby-crowd-density-text {
