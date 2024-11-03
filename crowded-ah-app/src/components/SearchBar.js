@@ -49,11 +49,9 @@ const SearchBar = () => {
   }, []);
 
   useEffect(() => {
-    // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       if (user) {
-        // Fetch user's favourites from Firestore
         const userRef = doc(db, "users", user.uid);
         const unsubscribeFavourites = onSnapshot(userRef, (doc) => {
           setFavourites(doc.data()?.favourites || []);
@@ -78,20 +76,19 @@ const SearchBar = () => {
         .slice(0, 5);
 
       if (filteredStations.length === 0) {
-        setShowError(true); // Show the error message
+        setShowError(true); 
       } else {
-        setShowError(false); // Hide the error message
+        setShowError(false); 
       }
 
       setSuggestions(filteredStations);
     } else {
       setSuggestions([]);
-      setShowError(false); // Hide the error message if the input is cleared
+      setShowError(false); 
     }
   };
 
   const handleFocus = () => {
-    // Show favourite stations when the search bar is clicked and there's no query
     if (!query && favourites.length > 0) {
       setSuggestions(favourites);
     }

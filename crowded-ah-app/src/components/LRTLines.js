@@ -43,11 +43,11 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
       });
       
       if (!isOpen) {
-        onLineChange(line); // Notify the parent of the selected line
+        onLineChange(line); 
         const markerPositions = lrtLines[line].station.map(station => ({ lat: station.lat, lng: station.lng }));
         setMarkerPositions(markerPositions);
       } else {
-        setMarkerPositions([]); // Reset marker positions if line is closed
+        setMarkerPositions([]); 
       }
     };
   

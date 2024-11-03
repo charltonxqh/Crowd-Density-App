@@ -10,13 +10,12 @@ const NearbyStationMap = () => {
   const [stations, setStations] = useState([]);
 
   useEffect(() => {
-    // Load Google Maps script dynamically
     const googleMapScript = document.createElement("script");
     googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBVamnyuIq-K7dy7S5w8RTxctHc5Oafb6w&libraries=places&callback=initMap`;
     googleMapScript.async = true;
     window.document.body.appendChild(googleMapScript);
 
-    window.initMap = initMap; // Make initMap globally accessible
+    window.initMap = initMap; 
 
     function initMap() {
       if (navigator.geolocation) {
@@ -27,7 +26,6 @@ const NearbyStationMap = () => {
               lng: position.coords.longitude,
             };
 
-            // Create a new map centered on the user's location
             const map = new google.maps.Map(document.getElementById("map"), {
               center: userLocation,
               zoom: 15,
@@ -57,9 +55,9 @@ const NearbyStationMap = () => {
             });
 
             const request = {
-              location: userLocation, // Use user's current location
-              radius: "5000", // 5000 meters search radius
-              type: ["subway_station"], // Search for subway/MRT stations
+              location: userLocation, 
+              radius: "5000", 
+              type: ["subway_station"], 
             };
 
             const service = new google.maps.places.PlacesService(map);
@@ -126,7 +124,7 @@ const NearbyStationMap = () => {
             ...station,
             distance: results[index].distance.text,
           }));
-          setStations(updatedStations); // Update stations with distance and duration
+          setStations(updatedStations); 
         } else {
           console.error("Distance Matrix request failed due to " + status);
         }

@@ -5,7 +5,7 @@ import StationDetails from '../components/StationDetails';
 const StationDetailPage = () => {
   return (
     <div>
-      <StationDetails />
+      <StationDetails/>
     </div>
   );
 };

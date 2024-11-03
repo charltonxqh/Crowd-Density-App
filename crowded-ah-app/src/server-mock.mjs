@@ -74,7 +74,7 @@ function getNextClosestForecast(data) {
             const filteredStations = data[line].map(station => {
                 const stationKey = Object.keys(station)[0];
                 const filteredEntries = station[stationKey].filter(entry => entry.Start === nextTimeString);
-                return filteredEntries.length > 0 ? { [stationKey]: filteredEntries } : null; // Keep only if there are matching entries
+                return filteredEntries.length > 0 ? { [stationKey]: filteredEntries } : null; 
             }).filter(Boolean);
             if (filteredStations.length > 0) {
                 results[line] = filteredStations;

@@ -30,9 +30,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Station List Styling */
 .nearby-station-list-container {
-  flex: 1; /* Take less space compared to the map on large screens */
+  flex: 1; 
   min-width: 300px;
   max-height: 80vh;
   overflow-y: auto;
@@ -46,7 +45,6 @@
   align-items: stretch;
 }
 
-/* Error Message Styling */
 .error-message {
   display: inline-block;
   padding: 5px 10px;
@@ -57,60 +55,56 @@
   border-radius: 4px;
 }
 
-/* Responsive Design for Large Screens */
 @media (min-width: 1440px) {
   .map-container {
-    height: 70vh; /* Make the map even larger on large screens */
+    height: 70vh; 
   }
 
   .nearby-station-list-container {
-    max-height: 70vh; /* Adjust list height to balance with the map */
+    max-height: 70vh; 
   }
 }
 
-/* Responsive Design for Medium Screens */
 @media (max-width: 1024px) {
   .nearby-station-content {
-    flex-direction: column; /* Stack map and list vertically */
-    gap: 10px; /* Reduce the gap between elements */
+    flex-direction: column;
+    gap: 10px; 
   }
 
   .map-container,
   .nearby-station-list-container {
-    width: 100%; /* Full width for both map and list */
-    height: 40vh; /* Adjust height for better visibility on smaller screens */
+    width: 100%;
+    height: 40vh; 
   }
 }
 
-/* Responsive Design for Small Screens */
 @media (max-width: 768px) {
   .search-bar-container {
-    padding: 8px; /* Reduce padding on smaller screens */
+    padding: 8px; 
   }
 
   .map-container {
-    height: 35vh; /* Further reduce map height */
+    height: 35vh; 
   }
 
   .nearby-station-list-container {
-    height: auto; /* Let the list expand as needed */
-    padding: 15px; /* Adjust padding */
+    height: auto;
+    padding: 15px;
   }
 }
 
-/* Responsive Design for Extra Small Screens */
 @media (max-width: 480px) {
   .search-bar-container {
-    padding: 5px; /* Minimal padding for very small screens */
+    padding: 5px;
   }
 
   .map-container {
-    height: 30vh; /* Minimize map height further */
+    height: 30vh; 
   }
 
   .nearby-station-list-container {
-    padding: 10px; /* Reduce padding for compact view */
-    font-size: 0.9rem; /* Reduce font size */
+    padding: 10px;
+    font-size: 0.9rem;
   }
 }
 

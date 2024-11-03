@@ -1,5 +1,3 @@
-/* MrtDropdown.css */
-
 .mrt-line-button {
     cursor: pointer;
     display: block;
@@ -15,7 +13,7 @@
 }
 
 .mrt-line-button:hover {
-    opacity: 0.8; /* Reduce opacity on hover */
+    opacity: 0.8; 
     background-color: #bebbbb;
 }
 
@@ -64,7 +62,6 @@
     background-color: #E1251B; 
     border-color: #E1251B;
 }
-
 
 .mrt-station-list-CCL{
     background-color: #f8dcb6;
@@ -131,19 +128,19 @@
 }
   
 .crowd-level-color.l {
-    background-color: green; /* Low crowd level color */
+    background-color: green; 
 }
   
 .crowd-level-color.m {
-    background-color: yellow; /* Medium crowd level color */
+    background-color: yellow; 
 }
   
 .crowd-level-color.h {
-    background-color: red; /* High crowd level color */
+    background-color: red;
 }
 
 .crowd-level-color.unknown {
-    background-color: #9ca3af; /* Gray for unknown status */
+    background-color: #9ca3af;
 }
 
 

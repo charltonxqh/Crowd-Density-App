@@ -7,16 +7,16 @@ import GoogleMap from '../components/Map';
 import StationDetails from '../components/StationDetails';
 
 const Stations = () => {
-  const [view, setView] = useState('mrt'); // State to toggle between MRT and LRT views
+  const [view, setView] = useState('mrt');
   const [selectedLine, setSelectedLine] = useState(null);
   const [markerPositions, setMarkerPositions] = useState([]);
   const [selectedStation, setSelectedStation] = useState(null);
 
   const handleViewChange = (newView) => {
     setView(newView);
-    setSelectedLine(null); // Reset selected line when changing view
-    setSelectedStation(null); // Reset selected station when changing view
-    setMarkerPositions([]); // Clear marker positions when changing view
+    setSelectedLine(null); 
+    setSelectedStation(null); 
+    setMarkerPositions([]);
   };
 
   const handleLineChange = (line) => {
@@ -60,9 +60,6 @@ const Stations = () => {
             />
           )}
         </div>
-      </div>
-      <div className="LRTBox">
-        {/* Additional content for LRT can go here */}
       </div>
     </div>
   );
