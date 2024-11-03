@@ -1,60 +1,48 @@
-/* Singapore MRT and LRT Line Colors */
-
-/* North-South Line (NSL) */
 .ns-line {
-    background-color: #d42e12; /* Red */
+    background-color: #d42e12; 
     color: #ffffff;
   }
-  
-  /* East-West Line (EWL) */
+
   .ew-line {
-    background-color: #009645; /* Green */
+    background-color: #009645; 
     color: #ffffff;
   }
-  
-  /* North-East Line (NEL) */
+
   .ne-line {
-    background-color: #9900aa; /* Purple */
+    background-color: #9900aa; 
     color: #ffffff;
   }
   
-  /* Circle Line (CCL) */
   .cc-line {
-    background-color: #fa9e0d; /* Orange */
+    background-color: #fa9e0d; 
     color: #ffffff;
   }
   
-  /* Downtown Line (DTL) */
   .dt-line {
-    background-color: #005ec4; /* Blue */
+    background-color: #005ec4; 
     color: #ffffff;
   }
   
-  /* Thomson-East Coast Line (TEL) */
   .te-line {
-    background-color: #784008; /* Brown */
+    background-color: #784008;
     color: #ffffff;
   }
   
-  /* Bukit Panjang LRT (BPLRT) */
   .bp-line {
-    background-color: #bcae2b; /* Yellow-Green */
+    background-color: #bcae2b;
     color: #ffffff;
   }
   
-  /* Sengkang LRT (SKLRT) */
   .sk-line {
-    background-color: #84c0dd; /* Light Blue */
+    background-color: #84c0dd; 
     color: #ffffff;
   }
   
-  /* Punggol LRT (PGLRT) */
   .pg-line {
-    background-color: #b0a7e4; /* Lavender */
+    background-color: #b0a7e4; 
     color: #ffffff;
   }
   
-  /* General Page Styling */
   .statistics-page {
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -62,7 +50,6 @@
     color: #333;
   }
   
-  /* Title and Section Styling */
   h2.subtitle {
     font-size: 1.5rem;
     color: #003366;
@@ -70,7 +57,6 @@
     margin-bottom: 20px;
   }
   
-  /* Crowded Stations Section */
   .crowded-stations-section {
     background-color: #e0f7fa;
     padding: 20px;
@@ -103,7 +89,6 @@
     justify-content: space-between;
   }
   
-  /* Styling for station names */
   .station-name {
     flex: 1;
     font-weight: bold;
@@ -111,17 +96,15 @@
     text-align: left;
   }
   
-  /* Station Codes Section */
   .station-codes {
     display: flex;
     gap: 10px;
     justify-content: flex-end;
   }
   
-  /* Styling for Station Codes */
   .station-code {
-    width: 60px; /* Ensures uniform size for each station code */
-    height: 35px; /* Consistent height for all codes */
+    width: 60px; 
+    height: 35px; 
     padding: 5px;
     border-radius: 5px;
     font-weight: bold;
@@ -132,17 +115,16 @@
     justify-content: center;
   }
   
-  /* Custom Colors for Train Lines */
   .station-code.NS {
-    background-color: #d42e12; /* North-South Line - Red */
+    background-color: #d42e12; 
   }
   
   .station-code.EW {
-    background-color: #009645; /* East-West Line - Green */
+    background-color: #009645; 
   }
   
   .station-code.NE {
-    background-color: #9900aa; /* North-East Line - Purple */
+    background-color: #9900aa; 
   }
   
   .station-code.CC {
