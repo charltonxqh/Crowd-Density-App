@@ -34,8 +34,8 @@ const StatisticsUI = () => {
     };
 
     useEffect(() => {
-        // Fetch and process the CSV file when the component mounts
-        fetchAndProcessLocalCSV(); // use the local csv file
+        //fetchAndProcessLocalCSV(); // use the local csv file
+        fetchAndProcessCSV();
     }, []);
 
     const fetchAndProcessLocalCSV = async () => {
@@ -102,7 +102,7 @@ const StatisticsUI = () => {
         }
     };
 
-/*    const fetchAndProcessCSV = async () => {
+  const fetchAndProcessCSV = async () => {
         try {
             // Step 1: Fetch the download link from your backend API
             const response = await axios.get("http://localhost:4000/api/statistics-link");
@@ -172,7 +172,7 @@ const StatisticsUI = () => {
         }
     };
 
-    */
+ 
 
     // Function to get station name by PT_CODE, handling combined codes
     const getStationName = (ptCode) => {
