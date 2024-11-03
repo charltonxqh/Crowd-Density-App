@@ -30,7 +30,7 @@ const SearchBar = () => {
 
   async function getTrainData() {
     try {
-      // const response = await fetch("../mockAPI/mockRT-EWL.json");
+      //const response = await fetch("../mockAPI/mockRT-EWL.json");
       const response = await fetch("http://localhost:4000/api/train-data");
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
@@ -225,7 +225,7 @@ const SearchBar = () => {
     <div className="search-container">
       <div className="search-bar">
         <button className="icon magnifying-glass" onClick={onSearch}>
-          🔍
+          <img src="/images/search.png" alt="Search" className="search" />
         </button>
         <input
           type="text"
@@ -237,10 +237,10 @@ const SearchBar = () => {
           className="search-input"
         />
         <button className="icon trash-bin" onClick={clearSearch}>
-          🗑️
+          <img src="/images/delete.png" alt="Delete" className="dustbin" />
         </button>
         <button className="icon favourite-star" onClick={handleAddFavourite}>
-          ⭐
+          <img src="/images/fav.png" alt="Favourite" className="favourite" />
         </button>
       </div>
 
@@ -257,7 +257,7 @@ const SearchBar = () => {
                   className="remove-icon"
                   onClick={() => handleDeleteFavourite(name)}
                 >
-                  ⭐
+                  <img src="/images/fav.png" alt="Favourite" className="favourite" />
                 </button>
               )}
               {name}

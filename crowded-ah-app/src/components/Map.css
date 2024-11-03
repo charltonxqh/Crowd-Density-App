@@ -16,8 +16,8 @@ html, body {
 }
 
 #root {
-  height: 100%; /* Fill the container */
-  width: 100%; /* Fill the container */
+  height: 100%; 
+  width: 100%; 
 }
 
 .place-picker-container {

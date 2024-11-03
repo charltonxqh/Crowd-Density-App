@@ -42,7 +42,7 @@ const ContactUs = () => {
     const closePopup = () => {
         setIsSent(false);
     };
-
+    
     return (
         <div className="contact-container">
             <div className="contact-details">

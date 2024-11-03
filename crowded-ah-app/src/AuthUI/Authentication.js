@@ -24,9 +24,7 @@ const Authentication = () => {
                 <img src='/images/Logo.png' alt="Logo Icon" className="logo-image" />
                 <h1>{mode === 'signup' ? 'SIGN UP' : 'LOGIN'}</h1>
             </div>
-
             <AuthForm mode={mode} onSubmit={handleSubmit} />
-
             <p className="signup-prompt">
                 {mode === 'login' ? 'Not yet registered?' : 'Already have an account?'}{' '}
                 <span
@@ -36,7 +34,6 @@ const Authentication = () => {
                     {mode === 'login' ? 'Sign Up now' : 'Login'}
                 </span>
             </p>
-
             <button className="button-submit" onClick={handleGuestContinue}>
                 Continue as Guest
             </button>

@@ -45,7 +45,6 @@ export const Page3Dots = () => {
   
 }
 
-
 export const Page4Dots = () => {
   return (
     <div className="dots">
@@ -61,7 +60,6 @@ export const Page4Dots = () => {
   )
   
 }
-
 
 export const Page5Dots = () => {
   return(
@@ -79,7 +77,6 @@ export const Page5Dots = () => {
   
 }
 
-
 export const Page6Dots = () => {
   return(
     <div className="dots">
@@ -95,7 +92,6 @@ export const Page6Dots = () => {
   )
   
 }
-
 
 export const Page7Dots = () => {
   return(
