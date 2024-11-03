@@ -14,7 +14,6 @@ const StationDetails = () => {
 
   useEffect(() => {
     const fetchETA = async () => {
-      // Extract line, code, and name
       const [line, code, name] = stationId.split('-');
       try {
         const response = await fetch(`http://localhost:4000/api/train-arrival/${name}`);
@@ -36,7 +35,6 @@ const StationDetails = () => {
     return <div className="station-details loading">Loading...</div>;
   }
   const [line, code, name] = stationId.split('-');
-  // Check if we have fetched data
   const hasArrivalData = ETA && ETA.results && ETA.results.length > 0;
 
   return (
@@ -48,12 +46,11 @@ const StationDetails = () => {
           <div className="info-item">
             <label>Next Train ETA</label>
             {loading ? (
-          <p>Loading...</p> // Display loading message
+          <p>Loading...</p>
         ) : hasArrivalData ? (
           <ul>
             {ETA.results.map((arrival, index) => (
               <ol key={index}>
-                {/* Display the arrival information */}
                 Next Train Arrival: {arrival.next_train_arr} mins - (Destination: {arrival.next_train_destination})
               </ol>
             ))}
@@ -78,24 +75,3 @@ const StationDetails = () => {
 };
 
 export default StationDetails;
-
-// StationPopup.js
-// import React from 'react';
-// import './StationPopup.css';
-
-// const StationPopup = ({ station, onClose }) => {
-//   if (!station) return null;
-
-//   return (
-//     <div className="popup-overlay" onClick={onClose}>
-//       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-//         <h3>{station.name}</h3>
-//         <p>Station Code: {station.code}</p>
-//         <p>More details about the station can be shown here.</p>
-//         <button onClick={onClose}>Close</button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default StationPopup;

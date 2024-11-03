@@ -16,8 +16,8 @@
 }
 
 .hamburger:hover {
-    background: none; /* Prevent background color change */
-    outline: none; /* Prevent outline on focus */
+    background: none;
+    outline: none;
 }
 
 .hamburger:active {

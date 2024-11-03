@@ -5,9 +5,9 @@ import AuthForm from '../components/AuthForm';
 import './Authentication.css';
 
 const Authentication = () => {
-    const [mode, setMode] = useState('login');  // Manage the mode (login or signup)
-    const navigate = useNavigate();  // For redirection
-    const { setIsGuest } = useGuest();  // Access the guest context
+    const [mode, setMode] = useState('login');
+    const navigate = useNavigate();
+    const { setIsGuest } = useGuest();
 
     const handleSubmit = (formData) => {
         console.log('Form submitted:', formData);
@@ -15,7 +15,7 @@ const Authentication = () => {
 
     const handleGuestContinue = () => {
         setIsGuest(true);
-        navigate('/home');  // Redirect to the home page as a guest
+        navigate('/home');
     };
 
     return (

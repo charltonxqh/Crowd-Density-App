@@ -23,7 +23,7 @@ function App() {
             <Route path="/" element={<Authentication />} />
             <Route path="/home" element={<HomeUI />} />
             <Route path="/stations" element={<Stations />} />
-            <Route path="/mrt-lines" element={<MRTLines />} /> {/* Adjusted MRTLines path */}
+            <Route path="/mrt-lines" element={<MRTLines />} /> 
             <Route path="/station/:stationId" element={<StationDetailPage />} />
             <Route path="/statistics" element={<StatisticsUI />} />
             <Route path="/notifications" element={<NotificationsUI />} />

@@ -5,12 +5,11 @@ import './ContactUs.css';
 const ContactUs = () => {
     const form = useRef();
     const [error, setError] = useState('');
-    const [isSent, setIsSent] = useState(false); // State to manage success pop-up
+    const [isSent, setIsSent] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
     
-        // Form validation with updated names
         const name = form.current.from_name.value;
         const email = form.current.from_email.value;
         const subject = form.current.subject.value;
@@ -21,7 +20,7 @@ const ContactUs = () => {
             return;
         }
     
-        setError(''); // Clear any previous error message
+        setError('');
     
         emailjs
             .sendForm('service_jnfw9ef', 'template_aylqgfr', form.current, {
@@ -30,8 +29,8 @@ const ContactUs = () => {
             .then(
                 () => {
                     console.log('SUCCESS!');
-                    setIsSent(true); // Show success pop-up
-                    form.current.reset(); // Clear form fields
+                    setIsSent(true);
+                    form.current.reset();
                 },
                 (error) => {
                     console.log('FAILED...', error.text);
@@ -40,7 +39,6 @@ const ContactUs = () => {
             );
     };    
 
-    // Function to close the pop-up
     const closePopup = () => {
         setIsSent(false);
     };
@@ -74,7 +72,7 @@ const ContactUs = () => {
             <div className="contact-form-container">
                 <h1>Send a Message</h1>
                 <form className="contact-form" ref={form} onSubmit={sendEmail}>
-                    {error && <p className="error-message">{error}</p>} {/* Display error message if any */}
+                    {error && <p className="error-message">{error}</p>}
                     <label htmlFor="name">Name</label>
                     <input type="text" id="name" name="from_name" placeholder="Your name..." />
                     <label htmlFor="email">Email</label>
@@ -92,7 +90,6 @@ const ContactUs = () => {
                 </form>
             </div>
 
-            {/* Pop-up for success message */}
             {isSent && (
                 <div className="popup">
                     <div className="popup-content">

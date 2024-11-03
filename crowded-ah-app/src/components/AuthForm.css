@@ -1,73 +1,73 @@
 h1 {
-    font-size: 60px; /* Heading size */
-    color: black; /* Dark text color */
+    font-size: 60px;
+    color: black;
 }
 
 .auth-form {
-    background-color: white; /* White background for the form */
-    border-radius: 30px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    max-width: 400px; /* Max width for form */
-    margin: auto; /* Center the form */
-    padding: 30px; /* Padding inside the form */
-    text-align: center; /* Centered text */
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
 }
 
 .input-container {
     border: 1px solid #b0c9ff;
     border-radius: 30px;
     display: flex;
-    align-items: center; /* Center the icon and input vertically */
-    margin-bottom: 15px; /* Space between input fields */
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .input-icon {
-    width: 20px; /* Adjust icon size */
-    height: 20px; /* Adjust icon size */
+    width: 20px;
+    height: 20px;
     margin-left: 20px;
-    margin-right: 10px; /* Space between icon and input */
+    margin-right: 10px;
 }
 
 input {
-    width: 100%; /* Full width inputs */
-    padding: 10px; /* Padding inside inputs */
-    margin: 10px 0; /* Space between inputs */
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
     border: none;
     background-color: transparent;
-    font-size: 16px; /* Input text size */
+    font-size: 16px;
 }
 
 input:focus {
-    border-color: #007bff; /* Change border color on focus */
-    outline: none; /* Remove default outline */
+    border-color: #007bff;
+    outline: none;
 }
 
 .button-submit{
     margin-top: 50px;
     width: 100%;
-    background-color: #007bff; /* Primary button color */
-    color: white; /* White text */
-    border: none; /* No border */
-    border-radius: 30px; /* Rounded corners for button */
-    padding: 10px; /* Padding inside button */
-    font-size: 25px; /* Button text size */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 25px;
     font-weight: bold;
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Transition for hover effect */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
 button:disabled {
-    background-color: #c0c0c0; /* Light gray for disabled */
-    cursor: not-allowed; /* Not allowed cursor */
+    background-color: #c0c0c0;
+    cursor: not-allowed;
 }
 
 p {
-    font-size: 14px; /* Smaller text for links */
-    margin-top: 10px; /* Space above paragraph */
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 p a {

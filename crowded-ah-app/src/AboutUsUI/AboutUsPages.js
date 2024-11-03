@@ -102,7 +102,6 @@ const Page5 = () =>{
           <h1>05</h1>
         </header>
   
-        {/* Purpose n mission */}
         <section className="Content">
           <div className="content-box">
             <h3>Vision for the Future</h3>

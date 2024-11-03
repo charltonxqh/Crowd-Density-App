@@ -31,27 +31,20 @@ function NotificationsPage() {
   const [pinnedMessage, setPinnedMessage] = useState("");
   const [allDeletedMessage, setAllDeletedMessage] = useState("");
   const [affectedSegments, setAffectedSegments] = useState([]);
-
     useEffect(() => {
-
-
         const fetchNotifications = async () => {
             try {
-                const response = await fetch("../mockAPI/mockTrainServiceAlerts.json");
-                //const response = await fetch("http://localhost:4000/api/train-alerts");
+                //const response = await fetch("../mockAPI/mockTrainServiceAlerts.json");
+                const response = await fetch("http://localhost:4000/api/train-alerts");
                 if (!response.ok) throw new Error('Failed to load data');
-
         const data = await response.json();
         console.log("Full data:", data);
-
         if (data.status === 1) {
           setIsNormalService(true);
           setIsDisruptedService(false);
         } else if (data.status === 2) {
           setIsNormalService(false);
           setIsDisruptedService(true);
-
-          // Set affected segments once, separately from messages
           setAffectedSegments(
             data.affectedSegments.map((segment) => ({
               line: segment.Line,
@@ -59,8 +52,6 @@ function NotificationsPage() {
               stations: segment.Stations,
             }))
           );
-
-          // Create a notification for each message
           const newNotifications = data.message.map((msg, index) => ({
             id: `message-${index}`,
             content: msg.Content,
@@ -68,7 +59,6 @@ function NotificationsPage() {
             pinned: false,
             originalIndex: index,
           }));
-
           setNotifications(newNotifications);
         }
         setAllDeletedMessage("");
@@ -76,7 +66,6 @@ function NotificationsPage() {
         console.error("Error fetching notifications:", error);
       }
     };
-
     fetchNotifications();
   }, []);
 
@@ -88,14 +77,12 @@ function NotificationsPage() {
     const updatedNotifications = notifications.map((notif) =>
       notif.id === id ? { ...notif, pinned: !notif.pinned } : notif
     );
-
     updatedNotifications.sort((a, b) => {
       if (a.pinned === b.pinned) {
         return a.originalIndex - b.originalIndex;
       }
       return a.pinned ? -1 : 1;
     });
-
     setNotifications(updatedNotifications);
     setPinnedMessage(
       isPinned
@@ -110,14 +97,11 @@ function NotificationsPage() {
       (notif) => notif.id !== id
     );
     setNotifications(updatedNotifications);
-
     setDeletionMessage("Notification deleted successfully");
     setTimeout(() => setDeletionMessage(""), 3000);
-
-    // Check if all notifications have been deleted
     if (updatedNotifications.length === 0) {
       setAllDeletedMessage("All notifications have been deleted");
-      setAffectedSegments([]); // Clear the affected segments when all notifications are deleted
+      setAffectedSegments([]); 
     }
   };
 
@@ -136,8 +120,6 @@ function NotificationsPage() {
       {allDeletedMessage && (
         <div className="all-deleted-message">{allDeletedMessage}</div>
       )}
-
-      {/* Display affected segments at the top */}
       {affectedSegments.length > 0 && (
         <div className="affected-segments">
           <h3>Affected Train Segments</h3>
@@ -156,7 +138,6 @@ function NotificationsPage() {
           ))}
         </div>
       )}
-
       <div className="notification-list">
         {isNormalService ? (
           <p className="normal-service-message">
@@ -184,5 +165,4 @@ function NotificationsPage() {
     </div>
   );
 }
-
 export default NotificationsPage;

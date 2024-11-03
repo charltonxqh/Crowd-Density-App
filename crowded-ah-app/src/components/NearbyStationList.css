@@ -95,19 +95,19 @@
 }
 
 .nearby-crowd-density-circle.l {
-  background-color: limegreen; /* Low crowd density */
+  background-color: #22c55e; /* Low crowd density */
 }
 
 .nearby-crowd-density-circle.m {
-  background-color: gold; /* Moderate crowd density */
+  background-color: #f59e0b; /* Moderate crowd density */
 }
 
 .nearby-crowd-density-circle.h {
-  background-color: coral; /* High crowd density */
+  background-color: #ef4444; /* High crowd density */
 }
 
 .nearby-crowd-density-circle.unknown {
-  background-color: gray; /* Unknown crowd density */
+  background-color: #9ca3af; /* Unknown crowd density */
 }
 
 .nearby-crowd-density-text {
