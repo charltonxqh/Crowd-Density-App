@@ -98,8 +98,6 @@
     justify-content: flex-start; /* Aligns content to the left */
     padding: 5px;
     border-radius: 6px;
-    background-color: #fff; /* Changed to white background */
-    border: 1px solid #eee;
     width: 100px;
 }
 
