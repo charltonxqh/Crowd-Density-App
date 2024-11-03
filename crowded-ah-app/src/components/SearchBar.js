@@ -67,12 +67,12 @@ const SearchBar = () => {
   }, [auth, db]);
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase();
     setQuery(value);
 
     if (value) {
       const filteredStations = stations
-        .filter((station) => station.toLowerCase().includes(value.toLowerCase()))
+        .filter((station) => station.toLowerCase().includes(value))
         .slice(0, 5);
 
       if (filteredStations.length === 0) {

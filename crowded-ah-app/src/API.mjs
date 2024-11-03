@@ -1,6 +1,6 @@
 import axios from "axios";
-const AccountKey = 'eExmPU0ZSiaF0qX1D49a6A==';
-export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
+const AccountKey = '1SzZC/MJSyeOAKRHNXFfvw==';
+export const TRAIN_LINES = ['CCL', 'CEL', 'EWL', 'CGL', 'DTL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
 
 export async function fetchRealTimeAPIData(url, trainLine) {
     try {
