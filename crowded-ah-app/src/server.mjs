@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { exec } from 'child_process';
-import { fetchRealTimeAPIData, fetchForecastAPIData, fetchTrainServiceAlerts, TRAIN_LINES } from './API.mjs';
+import { fetchRealTimeAPIData, fetchForecastAPIData, fetchTrainServiceAlerts, TRAIN_LINES, fetchStatisticsLinkAPI } from './API.mjs';
 import Bottleneck from 'bottleneck';
 import axios from 'axios';
 
@@ -31,19 +31,19 @@ const limiter = new Bottleneck({
     maxConcurrent: 1, // Only 1 request at a time
 });
 
-    async function updateForecastData() {
-        const results = {};
-        for (const line of TRAIN_LINES) {
-            results[line] = await limiter.schedule(() =>
-                fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
-            );
-        }
-        todayForecast = results;
+async function updateForecastData() {
+    const results = {};
+    for (const line of TRAIN_LINES) {
+        results[line] = await limiter.schedule(() =>
+            fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
+        );
     }
+    todayForecast = results;
+}
 
-    async function updateServiceAlerts() {
-        storedAlerts = await fetchTrainServiceAlerts();
-    }
+async function updateServiceAlerts() {
+    storedAlerts = await fetchTrainServiceAlerts();
+}
 
 
 async function getNextClosestForecast(data) {
