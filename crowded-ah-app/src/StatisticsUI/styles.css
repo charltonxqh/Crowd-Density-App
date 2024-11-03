@@ -1,246 +1,261 @@
+/* Line Color Styling */
 .ns-line {
-    background-color: #d42e12; 
-    color: #ffffff;
-  }
+  background-color: #d42e12; 
+  color: #ffffff;
+}
 
-  .ew-line {
-    background-color: #009645; 
-    color: #ffffff;
-  }
+.ew-line {
+  background-color: #009645; 
+  color: #ffffff;
+}
 
-  .ne-line {
-    background-color: #9900aa; 
-    color: #ffffff;
-  }
-  
-  .cc-line {
-    background-color: #fa9e0d; 
-    color: #ffffff;
-  }
-  
-  .dt-line {
-    background-color: #005ec4; 
-    color: #ffffff;
-  }
-  
-  .te-line {
-    background-color: #784008;
-    color: #ffffff;
-  }
-  
-  .bp-line {
-    background-color: #bcae2b;
-    color: #ffffff;
-  }
-  
-  .sk-line {
-    background-color: #84c0dd; 
-    color: #ffffff;
-  }
-  
-  .pg-line {
-    background-color: #b0a7e4; 
-    color: #ffffff;
-  }
-  
-  .statistics-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-  }
-  
-  h2.subtitle {
-    font-size: 1.5rem;
-    color: #003366;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .crowded-stations-section {
-    background-color: #e0f7fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
-  }
-  
-  .station-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .station-item {
-    background-color: #ffffff;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #b0bec5;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-  }
-  
-  .station-details {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .station-name {
-    flex: 1;
-    font-weight: bold;
-    color: #006064;
-    text-align: left;
-  }
-  
-  .station-codes {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-  }
-  
-  .station-code {
-    width: 60px; 
-    height: 35px; 
-    padding: 5px;
-    border-radius: 5px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .station-code.NS {
-    background-color: #d42e12; 
-  }
-  
-  .station-code.EW {
-    background-color: #009645; 
-  }
-  
-  .station-code.NE {
-    background-color: #9900aa; 
-  }
-  
-  .station-code.CC {
-    background-color: #fa9e0d; /* Circle Line - Orange */
-  }
-  
-  .station-code.DT {
-    background-color: #005ec4; /* Downtown Line - Blue */
-  }
-  
-  .station-code.TE {
-    background-color: #784008; /* Thomson-East Coast Line - Brown */
-  }
-  
-  .station-code.BP {
-    background-color: #bcae2b; /* Bukit Panjang LRT - Yellow-Green */
-  }
-  
-  .station-code.SK {
-    background-color: #84c0dd; /* Sengkang LRT - Light Blue */
-  }
-  
-  .station-code.PG {
-    background-color: #b0a7e4; /* Punggol LRT - Lavender */
-  }
-  
-  /* Chart Section */
+.ne-line {
+  background-color: #9900aa; 
+  color: #ffffff;
+}
+
+.cc-line {
+  background-color: #fa9e0d; 
+  color: #ffffff;
+}
+
+.dt-line {
+  background-color: #005ec4; 
+  color: #ffffff;
+}
+
+.te-line {
+  background-color: #784008;
+  color: #ffffff;
+}
+
+.bp-line {
+  background-color: #bcae2b;
+  color: #ffffff;
+}
+
+.sk-line {
+  background-color: #84c0dd; 
+  color: #ffffff;
+}
+
+.pg-line {
+  background-color: #b0a7e4; 
+  color: #ffffff;
+}
+
+/* Main Page Styling */
+.statistics-page {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+h2.subtitle {
+  font-size: 1.8rem;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* Crowded Stations Section */
+.crowded-stations-section {
+  background-color: #e0f7fa;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+.station-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.station-item {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid #cfd8dc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.station-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.station-details {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.station-rank {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00796b;
+  margin-right: 15px;
+}
+
+.station-name {
+  flex: 1;
+  font-weight: bold;
+  color: #00796b;
+  text-align: left;
+}
+
+.station-codes {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.station-code {
+  width: 70px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Line Colors for Codes */
+.station-code.NS {
+  background-color: #d42e12; 
+}
+
+.station-code.EW {
+  background-color: #009645; 
+}
+
+.station-code.NE {
+  background-color: #9900aa; 
+}
+
+.station-code.CC {
+  background-color: #fa9e0d; 
+}
+
+.station-code.DT {
+  background-color: #005ec4; 
+}
+
+.station-code.TE {
+  background-color: #784008; 
+}
+
+.station-code.BP {
+  background-color: #bcae2b; 
+}
+
+.station-code.SK {
+  background-color: #84c0dd; 
+}
+
+.station-code.PG {
+  background-color: #b0a7e4; 
+}
+
+/* Chart Section */
+.chart-section-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.chart-container {
+  width: 700px;
+  height: 400px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Buttons */
+.navigation-button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #00796b;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navigation-button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+}
+
+.navigation-button.left-button {
+  margin-right: 25px;
+}
+
+.navigation-button.right-button {
+  margin-left: 25px;
+}
+
+.navigation-button:hover {
+  background-color: #004d40;
+  transform: translateY(-3px);
+}
+
+/* X-axis Label */
+.x-axis-label {
+  font-size: 16px;
+  fill: #333;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
   .chart-section-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px; /* Space between buttons and chart */
-    margin: 20px 0;
-  }
-  
-  .chart-container {
-    width: 700px; /* Fixed width for the chart */
-    height: 400px; /* Fixed height for the chart */
-    position: relative;
-  }
-  
-  .navigation-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 15px;
-  }
-  
-  /* Navigation Button Styling */
-  .navigation-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #00796b;
-    color: white;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navigation-button:disabled {
-    background-color: #b0bec5; /* Disabled button color */
-    cursor: not-allowed;
-  }
-  
-  .navigation-button.left-button {
-    margin-right: 20px;
-  }
-  
-  .navigation-button.right-button {
-    margin-left: 20px;
-  }
-  
-  .navigation-button:hover {
-    background-color: #004d40;
-  }
-  
-  /* Make X-axis label clearer */
-  .x-axis-label {
-    font-size: 16px; /* Larger text for better visibility */
-    fill: #333; /* Darker color for better contrast */
-  }
-  
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    .chart-section-wrapper {
       flex-direction: column;
       align-items: center;
-    }
-  
-    .navigation-button {
-      margin: 10px 0;
-    }
-  
-    .chart-container {
+  }
+
+  .navigation-button {
+      margin: 15px 0;
+  }
+
+  .chart-container {
       width: 100%;
       max-width: 90vw;
-    }
-  
-    .station-item {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .station-details {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .station-name {
-      margin-bottom: 10px;
-    }
-  
-    .station-codes {
-      margin-top: 10px;
-    }
   }
-  
+
+  .station-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .station-details {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .station-name {
+      margin-bottom: 10px;
+  }
+
+  .station-codes {
+      margin-top: 10px;
+  }
+}

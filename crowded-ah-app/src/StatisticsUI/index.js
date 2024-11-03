@@ -177,6 +177,7 @@ const StatisticsUI = () => {
                     {stations.map((station, index) => (
                         <li key={index} className="station-item">
                             <div className="station-details">
+                                <span className="station-rank">{index + 1}.</span>
                                 <span className="station-name">
                                     {getStationName(station.PT_CODE)}
                                 </span>
@@ -197,6 +198,7 @@ const StatisticsUI = () => {
 };
 
 export default StatisticsUI;
+
 
 
 
