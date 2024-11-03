@@ -22,6 +22,7 @@ const SearchBar = () => {
   const [favourites, setFavourites] = useState([]);
   const [user, setUser] = useState(null);
   const [trainData, setTrainData] = useState([]);
+  const [showError, setShowError] = useState(false);
 
   const { isGuest } = useGuest();
   const auth = getAuth();
@@ -30,7 +31,6 @@ const SearchBar = () => {
 
   async function getTrainData() {
     try {
-      //const response = await fetch("../mockAPI/mockRT-EWL.json");
       const response = await fetch("http://localhost:4000/api/train-data");
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
@@ -76,9 +76,17 @@ const SearchBar = () => {
       const filteredStations = stations
         .filter((station) => station.toLowerCase().includes(value))
         .slice(0, 5);
+
+      if (filteredStations.length === 0) {
+        setShowError(true); // Show the error message
+      } else {
+        setShowError(false); // Hide the error message
+      }
+
       setSuggestions(filteredStations);
     } else {
       setSuggestions([]);
+      setShowError(false); // Hide the error message if the input is cleared
     }
   };
 
@@ -118,7 +126,7 @@ const SearchBar = () => {
     try {
       const userRef = doc(db, "users", user.uid);
       await updateDoc(userRef, {
-        favourites: arrayUnion(selectedStation), // Add the station to the user's favourites
+        favourites: arrayUnion(selectedStation),
       });
       alert(`${selectedStation} has been added to your favourites!`);
     } catch (error) {
@@ -152,7 +160,6 @@ const SearchBar = () => {
       const stationData = stationsInfo[selectedStation];
 
       if (stationData) {
-        // Handle cases where station data could be an array (multiple lines) or a single object
         const stationInfo = Array.isArray(stationData)
           ? stationData[0]
           : stationData;
@@ -164,7 +171,6 @@ const SearchBar = () => {
           getCrowdLevel(trainLine, stationCode, true)
         );
 
-        // Use selectedStation as station name since stationName might be undefined in stationsInfo
         navigate(
           `/station/${trainLine}-${stationCode}-${encodeURIComponent(
             selectedStation
@@ -243,6 +249,10 @@ const SearchBar = () => {
           <img src="/images/fav.png" alt="Favourite" className="favourite" />
         </button>
       </div>
+
+      {showError && (
+        <div className="error-message">No matching results found.</div>
+      )}
 
       {suggestions.length > 0 && (
         <div className="result-box">

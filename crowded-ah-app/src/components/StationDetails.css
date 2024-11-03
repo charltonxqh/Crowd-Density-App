@@ -66,3 +66,18 @@
 .error {
   color: #dc2626;
 }
+
+.error-message {
+  color: #d42e12; 
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+  background-color: #ffe6e6; 
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #d42e12; 
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
