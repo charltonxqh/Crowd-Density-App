@@ -62,6 +62,30 @@ const StationDetails = () => {
     return `${formatTime(start)}-${formatTime(end)}`;
   };
 
+  const getCrowdLevelColor = (level) => {
+    switch (level) {
+      case 'l': return 'green';
+      case 'm': return 'yellow';
+      case 'h': return 'red';
+      case 'Low': return 'green';
+      case 'Medium': return 'yellow';
+      case 'High': return 'red';
+      default: return '#9ca3af';
+    }
+  };
+
+  const getCrowdLevelLabel = (level) => {
+    switch (level) {
+      case 'l': return 'Low';
+      case 'm': return 'Medium';
+      case 'h': return 'High';
+      case 'Low': return 'Low';
+      case 'Medium': return 'Medium';
+      case 'High': return 'High';
+      default: return 'Unknown';
+    }
+  };
+
   return (
     <div className="station-details-container">
       <h1>{`${code} ${name}`}</h1>
@@ -69,7 +93,6 @@ const StationDetails = () => {
         <h2>Station Information</h2>
         
         <div className="info-grid-row">
-          {/* Row 1 */}
           <div className="info-item">
             <label>Next Train ETA</label>
             {hasArrivalData ? (
@@ -86,7 +109,13 @@ const StationDetails = () => {
           </div>
           <div className="info-item">
             <label>Real-Time Crowd Level</label>
-            <span>{currentCrowdLevel || 'N/A'}</span>
+            <div className="crowd-level">
+              <div
+                className="crowd-level-dot"
+                style={{ backgroundColor: getCrowdLevelColor(currentCrowdLevel) }}
+              ></div>
+              <span>{getCrowdLevelLabel(currentCrowdLevel)}</span>
+            </div>
           </div>
         </div>
 
@@ -99,7 +128,14 @@ const StationDetails = () => {
             {forecastCrowdDensity.length > 0 ? (
               forecastCrowdDensity.map((forecast, index) => (
                 <div key={index} className="forecast-column">
-                  {formatTimeInterval(forecast.Start)} - Level: {forecast.CrowdLevel}
+                  {formatTimeInterval(forecast.Start)} - 
+                  <div className="crowd-level">
+                    <div
+                      className="crowd-level-dot"
+                      style={{ backgroundColor: getCrowdLevelColor(forecast.CrowdLevel) }}
+                    ></div>
+                    <span>{getCrowdLevelLabel(forecast.CrowdLevel)}</span>
+                  </div>
                 </div>
               ))
             ) : (
@@ -115,6 +151,18 @@ const StationDetails = () => {
 };
 
 export default StationDetails;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
