@@ -42,10 +42,19 @@
   margin-top: 20px;
 }
 
+.info-grid-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .info-item {
+  flex: 1;
+  margin: 0 10px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 50px;
 }
 
 .info-item label {
@@ -82,17 +91,6 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.info-grid-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.info-item {
-  flex: 1;
-  margin: 0 10px;
-}
-
 .divider-line {
   margin: 20px 0;
   border: 1px solid #ccc;
@@ -109,5 +107,36 @@
   padding: 10px;
   border-radius: 5px;
   text-align: center;
+  text-align: left; /* Align text to the left */
+  display: flex;
+  justify-content: space-between; /* Space between time and crowd level */
+  align-items: center; /* Align items vertically */
 }
 
+.crowd-level {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crowd-level-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.crowd-level-color.l {
+  background-color: green;
+}
+
+.crowd-level-color.m {
+  background-color: yellow;
+}
+
+.crowd-level-color.h {
+  background-color: red;
+}
+
+.crowd-level-color.unknown {
+  background-color: #9ca3af;
+}
