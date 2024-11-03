@@ -1,5 +1,5 @@
 import axios from "axios";
-const AccountKey = 'dqD9Q/2IThGnMiGpeYugkQ==';
+const AccountKey = 'eExmPU0ZSiaF0qX1D49a6A==';
 export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
 
 export async function fetchRealTimeAPIData(url, trainLine) {

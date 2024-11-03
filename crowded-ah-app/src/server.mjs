@@ -147,7 +147,7 @@ setInterval(async () => {
         updateRealTimeData();
         try {
             //todayForecast = await loadMockForecastData();
-            storedData.todayForecast = await updateForecastData();
+            await updateForecastData();
             console.log("Today's Forecast:", storedData.todayForecast);
             storedData.forecast = await getNextClosestForecast(storedData.todayForecast);
             console.log("Stored Forecast Data:", storedData.forecast);
