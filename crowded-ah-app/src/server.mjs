@@ -60,15 +60,27 @@ async function getNextClosestForecast(data) {
     }
     const nextTimeString = nextTime.toISOString().slice(0, 19).concat('+08:00');
     
+    // const results = {};
+    // for (const line in data) {
+    //     results[line] = {};
+    //     for (const stationData of data[line]) {
+    //         for (const station in stationData) {
+    //             for (const period of stationData[station]) {
+    //                 if (period.Start === nextTimeString) {
+    //                     results[line][station] = {CrowdLevel: period.CrowdLevel}
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     const results = {};
     for (const line in data) {
         results[line] = {};
-        for (const stationData of data[line]) {
-            for (const station in stationData) {
-                for (const period of stationData[station]) {
-                    if (period.Start === nextTimeString) {
-                        results[line][station] = {CrowdLevel: period.CrowdLevel}
-                    }
+        const stations = data[line].Stations;
+        for (const station in stations) {
+            for (const period of stations[station]) {
+                if (period.Start === nextTimeString) {
+                    results[line][station]={CrowdLevel: period.CrowdLevel};
                 }
             }
         }
@@ -98,7 +110,7 @@ async function updateForecastData() {
             fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
         );
     }
-    todayForecast = results;
+    return results;
 }
 
 async function updateServiceAlerts() {
@@ -107,7 +119,8 @@ async function updateServiceAlerts() {
 
 // Scheduling periodic updates
 setInterval(updateRealTimeData, 10 * 60 * 1000);
-setInterval(loadMockForecastData, 24 * 60 * 60 * 1000);
+//setInterval(loadMockForecastData, 24 * 60 * 60 * 1000);
+setInterval(updateForecastData, 24 * 60 * 60 * 1000);
 setInterval(updateServiceAlerts, 60 * 1000);
 setInterval(async () => {
     storedData.forecast = await getNextClosestForecast(todayForecast);
@@ -116,7 +129,8 @@ setInterval(async () => {
 (async function initializeData() {
         updateRealTimeData();
         try {
-            todayForecast = await loadMockForecastData();
+            //todayForecast = await loadMockForecastData();
+            todayForecast = await updateForecastData();
             console.log("Today's Forecast:", todayForecast);
 
             storedData.forecast = await getNextClosestForecast(todayForecast);
