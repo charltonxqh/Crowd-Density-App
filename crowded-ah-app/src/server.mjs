@@ -51,9 +51,6 @@ async function getNextClosestForecast(data) {
     const nextTime = new Date(now.getTime() + localOffset);
     nextTime.setMinutes(Math.ceil(nextTime.getMinutes() / 30) * 30);
     nextTime.setSeconds(0);
-    nextTime.setFullYear(2024);
-    nextTime.setMonth(9);
-    nextTime.setDate(32);
     if (nextTime.getMinutes() === 60) {
         nextTime.setMinutes(0);
         nextTime.setHours(nextTime.getHours() + 1);
