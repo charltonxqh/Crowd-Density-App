@@ -96,7 +96,7 @@ getNextClosestForecast(todayForecast);
 updateServiceAlerts();
 
 // API routes
-app.get('/api/train-data', (req, res) => res.json(todayForecast));
+app.get('/api/train-data', (req, res) => res.json(storedData));
 app.get('/api/train-alerts', (req, res) => res.json(storedAlerts));
 app.get('/api/train-arrival/:stationName', (req, res) => {
     const stationName = req.params.stationName;
