@@ -4,13 +4,12 @@ import './Hamburger.css';
 
 function Hamburger() {
     const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null); // Create a ref for the dropdown menu
+    const dropdownRef = useRef(null);
 
     const toggleMenu = () => {
         setIsOpen((prev) => !prev);
     };
 
-    // Close the dropdown menu when clicking outside
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
             setIsOpen(false);
@@ -18,10 +17,8 @@ function Hamburger() {
     };
 
     useEffect(() => {
-        // Add event listener to close menu on outside click
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
-            // Cleanup the event listener on component unmount
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);

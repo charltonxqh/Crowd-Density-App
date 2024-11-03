@@ -15,30 +15,26 @@ const AuthForm = ({ mode, onSubmit }) => {
 
     const isSignup = mode === 'signup';
     const isLogin = mode === 'login';
-    const navigate = useNavigate(); // Get the navigate function
-    const { setIsGuest } = useGuest();  // Access the guest context
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email format validation
+    const navigate = useNavigate();
+    const { setIsGuest } = useGuest();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const db = getFirestore();
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Check email format
             if (!emailRegex.test(email)) {
                 throw new Error("Invalid email format");
             }
             
             if (isSignup) {
-                // Check if passwords match for signup
                 if (password !== confirmPassword) {
                     throw new Error("Passwords do not match");
                 }
-                // Create user account
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
 
-                // Create a Firestore document for the new user
-                const userRef = doc(db, "users", user.uid); // Use user's UID as the document ID
+                const userRef = doc(db, "users", user.uid);
                 await setDoc(userRef, {
                     username: username,
                     favourites: []
@@ -62,7 +58,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             }
         } catch (error) {
             console.error("Error:", error.message);
-            alert(`Error: ${error.message}`); // Display the error to the user
+            alert(`Error: ${error.message}`);
         }
     };
 
@@ -81,11 +77,10 @@ const AuthForm = ({ mode, onSubmit }) => {
     };
 
     useEffect(() => {
-        // Check if a user is already authenticated
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setIsGuest(false);
-                navigate('/home'); // Redirect to home if authenticated
+                navigate('/home');
             }
         });
         

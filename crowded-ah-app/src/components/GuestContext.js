@@ -8,13 +8,11 @@ export const GuestProvider = ({ children }) => {
     const auth = getAuth();
 
     useEffect(() => {
-        // Listen for changes in authentication state
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            // Set isGuest to false if a user is authenticated, true otherwise
             setIsGuest(!user);
         });
 
-        return () => unsubscribe(); // Cleanup on component unmount
+        return () => unsubscribe();
     }, [auth]);
 
     return (

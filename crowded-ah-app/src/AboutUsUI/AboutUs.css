@@ -20,7 +20,7 @@
     flex-direction: column;
     height: 100vh;
     position: relative;
-    padding-top: 22vh; /* Adds enough space to avoid overlap */
+    padding-top: 22vh;
 }
 
 .number h1 {
@@ -38,21 +38,21 @@
     background-color: #FAFCFF;
     border-radius: 10px;
     padding: 2vw;
-    width: 90%; /* Slightly reduced width for better layout */
-    max-height: 50vh; /* Limits height to fit within the screen */
-    margin: 0 auto; /* Centers content box without pushing it down */
-    overflow-y: auto; /* Allows scrolling if content exceeds space */
+    width: 90%;
+    max-height: 50vh;
+    margin: 0 auto;
+    overflow-y: auto;
 }
 
 .content-box h3 {
-    font-size: 2.5vw; /* Adjusted for smaller size on larger screens */
+    font-size: 2.5vw;
     color: #0066cc;
     margin-bottom: 10px;
     text-align: left;
 }
 
 .content-box p {
-    font-size: 1.8vw; /* Adjusted for smaller size on larger screens */
+    font-size: 1.8vw;
     color: #333;
     margin-bottom: 15px;
     text-align: center;
@@ -76,13 +76,12 @@
     background-color: #0066cc;
 }
 
-/* Bottom Image Section */
 .image-section {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 30vh; /* Adjust height as needed */
+    height: 30vh;
     overflow: hidden;
 }
 
@@ -93,30 +92,28 @@
     opacity: 0.8;
 }
 
-/* Media Query for Large Screens */
 @media (min-width: 1200px) {
     .content-box h3 {
-        font-size: 2vw; /* Smaller font size for readability on larger screens */
+        font-size: 2vw;
     }
 
     .content-box p {
-        font-size: 1.5vw; /* Smaller font size for readability on larger screens */
+        font-size: 1.5vw;
     }
 }
 
-/* Media Query for Small Screens */
 @media (max-width: 768px) {
     .content-box {
-        padding: 6vw; /* Adds padding for better readability on smaller screens */
-        max-height: 45vh; /* Limits height to fit all content within smaller screens */
+        padding: 6vw;
+        max-height: 45vh;
     }
 
     .content-box h3 {
-        font-size: 4vw; /* Larger font size for readability */
+        font-size: 4vw;
     }
 
     .content-box p {
-        font-size: 3vw; /* Larger font size for readability */
+        font-size: 3vw;
     }
 }
 

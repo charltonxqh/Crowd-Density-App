@@ -8,24 +8,22 @@
     align-items: center;                  
     justify-content: center;              
     text-align: center;                   
-    padding: 15px 25px;                   /* Increased padding for larger buttons */
-    min-width: 160px;                     /* Increased minimum width for even larger buttons */
+    padding: 15px 25px;
+    min-width: 160px;
     border-radius: 0;                     
-    margin: 0 10px;                       /* Increased margin between buttons for spacing */
+    margin: 0 10px;
 }
 
-/* Image within the button */
 .navButton img {
-    width: 25px;                          /* Increased image size for larger button appearance */
+    width: 25px;
     height: auto;                         
-    margin-right: 10px;                   /* Space between image and label */
+    margin-right: 10px;
 }
 
-/* Text within the button */
 .navButton span {
     font-family: 'Trebuchet MS', Arial, sans-serif;
     font-weight: bold;
-    font-size: 16px;                      /* Increased font size for more prominent text */
+    font-size: 16px;
     color: #000;                          
 }
 

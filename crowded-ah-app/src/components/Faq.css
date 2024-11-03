@@ -1,4 +1,3 @@
-/* General FAQ container styling */
 .faq-container {
     width: 70%;                     
     max-width: 800px;               
@@ -17,7 +16,6 @@
     text-align: center;
 }
 
-/* Search bar styling */
 .faq-search {
     width: 100%;
     padding: 10px;
@@ -29,18 +27,18 @@
 }
 
 .faq-items {
-    list-style-type: none; /* Remove bullet points from the list */
-    padding: 10px;         /* Add padding inside the scrollable area */
-    max-height: 400px;     /* Ensure the FAQ list remains scrollable if needed */
-    overflow-y: auto;      /* Add a scrollbar for overflow */
-    margin: 0;             /* Remove default margin */
-    box-sizing: border-box; /* Ensure padding is included in the element's total width/height */
+    list-style-type: none;
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .faq-item {
     background-color: white;
     margin-bottom: 20px;
-    padding: 20px;         /* Add padding inside each FAQ item */
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -62,10 +60,10 @@
 .no-results {
     margin-top: 20px;
     font-size: 1.2rem;
-    color: red; /* Red text for the no results message */
+    color: red;
     text-align: center;
-    font-family: 'Arial', sans-serif; /* Apply the desired font */
-    font-weight: bold; /* Optional: Make the text bold for emphasis */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
 }
 
 

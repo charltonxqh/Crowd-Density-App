@@ -6,16 +6,16 @@
 }
 
 .header {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center the items vertically */
-    justify-content: center; /* Center the items horizontally */
-    margin-bottom: 20px; /* Space below the header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .logo-image {
-    width: 150px; /* Set desired width for the logo */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Space between logo and text */
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
 }
 
 .signup-prompt {
@@ -39,15 +39,15 @@
 .button-submit{
     margin-top: 50px;
     max-width: 400px;
-    background-color: #007bff; /* Primary button color */
-    color: white; /* White text */
-    border: none; /* No border */
-    border-radius: 30px; /* Rounded corners for button */
-    padding: 10px; /* Padding inside button */
-    font-size: 25px; /* Button text size */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 25px;
     font-weight: bold;
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Transition for hover effect */
+    cursor: pointer;
+    transition: background-color 0.3s;
 
     display: block;
     margin: 50px auto 50px auto;

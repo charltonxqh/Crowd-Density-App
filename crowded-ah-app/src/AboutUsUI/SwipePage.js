@@ -22,8 +22,8 @@ const SwipePage = ({ children, nextPage, prevPage }) => {
       } else if (endX - startX > 50) {
         navigate(prevPage);
       }
-      setStartX(0); // Reset after swipe
-      setEndX(0);   // Reset after swipe
+      setStartX(0);
+      setEndX(0);
     };
 
     const handleClick = (e) => {
@@ -50,7 +50,6 @@ const SwipePage = ({ children, nextPage, prevPage }) => {
     document.addEventListener('touchend', handleTouchEnd);
     document.addEventListener('keydown', handleKeyDown);
 
-    // Wrap `handleClick` specifically to `swipe-container`
     const container = document.querySelector('.swipe-container');
     container?.addEventListener('click', handleClick);
 

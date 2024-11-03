@@ -1,11 +1,9 @@
-// Enum for Crowd Density Levels
 const CrowdDensityLevel = Object.freeze({
     LOW: "Low",
     MODERATE: "Moderate",
     HIGH: "High"
 });
 
-// Enum for MRT Lines
 const MRTLines = Object.freeze({
     NORTH_SOUTH_LINE: "North-South Line",
     EAST_WEST_LINE: "East-West Line",
@@ -17,7 +15,6 @@ const MRTLines = Object.freeze({
     PUNGGOL_LRT: "Punggol LRT"
 });
 
-// Enum for Day of Week
 const DaysOfWeek = Object.freeze({
     MONDAY: "Monday",
     TUESDAY: "Tuesday",

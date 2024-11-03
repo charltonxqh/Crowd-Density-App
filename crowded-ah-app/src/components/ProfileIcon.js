@@ -15,12 +15,10 @@ const ProfileIcon = () => {
     const db = getFirestore();
     const profileRef = useRef(null);
 
-    // Toggle the visibility of the logout button
     const toggleLogout = () => {
         setShowLogout(!showLogout);
     };
 
-    // Handle logout and redirect to the login page
     const handleLogout = async () => {
         try {
             await signOut(auth);
@@ -30,7 +28,6 @@ const ProfileIcon = () => {
         }
     };
 
-    // Handle username change
     const handleUsernameChange = async () => {
         const user = auth.currentUser;
         if (user && newUsername) {
@@ -38,8 +35,8 @@ const ProfileIcon = () => {
                 const userRef = doc(db, "users", user.uid);
                 await updateDoc(userRef, { username: newUsername });
                 alert('Username updated successfully!');
-                setNewUsername(''); // Clear input after update
-                setShowUsernameInput(false); // Hide input after confirming change
+                setNewUsername('');
+                setShowUsernameInput(false);
             } catch (error) {
                 console.error("Error updating username: ", error);
             }
@@ -52,7 +49,7 @@ const ProfileIcon = () => {
         const handleClickOutside = (event) => {
             if (profileRef.current && !profileRef.current.contains(event.target)) {
                 setShowLogout(false);
-                setShowUsernameInput(false); // Close input field if clicking outside
+                setShowUsernameInput(false);
             }
         };
 

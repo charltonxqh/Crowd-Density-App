@@ -7,8 +7,6 @@ import { useLocation } from 'react-router-dom';
 
 function NavBar() {
     const location = useLocation();
-    
-    // Check if the current path is the authentication page
     const isAuthPage = location.pathname === '/';
 
     return (
