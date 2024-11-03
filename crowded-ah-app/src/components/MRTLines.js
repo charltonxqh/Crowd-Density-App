@@ -142,7 +142,7 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="forecast-density-container"> 
+                        {/* <div className="forecast-density-container"> 
                           <span>Forecast:</span>
                             <div className="forecast-crowd-density-box">
                               <div className="crowd-level-indicator">
@@ -153,7 +153,7 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
                                 </div>
                               </div>
                           </div>
-                          </div>
+                          </div> */}
                         </div>
                     </li>
                   ))}

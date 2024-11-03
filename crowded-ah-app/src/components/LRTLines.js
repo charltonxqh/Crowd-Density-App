@@ -137,7 +137,7 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="forecast-density-container"> 
+                        {/* <div className="forecast-density-container"> 
                           <span>Forecast:</span>
                             <div className="forecast-crowd-density-box">
                               <div className="crowd-level-indicator">
@@ -148,7 +148,7 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
                                 </div>
                               </div>
                           </div>
-                          </div>
+                          </div> */}
                         </div>
                     </li>
                   ))}
