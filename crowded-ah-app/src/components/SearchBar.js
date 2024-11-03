@@ -11,7 +11,7 @@ import {
 import { useGuest } from "../components/GuestContext";
 import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
-import stationsInfo from '../stationsInfo.json';
+import stationsInfo from "../stationsInfo.json";
 
 const stations = Object.keys(stationsInfo);
 
@@ -21,11 +21,32 @@ const SearchBar = () => {
   const [selectedStation, setSelectedStation] = useState(null);
   const [favourites, setFavourites] = useState([]);
   const [user, setUser] = useState(null);
+  const [trainData, setTrainData] = useState([]);
 
   const { isGuest } = useGuest();
   const auth = getAuth();
   const db = getFirestore();
   const navigate = useNavigate();
+
+  async function getTrainData() {
+    try {
+      // const response = await fetch("../mockAPI/mockRT-EWL.json");
+      const response = await fetch("http://localhost:4000/api/train-data");
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      const data = await response.json();
+      console.log("Fetched train data:", data);
+
+      setTrainData(data);
+    } catch (error) {
+      console.error("Error fetching train data:", error);
+    }
+  }
+
+  useEffect(() => {
+    getTrainData();
+  }, []);
 
   useEffect(() => {
     // Listen for authentication state changes
@@ -127,7 +148,62 @@ const SearchBar = () => {
 
   const onSearch = () => {
     if (selectedStation) {
-      navigate("/stations", { state: { stationName: selectedStation } });
+      const stationData = stationsInfo[selectedStation];
+
+      if (stationData) {
+        // Handle cases where station data could be an array (multiple lines) or a single object
+        const stationInfo = Array.isArray(stationData)
+          ? stationData[0]
+          : stationData;
+        const { trainLine, stationCode } = stationInfo;
+        const currentCrowdLevel = CrowdLabel(
+          getCrowdLevel(trainLine, stationCode)
+        );
+        const forecastCrowdLevel = CrowdLabel(
+          getCrowdLevel(trainLine, stationCode, true)
+        );
+
+        // Use selectedStation as station name since stationName might be undefined in stationsInfo
+        navigate(
+          `/station/${trainLine}-${stationCode}-${encodeURIComponent(
+            selectedStation
+          )}`,
+          {
+            state: {
+              currentCrowdLevel,
+              forecastCrowdLevel,
+            },
+          }
+        );
+      } else {
+        alert("Station details not found.");
+      }
+    }
+  };
+
+  const getCrowdLevel = (trainLine, stationCode, isForecast = false) => {
+    const type = isForecast ? "forecast" : "realTime";
+    if (
+      trainData &&
+      trainData[type] &&
+      trainData[type][trainLine] &&
+      trainData[type][trainLine][stationCode]
+    ) {
+      return trainData[type][trainLine][stationCode].CrowdLevel || "unknown";
+    }
+    return "unknown";
+  };
+
+  const CrowdLabel = (level) => {
+    switch (level) {
+      case "l":
+        return "Low";
+      case "m":
+        return "Medium";
+      case "h":
+        return "High";
+      default:
+        return "Unknown";
     }
   };
 
@@ -135,7 +211,7 @@ const SearchBar = () => {
     if (e.key === "Enter") {
       onSearch();
     }
-  }
+  };
 
   const combinedResults = [
     ...favourites.map((station) => ({ name: station, isFavourite: true })),
@@ -147,10 +223,7 @@ const SearchBar = () => {
   return (
     <div className="search-container">
       <div className="search-bar">
-        <button
-          className="icon magnifying-glass"
-          onClick={onSearch}
-        >
+        <button className="icon magnifying-glass" onClick={onSearch}>
           🔍
         </button>
         <input
@@ -178,7 +251,14 @@ const SearchBar = () => {
               className="result-item"
               onClick={() => handleSuggestionClick(name)}
             >
-              {isFavourite && <button className="remove-icon" onClick={() => handleDeleteFavourite(name)}>⭐</button>}
+              {isFavourite && (
+                <button
+                  className="remove-icon"
+                  onClick={() => handleDeleteFavourite(name)}
+                >
+                  ⭐
+                </button>
+              )}
               {name}
             </div>
           ))}
