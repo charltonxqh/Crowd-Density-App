@@ -133,14 +133,22 @@ const MRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
                       <div className="crowd-density">
                         <span>Now:</span>
                         <div className="crowd-density-box">
-                            <div className={`crowd-level-indicator ${getCrowdLevel(line, station.code)}`}>
+                          <div className="crowd-level-indicator">
+                            <div className={`crowd-level-color ${getCrowdLevel(line, station.code)}`}>
+                            </div>
+                            <div className="crowd-level-label">
                               {CrowdLabel(getCrowdLevel(line, station.code))}
                             </div>
+                          </div>
                         </div>
                         <span>Forecast:</span>
                         <div className="crowd-density-box">
-                          <div className={`crowd-level-indicator ${getCrowdLevel(line, station.code, true)}`}>
-                          {CrowdLabel(getCrowdLevel(line, station.code, true))}
+                          <div className="crowd-level-indicator">
+                            <div className={`crowd-level-color ${getCrowdLevel(line, station.code, true)}`}>
+                            </div>
+                            <div className="crowd-level-label">
+                              {CrowdLabel(getCrowdLevel(line, station.code, true))}
+                            </div>
                           </div>
                       </div>
                       </div>
