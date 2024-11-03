@@ -110,6 +110,8 @@ async function updateForecastData() {
             fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
         );
     }
+    
+    storedData.forecast = results;
     return results;
 }
 
@@ -139,8 +141,8 @@ setInterval(async () => {
             console.error("Error during initialization:", error);
         }
 })();
-// updateForecastData();
-// updateServiceAlerts();
+updateForecastData();
+updateServiceAlerts();
 
 // API routes
 app.get('/api/train-data', (req, res) => res.json(storedData));
@@ -152,7 +154,6 @@ app.get('/api/train-arrival/:stationName', (req, res) => {
             console.error(`Error executing Python script: ${stderr}`);
             return res.status(500).json({ error: 'Error fetching train arrival data' });
         }
-    
         try {
             const arrivalData = JSON.parse(stdout);
             res.json(arrivalData);
@@ -195,6 +196,20 @@ app.get('/api/proxy-download', async (req, res) => {
         res.status(500).json({ error: 'Error fetching file' });
     }
 });
+
+// Add this route to your existing routes in server.mjs
+app.get('/api/station-forecast/:line/:code', (req, res) => {
+    const { line, code } = req.params;
+  
+    // Check if forecast data for the line exists
+    if (storedData.forecast[line] && storedData.forecast[line].Stations[code]) {
+      return res.json(storedData.forecast[line].Stations[code]);
+    }
+  
+    // If no forecast data is found, return an empty array
+    res.status(404).json({ message: 'No forecast data available for this station.' });
+  });
+  
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
