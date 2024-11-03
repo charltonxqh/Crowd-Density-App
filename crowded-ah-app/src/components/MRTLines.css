@@ -43,18 +43,18 @@
     background-color: #ffa515; /* Circle Line */
   }  
 .line-code-box.DTL, .mrt-station-button.DTL {
-    background-color: #37a1f2; /* Downtown Line */
+    background-color: #005DA6; /* Downtown Line */
   }
   .line-code-box.EWL, .mrt-station-button.EWL {
-    background-color: #51fa94; /* East West Line */
+    background-color: #4EA853; /* East West Line */
   }
   
   .line-code-box.NEL, .mrt-station-button.NEL{
-    background-color: #e057fb; /* North East Line */
+    background-color: #9E28B5; /* North East Line */
   }
   
   .line-code-box.NSL, .mrt-station-button.NSL {
-    background-color: #ff645c; /* North South Line */
+    background-color: #E1251B; /* North South Line */
   }
   
   .line-code-box.TEL, .mrt-station-button.TEL {
@@ -102,13 +102,13 @@
     background-color: #04bb4d;
 }
 .mrt-station-button.DTL{
-    background-color: #1079c9;
+    background-color: #005DA6;
 }
 .mrt-station-button.NEL{
-    background-color: #c833e6;
+    background-color: #9E28B5;
 }
 .mrt-station-button.NSL{
-    background-color: #ea4b43;
+    background-color: #E1251B;
 }
 .mrt-station-button.TEL{
     background-color: #e39144;
