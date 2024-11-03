@@ -1,5 +1,5 @@
 import axios from "axios";
-const AccountKey = 'GcStJXlYT0GWEEnWd3d+Uw==';
+const AccountKey = 't+2NRPOKQa+ibkXmcdO7UA==';
 export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
 
 export async function fetchRealTimeAPIData(url, trainLine) {
@@ -37,12 +37,11 @@ export async function fetchForecastAPIData(url, trainLine) {
                 'Accept': 'application/json'
             },
             params: {
-                TrainLine: trainLine // Include the trainLine parameter
+                TrainLine: trainLine
             }
         });
 
         if (!response.data || !response.data.value) {
-            // Log the entire response if value is missing to debug the issue
             console.error("Unexpected API response structure:", response.data);
             return { error: "No forecast data available or unexpected response structure." };
         }

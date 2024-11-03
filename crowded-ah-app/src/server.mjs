@@ -4,6 +4,10 @@ import { exec } from 'child_process';
 import { fetchRealTimeAPIData, fetchForecastAPIData, fetchTrainServiceAlerts, TRAIN_LINES, fetchStatisticsLinkAPI } from './API.mjs';
 import Bottleneck from 'bottleneck';
 import axios from 'axios';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const app = express();
 const PORT = 4000;
@@ -11,11 +15,72 @@ const PORT = 4000;
 app.use(cors({
     origin: 'http://localhost:3000'
 }));
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 app.use(express.json());
 
 let storedData = { realTime: {}, forecast: {} };
 let storedAlerts = {};
 let todayForecast = {};
+
+// Function to load mock forecast data
+async function loadMockForecastData() {
+    const results = {};
+    for (const line of TRAIN_LINES) {
+        if (line === 'CGL' || line === 'CEL') {
+            continue;
+        }
+        const filePath = path.resolve(__dirname, 'mockAPI', `mockFC-${line}.json`);
+        try {
+            const fileContent = await fs.readFile(filePath, 'utf8'); 
+            const data = JSON.parse(fileContent);
+            results[line] = data.value;
+        } catch (error) {
+            console.error(`Error reading file ${filePath}:`, error);
+        }
+    }
+    return results;
+}
+
+// Function to find the next closest forecast
+async function getNextClosestForecast(data) {
+    const now = new Date();
+    const localOffset = 8 * 60 * 60 * 1000; // UTC+8
+    const nextTime = new Date(now.getTime() + localOffset);
+    nextTime.setMinutes(Math.ceil(nextTime.getMinutes() / 30) * 30);
+    nextTime.setSeconds(0);
+    nextTime.setFullYear(2024);
+    nextTime.setMonth(9);
+    nextTime.setDate(32);
+    if (nextTime.getMinutes() === 60) {
+        nextTime.setMinutes(0);
+        nextTime.setHours(nextTime.getHours() + 1);
+    }
+    const nextTimeString = nextTime.toISOString().slice(0, 19).concat('+08:00');
+    
+    const results = {};
+    for (const line in data) {
+        results[line] = {};
+        for (const stationData of data[line]) {
+            for (const station in stationData) {
+                for (const period of stationData[station]) {
+                    if (period.Start === nextTimeString) {
+                        results[line][station] = {CrowdLevel: period.CrowdLevel}
+                    }
+                }
+            }
+        }
+    }
+    return results;
+}
+
+// Bottleneck limiter configuration
+const limiter = new Bottleneck({
+    minTime: 1000, // Minimum time between requests (1 second)
+    maxConcurrent: 1, // Only 1 request at a time
+});
 
 async function updateRealTimeData() {
     const results = {};
@@ -25,11 +90,6 @@ async function updateRealTimeData() {
     }
     storedData.realTime = results;
 }
-
-const limiter = new Bottleneck({
-    minTime: 1000, // Minimum time between requests (1 second)
-    maxConcurrent: 1, // Only 1 request at a time
-});
 
 async function updateForecastData() {
     const results = {};
@@ -45,55 +105,28 @@ async function updateServiceAlerts() {
     storedAlerts = await fetchTrainServiceAlerts();
 }
 
-
-async function getNextClosestForecast(data) {
-    if(todayForecast.length === 0){
-        await updateForecastData();
-    }
-    const now = new Date();
-    const localTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
-    const apiTimezoneOffset = new Date(localTime.getTime() + 8 * 60 * 60 * 1000);
-    const roundedMinutes = Math.ceil(apiTimezoneOffset.getMinutes() / 30) * 30;
-    const nextTime = new Date(localTime);
-    nextTime.setMinutes(roundedMinutes);
-    nextTime.setSeconds(0);
-
-    if (roundedMinutes === 60) {
-        nextTime.setMinutes(0);
-        nextTime.setHours(nextTime.getHours() + 1);
-    }
-
-    const nextTimeString = nextTime.toISOString().slice(0, 19).concat('+08:00');
-    let results = {};
-
-    for (const line in data) {
-        const filteredStations = {};
-
-        for (const station in data[line]) {
-            const filteredPeriods = data[line][station].filter(period => period.Start === nextTimeString);
-
-            if (filteredPeriods.length > 0) {
-                filteredStations[station] = filteredPeriods;
-            }
-        }
-
-        if (Object.keys(filteredStations).length > 0) {
-            results[line] = filteredStations;
-        }
-    }
-    storedData.forecast = results;
-    }
-
-// Schedule and initialize data fetching
+// Scheduling periodic updates
 setInterval(updateRealTimeData, 10 * 60 * 1000);
-setInterval(updateForecastData, 24 * 60 * 60 * 1000);
-setInterval(getNextClosestForecast, 30 * 60 *1000)
+setInterval(loadMockForecastData, 24 * 60 * 60 * 1000);
 setInterval(updateServiceAlerts, 60 * 1000);
+setInterval(async () => {
+    storedData.forecast = await getNextClosestForecast(todayForecast);
+}, 30 * 60 * 1000);
 
-updateRealTimeData();
-updateForecastData();
-getNextClosestForecast(todayForecast);
-updateServiceAlerts();
+(async function initializeData() {
+        updateRealTimeData();
+        try {
+            todayForecast = await loadMockForecastData();
+            console.log("Today's Forecast:", todayForecast);
+
+            storedData.forecast = await getNextClosestForecast(todayForecast);
+            console.log("Stored Forecast Data:", storedData.forecast);
+        } catch (error) {
+            console.error("Error during initialization:", error);
+        }
+})();
+// updateForecastData();
+// updateServiceAlerts();
 
 // API routes
 app.get('/api/train-data', (req, res) => res.json(storedData));
@@ -106,17 +139,14 @@ app.get('/api/train-arrival/:stationName', (req, res) => {
             return res.status(500).json({ error: 'Error fetching train arrival data' });
         }
     
-        console.log("Python script output:", stdout); // Log the output from the Python script
         try {
             const arrivalData = JSON.parse(stdout);
-            console.log("Arrival data fetched:", arrivalData); // Log the parsed data for debugging
-            res.json(arrivalData); // Send the data as a JSON response
+            res.json(arrivalData);
         } catch (parseError) {
             console.error(`Error parsing JSON: ${parseError}`);
             res.status(500).json({ error: 'Error parsing arrival data' });
         }
     });
-    
 });
 
 // API route to get the statistics link
@@ -136,17 +166,14 @@ app.get('/api/statistics-link', async (req, res) => {
 
 // New API route to proxy the ZIP file download
 app.get('/api/proxy-download', async (req, res) => {
-    const { url } = req.query; // Get the URL from the query parameters
+    const { url } = req.query;
 
     if (!url) {
         return res.status(400).json({ error: "No URL provided" });
     }
 
     try {
-        // Fetch the file from the external URL
         const response = await axios.get(url, { responseType: 'arraybuffer' });
-
-        // Set the appropriate headers and send the data
         res.setHeader('Content-Type', response.headers['content-type']);
         res.send(response.data);
     } catch (error) {
