@@ -1,26 +1,26 @@
 /* Line Color Styling */
 .ns-line {
-  background-color: #d42e12; 
+  background-color: #d42e12;
   color: #ffffff;
 }
 
 .ew-line {
-  background-color: #009645; 
+  background-color: #009645;
   color: #ffffff;
 }
 
 .ne-line {
-  background-color: #9900aa; 
+  background-color: #9900aa;
   color: #ffffff;
 }
 
 .cc-line {
-  background-color: #fa9e0d; 
+  background-color: #fa9e0d;
   color: #ffffff;
 }
 
 .dt-line {
-  background-color: #005ec4; 
+  background-color: #005ec4;
   color: #ffffff;
 }
 
@@ -35,12 +35,12 @@
 }
 
 .sk-line {
-  background-color: #84c0dd; 
+  background-color: #84c0dd;
   color: #ffffff;
 }
 
 .pg-line {
-  background-color: #b0a7e4; 
+  background-color: #b0a7e4;
   color: #ffffff;
 }
 
@@ -68,7 +68,7 @@ h2.subtitle {
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 40px;
+  margin-top: 30px; /* Adjusted margin to decrease space between buttons and leaderboard */
 }
 
 .station-list {
@@ -113,6 +113,7 @@ h2.subtitle {
   font-weight: bold;
   color: #00796b;
   text-align: left;
+  margin-right: 10px; /* Space between the name and line logos */
 }
 
 .station-codes {
@@ -136,48 +137,48 @@ h2.subtitle {
 
 /* Line Colors for Codes */
 .station-code.NS {
-  background-color: #d42e12; 
+  background-color: #d42e12;
 }
 
 .station-code.EW {
-  background-color: #009645; 
+  background-color: #009645;
 }
 
 .station-code.NE {
-  background-color: #9900aa; 
+  background-color: #9900aa;
 }
 
 .station-code.CC {
-  background-color: #fa9e0d; 
+  background-color: #fa9e0d;
 }
 
 .station-code.DT {
-  background-color: #005ec4; 
+  background-color: #005ec4;
 }
 
 .station-code.TE {
-  background-color: #784008; 
+  background-color: #784008;
 }
 
 .station-code.BP {
-  background-color: #bcae2b; 
+  background-color: #bcae2b;
 }
 
 .station-code.SK {
-  background-color: #84c0dd; 
+  background-color: #84c0dd;
 }
 
 .station-code.PG {
-  background-color: #b0a7e4; 
+  background-color: #b0a7e4;
 }
 
 /* Chart Section */
 .chart-section-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 25px;
-  margin: 30px 0;
+  gap: 30px; /* Increased gap to add more space between the graph and the buttons */
+  margin: 20px 0;
 }
 
 .chart-container {
@@ -190,6 +191,13 @@ h2.subtitle {
 }
 
 /* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px; /* Reduced margin to decrease space between buttons and leaderboard */
+  gap: 20px; /* Space between the buttons */
+}
+
 .navigation-button {
   padding: 12px 25px;
   font-size: 1.1rem;
@@ -206,14 +214,6 @@ h2.subtitle {
   cursor: not-allowed;
 }
 
-.navigation-button.left-button {
-  margin-right: 25px;
-}
-
-.navigation-button.right-button {
-  margin-left: 25px;
-}
-
 .navigation-button:hover {
   background-color: #004d40;
   transform: translateY(-3px);
@@ -228,34 +228,38 @@ h2.subtitle {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .chart-section-wrapper {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .navigation-button {
-      margin: 15px 0;
+    margin: 15px 0;
   }
 
   .chart-container {
-      width: 100%;
-      max-width: 90vw;
+    width: 100%;
+    max-width: 90vw;
   }
 
   .station-item {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: row; /* Keep station name and line logos in the same row */
+    align-items: center; /* Center align items vertically */
   }
 
   .station-details {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: row; /* Keep station name and logos in the same line */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Ensure even spacing */
+    width: 100%; /* Full width for better alignment */
   }
 
   .station-name {
-      margin-bottom: 10px;
+    margin-bottom: 0; /* Remove bottom margin to keep on the same line */
+    margin-right: 10px; /* Space between the name and the logos */
   }
 
   .station-codes {
-      margin-top: 10px;
+    margin-top: 0; /* Remove top margin to keep on the same line */
   }
 }
+
