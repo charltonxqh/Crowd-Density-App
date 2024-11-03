@@ -1,6 +1,7 @@
 .profile-icon {
     position: relative;
     place-items: center;
+    margin-right: 10px;
 }
   
 .profile-icon img {
