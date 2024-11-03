@@ -103,6 +103,7 @@ const SearchBar = () => {
 
   const clearSearch = () => {
     setQuery("");
+    setSelectedStation(null);
     setSuggestions(favourites);
   };
 
