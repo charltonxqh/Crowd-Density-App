@@ -21,9 +21,24 @@ const __dirname = dirname(__filename);
 
 app.use(express.json());
 
-let storedData = { realTime: {}, forecast: {} };
+let storedData = { realTime: {}, forecast: {}, todayForecast: {}};
 let storedAlerts = {};
-let todayForecast = {};
+
+function integrateLines(data) {
+    if (data.CCL && data.CEL) {
+        for (const station in data.CEL) {
+            data.CCL[station] = data.CEL[station];
+        }
+        delete data.CEL;
+    }
+    if (data.CGL && data.EWL) {
+        for (const station in data.CGL) {
+            data.EWL[station] = data.CGL[station];
+        }
+        delete data.CGL;
+    }
+    return data;
+}
 
 // Function to load mock forecast data
 async function loadMockForecastData() {
@@ -51,6 +66,9 @@ async function getNextClosestForecast(data) {
     const nextTime = new Date(now.getTime() + localOffset);
     nextTime.setMinutes(Math.ceil(nextTime.getMinutes() / 30) * 30);
     nextTime.setSeconds(0);
+    // nextTime.setFullYear(2024);
+    // nextTime.setMonth(9);
+    // nextTime.setDate(32);
     if (nextTime.getMinutes() === 60) {
         nextTime.setMinutes(0);
         nextTime.setHours(nextTime.getHours() + 1);
@@ -107,9 +125,7 @@ async function updateForecastData() {
             fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
         );
     }
-    
-    storedData.forecast = results;
-    return results;
+    return integrateLines(results);
 }
 
 async function updateServiceAlerts() {
@@ -129,16 +145,14 @@ setInterval(async () => {
         updateRealTimeData();
         try {
             //todayForecast = await loadMockForecastData();
-            todayForecast = await updateForecastData();
+            storedData.todayForecast = await updateForecastData();
             console.log("Today's Forecast:", todayForecast);
-
-            storedData.forecast = await getNextClosestForecast(todayForecast);
+            storedData.forecast = await getNextClosestForecast(storedData.todayForecast);
             console.log("Stored Forecast Data:", storedData.forecast);
         } catch (error) {
             console.error("Error during initialization:", error);
         }
 })();
-updateForecastData();
 updateServiceAlerts();
 
 // API routes
