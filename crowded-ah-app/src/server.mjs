@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { exec } from 'child_process'; // Import child_process
+import { exec } from 'child_process';
 import { fetchRealTimeAPIData, fetchForecastAPIData, fetchTrainServiceAlerts, TRAIN_LINES } from './API.mjs';
 import Bottleneck from 'bottleneck';
 import axios from 'axios';
@@ -15,7 +15,7 @@ app.use(express.json());
 
 let storedData = { realTime: {}, forecast: {} };
 let storedAlerts = {};
-// let todayForecast = {};
+let todayForecast = {};
 
 async function updateRealTimeData() {
     const results = {};
@@ -31,137 +31,72 @@ const limiter = new Bottleneck({
     maxConcurrent: 1, // Only 1 request at a time
 });
 
-// Function to fetch forecast data
-// async function fetchForecastData() {
-//     const results = {};
-//     for (const trainLine of TRAIN_LINES) {
-//         const lineData = await fetchTrainLineData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', trainLine);
-//         if (!lineData.error) {
-//             results[trainLine] = lineData.Stations;
-//         } else {
-//             results[trainLine] = { error: lineData.error };
-//         }
-//     }
-//     storedData.forecast = results;
-//     console.log('Forecast data updated:');
-//     for (const [line, stations] of Object.entries(storedData.forecast)) {
-//         console.log(`Train Line (Forecast): ${line}`);
-//         if (stations.error) {
-//             console.log(`Error: ${stations.error}`);
-//         } else {
-//             for (const [station, data] of Object.entries(stations)) {
-//                 console.log(`Station: ${station}, Crowd Level (Forecast): ${data.CrowdLevel}`);
-//             }
-//         }
-//     }
-// }
-
-// async function fetchAllTrainServiceAlerts() {
-//     const alertData = await fetchTrainServiceAlerts();
-//     storedAlerts = alertData;
-//     console.log('Train service alert data updated');
-// }
-
-//    Schedule real-time data fetching every 30 minutes
-//     setInterval(fetchRealTimeData, 30 * 60 * 1000);
-// //  fetchRealTimeData();
-// //  Schedule data fetching every 30 minutes
-//     setInterval(fetchAllTrainServiceAlerts, 30 * 60 * 1000);
-//     fetchAllTrainServiceAlerts();
-//     Schedule forecast data fetching once a day
-//     setInterval(fetchForecastData, 24 * 60 * 60 * 1000);
-//     fetchForecastData();
-//     Schedule to fetch statistics data once in a week
-//     setInterval(fetchStatisticsLinkAPI, 7 * 24 * 60 * 60 * 1000);
-//     fetchStatisticsLinkAPI();
-
-// API route to get train line data
-// app.get('/api/train-data', (req, res) => {
-//     res.json(storedData);
-// });
-
     async function updateForecastData() {
-        const forecastResults = {};
-
+        const results = {};
         for (const line of TRAIN_LINES) {
-            forecastResults[line] = await limiter.schedule(() =>
+            results[line] = await limiter.schedule(() =>
                 fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
             );
         }
-        storedData.forecast = forecastResults;
-        console.log('Forecast data updated');
+        todayForecast = results;
     }
-
-
-    // async function updateForecastData() {
-    //     const results = {};
-    //     for (const line of TRAIN_LINES) {
-    //         results[line] = await limiter.schedule(() =>
-    //             fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
-    //         );
-    //     }
-    //     todayForecast = results;
-    // }
 
     async function updateServiceAlerts() {
         storedAlerts = await fetchTrainServiceAlerts();
     }
 
-// Schedule and initialize data fetching
-    setInterval(updateRealTimeData, 10 * 60 * 1000);
-    setInterval(updateForecastData, 24 * 60 * 60 * 1000);
-    setInterval(updateServiceAlerts, 60 * 1000);
 
-    updateRealTimeData();
-    updateForecastData();
-    updateServiceAlerts();
+async function getNextClosestForecast(data) {
+    if(todayForecast.length === 0){
+        await updateForecastData();
+    }
+    const now = new Date();
+    const localTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
+    const apiTimezoneOffset = new Date(localTime.getTime() + 8 * 60 * 60 * 1000);
+    const roundedMinutes = Math.ceil(apiTimezoneOffset.getMinutes() / 30) * 30;
+    const nextTime = new Date(localTime);
+    nextTime.setMinutes(roundedMinutes);
+    nextTime.setSeconds(0);
 
-// async function getNextClosestForecast(data) {
-//     if(todayForecast.empty()){
-//         await updateForecastData();
-//     }
-//     const now = new Date();
-//     const localTime = new Date(now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
-//     const apiTimezoneOffset = new Date(localTime.getTime() + 8* 60 * 60 * 1000);
-//     const roundedMinutes = Math.ceil(apiTimezoneOffset.getMinutes() / 30) * 30;
-//     const nextTime = new Date(localTime);
-//     nextTime.setMinutes(roundedMinutes);
-//     nextTime.setSeconds(0);
+    if (roundedMinutes === 60) {
+        nextTime.setMinutes(0);
+        nextTime.setHours(nextTime.getHours() + 1);
+    }
 
-//     if (roundedMinutes === 60) {
-//         nextTime.setMinutes(0);
-//         nextTime.setHours(nextTime.getHours() + 1);
-//     }
-//     let results = {}
-//     const nextTimeString = nextTime.toISOString().slice(0, 19).concat('+08:00');
-//     for (const line of TRAIN_LINES) {
-//         if (data[line]) {
-//             const filteredStations = data[line].map(station => {
-//                 const stationKey = Object.keys(station)[0];
-//                 const filteredEntries = station[stationKey].filter(entry => entry.Start === nextTimeString);
-//                 return filteredEntries.length > 0 ? { [stationKey]: filteredEntries } : null; // Keep only if there are matching entries
-//             }).filter(Boolean);
-//             if (filteredStations.length > 0) {
-//                 results[line] = filteredStations;
-//             }
-//         }
-//     }
-//     storedData.forecast = results;
-// }
+    const nextTimeString = nextTime.toISOString().slice(0, 19).concat('+08:00');
+    let results = {};
+
+    for (const line in data) {
+        const filteredStations = {};
+
+        for (const station in data[line]) {
+            const filteredPeriods = data[line][station].filter(period => period.Start === nextTimeString);
+
+            if (filteredPeriods.length > 0) {
+                filteredStations[station] = filteredPeriods;
+            }
+        }
+
+        if (Object.keys(filteredStations).length > 0) {
+            results[line] = filteredStations;
+        }
+    }
+    storedData.forecast = results;
+    }
 
 // Schedule and initialize data fetching
-// setInterval(updateForecastData, 24 * 60 * 60 * 1000);
-// setInterval(updateRealTimeData, 10 * 60 * 1000);
-// setInterval(getNextClosestForecast, 10 * 60 * 60 * 1000);
-// setInterval(updateServiceAlerts, 60 * 1000);
+setInterval(updateRealTimeData, 10 * 60 * 1000);
+setInterval(updateForecastData, 24 * 60 * 60 * 1000);
+setInterval(getNextClosestForecast, 30 * 60 *1000)
+setInterval(updateServiceAlerts, 60 * 1000);
 
-// updateRealTimeData();
-// updateForecastData();
-// getNextClosestForecast(todayForecast);
-// updateServiceAlerts();
+updateRealTimeData();
+updateForecastData();
+getNextClosestForecast(todayForecast);
+updateServiceAlerts();
 
 // API routes
-app.get('/api/train-data', (req, res) => res.json(storedData));
+app.get('/api/train-data', (req, res) => res.json(todayForecast));
 app.get('/api/train-alerts', (req, res) => res.json(storedAlerts));
 app.get('/api/train-arrival/:stationName', (req, res) => {
     const stationName = req.params.stationName;

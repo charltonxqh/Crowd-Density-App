@@ -59,7 +59,7 @@ const StationDetails = () => {
             ))}
           </ul>
         ) : (
-          <p>No arrival data available.</p>
+          <span>No arrival data available.</span>
         )}
           </div>
           <div className="info-item">
