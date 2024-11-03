@@ -40,44 +40,46 @@
 }
 
 .mrt-line-button.CCL, .line-code-box.CCL, .mrt-station-button.CCL{
-    background-color: #ffa515; /* Circle Line */
-  }  
+    background-color: #ffa515;
+    border-color: #ffa515; 
+} 
+
 .line-code-box.DTL, .mrt-station-button.DTL,.mrt-station-button.DTL {
-    background-color: #005DA6; /* Downtown Line */
-  }
-  .line-code-box.EWL, .mrt-station-button.EWL,.mrt-station-button.EWL {
-    background-color: #4EA853; /* East West Line */
-  }
-  
-  .line-code-box.NEL, .mrt-station-button.NEL,.mrt-station-button.NEL{
-    background-color: #9E28B5; /* North East Line */
-  }
-  
-  .line-code-box.NSL, .mrt-station-button.NSL,.mrt-station-button.NSL {
-    background-color: #E1251B; /* North South Line */
-  }
-  
-  .line-code-box.TEL, .mrt-station-button.TEL {
-    background-color: #e39144; /* Thomson-East Coast Line */
-  }
+    background-color: #005DA6; 
+    border-color: #005DA6;
+}
+
+.line-code-box.EWL, .mrt-station-button.EWL,.mrt-station-button.EWL {
+    background-color: #4EA853; 
+    border-color: #4EA853;
+    
+}
+
+.line-code-box.NEL, .mrt-station-button.NEL,.mrt-station-button.NEL{
+    background-color: #9E28B5; 
+    border-color: #9E28B5;
+}
+
+.line-code-box.NSL, .mrt-station-button.NSL,.mrt-station-button.NSL {
+    background-color: #E1251B; 
+    border-color: #E1251B;
+}
+
 
 .mrt-station-list-CCL{
-    background-color: #fad29a;
+    background-color: #f8dcb6;
 }
 .mrt-station-list-DTL{
-    background-color: #70bbf4;
+    background-color: #c0e3fe;
 }
 .mrt-station-list-EWL{
-    background-color: #79f6ab;
+    background-color: #a7feca;
 }
 .mrt-station-list-NEL{
-    background-color: #e489f7;
+    background-color: #f4befe;
 }
 .mrt-station-list-NSL{
-    background-color: #fb8881;
-}
-.mrt-station-list-TEL{
-    background-color: #e39144;
+    background-color: #ffbab7;
 }
 
 .station_code {
@@ -94,13 +96,13 @@
     padding: 6px;
     border-radius:4px; 
     margin-right: 2px;
+    color: white;
 }
 
 .crowd-density {
     display: flex; 
-    justify-content: flex-end;
+    align-items: center;
     gap: 8px;
-    margin-left: auto;
 }
 
 .crowd-density span {
@@ -111,28 +113,22 @@
 
 .crowd-density-box {
     display: flex;
-    align-items: center; /* Vertically aligns content */
-    justify-content: flex-start; /* Aligns content to the left */
-    border-radius: 6px;
-    width: 100px;
+    align-items: center; 
+    gap: 8px;
 }
 
 .crowd-level-indicator{
     display: flex;
-    align-items: center;
-    width: 30px;
-    height: 18px;
-    border-radius: 50%;
-    flex: 1
+    align-items: center; 
+    gap: 8px;
 }
 
-  .crowd-level-color {
-    width: 10px;
-    height: 10px;
+.crowd-level-color {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    margin-right: 8px;
-    flex: 1
-  }
+    margin-right: 4px;
+}
   
 .crowd-level-color.l {
     background-color: green; /* Low crowd level color */
@@ -150,6 +146,4 @@
     background-color: #9ca3af; /* Gray for unknown status */
 }
 
-.crowd-level-label {
-    font-size: 14px;
-}
+
