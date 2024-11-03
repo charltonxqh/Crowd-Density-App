@@ -100,7 +100,7 @@ async function getNextClosestForecast(data) {
             }
         }
     }
-    return results;
+    storedData.forecast = storedData.todayForecast;
 }
 
 // Bottleneck limiter configuration
@@ -116,6 +116,7 @@ async function updateRealTimeData() {
         results[line] = data.Stations || { error: data.error };
     }
     storedData.realTime = results;
+    storedData.realTime = integrateLines(storedData.realTime);
 }
 
 async function updateForecastData() {
@@ -125,7 +126,8 @@ async function updateForecastData() {
             fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
         );
     }
-    return integrateLines(results);
+    storedData.forecast = results;
+    storedData.forecast = integrateLines(storedData.forecast);
 }
 
 async function updateServiceAlerts() {
@@ -138,15 +140,15 @@ setInterval(updateRealTimeData, 10 * 60 * 1000);
 setInterval(updateForecastData, 24 * 60 * 60 * 1000);
 setInterval(updateServiceAlerts, 60 * 1000);
 setInterval(async () => {
-    storedData.forecast = await getNextClosestForecast(todayForecast);
+    storedData.forecast = await getNextClosestForecast(storedData.todayForecast);
 }, 30 * 60 * 1000);
 
 (async function initializeData() {
         updateRealTimeData();
         try {
             //todayForecast = await loadMockForecastData();
-            storedData.todayForecast = await updateForecastData();
-            console.log("Today's Forecast:", todayForecast);
+            await updateForecastData();
+            console.log("Today's Forecast:", storedData.todayForecast);
             storedData.forecast = await getNextClosestForecast(storedData.todayForecast);
             console.log("Stored Forecast Data:", storedData.forecast);
         } catch (error) {
