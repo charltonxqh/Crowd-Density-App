@@ -1,6 +1,6 @@
 import axios from "axios";
-const AccountKey = '1SzZC/MJSyeOAKRHNXFfvw==';
-export const TRAIN_LINES = ['CCL', 'CEL', 'EWL', 'CGL', 'DTL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
+const AccountKey = 'CSkPc8mIRyiijeTdOfnZtg==';
+export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
 
 export async function fetchRealTimeAPIData(url, trainLine) {
     try {
@@ -58,6 +58,7 @@ export async function fetchForecastAPIData(url, trainLine) {
                 if (!lineData.Stations[station.Station]) {
                     lineData.Stations[station.Station] = [];
                 }
+                
                 // Populate each station with its intervals
                 station.Interval.forEach((interval) => {
                     lineData.Stations[station.Station].push({
