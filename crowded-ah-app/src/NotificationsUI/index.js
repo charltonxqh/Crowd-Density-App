@@ -34,8 +34,8 @@ function NotificationsPage() {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                //const response = await fetch("../mockAPI/mockTrainServiceAlerts.json");
-                const response = await fetch("http://localhost:4000/api/train-alerts");
+                const response = await fetch("../mockAPI/mockTrainServiceAlerts.json");
+                //const response = await fetch("http://localhost:4000/api/train-alerts");
                 if (!response.ok) throw new Error('Failed to load data');
         const data = await response.json();
         console.log("Full data:", data);
