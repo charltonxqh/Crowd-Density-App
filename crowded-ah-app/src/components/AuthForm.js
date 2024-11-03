@@ -12,6 +12,7 @@ const AuthForm = ({ mode, onSubmit }) => {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [isVerified, setIsVerified] = useState(false);
 
     const isSignup = mode === 'signup';
     const isLogin = mode === 'login';
@@ -43,7 +44,7 @@ const AuthForm = ({ mode, onSubmit }) => {
                 await sendEmailVerification(user);
                 alert("Verification email sent! Please check your inbox to verify your email before logging in.");
 
-                setIsGuest(false);
+                setIsGuest(true);
 
             } else if (isLogin) {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -78,9 +79,12 @@ const AuthForm = ({ mode, onSubmit }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
+            if (user && user.emailVerified) {
+                setIsVerified(true);
                 setIsGuest(false);
                 navigate('/home');
+            } else {
+                setIsVerified(false);
             }
         });
         
