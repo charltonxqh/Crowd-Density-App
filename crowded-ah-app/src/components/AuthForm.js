@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGuest } from '../components/GuestContext';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { auth } from '../firebase.js';
+import { onAuthStateChanged } from 'firebase/auth';
 import './AuthForm.css';
 
 const AuthForm = ({ mode, onSubmit }) => {
@@ -79,6 +80,18 @@ const AuthForm = ({ mode, onSubmit }) => {
         }
     };
 
+    useEffect(() => {
+        // Check if a user is already authenticated
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setIsGuest(false);
+                navigate('/home'); // Redirect to home if authenticated
+            }
+        });
+        
+        return () => unsubscribe();
+    }, [navigate, setIsGuest]);
+    
     return (
         <div className="auth-form">
             <form onSubmit={handleSubmit}>
