@@ -59,7 +59,7 @@ const StationDetails = () => {
       return `${hours}${minutes}`;
     };
 
-    return `${formatTime(start)}-${formatTime(end)}`;
+    return `${formatTime(start)} - ${formatTime(end)}`;
   };
 
   const getCrowdLevelColor = (level) => {
@@ -128,7 +128,7 @@ const StationDetails = () => {
             {forecastCrowdDensity.length > 0 ? (
               forecastCrowdDensity.map((forecast, index) => (
                 <div key={index} className="forecast-column">
-                  {formatTimeInterval(forecast.Start)} - 
+                  {formatTimeInterval(forecast.Start)} 
                   <div className="crowd-level">
                     <div
                       className="crowd-level-dot"
