@@ -1,6 +1,7 @@
 .page-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   background-color: #EFF5FF;
 }
@@ -9,7 +10,7 @@
   flex: 1;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 400px; /* Set a default height for the map */
   display: flex;
   justify-content: center;
   position: relative;
@@ -37,7 +38,7 @@
   border: none;
   background-color: #f8f8f8;
   border-radius: 5px;
-  font-size: 30px;
+  font-size: 18px; /* Adjust font size for smaller screens */
   font-weight: bold;
 }
 
@@ -50,4 +51,47 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .MRTmap {
+    height: 300px; /* Adjust the height of the map for tablets */
+  }
+
+  .view-buttons button {
+    font-size: 16px; /* Smaller font size for tablets */
+    padding: 10px 15px; /* Adjust padding */
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+
+  .MRTmap {
+    height: 250px; /* Smaller height for the map on mobile */
+  }
+
+  .content-container {
+    margin-top: 10px; /* Reduce margin for mobile */
+    margin-right: 0; /* Remove right margin on mobile */
+  }
+
+  .view-buttons button {
+    font-size: 14px; /* Even smaller font size for mobile */
+    padding: 8px 10px; /* Reduce padding for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .MRTmap {
+    height: 200px; /* Minimum height for the map on very small screens */
+  }
+
+  .view-buttons button {
+    font-size: 12px; /* Smallest font size for very small screens */
+    padding: 6px 8px; /* Minimal padding */
+  }
 }
