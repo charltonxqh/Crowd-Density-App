@@ -1,11 +1,6 @@
 import axios from "axios";
-const AccountKey = 'Ss1nE6SpThW1HqQtQCWZdg=='; //this is used
+const AccountKey = 'Q9HdVpjsRjWWdmhg2ew0IA=='; //this is used
 /* API keys to test (please delete after use)
-FOf8Y3TLSzek/8uppHwV4Q==
-gO+y5vYrRgazHUsaqWUg6g==
-t+BT29lBRlSQwYtflkgAOw==
-tjgrLjE5Qc6i3hXdFFSj0g==
-144CeqxeRE+1bhIvTM3YKw==
 Q9HdVpjsRjWWdmhg2ew0IA==
 */
 export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
