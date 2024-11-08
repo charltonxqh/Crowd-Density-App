@@ -23,7 +23,7 @@ const Stations = () => {
   };
 
   return (
-    <div className="page-container">
+    <div className="page-container-stations">
       <div className="MRTmap">
         <GoogleMap width="70%" markers={markerPositions} />
       </div>

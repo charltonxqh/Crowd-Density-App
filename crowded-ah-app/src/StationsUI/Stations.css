@@ -7,7 +7,7 @@ html, body {
 }
 
 /* Ensure page-container fills the full height of the viewport */
-.page-container {
+.page-container-stations {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -69,6 +69,7 @@ html, body {
   width: 100%;
 }
 
+/* Medium screens */
 @media (max-width: 1024px) {
   .MRTmap {
     height: 300px; 
@@ -80,9 +81,10 @@ html, body {
   }
 }
 
+/* Smaller screens */
 @media (max-width: 768px) {
-  .page-container {
-    flex-direction: column; 
+  .page-container-stations {
+    flex-direction: column; /* Stack the map above the content */
   }
 
   .MRTmap {
@@ -100,6 +102,7 @@ html, body {
   }
 }
 
+/* Extra small screens */
 @media (max-width: 480px) {
   .MRTmap {
     height: 200px; 
