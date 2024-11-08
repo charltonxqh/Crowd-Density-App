@@ -93,15 +93,15 @@
 }
 
 .nearby-crowd-density-circle.l {
-  background-color: #22c55e; 
+  background-color: green; 
 }
 
 .nearby-crowd-density-circle.m {
-  background-color: #f59e0b; 
+  background-color: yellow; 
 }
 
 .nearby-crowd-density-circle.h {
-  background-color: #ef4444;
+  background-color: red;
 }
 
 .nearby-crowd-density-circle.unknown {

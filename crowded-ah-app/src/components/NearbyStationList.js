@@ -21,7 +21,13 @@ const NearbyStationList = ({ stations = [] }) => {
   }
 
   useEffect(() => {
-    getTrainData();
+    getTrainData(); // Fetch data initially
+
+    const intervalId = setInterval(() => {
+      getTrainData(); // Fetch data every 10 seconds
+    }, 10000); // 10000 milliseconds = 10 seconds
+
+    return () => clearInterval(intervalId); // Clean up on component unmount
   }, []);
 
   const getCrowdLevel = (line, stationCode) => {

@@ -129,15 +129,15 @@
 }
 
 .crowd-level-indicator.l {
-    background-color: #22c55e;
+    background-color: green;
 }
 
 .crowd-level-indicator.m {
-    background-color: #f59e0b;
+    background-color: yellow;
 }
 
 .crowd-level-indicator.h {
-    background-color: #ef4444;
+    background-color: red;
 }
 
 .crowd-level-indicator.unknown {
