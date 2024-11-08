@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react';
-import stationsData from '../stationsInfo.json';
 import './LRTLines.css';
+import stationsData from '../stationsInfo.json';
 import { useNavigate } from 'react-router-dom';
 
 const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
@@ -53,7 +53,14 @@ const LRTLines = ({ onLineChange, selectedLine, setMarkerPositions}) => {
   
     const handleStationClick = (line,station) => {
       setMarkerPositions([{ lat: station.lat, lng: station.lng }]);
-      navigate(`/station/${line}-${station.code}-${encodeURIComponent(station.name)}`);
+      const currentCrowdLevel = CrowdLabel(getCrowdLevel(line, station.code));
+      const forecastCrowdLevel = CrowdLabel(getCrowdLevel(line, station.code, true));
+      navigate(`/station/${line}-${station.code}-${encodeURIComponent(station.name)}`, {
+        state: { 
+          currentCrowdLevel, 
+          forecastCrowdLevel 
+        },
+      });
     };
     
     const navigate = useNavigate();
