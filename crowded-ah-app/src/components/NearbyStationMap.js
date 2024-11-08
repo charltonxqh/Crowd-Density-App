@@ -78,13 +78,19 @@ const NearbyStationMap = () => {
       const service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-          setStations(results);
-          setErrorMessage("");
-          getDistanceToStations(userLocation, results);
-          for (let i = 0; i < results.length; i++) {
-            createMarker(results[i], map);
+          if (results.length > 0) {
+            setStations(results);
+            setErrorMessage("");
+            getDistanceToStations(userLocation, results);
+            for (let i = 0; i < results.length; i++) {
+              createMarker(results[i], map);
+            }
+          } else {
+            setStations([]);
+            setErrorMessage("No nearby stations found. Please try again!");
           }
         } else {
+          setStations([]);
           setErrorMessage("No nearby stations found. Please try again!");
         }
       });
@@ -156,7 +162,7 @@ const NearbyStationMap = () => {
           max="10000"
           step="500"
           value={radius}
-          onChange={(e) => setRadius(Number(e.target.value))}
+          onChange={handleRadiusChange}
         />
         <input
           type="number"
