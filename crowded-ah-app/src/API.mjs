@@ -49,20 +49,17 @@ export async function fetchForecastAPIData(url, trainLine) {
             return { error: "No forecast data available or unexpected response structure." };
         }
 
-        // Initialize line data with the train line and empty stations object
         const lineData = {
             TrainLine: trainLine,
             Stations: {}
         };
 
-        // Process each station's interval data
         response.data.value.forEach((dayData) => {
             dayData.Stations.forEach((station) => {
                 if (!lineData.Stations[station.Station]) {
                     lineData.Stations[station.Station] = [];
                 }
                 
-                // Populate each station with its intervals
                 station.Interval.forEach((interval) => {
                     lineData.Stations[station.Station].push({
                         Start: interval.Start,
@@ -127,11 +124,10 @@ export async function fetchStatisticsLinkAPI() {
             },
         });
 
-        console.log("Full API Response:", response.data); // Log the full response for debugging
+        console.log("Full API Response:", response.data);
 
-        // Extract the link from the response
         if (response.data && response.data.value && Array.isArray(response.data.value) && response.data.value[0] && response.data.value[0].Link) {
-            return response.data.value[0].Link; // Return the download link
+            return response.data.value[0].Link; 
         } else {
             throw new Error('No link found in the API response');
         }

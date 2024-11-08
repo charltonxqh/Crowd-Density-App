@@ -1,82 +1,187 @@
+.page-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #EFF5FF;
+}
+
+.MRTmap {
+    flex: 1;
+    padding: 0;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.content-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.view-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.view-buttons button {
+    flex: 1;
+    padding: 20px 30px;
+    cursor: pointer;
+    border: none;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-buttons button:hover {
+    background-color: #d0d0d0;
+    transform: scale(1.05);
+}
+
+.view-buttons .active {
+    background-color: #6c6c6c;
+    color: #fff;
+}
+
 .mrt-line-button {
     cursor: pointer;
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 15px 20px;
     border: 1px solid #ccc;
     text-align: left;
-    font-size: 21px;
-    cursor: pointer;
-    color: #000000;
+    font-size: 24px;
     font-weight: bold;
+    color: #000000;
     background-color: #ACA9A9;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .mrt-line-button:hover {
-    opacity: 0.8; 
+    opacity: 0.9;
     background-color: #bebbbb;
+    transform: scale(1.03);
+}
+
+.line-code-box {
+    font-size: 24px;
+    padding: 5px 10px;
+    font-weight: bold;
 }
 
 .mrt-station-list {
     padding: 0;
     font-size: 1.1rem;
-    max-height: 350px; 
+    max-height: 350px;
     overflow-y: auto;
-    list-style-type: none;  
+    list-style-type: none;
     padding-left: 21px;
     margin-bottom: 10px;
 }
 
 .mrt-station-item {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px; 
+    margin: 12px 0;
+    padding: 12px;
+    border-radius: 5px;
     font-size: 18px;
     color: black;
     display: flex;
     align-items: center;
 }
 
-.mrt-line-button.CCL, .line-code-box.CCL, .mrt-station-button.CCL{
+/* Line-Specific Button and List Colors */
+.mrt-line-button.CCL, .line-code-box.CCL, .mrt-station-button.CCL {
     background-color: #ffa515;
-    border-color: #ffa515; 
-} 
+    border-color: #ffa515;
+}
 
-.line-code-box.DTL, .mrt-station-button.DTL,.mrt-station-button.DTL {
-    background-color: #005DA6; 
+.mrt-line-button.DTL, .line-code-box.DTL, .mrt-station-button.DTL {
+    background-color: #005DA6;
     border-color: #005DA6;
 }
 
-.line-code-box.EWL, .mrt-station-button.EWL,.mrt-station-button.EWL {
-    background-color: #4EA853; 
+.mrt-line-button.EWL, .line-code-box.EWL, .mrt-station-button.EWL {
+    background-color: #4EA853;
     border-color: #4EA853;
-    
 }
 
-.line-code-box.NEL, .mrt-station-button.NEL,.mrt-station-button.NEL{
-    background-color: #9E28B5; 
+.mrt-line-button.NEL, .line-code-box.NEL, .mrt-station-button.NEL {
+    background-color: #9E28B5;
     border-color: #9E28B5;
 }
 
-.line-code-box.NSL, .mrt-station-button.NSL,.mrt-station-button.NSL {
-    background-color: #E1251B; 
+.mrt-line-button.NSL, .line-code-box.NSL, .mrt-station-button.NSL {
+    background-color: #E1251B;
     border-color: #E1251B;
 }
 
-.mrt-station-list-CCL{
-    background-color: #f8dcb6;
+/* Station List Backgrounds for Better Hover Visibility */
+.mrt-station-list-CCL {
+    background-color: #f5c995;
 }
-.mrt-station-list-DTL{
-    background-color: #c0e3fe;
+
+.mrt-station-list-DTL {
+    background-color: #9fcdef;
 }
-.mrt-station-list-EWL{
-    background-color: #a7feca;
+
+.mrt-station-list-EWL {
+    background-color: #8ae3a8;
 }
-.mrt-station-list-NEL{
-    background-color: #f4befe;
+
+.mrt-station-list-NEL {
+    background-color: #dca2eb;
 }
-.mrt-station-list-NSL{
-    background-color: #ffbab7;
+
+.mrt-station-list-NSL {
+    background-color: #ff9b96;
+}
+
+/* Station Button Hover Effects */
+.mrt-station-button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mrt-station-button:hover {
+    background-color: #6c6c6c;
+    transform: scale(1.05);
+}
+
+/* Line-Specific Hover Colors for Station Buttons */
+.mrt-station-button.CCL:hover {
+    background-color: #d98e00;
+}
+
+.mrt-station-button.DTL:hover {
+    background-color: #004d80;
+}
+
+.mrt-station-button.EWL:hover {
+    background-color: #3a8e40;
+}
+
+.mrt-station-button.NEL:hover {
+    background-color: #7c1d8c;
+}
+
+.mrt-station-button.NSL:hover {
+    background-color: #b51f19;
 }
 
 .station_code {
@@ -87,17 +192,10 @@
     font-style: normal;
     font-weight: bold;
 }
-.mrt-station-button{
-    cursor: pointer;
-    display: inline-block;  
-    padding: 6px;
-    border-radius:4px; 
-    margin-right: 2px;
-    color: white;
-}
 
+/* Crowd Density Styles */
 .crowd-density {
-    display: flex; 
+    display: flex;
     align-items: center;
     gap: 8px;
 }
@@ -110,31 +208,31 @@
 
 .crowd-density-box {
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 8px;
 }
 
-.crowd-level-indicator{
+.crowd-level-indicator {
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 8px;
 }
 
 .crowd-level-color {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     margin-right: 4px;
 }
-  
+
 .crowd-level-color.l {
-    background-color: green; 
+    background-color: green;
 }
-  
+
 .crowd-level-color.m {
-    background-color: yellow; 
+    background-color: yellow;
 }
-  
+
 .crowd-level-color.h {
     background-color: red;
 }
@@ -142,5 +240,3 @@
 .crowd-level-color.unknown {
     background-color: #9ca3af;
 }
-
-

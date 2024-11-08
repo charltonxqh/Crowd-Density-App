@@ -1,11 +1,11 @@
-/* LRTLines.css */
+/* General Styles for LRT Lines */
 .line-code-box {
-    display: inline-block; 
-    background-color: #B7C2B7; 
-    color: rgb(0, 0, 0); 
-    padding: 4px 8px; 
-    border-radius: 4px; 
-    margin-right: 5px; 
+    display: inline-block;
+    background-color: #B7C2B7;
+    color: rgb(0, 0, 0);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
 }
 
 .line-code {
@@ -17,36 +17,52 @@
     cursor: pointer;
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 15px 20px; /* Larger padding for prominence */
     border: 1px solid #ccc;
     text-align: left;
-    font-size: 21px;
-    cursor: pointer;
-    color: #000000;
+    font-size: 24px; /* Larger font size */
     font-weight: bold;
+    color: #000000;
     background-color: #ACA9A9;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .lrt-line-button:hover {
-    opacity: 0.8; 
+    opacity: 0.9;
     background-color: #bebbbb;
+    transform: scale(1.03); /* Slight scaling effect */
 }
 
-.bukit-panjang-line, .sengkang-line, .punggol-line{
-    background-color: #aca9a9;
+/* Line-Specific Colors */
+.bukit-panjang-line, .sengkang-line, .punggol-line {
+    background-color: #ACA9A9;
+}
+
+.bukit-panjang-line-dropdown {
+    background-color: #E1F5FE;
+}
+
+.sengkang-line-dropdown {
+    background-color: #E0F7FA;
+}
+
+.punggol-line-dropdown {
+    background-color: #EDE7F6;
 }
 
 .lrt-station-list {
     padding: 0;
     font-size: 1.1rem;
-    max-height: 350px; 
+    max-height: 350px;
     overflow-y: auto;
-    list-style-type: none;  
+    list-style-type: none;
     padding-left: 21px;
     margin-bottom: 10px;
     background-color: #e9e8e8;
 }
 
+/* Station Item Styles */
 .lrt-station-item {
     margin: 10px 0;
     padding: 10px;
@@ -54,98 +70,91 @@
     display: flex;
     color: black;
     font-size: 18px;
-    align-items: center; 
+    align-items: center;
 }
 
-.bukit-panjang-line-dropdown, .bukit-panjang-line-items{
-    background-color: #E3E3E3;
-}
-
-.sengkang-line-dropdown, .sengkang-line-items{
-    background-color: #E3E3E3;
-}
-
-
-.punggol-line-dropdown, .punggol-line-items{
-    background-color: #E3E3E3;
-}
-
-.lrt-station-button{
+/* Station Button with Hover Effect */
+.lrt-station-button {
     cursor: pointer;
     background-color: grey;
-    display: inline-block;  
-    padding: 4px 4px; 
-    border-radius:4px; 
-    margin-right: 2px;
-    border-color: grey;
+    display: inline-block;
+    padding: 8px 12px; /* Adjusted padding */
+    border-radius: 4px;
+    margin-right: 4px;
+    border: none;
     color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.lrt-station-button:hover {
+    background-color: #6c6c6c; /* Darker color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
 
+/* Line-Specific Hover Colors for Station Buttons */
+.lrt-station-button.bukit-panjang-line:hover {
+    background-color: #8AB5D1; /* Darker shade for Bukit Panjang Line */
+}
+
+.lrt-station-button.sengkang-line:hover {
+    background-color: #80CBC4; /* Darker shade for Sengkang Line */
+}
+
+.lrt-station-button.punggol-line:hover {
+    background-color: #B39DDB; /* Darker shade for Punggol Line */
+}
+
+/* Crowd Density Styling */
 .crowd-density {
-    display: flex; 
+    display: flex;
     justify-content: flex-end;
     gap: 8px;
     margin-left: auto;
 }
 
-.now-density-container span, .forecast-density-container span{
+.now-density-container span, .forecast-density-container span {
     font-size: 0.9rem;
     font-weight: bold;
 }
 
 .now-crowd-density-box, .forecast-crowd-density-box {
     display: flex;
-    align-items: center; 
-    justify-content: flex-start; 
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.crowd-level-indicator{
+.crowd-level-indicator {
     height: 30px;
     border-radius: 50%;
 }
 
 .crowd-level-indicator.l {
-    background-color: #22c55e; 
+    background-color: #22c55e;
 }
 
 .crowd-level-indicator.m {
-    background-color: #f59e0b; 
+    background-color: #f59e0b;
 }
 
 .crowd-level-indicator.h {
-    background-color: #ef4444; 
+    background-color: #ef4444;
 }
 
 .crowd-level-indicator.unknown {
-    background-color: #9ca3af; 
+    background-color: #9ca3af;
 }
 
-.now-density-container {
-    background-color: white; 
+.now-density-container, .forecast-density-container {
+    background-color: white;
     padding-left: 11px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     border-radius: 20px;
     width: 170px;
-    height: 50px;
     height: fit-content;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    line-height: 1;
     margin-right: 40px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    line-height: 1;
-}
-
-.forecast-density-container {
-    background-color: white; 
-    padding-left: 11px;
-    display: flex;
-    align-items: center; 
-    border-radius: 20px;
-    width: 170px;
-    height: 50px; 
-    height: fit-content;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    line-height: 1;
 }
 
 .crowd-level-label {
