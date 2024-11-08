@@ -70,12 +70,18 @@ const ProfileIcon = () => {
             
             {showLogout && (
                 <div className="auth-popup">
-                    <button className="auth-button" onClick={handleLogout}>
+                    <button
+                        className={`auth-button ${isGuest ? '' : 'logout-button'}`}
+                        onClick={handleLogout}
+                    >
                         {isGuest ? 'Log In' : 'Log Out'}
                     </button>
                     {!isGuest && (
                         <>
-                            <button className="auth-button" onClick={() => setShowUsernameInput(!showUsernameInput)}>
+                            <button
+                                className="auth-button"
+                                onClick={() => setShowUsernameInput(!showUsernameInput)}
+                            >
                                 Change Username
                             </button>
                             {showUsernameInput && (

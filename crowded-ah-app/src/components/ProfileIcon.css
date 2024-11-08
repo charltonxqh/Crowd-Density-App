@@ -28,7 +28,7 @@
 }
   
 .auth-button {
-    background-color: rgb(255, 66, 66);
+    background-color: #007bff; /* Blue color for other buttons */
     color: white;
     padding: 8px 16px;
     border: none;
@@ -37,6 +37,19 @@
     font-size: 14px;
     white-space: nowrap;
     margin: 5px 0;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.logout-button {
+    background-color: rgb(255, 66, 66); /* Red color for Logout button */
+}
+
+.logout-button:hover {
+    background-color: rgb(200, 50, 50); /* Darker red on hover */
 }
 
 .username-popup {
