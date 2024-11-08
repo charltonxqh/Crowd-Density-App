@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 const NearbyStationMap = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [stations, setStations] = useState([]);
-  const [radius, setRadius] = useState(1000); // Initial radius in meters
+  const [radius, setRadius] = useState(5000);
 
   useEffect(() => {
     const googleMapScript = document.createElement("script");
