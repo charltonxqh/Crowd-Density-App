@@ -98,18 +98,18 @@
 
 .forecast-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 10px; /* Space between columns */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px; 
 }
 
 .forecast-column {
   background-color: #f9f9f9;
   padding: 10px;
   border-radius: 5px;
-  text-align: left; /* Align text to the left */
+  text-align: left;
   display: flex;
-  justify-content: space-between; /* Space between time and crowd level */
-  align-items: center; /* Align items vertically */
+  justify-content: space-between; 
+  align-items: center; 
 }
 
 .crowd-level {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../components/Logo'
 import Hamburger from '../components/Hamburger';
-import './NavBar.css';
+import './styles.css';
 import ProfileIcon from '../components/ProfileIcon';
 import { useLocation } from 'react-router-dom';
 

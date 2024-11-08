@@ -1,5 +1,5 @@
 import './App.css';
-import NavBar from './NavBar/NavBar';
+import NavBar from './NavBar/index';
 import PageIdentifierHeader from './components/PageIdentifierHeader';
 import HomeUI from './HomeUI/home'
 import Authentication from './AuthUI/Authentication'
