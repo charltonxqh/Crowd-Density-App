@@ -1,0 +1,57 @@
+/* Title styling */
+.user-tutorial-video {
+    font-size: 2.5rem;
+    color: black;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+/* Description styling consistent with PDF viewer */
+.use-tutorial-description {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto 20px;
+}
+
+/* Video player styling */
+.video-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.react-player {
+    width: 70% !important;
+    height: 85vh !important;
+    max-width: 800px;
+    min-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .react-player {
+        width: 90% !important;
+        height: 75vh !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .react-player {
+        width: 100% !important;
+        height: 70vh !important;
+    }
+}
+
