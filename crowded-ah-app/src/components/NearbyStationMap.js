@@ -1,16 +1,28 @@
 /* global google, map, infowindow */
 
+/**
+ * @fileoverview NearbyStationMap component displays a Google Map centered on the user's location with nearby MRT stations
+ * based on a specified radius. It also provides a list of these nearby stations and allows users to adjust the search radius.
+ * The component handles fetching nearby stations, calculating walking distances, and displaying them on a map and in a list.
+ * @author Charlton Siaw Qi Hen
+ */
+
 import React, { useEffect, useState } from "react";
 import "./NearbyStationMap.css";
 import NearbyStationList from "./NearbyStationList";
 import SearchBar from "./SearchBar";
 
+/**
+ * NearbyStationMap component that displays nearby MRT stations within a specified radius on Google Maps.
+ * @component
+ */
 const NearbyStationMap = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [stations, setStations] = useState([]);
   const [radius, setRadius] = useState(5000);
 
   useEffect(() => {
+    // Load Google Maps script and initialize map when component mounts
     const googleMapScript = document.createElement("script");
     googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBVamnyuIq-K7dy7S5w8RTxctHc5Oafb6w&libraries=places&callback=initMap`;
     googleMapScript.async = true;
@@ -18,6 +30,10 @@ const NearbyStationMap = () => {
 
     window.initMap = initMap;
 
+    /**
+     * Initializes the Google Map and centers it on the user's current location.
+     * Calls fetchNearbyStations to retrieve nearby stations based on the specified radius.
+     */
     function initMap() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -68,6 +84,12 @@ const NearbyStationMap = () => {
       }
     }
 
+    /**
+     * Fetches nearby MRT stations based on the user's location and the specified search radius.
+     * Updates the stations state with the retrieved station data.
+     * @param {Object} userLocation - The user's current location (latitude and longitude).
+     * @param {Object} map - Google Map instance.
+     */
     function fetchNearbyStations(userLocation, map) {
       const request = {
         location: userLocation,
@@ -96,6 +118,11 @@ const NearbyStationMap = () => {
       });
     }
 
+    /**
+     * Creates a marker on the Google Map for a specific place.
+     * @param {Object} place - The place object containing station information.
+     * @param {Object} map - Google Map instance.
+     */
     function createMarker(place, map) {
       if (!place.geometry || !place.geometry.location) return;
 
@@ -113,8 +140,14 @@ const NearbyStationMap = () => {
         infowindow.open(map, marker);
       });
     }
-  }, [radius]); // Re-run the useEffect when the radius changes
+  }, [radius]);
 
+  /**
+   * Fetches the walking distance between the user's location and each nearby station.
+   * Updates the stations state with distance information.
+   * @param {Object} userLocation - The user's current location.
+   * @param {Object[]} stations - Array of nearby station objects.
+   */
   function getDistanceToStations(userLocation, stations) {
     const service = new google.maps.DistanceMatrixService();
     const destinations = stations.map((station) => station.geometry.location);
@@ -141,6 +174,10 @@ const NearbyStationMap = () => {
     );
   }
 
+  /**
+   * Updates the search radius based on user input.
+   * @param {Object} e - Event object from the input change.
+   */
   const handleRadiusChange = (e) => {
     const value = Number(e.target.value);
     if (value >= 1000 && value <= 10000) {
