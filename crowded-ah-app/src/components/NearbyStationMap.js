@@ -164,13 +164,6 @@ const NearbyStationMap = () => {
           value={radius}
           onChange={handleRadiusChange}
         />
-        <input
-          type="number"
-          min="1000"
-          max="10000"
-          value={radius}
-          onChange={handleRadiusChange}
-        />
       </div>
       <div className="nearby-station-content">
         <div className="map-container" id="map"></div>
