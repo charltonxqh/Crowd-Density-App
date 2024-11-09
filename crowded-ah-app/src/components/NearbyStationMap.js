@@ -39,8 +39,10 @@ const NearbyStationMap = () => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const userLocation = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
+              // lat: position.coords.latitude,
+              // lng: position.coords.longitude,
+              lat: 1.3442675,
+              lng: 103.6864634,
             };
 
             const map = new google.maps.Map(document.getElementById("map"), {
@@ -192,6 +194,7 @@ const NearbyStationMap = () => {
       </div>
       <div className="slider-container">
         <label htmlFor="radius-slider">Search Radius: {radius} meters</label>
+        <label htmlFor="radius-slider">PLEASE DRAG WITH CARE, INCREMENT by 500m each time as dragging too fast may crash the system</label>
         <input
           id="radius-slider"
           type="range"
