@@ -1,5 +1,5 @@
 /**
- * @fileoverview SearchBar component provides a search bar with station suggestions, favourite station management, and search functionalities.
+ * @fileoverview SearchBar component provides a search bar with station suggestions, favourite station management and search functionalities.
  * Allows users to search for stations and add/remove favourite stations.
  * @author Charlton Siaw Qi Hen
  */
@@ -139,7 +139,7 @@ const SearchBar = () => {
   };
 
   /**
-   * Clears the search input, selected station, and resets suggestions to favourites.
+   * Clears the search input, selected station and resets suggestions to favourites.
    */
   const clearSearch = () => {
     setQuery("");

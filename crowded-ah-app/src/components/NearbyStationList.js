@@ -1,6 +1,6 @@
 /**
  * @fileoverview NearbyStationList component displays a list of nearby MRT stations
- * and their crowd levels, distance from the user, and additional station details.
+ * and their crowd levels, distance from the user and additional station details.
  * It fetches train data periodically to ensure live updates on crowd levels.
  * @author Charlton Siaw Qi Hen
  */

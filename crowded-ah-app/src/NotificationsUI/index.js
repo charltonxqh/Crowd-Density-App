@@ -1,7 +1,26 @@
+/**
+ * @fileoverview Notification components for displaying train service alerts and disruptions.
+ * Allows users to pin or delete notifications and handles notification fetching and display logic.
+ * @author Choo Yi Ken
+ */
+
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 import Popup from "../components/NotiPopUp";
 
+/**
+ * Notification component representing a single notification item.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.content - The message content of the notification.
+ * @param {string} props.time - The timestamp of the notification.
+ * @param {string} props.id - The unique identifier for the notification.
+ * @param {Function} props.onPin - Function to pin or unpin the notification.
+ * @param {Function} props.onDelete - Function to delete the notification.
+ * @param {boolean} props.isPinned - Indicates if the notification is pinned.
+ * @returns {JSX.Element} Rendered Notification component.
+ */
 function Notification({ content, time, id, onPin, onDelete, isPinned }) {
   return (
     <div className={`notification-item ${isPinned ? "pinned" : ""}`}>
@@ -23,6 +42,13 @@ function Notification({ content, time, id, onPin, onDelete, isPinned }) {
   );
 }
 
+/**
+ * NotificationsPage component for displaying a list of train service notifications.
+ * Handles notification fetching, pinning, deletion and displays relevant messages for users.
+ *
+ * @component
+ * @returns {JSX.Element} Rendered NotificationsPage component.
+ */
 function NotificationsPage() {
   const [notifications, setNotifications] = useState([]);
   const [isNormalService, setIsNormalService] = useState(false);
@@ -31,12 +57,12 @@ function NotificationsPage() {
   const [pinnedMessage, setPinnedMessage] = useState("");
   const [allDeletedMessage, setAllDeletedMessage] = useState("");
   const [affectedSegments, setAffectedSegments] = useState([]);
-    useEffect(() => {
-        const fetchNotifications = async () => {
-            try {
-                const response = await fetch("../mockAPI/mockTrainServiceAlerts.json");
-                //const response = await fetch("http://localhost:4000/api/train-alerts");
-                if (!response.ok) throw new Error('Failed to load data');
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await fetch("../mockAPI/mockTrainServiceAlerts.json");
+        //const response = await fetch("http://localhost:4000/api/train-alerts");
+        if (!response.ok) throw new Error("Failed to load data");
         const data = await response.json();
         console.log("Full data:", data);
         if (data.status === 1) {
@@ -69,10 +95,19 @@ function NotificationsPage() {
     fetchNotifications();
   }, []);
 
+  /**
+   * Closes the disruption popup by setting `isDisruptedService` to false.
+   */
   const handlePopupClose = () => {
     setIsDisruptedService(false);
   };
 
+  /**
+   * Handles pinning or unpinning a notification.
+   *
+   * @param {string} id - The unique identifier for the notification.
+   * @param {boolean} isPinned - Indicates whether the notification is currently pinned.
+   */
   const handlePin = (id, isPinned) => {
     const updatedNotifications = notifications.map((notif) =>
       notif.id === id ? { ...notif, pinned: !notif.pinned } : notif
@@ -92,6 +127,11 @@ function NotificationsPage() {
     setTimeout(() => setPinnedMessage(""), 3000);
   };
 
+  /**
+   * Deletes a notification based on its id and updates the deletion message.
+   *
+   * @param {string} id - The unique identifier for the notification.
+   */
   const handleDelete = (id) => {
     const updatedNotifications = notifications.filter(
       (notif) => notif.id !== id
@@ -101,7 +141,7 @@ function NotificationsPage() {
     setTimeout(() => setDeletionMessage(""), 3000);
     if (updatedNotifications.length === 0) {
       setAllDeletedMessage("All notifications have been deleted");
-      setAffectedSegments([]); 
+      setAffectedSegments([]);
     }
   };
 

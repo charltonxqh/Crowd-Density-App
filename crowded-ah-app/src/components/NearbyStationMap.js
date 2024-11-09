@@ -3,7 +3,7 @@
 /**
  * @fileoverview NearbyStationMap component displays a Google Map centered on the user's location with nearby MRT stations
  * based on a specified radius. It also provides a list of these nearby stations and allows users to adjust the search radius.
- * The component handles fetching nearby stations, calculating walking distances, and displaying them on a map and in a list.
+ * The component handles fetching nearby stations, calculating walking distances and displaying them on a map and in a list.
  * @author Charlton Siaw Qi Hen
  */
 
