@@ -39,10 +39,8 @@ const NearbyStationMap = () => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const userLocation = {
-              // lat: position.coords.latitude,
-              // lng: position.coords.longitude,
-              lat: 1.3442675,
-              lng: 103.6864634,
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
             };
 
             const map = new google.maps.Map(document.getElementById("map"), {

@@ -27,7 +27,7 @@ const PdfViewer = () => {
         navigate the bustling transit system with ease and convenience.
       </p>
       <iframe
-        src="/user-manual-v1.pdf"
+        src="/CrowdedAH_User_Manual_v1.pdf"
         className="pdf"
         frameborder="0"
         title="PDF Viewer"

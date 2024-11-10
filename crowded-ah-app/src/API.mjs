@@ -3,9 +3,20 @@
  * @author Liaw Rui Xian
  */
 import axios from "axios";
-const AccountKey = 'iFc0o20rQHK1WgXKftJ8rA=='; //this is used
+const AccountKey = 'kJVN3Zq5TjKyv8c6002q0w=='; //this is used
 /* API keys to test (please delete after use)
-YRSSx5QWRXO3OR1aGilhNQ==
+kJVN3Zq5TjKyv8c6002q0w==
+dqD9Q/2IThGnMiGpeYugkQ==
+oFdF2McaQlWaMoy63yEUTg==
+1qjAc5obTTuexQo/qFIHsA==
+iTMLpYjASeSYGEZaDgDQYQ==
+0LESEIpWQe2j8F+3uBnO5g==
+1SzZC/MJSyeOAKRHNXFfvw==
+IUczbvyYQ7ihJvD/aG8RaA==
+jL9JKAmaQminoe3NPwVmZw==
+oXMi3UlVSXWtTCMh0bUUCQ==
+jFqY4ET/RgKLq0dlE7Sa+Q==
+j0G3HlYsSPi4oNfBpkFsmw==
 */
 
 export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
