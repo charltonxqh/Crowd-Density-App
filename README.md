@@ -64,6 +64,7 @@ To install and run the project locally, follow these steps:
 3. **Start the Application**:
     ```bash
     npm start
+    node src/server.mjs
     ```
     The development server should start, and you can open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
