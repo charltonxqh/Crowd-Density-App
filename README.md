@@ -25,7 +25,7 @@ The website was built primarily using React and JavaScript.
 
 We are from NTU SC2006 SCS3 Team 1.
 
-All our final documentation will be in a folder "Lab 5". 
+All our final documentation will be in a folder [Lab 5](/crowded-ah-app). 
 
 **Key Challenges:**
 - **CORS Policies**: We encountered issues with API calls being blocked due to CORS restrictions, which we had to overcome by using proxies and configuring headers.
