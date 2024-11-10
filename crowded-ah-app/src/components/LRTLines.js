@@ -3,7 +3,7 @@
  * view real-time and forecasted crowd density levels for each station, and navigate to individual station detail pages.
  * It also integrates with a map to set marker positions based on selected MRT lines and stations.
  *
- * @authors Meagan Eng Pei Ying, Liaw Rui Xian
+ * @author Meagan Eng Pei Ying, Liaw Rui Xian
  */
 
 import React, { useEffect, useState } from "react";

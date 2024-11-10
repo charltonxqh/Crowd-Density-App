@@ -1,3 +1,9 @@
+/**
+ * @fileoverview The main application component that sets up the routing structure
+ * for the MRT application, including routes for authentication, home page, station, station details, statistics, help and about us
+ * @author Charlton Siaw Qi Hen
+ */
+
 import './App.css';
 import Header from './Header/Header';
 import PageIdentifierHeader from './components/PageIdentifierHeader';
@@ -6,12 +12,12 @@ import Authentication from './AuthUI/Authentication'
 import Stations from './StationsUI/Stations'
 import Statistics from './StatisticsUI/Statistics'
 import Notifications from './NotificationsUI/NotificationsPage'
-import MRTLines from './components/MRTLines';
 import StationDetailPage from './StationsUI/StationDetailPage'
 import Help from './HelpUI/Help'
 import AboutUs from './AboutUsUI/AboutUs'
 import { Page1, Page2, Page3, Page4, Page5, Page6, Page7} from './AboutUsUI/AboutUsPages'
 import { Route,Routes } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -23,7 +29,6 @@ function App() {
             <Route path="/" element={<Authentication />} />
             <Route path="/home" element={<Home />} />
             <Route path="/stations" element={<Stations />} />
-            <Route path="/mrt-lines" element={<MRTLines />} /> 
             <Route path="/station/:stationId" element={<StationDetailPage />} />
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/notifications" element={<Notifications />} />

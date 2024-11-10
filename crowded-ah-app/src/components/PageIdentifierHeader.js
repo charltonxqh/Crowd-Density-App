@@ -1,10 +1,16 @@
+/**
+ * @fileoverview PageIdentifierHeader component displays the page title or a welcome message with the username on the home page.
+ * It also listens for authentication state changes to update the username accordingly if user changes username.
+ * @author Leow Yi Shian, Choo Yi Ken
+ */
+
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, doc, onSnapshot } from 'firebase/firestore';
 import './PageIdentifierHeader.css'; 
 
-
+// Mapping of route paths to page titles
 const pageTitles = {
     '/home': 'Home',
     '/stations': 'Stations',
@@ -21,6 +27,12 @@ const pageTitles = {
 
 };
 
+/**
+ * PageIdentifierHeader component that displays either the current page title
+ * or a welcome message with the username on the home page.
+ *
+ * @component
+ */
 const PageIdentifierHeader = () => {
     const location = useLocation();
     const currentPageTitle = pageTitles[location.pathname];

@@ -1,10 +1,14 @@
-// Import the functions you need from the SDKs you need
+/**
+ * @fileoverview Initializes Firebase app with configuration
+ * Provides core Firebase functionality, including Authentication and Firestore database access.
+ * @author Leow Yi Shian
+ */
+
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth"; // Import getAuth
-import { getFirestore } from "firebase/firestore"; // Import getFirestore for Firestore
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCYigGKAMVVTTtC6E_2nn0OniNuETkXAW8",
   authDomain: "crowded-ah-firestore.firebaseapp.com",
@@ -16,10 +20,9 @@ const firebaseConfig = {
   measurementId: "G-4DHMD2CQF4"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth(app); // Initialize the Auth object
+const auth = getAuth(app);
 const db = getFirestore(app);
 
 export { auth , db };

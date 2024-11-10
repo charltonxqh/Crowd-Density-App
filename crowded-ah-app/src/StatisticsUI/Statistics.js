@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Statistics component that takes a CSV from the API and processes the data to display the top 10 most crowded stations for the previous month.
+ * Displays the graphs that show the total volume against time in the day.
+ * @author Quek Jared
+*/
+
 import React, { useState, useEffect } from "react";
 import Papa from "papaparse"; 
 import stationsInfo from "../stationsInfo.json"; 
@@ -11,61 +17,68 @@ const Statistics = () => {
     const [currentStationIndex, setCurrentStationIndex] = useState(0);
 
     useEffect(() => {
-        fetchAndProcessLocalCSV(); 
-    }, []);
+        fetchAndProcessCSV();
+    });
 
-    // Local CSV fetch
-    const fetchAndProcessLocalCSV = async () => {
-        try {
-            const csvUrl = process.env.PUBLIC_URL + "/train_volume_fromAPI.csv";
-            const response = await fetch(csvUrl);
-
-            if (!response.ok) {
-                throw new Error(`Failed to fetch CSV file: ${response.statusText}`);
-            }
-
-            const csvContent = await response.text();
-            Papa.parse(csvContent, {
-                header: true,
-                skipEmptyLines: true,
-                complete: (results) => {
-                    const jsonData = results.data;
-                    processCSVData(jsonData);
-                },
-                error: (error) => console.error("Error parsing CSV file:", error),
-            });
-        } catch (error) {
-            console.error("Error fetching or processing the CSV file:", error);
-        }
-    };
-
-    // API CSV fetch
     const fetchAndProcessCSV = async () => {
         try {
-            const response = await axios.get("http://localhost:4000/api/statistics-link");
-            const csvUrl = response.data.link;
-            const proxyResponse = await axios.get(
-                `http://localhost:4000/api/proxy-download?url=${encodeURIComponent(csvUrl)}`,
-                { responseType: "arraybuffer" }
-            );
-
-            const zip = await JSZip.loadAsync(proxyResponse.data);
-            const csvFileName = "transport_node_train_202409.csv";
-            const csvContent = await zip.file(csvFileName).async("string");
-
-            Papa.parse(csvContent, {
-                header: true,
-                skipEmptyLines: true,
-                complete: (results) => {
-                    const jsonData = results.data;
-                    processCSVData(jsonData);
-                },
-                error: (error) => console.error("Error parsing CSV file:", error),
-            });
+          const response = await axios.get("http://localhost:4000/api/statistics-link");
+          const csvUrl = response.data.link;
+      
+          if (!csvUrl) {
+            console.error("Received an empty CSV URL from the API");
+            return;
+          }
+      
+          const proxyResponse = await axios.get(
+            `http://localhost:4000/api/proxy-download?url=${encodeURIComponent(csvUrl)}`,
+            { responseType: "arraybuffer" }
+          );
+      
+          if (proxyResponse.status !== 200) {
+            console.error(`Failed to download the ZIP file. HTTP Status: ${proxyResponse.status}`);
+            return;
+          }
+      
+          const zip = await JSZip.loadAsync(proxyResponse.data);
+      
+          let csvFileName = null;
+          zip.forEach((relativePath, file) => {
+            if (file.name.endsWith(".csv")) {
+              csvFileName = file.name;
+            }
+          });
+      
+          if (!csvFileName) {
+            console.error("No CSV file found in the ZIP archive");
+            return;
+          }
+      
+          console.log(`Found CSV file: ${csvFileName}`);
+      
+          const csvFile = zip.file(csvFileName);
+      
+          if (!csvFile) {
+            console.error(`CSV file '${csvFileName}' not found in the ZIP archive`);
+            return;
+          }
+      
+          const csvContent = await csvFile.async("string");
+      
+          Papa.parse(csvContent, {
+            header: true,
+            skipEmptyLines: true,
+            complete: (results) => {
+              const jsonData = results.data;
+              processCSVData(jsonData);
+            },
+            error: (error) => console.error("Error parsing CSV file:", error),
+          });
         } catch (error) {
-            console.error("Error fetching or extracting the CSV file:", error);
+          console.error("Error fetching or extracting the CSV file:", error);
         }
-    };
+      };
+      
 
     const processCSVData = (jsonData) => {
         const groupedData = jsonData.reduce((acc, row) => {
@@ -199,8 +212,3 @@ const Statistics = () => {
 };
 
 export default Statistics;
-
-
-
-
-

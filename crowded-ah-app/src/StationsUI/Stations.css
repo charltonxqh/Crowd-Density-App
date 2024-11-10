@@ -1,4 +1,3 @@
-/* Set background color to cover the entire page */
 html, body {
   height: 100%;
   margin: 0;
@@ -6,13 +5,12 @@ html, body {
   background-color: #EFF5FF;
 }
 
-/* Ensure page-container fills the full height of the viewport */
 .page-container-stations {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  min-height: 100vh; /* Ensure full viewport height */
+  min-height: 100vh;
   background-color: #EFF5FF;
 }
 
@@ -84,7 +82,7 @@ html, body {
 /* Smaller screens */
 @media (max-width: 768px) {
   .page-container-stations {
-    flex-direction: column; /* Stack the map above the content */
+    flex-direction: column;
   }
 
   .MRTmap {

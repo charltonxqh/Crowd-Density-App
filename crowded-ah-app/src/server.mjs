@@ -1,15 +1,16 @@
 /**
  * @fileoverview 
  * This file creates an Express-based backend server for a real-time train data application. 
- * It manages data for train arrival times, real-time crowd density level, forecast  crowd density level, service alerts and monthly statistics for each train station
+ * It manages data for train arrival times, real-time crowd density level, forecast crowd density level, service alerts and monthly statistics for each train station
  * The server updates data at scheduled intervals and provide various API endpoints for a front-end client to retrieve information.
 
  * The server includes:
- * - API endpoints for retrieving train data, service alerts, and forecast information.
+ * - API endpoint for client to retrieve real time and forecast crowd density level data 
+ * - API endpoint for client to retrieve disruption alert (if any)
  * - A route for train arrival data by station, which executes a Python script.
  * - A route to fetch a statistics link.
  * - A proxy route for downloading files (e.g., ZIP) from external URLs.
- * - A route for retrieving forecast information for specific stations by line and code.
+ * - A route for retrieving forecast data for specific stations by line and code.
 
  * Key libraries used:  
  * - Express: Web server framework.
@@ -88,7 +89,6 @@ async function updateServiceAlerts() {
     storedAlerts = await fetchTrainServiceAlerts();
 }
 
-// Scheduling periodic updates
 setInterval(updateRealTimeData, 10 * 60 * 1000);
 setInterval(updateForecastData, 24 * 60 * 60 * 1000);
 setInterval(updateServiceAlerts, 60 * 1000);
