@@ -5,8 +5,8 @@
  */
 
 import React, { useState, useEffect } from "react";
-import "./Notification.css";
 import Popup from "../components/NotiPopUp";
+import "./NotificationsPage.css";
 
 /**
  * Notification component representing a single notification item.
@@ -21,7 +21,7 @@ import Popup from "../components/NotiPopUp";
  * @param {boolean} props.isPinned - Indicates if the notification is pinned.
  * @returns {JSX.Element} Rendered Notification component.
  */
-function Notification({ content, time, id, onPin, onDelete, isPinned }) {
+function Notifications({ content, time, id, onPin, onDelete, isPinned }) {
   return (
     <div className={`notification-item ${isPinned ? "pinned" : ""}`}>
       <p>
@@ -190,7 +190,7 @@ function NotificationsPage() {
           </p>
         ) : (
           notifications.map((notif) => (
-            <Notification
+            <Notifications
               key={notif.id}
               id={notif.id}
               content={notif.content}

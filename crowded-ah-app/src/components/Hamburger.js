@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import NavButton from './NavButton';
 import './Hamburger.css';

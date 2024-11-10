@@ -1,10 +1,22 @@
+/**
+ * @fileoverview This module provides functions to fetch real-time and forecast crowd density level data, and alert data for Singapore MRT train lines, using the LTA DataMall API.
+ * @author Liaw Rui Xian
+ */
 import axios from "axios";
 const AccountKey = 'WEhOzlOxTc6U8LiCU6r6bw=='; //this is used
 /* API keys to test (please delete after use)
 YRSSx5QWRXO3OR1aGilhNQ==
 */
+
 export const TRAIN_LINES = ['CCL', 'CEL', 'CGL', 'DTL', 'EWL', 'NEL', 'NSL', 'BPL', 'SLRT', 'PLRT'];
 
+/**
+ * Fetches real-time crowd density level data for a specified train line.
+ * @async
+ * @param {string} url - The API endpoint URL.
+ * @param {string} trainLine - The train line code.
+ * @returns {Promise<Object>} A promise that resolves to an object containing the real time data for each station
+ */
 export async function fetchRealTimeAPIData(url, trainLine) {
     try {
         const response = await axios.get(url, {
@@ -32,6 +44,13 @@ export async function fetchRealTimeAPIData(url, trainLine) {
     }
 }
 
+/**
+ * Fetches forecasted crowd density level data for a specified train line.
+ * @async
+ * @param {string} url - The API endpoint URL.
+ * @param {string} trainLine - The train line code.
+ * @returns {Promise<Object>} A promise that resolves to an object containing the forecast data for each station with crowd levels at specific intervals.
+ */
 export async function fetchForecastAPIData(url, trainLine) {
     try {
         const response = await axios.get(url, {
@@ -77,6 +96,11 @@ export async function fetchForecastAPIData(url, trainLine) {
     }
 }
 
+/**
+ * Fetches train service alerts, such as disruptions and affected segments.
+ * @async
+ * @returns {Promise<Object>} A promise that resolves to an object containing the train service status and affected segments, if any.
+ */
 export async function fetchTrainServiceAlerts() {
     const url = 'https://datamall2.mytransport.sg/ltaodataservice/TrainServiceAlerts';
     try {
@@ -114,6 +138,11 @@ export async function fetchTrainServiceAlerts() {
     }
 }
 
+/**
+ * Fetches a link to train statistics data.
+ * @async
+ * @returns {Promise<Object|string>} A promise that resolves to the statistics link if available, or an error message.
+ */
 export async function fetchStatisticsLinkAPI() {
     const url = 'https://datamall2.mytransport.sg/ltaodataservice/PV/Train';
     try {

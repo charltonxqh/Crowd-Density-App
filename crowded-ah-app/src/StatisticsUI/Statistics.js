@@ -6,14 +6,12 @@ import JSZip from "jszip";
 import { LineChart, Line, XAxis, Tooltip, CartesianGrid } from "recharts";
 import "./Statistics.css";
 
-const StatisticsUI = () => {
+const Statistics = () => {
     const [stations, setStations] = useState([]); 
     const [currentStationIndex, setCurrentStationIndex] = useState(0);
 
     useEffect(() => {
         fetchAndProcessLocalCSV(); 
-        // Uncomment the next line to use the API fetch
-        // fetchAndProcessCSV();
     }, []);
 
     // Local CSV fetch
@@ -200,7 +198,7 @@ const StatisticsUI = () => {
     );
 };
 
-export default StatisticsUI;
+export default Statistics;
 
 
 

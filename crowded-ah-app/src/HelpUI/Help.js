@@ -1,5 +1,5 @@
 /**
- * @fileoverview HelpUI component serves as the main page for user assistance.
+ * @fileoverview Help component serves as the main page for user assistance.
  * It provides access to various help resources, including a PDF viewer for documentation,
  * user tutorial, FAQ section and contact form.
  * @author Choo Yi Ken
@@ -11,13 +11,13 @@ import ContactUs from "../components/ContactUs";
 import UserTutorial from "../components/UserTutorial";
 
 /**
- * HelpUI component that provides user assistance resources.
+ * Help component that provides user assistance resources.
  * It includes a PDF viewer for documentation, a user tutorial, FAQs and a contact form.
  *
  * @component
- * @returns {JSX.Element} Rendered HelpUI component.
+ * @returns {JSX.Element} Rendered Help component.
  */
-const HelpUI = () => {
+const Help = () => {
   return (
     <div>
       <PdfViewer />
@@ -28,4 +28,4 @@ const HelpUI = () => {
   );
 };
 
-export default HelpUI;
+export default Help;

@@ -1,5 +1,5 @@
 /**
- * @fileoverview The Stations component renders a page that allows users to toggle 
+ * @fileoverview Stations component renders a page that allows users to toggle 
  * between MRT and LRT views, select lines, and view Google Map markers of selected stations.
  * It dynamically updates the map markers and displays details of a selected station.
  * @author Meagan Eng Pei Ying, Liaw Rui Xian
@@ -17,7 +17,7 @@ import StationDetails from '../components/StationDetails';
  * It includes a Google Map, line selection buttons, and station details pop-up.
  *
  * @component
- * @returns {JSX.Element} Rendered Stations component with line selection and map functionality.
+ * @returns {JSX.Element} Rendered Stations component
  */
 
 const Stations = () => {
