@@ -76,7 +76,7 @@ To install and run the project locally, follow these steps:
     ```
 
 ### [YouTube Video Presentation](#youtube-video-presentation)
-[Watch our video presentation on YouTube](https://www.youtube.com/watch?v=29cLls9Rm2A)
+[Watch our video presentation on YouTube](https://www.youtube.com/watch?v=iNRiG7BhjoA)
 
 ### [Acknowledgements](#acknowledgements)
 - **LTA Datamall**: For providing APIs that allowed us to access real-time crowd levels, forecasted crowd levels, and passenger volume data for train stations.
