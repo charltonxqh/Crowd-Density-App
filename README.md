@@ -1,5 +1,13 @@
 # [Crowd-Density-App](#crowd-density-app)
 
+## Table of Contents
+1. [Project Title: Crowded Ah?](#project-title-crowded-ah)
+2. [Project Description](#project-description)
+3. [Website Features](#website-features)
+4. [Installation and Setup](#installation-and-setup)
+5. [YouTube Video Presentation](#youtube-video-presentation)
+6. [Acknowledgements](#acknowledgements)
+
 ## [Project Title: Crowded Ah?](#project-title-crowded-ah)
 
 ### [Project Description](#project-description)
@@ -14,7 +22,6 @@ We are from NTU SC2006 SCS3 Team 1.
 
 All our final documentation will be in a folder "Lab 5". 
 
-
 **Key Challenges:**
 - **CORS Policies**: We encountered issues with API calls being blocked due to CORS restrictions, which we had to overcome by using proxies and configuring headers.
 - **API Limits**: Limited usage of API keys posed a challenge for frequent data updates. To address this, we optimized data fetching techniques to work within the limits.
@@ -24,7 +31,7 @@ Our goal is to continually improve the application by adding new features and en
 ### [Website Features](#website-features)
 - **Guest Access**: Users can explore the site without needing an account.
 - **Station Search and Favourites Management**: Search for stations and mark favourites for quick access.
-- **User Authentication and Account Management**: Create accounts, login, change username and manage favourites.
+- **User Authentication and Account Management**: Create accounts, login, change username, and manage favourites.
 - **Location-Based Services**: View nearby stations based on current user location.
 - **Real-Time Crowd Density Insights**: Get current crowd levels for all MRT/LRT stations.
 - **Forecasted Crowd Density Insights**: View forecasted crowd levels for all MRT/LRT stations. 
