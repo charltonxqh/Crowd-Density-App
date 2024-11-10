@@ -61,20 +61,13 @@ To install and run the project locally, follow these steps:
     npm install
     ```
 
-3. **Set Up Environment Variables**:
-    Create a `.env` file in the root directory to include environment variables (e.g., API keys for the LTA Datamall, Firebase configuration). Example:
-    ```env
-    REACT_APP_API_KEY=your_lta_api_key_here
-    REACT_APP_FIREBASE_API_KEY=your_firebase_api_key_here
-    ```
-
-4. **Start the Application**:
+3. **Start the Application**:
     ```bash
     npm start
     ```
     The development server should start, and you can open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-5. **Build for Production**:
+4. **Build for Production**:
     To create an optimized production build, run:
     ```bash
     npm run build
