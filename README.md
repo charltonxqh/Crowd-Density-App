@@ -1,6 +1,3 @@
-![Alt Text](1.png)
-
-
 # [Crowd-Density-App](#crowd-density-app)
 
 ## Table of Contents
