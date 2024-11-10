@@ -11,35 +11,8 @@ const StatisticsUI = () => {
     const [currentStationIndex, setCurrentStationIndex] = useState(0);
 
     useEffect(() => {
-        fetchAndProcessLocalCSV(); 
-        // Uncomment the next line to use the API fetch
-        // fetchAndProcessCSV();
-    }, []);
-
-    // Local CSV fetch
-    const fetchAndProcessLocalCSV = async () => {
-        try {
-            const csvUrl = process.env.PUBLIC_URL + "/train_volume_fromAPI.csv";
-            const response = await fetch(csvUrl);
-
-            if (!response.ok) {
-                throw new Error(`Failed to fetch CSV file: ${response.statusText}`);
-            }
-
-            const csvContent = await response.text();
-            Papa.parse(csvContent, {
-                header: true,
-                skipEmptyLines: true,
-                complete: (results) => {
-                    const jsonData = results.data;
-                    processCSVData(jsonData);
-                },
-                error: (error) => console.error("Error parsing CSV file:", error),
-            });
-        } catch (error) {
-            console.error("Error fetching or processing the CSV file:", error);
-        }
-    };
+        fetchAndProcessCSV();
+    });
 
     // API CSV fetch
     const fetchAndProcessCSV = async () => {
