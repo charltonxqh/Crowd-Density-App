@@ -22,7 +22,7 @@ const Statistics = () => {
         fetchAndProcessCSV();
     }, []);
 
-    // Local CSV fetch
+    //Local CSV fetch
     // const fetchAndProcessLocalCSV = async () => {
     //     try {
     //         const csvUrl = process.env.PUBLIC_URL + "/train_volume_fromAPI.csv";

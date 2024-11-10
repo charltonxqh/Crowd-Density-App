@@ -28,7 +28,7 @@ function UserTutorial() {
         quick refresher, this video will walk you through everything you need to
         know to get started with CrowdedAh.
       </p>
-      <ReactPlayer url="https://youtu.be/29cLls9Rm2A" controls />
+      <ReactPlayer url="https://youtu.be/dtVVLJM9RaI" controls />
     </div>
   );
 }

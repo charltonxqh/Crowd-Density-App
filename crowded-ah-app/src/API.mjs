@@ -3,14 +3,8 @@
  * @author Liaw Rui Xian
  */
 import axios from "axios";
-const AccountKey = 'kJVN3Zq5TjKyv8c6002q0w=='; //this is used
+const AccountKey = '0LESEIpWQe2j8F+3uBnO5g=='; //change the LTA's API key for testing
 /* API keys to test (please delete after use)
-kJVN3Zq5TjKyv8c6002q0w==
-dqD9Q/2IThGnMiGpeYugkQ==
-oFdF2McaQlWaMoy63yEUTg==
-1qjAc5obTTuexQo/qFIHsA==
-iTMLpYjASeSYGEZaDgDQYQ==
-0LESEIpWQe2j8F+3uBnO5g==
 1SzZC/MJSyeOAKRHNXFfvw==
 IUczbvyYQ7ihJvD/aG8RaA==
 jL9JKAmaQminoe3NPwVmZw==
