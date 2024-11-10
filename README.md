@@ -15,8 +15,13 @@ Crowded Ah? is a web application designed to enhance the commuting experience fo
 
 The website was built primarily using React and JavaScript.
 
-Contributors:
-Charlton Siaw Qi Hen, Choo Yi Ken, Leow Yi Shian, Liaw Rui Xian, Meagan Eng Pei Ying, Quek Jared
+**Contributors:**
+1. Charlton Siaw Qi Hen
+2. Choo Yi Ken
+3. Leow Yi Shian
+4. Liaw Rui Xian
+5. Meagan Eng Pei Ying
+6. Quek Jared
 
 We are from NTU SC2006 SCS3 Team 1.
 
