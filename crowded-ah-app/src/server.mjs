@@ -147,6 +147,8 @@ updateServiceAlerts();
 // API routes
 app.get('/api/train-data', (req, res) => res.json(storedData));
 app.get('/api/train-alerts', (req, res) => res.json(storedAlerts));
+
+// API route to get the train ETA
 app.get('/api/train-arrival/:stationName', (req, res) => {
     const stationName = req.params.stationName;
     exec(`python backend/call_train_arrival.py "${stationName}"`, (error, stdout, stderr) => {

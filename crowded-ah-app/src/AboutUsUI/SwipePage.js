@@ -2,7 +2,7 @@
  * @fileoverview SwipePage component provides swipe and keyboard navigation functionality
  * for a page, enabling users to navigate to the next or previous page using swipe gestures,
  * keyboard arrows, or by clicking on either side of the screen.
- * @author Meagan Eng Pei Ying
+ * @author Meagan Eng Pei Ying, Choo Yi Ken
  */
 
 import React, { useEffect, useState } from 'react';

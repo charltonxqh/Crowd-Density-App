@@ -1,9 +1,25 @@
+/**
+ * @fileoverview StationDetails component displays detailed information for a selected station, including
+ * real-time train arrival times and forecasted crowd density data. It fetches data from the server based on the station ID
+ * in the URL and displays both current and forecasted crowd levels.
+ * @author Meagan Eng Pei Ying, Liaw Rui Xian, Choo Yi Ken
+ */
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './StationDetails.css';
 
+/**
+ * StationDetails component that renders detailed information for a specific MRT station, including:
+ * - Next train arrival times (ETA)
+ * - Real-time crowd level
+ * - Forecasted crowd density over time intervals
+ *
+ * @component
+ * @returns {JSX.Element} Rendered StationDetails component.
+ */
 const StationDetails = () => {
   const { stationId } = useParams();
   const [ETA, setETA] = useState(null);
@@ -12,9 +28,22 @@ const StationDetails = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentCrowdLevel, forecastCrowdLevel } = location.state || {};
+  const { currentCrowdLevel } = location.state || {};
+  const [line, code, name] = stationId.split('-');
+  const hasArrivalData = ETA && ETA.results && ETA.results.length > 0;
 
+  /**
+   * useEffect hook that fetches the station ETA and forecast crowd density when the stationId changes.
+   * It calls `fetchETA` to get the next train arrival times and `fetchForecastCrowdDensity` to get the forecast crowd density.
+   * Updates the component state with the fetched data and handles loading and error states.
+   */
   useEffect(() => {
+    /**
+     * Fetches the real-time ETA for the given station.
+     * @async
+     * @function
+     * @returns {Promise<void>} Updates the ETA state with the fetched data.
+     */
     const fetchETA = async () => {
       const [line, code, name] = stationId.split('-');
       try {
@@ -25,6 +54,12 @@ const StationDetails = () => {
       }
     };
 
+    /**
+     * Fetches the forecast crowd density data for the given station.
+     * @async
+     * @function
+     * @returns {Promise<void>} Updates the forecastCrowdDensity state with the fetched data.
+     */
     const fetchForecastCrowdDensity = async () => {
       const [line, code] = stationId.split('-');
       try {
@@ -45,9 +80,11 @@ const StationDetails = () => {
     return <div className="station-details loading">Loading...</div>;
   }
 
-  const [line, code, name] = stationId.split('-');
-  const hasArrivalData = ETA && ETA.results && ETA.results.length > 0;
-
+  /**
+   * Formats the time interval for forecasted crowd density data, showing a 30-minute range.
+   * @param {string} startTime - Start time of the forecast interval.
+   * @returns {string} Formatted time interval in "HHMM - HHMM" format.
+   */
   const formatTimeInterval = (startTime) => {
     const start = new Date(startTime);
     const end = new Date(start);
@@ -62,6 +99,11 @@ const StationDetails = () => {
     return `${formatTime(start)} - ${formatTime(end)}`;
   };
 
+  /**
+   * Determines the color to represent different crowd levels for visual feedback.
+   * @param {string} level - The crowd level (e.g., 'l', 'm', 'h', 'Low', 'Medium', 'High').
+   * @returns {string} A color code based on the crowd level.
+   */
   const getCrowdLevelColor = (level) => {
     switch (level) {
       case 'l': return 'green';
@@ -74,6 +116,11 @@ const StationDetails = () => {
     }
   };
 
+  /**
+   * Returns a readable label for each crowd level, standardizing format.
+   * @param {string} level - The crowd level (e.g., 'l', 'm', 'h', 'Low', 'Medium', 'High').
+   * @returns {string} A human-readable label for the crowd level.
+   */
   const getCrowdLevelLabel = (level) => {
     switch (level) {
       case 'l': return 'Low';

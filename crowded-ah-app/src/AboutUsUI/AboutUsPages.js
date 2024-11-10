@@ -1,6 +1,6 @@
 /**
  * @fileoverview AboutUsPages component serves as the place to store contents for our About Us UI
- * @author Meagan Eng Pei Ying
+ * @author Meagan Eng Pei Ying, Choo Yi Ken
  */
 
 import React from 'react';

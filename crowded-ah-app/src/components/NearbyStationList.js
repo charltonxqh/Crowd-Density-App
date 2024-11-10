@@ -116,7 +116,7 @@ const NearbyStationList = ({ stations = [] }) => {
     <div className="nearby-stations-list">
       {stations.length > 0 ? (
         <>
-          <h2>MRT near you:</h2>
+          <h2>Train Stations Near You:</h2>
           <ul>
             {stations.map((station, index) => {
               const stationDetails = stationsInfo[station.name];

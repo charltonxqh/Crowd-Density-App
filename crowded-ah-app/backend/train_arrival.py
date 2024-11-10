@@ -1,3 +1,22 @@
+"""
+This script fetches train station information and arrival times from the SMRT API.
+
+Main functionalities:
+1. `get_all_station_info`: Retrieves all train station information from the SMRT API.
+2. `get_all_station_names`: Retrieves a list of all train station names in alphabetical order from the SMRT API.
+3. `get_train_arrival_time_by_id`: Fetches the train arrival times for a given station. Implements retry logic with exponential backoff.
+
+This script was downloaded from the GitHub repository: https://github.com/elliotwutingfeng/train_arrival
+
+Usage:
+    - The script can be used to fetch station data and arrival times using the functions defined here.
+    - The logging output helps in debugging and monitoring the requests made to the SMRT API.
+
+Note:
+    The `_get` function sends GET requests to the SMRT API endpoints to fetch station and train arrival data. 
+    Retries are implemented with exponential backoff in case of failed attempts.
+"""
+
 import json
 import logging
 import sys

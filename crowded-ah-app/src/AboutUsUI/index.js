@@ -2,7 +2,7 @@
  * @fileoverview AboutUsUI component acts as a parent layout component for the About Us section,
  * rendering nested routes specified within the About Us UI section of the application.
  * This serves as the container for all child pages under the About Us section.
- * @author Meagan Eng Pei Ying
+ * @author Meagan Eng Pei Ying, Choo Yi Ken
  */
 
 import React from 'react';
