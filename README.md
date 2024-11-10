@@ -1,11 +1,19 @@
-# Crowd-Density-App
+# [Crowd-Density-App](#crowd-density-app)
 
-## Project Title: Crowded Ah?
+## [Project Title: Crowded Ah?](#project-title-crowded-ah)
 
-### Project Description
+### [Project Description](#project-description)
 Crowded Ah? is a web application designed to enhance the commuting experience for train users in Singapore by providing real-time crowd levels, forecasted crowd levels, and upcoming train arrival times for MRT and LRT stations. The app also provides disruption alerts for affected lines and stations, as well as a statistics page showing the top 10 most crowded stations from the previous month. The statistics include graphs that visualize crowd density across different hours of the day.
 
 The website was built primarily using React and JavaScript.
+
+Contributors:
+Charlton Siaw Qi Hen, Choo Yi Ken, Leow Yi Shian, Liaw Rui Xian, Meagan Eng Pei Ying, Quek Jared
+
+We are from NTU SC2006 SCS3 Team 1.
+
+All our final documentation will be in a folder "Lab 5". 
+
 
 **Key Challenges:**
 - **CORS Policies**: We encountered issues with API calls being blocked due to CORS restrictions, which we had to overcome by using proxies and configuring headers.
@@ -13,7 +21,7 @@ The website was built primarily using React and JavaScript.
 
 Our goal is to continually improve the application by adding new features and ensuring a smooth user experience.
 
-### Website Features
+### [Website Features](#website-features)
 - **Guest Access**: Users can explore the site without needing an account.
 - **Station Search and Favourites Management**: Search for stations and mark favourites for quick access.
 - **User Authentication and Account Management**: Create accounts, login, change username and manage favourites.
@@ -26,7 +34,7 @@ Our goal is to continually improve the application by adding new features and en
 - **About Us Navigation**: Learn about the project’s mission, team, and future vision.
 - **Logout and Session Management**: Secure logout and session handling.
 
-### Installation and Setup
+### [Installation and Setup](#installation-and-setup)
 To install and run the project locally, follow these steps:
 
 1. **Clone the Repository**:
@@ -60,6 +68,9 @@ To install and run the project locally, follow these steps:
     npm run build
     ```
 
-### Acknowledgements
+### [YouTube Video Presentation](#youtube-video-presentation)
+[Watch our video presentation on YouTube](https://www.youtube.com/watch?v=29cLls9Rm2A)
+
+### [Acknowledgements](#acknowledgements)
 - **LTA Datamall**: For providing APIs that allowed us to access real-time crowd levels, forecasted crowd levels, and passenger volume data for train stations.
 - **Special thanks to [elliotwutingfeng/train_arrival](https://github.com/elliotwutingfeng/train_arrival)** for providing code that helped us retrieve train ETAs.
