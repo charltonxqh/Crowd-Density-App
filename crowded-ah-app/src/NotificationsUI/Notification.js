@@ -5,7 +5,7 @@
  */
 
 import React, { useState, useEffect } from "react";
-import "./styles.css";
+import "./Notification.css";
 import Popup from "../components/NotiPopUp";
 
 /**

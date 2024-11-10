@@ -4,7 +4,7 @@ import stationsInfo from "../stationsInfo.json";
 import axios from "axios";
 import JSZip from "jszip"; 
 import { LineChart, Line, XAxis, Tooltip, CartesianGrid } from "recharts";
-import "./styles.css";
+import "./Statistics.css";
 
 const StatisticsUI = () => {
     const [stations, setStations] = useState([]); 

@@ -1,15 +1,15 @@
 import './App.css';
-import NavBar from './NavBar/index';
+import NavBar from './NavBar/NavBar';
 import PageIdentifierHeader from './components/PageIdentifierHeader';
 import HomeUI from './HomeUI/home'
 import Authentication from './AuthUI/Authentication'
 import Stations from './StationsUI/Stations'
-import StatisticsUI from './StatisticsUI'
-import NotificationsUI from './NotificationsUI'
+import StatisticsUI from './StatisticsUI/Statistics'
+import NotificationsUI from './NotificationsUI/Notification'
 import MRTLines from './components/MRTLines';
 import StationDetailPage from './StationsUI/StationDetailPage'
-import HelpUI from './HelpUI'
-import AboutUsUI from './AboutUsUI/index'
+import HelpUI from './HelpUI/Help'
+import AboutUsUI from './AboutUsUI/AboutUs'
 import { Page1, Page2, Page3, Page4, Page5, Page6, Page7} from './AboutUsUI/AboutUsPages'
 import { Route,Routes } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 /**
  * @fileoverview SearchBar component provides a search bar with station suggestions, favourite station management and search functionalities.
  * Allows users to search for stations and add/remove favourite stations.
- * @author Charlton Siaw Qi Hen
+ * @author Charlton Siaw Qi Hen, Liaw Rui Xian
  */
 
 import React, { useEffect, useState } from "react";

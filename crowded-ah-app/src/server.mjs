@@ -1,13 +1,34 @@
+/**
+ * @fileoverview 
+ * This file creates an Express-based backend server for a real-time train data application. 
+ * It manages data for train arrival times, real-time crowd density level, forecast  crowd density level, service alerts and monthly statistics for each train station
+ * The server updates data at scheduled intervals and provide various API endpoints for a front-end client to retrieve information.
+
+ * The server includes:
+ * - API endpoints for retrieving train data, service alerts, and forecast information.
+ * - A route for train arrival data by station, which executes a Python script.
+ * - A route to fetch a statistics link.
+ * - A proxy route for downloading files (e.g., ZIP) from external URLs.
+ * - A route for retrieving forecast information for specific stations by line and code.
+
+ * Key libraries used:  
+ * - Express: Web server framework.
+ * - Bottleneck: To limit the rate of API calls for forecast data to obey the API usage policy
+ * - axios: To handle external HTTP requests.
+
+ * Scheduled tasks:
+ * - Real-time data is refreshed every 10 minutes.
+ * - Forecast data is refreshed every 24 hours.
+ * - Service alerts are refreshed every minute.
+ * @author Liaw Rui Xian, Choo Yi Ken, Meagan Eng Pei Ying, Quek Jared
+ */
+
 import express from 'express';
 import cors from 'cors';
 import { exec } from 'child_process';
 import { fetchRealTimeAPIData, fetchForecastAPIData, fetchTrainServiceAlerts, TRAIN_LINES, fetchStatisticsLinkAPI } from './API.mjs';
 import Bottleneck from 'bottleneck';
 import axios from 'axios';
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
 const app = express();
 const PORT = 4000;
@@ -16,84 +37,22 @@ app.use(cors({
     origin: 'http://localhost:3000'
 }));
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 app.use(express.json());
 
 let storedData = { realTime: {}, forecast: {} };
 let storedAlerts = {};
-let todayForecast = {};
 
-// Function to load mock forecast data
-async function loadMockForecastData() {
-    const results = {};
-    for (const line of TRAIN_LINES) {
-        if (line === 'CGL' || line === 'CEL') {
-            continue;
-        }
-        const filePath = path.resolve(__dirname, 'mockAPI', `mockFC-${line}.json`);
-        try {
-            const fileContent = await fs.readFile(filePath, 'utf8'); 
-            const data = JSON.parse(fileContent);
-            results[line] = data.value;
-        } catch (error) {
-            console.error(`Error reading file ${filePath}:`, error);
-        }
-    }
-    return results;
-}
-
-// Function to find the next closest forecast
-async function getNextClosestForecast(data) {
-    const now = new Date();
-    const localOffset = 8 * 60 * 60 * 1000; // UTC+8
-    const nextTime = new Date(now.getTime() + localOffset);
-    nextTime.setMinutes(Math.ceil(nextTime.getMinutes() / 30) * 30);
-    nextTime.setSeconds(0);
-    nextTime.setFullYear(2024);
-    nextTime.setMonth(9);
-    nextTime.setDate(32);
-    if (nextTime.getMinutes() === 60) {
-        nextTime.setMinutes(0);
-        nextTime.setHours(nextTime.getHours() + 1);
-    }
-    const nextTimeString = nextTime.toISOString().slice(0, 19).concat('+08:00');
-    
-    // const results = {};
-    // for (const line in data) {
-    //     results[line] = {};
-    //     for (const stationData of data[line]) {
-    //         for (const station in stationData) {
-    //             for (const period of stationData[station]) {
-    //                 if (period.Start === nextTimeString) {
-    //                     results[line][station] = {CrowdLevel: period.CrowdLevel}
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-    const results = {};
-    for (const line in data) {
-        results[line] = {};
-        const stations = data[line].Stations;
-        for (const station in stations) {
-            for (const period of stations[station]) {
-                if (period.Start === nextTimeString) {
-                    results[line][station]={CrowdLevel: period.CrowdLevel};
-                }
-            }
-        }
-    }
-    return results;
-}
-
-// Bottleneck limiter configuration
 const limiter = new Bottleneck({
-    minTime: 1000, // Minimum time between requests (1 second)
-    maxConcurrent: 1, // Only 1 request at a time
+    minTime: 1000,
+    maxConcurrent: 1,
 });
 
+/**
+ * Updates the real-time crowd density data for all train lines.
+ * @async
+ * @function
+ * @returns {Promise<void>} Updates the storedData.realTime state with the fetched real-time data.
+ */
 async function updateRealTimeData() {
     const results = {};
     for (const line of TRAIN_LINES) {
@@ -103,6 +62,12 @@ async function updateRealTimeData() {
     storedData.realTime = results;
 }
 
+/**
+ * Updates the forecast crowd density data for all train lines.
+ * @async
+ * @function
+ * @returns {Promise<Object>} Updates the storedData.forecast state with the fetched forecast data.
+ */
 async function updateForecastData() {
     const results = {};
     for (const line of TRAIN_LINES) {
@@ -110,45 +75,53 @@ async function updateForecastData() {
             fetchForecastAPIData('https://datamall2.mytransport.sg/ltaodataservice/PCDForecast', line)
         );
     }
-    
     storedData.forecast = results;
-    return results;
 }
 
+/**
+ * Updates the service alerts for train lines.
+ * @async
+ * @function
+ * @returns {Promise<void>} Updates the storedAlerts state with the fetched train service alerts.
+ */
 async function updateServiceAlerts() {
     storedAlerts = await fetchTrainServiceAlerts();
 }
 
 // Scheduling periodic updates
 setInterval(updateRealTimeData, 10 * 60 * 1000);
-//setInterval(loadMockForecastData, 24 * 60 * 60 * 1000);
 setInterval(updateForecastData, 24 * 60 * 60 * 1000);
 setInterval(updateServiceAlerts, 60 * 1000);
-setInterval(async () => {
-    storedData.forecast = await getNextClosestForecast(todayForecast);
-}, 30 * 60 * 1000);
-
-(async function initializeData() {
-        updateRealTimeData();
-        try {
-            //todayForecast = await loadMockForecastData();
-            todayForecast = await updateForecastData();
-            console.log("Today's Forecast:", todayForecast);
-
-            storedData.forecast = await getNextClosestForecast(todayForecast);
-            console.log("Stored Forecast Data:", storedData.forecast);
-        } catch (error) {
-            console.error("Error during initialization:", error);
-        }
-})();
+updateRealTimeData();
 updateForecastData();
 updateServiceAlerts();
 
-// API routes
+/**
+ * Route handler for fetching all train data, including real-time and forecast crowd density data.
+ * @function
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} JSON response containing the storedData object.
+ */
 app.get('/api/train-data', (req, res) => res.json(storedData));
+
+/**
+ * Route handler for fetching train service alerts.
+ * @function
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} JSON response containing the storedAlerts object.
+ */
 app.get('/api/train-alerts', (req, res) => res.json(storedAlerts));
 
-// API route to get the train ETA
+/**
+ * Route handler for fetching the train arrival time for a specific station.
+ * Executes a Python script to get train arrival information.
+ * @function
+ * @param {Object} req - Express request object, with station name as a parameter.
+ * @param {Object} res - Express response object.
+ * @returns {Object} JSON response with train arrival data or an error message.
+ */
 app.get('/api/train-arrival/:stationName', (req, res) => {
     const stationName = req.params.stationName;
     exec(`python backend/call_train_arrival.py "${stationName}"`, (error, stdout, stderr) => {
@@ -166,7 +139,14 @@ app.get('/api/train-arrival/:stationName', (req, res) => {
     });
 });
 
-// API route to get the statistics link
+/**
+ * Route handler for fetching the statistics link for train data.
+ * @async
+ * @function
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} JSON response containing the statistics link or an error message.
+ */
 app.get('/api/statistics-link', async (req, res) => {
     try {
         const link = await fetchStatisticsLinkAPI();
@@ -181,14 +161,20 @@ app.get('/api/statistics-link', async (req, res) => {
     }
 });
 
-// New API route to proxy the ZIP file download
+/**
+ * Route handler to proxy the download of a ZIP file from an external URL.
+ * @async
+ * @function
+ * @param {Object} req - Express request object, with URL as a query parameter.
+ * @param {Object} res - Express response object.
+ * @returns {Buffer} The downloaded file as an array buffer or an error message.
+ */
 app.get('/api/proxy-download', async (req, res) => {
     const { url } = req.query;
 
     if (!url) {
         return res.status(400).json({ error: "No URL provided" });
     }
-
     try {
         const response = await axios.get(url, { responseType: 'arraybuffer' });
         res.setHeader('Content-Type', response.headers['content-type']);
@@ -199,7 +185,13 @@ app.get('/api/proxy-download', async (req, res) => {
     }
 });
 
-// Add this route to your existing routes in server.mjs
+/**
+ * Route handler for fetching the forecast data for a specific station on a specified line.
+ * @function
+ * @param {Object} req - Express request object, with line and station code as parameters.
+ * @param {Object} res - Express response object.
+ * @returns {Object} JSON response with forecast data for the specified station or an error message.
+ */
 app.get('/api/station-forecast/:line/:code', (req, res) => {
     const { line, code } = req.params;
   

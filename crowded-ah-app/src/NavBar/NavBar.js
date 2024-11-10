@@ -1,9 +1,9 @@
 import React from 'react';
 import Logo from '../components/Logo'
 import Hamburger from '../components/Hamburger';
-import './styles.css';
 import ProfileIcon from '../components/ProfileIcon';
 import { useLocation } from 'react-router-dom';
+import './NavBar.css';
 
 function NavBar() {
     const location = useLocation();
